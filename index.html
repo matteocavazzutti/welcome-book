@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest Welcome Book</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans pb-20">
+
+  <!-- Header / Top Bar -->
+  <header class="bg-slate-900 text-white p-6 rounded-b-3xl shadow-lg sticky top-0 z-50">
+    <div class="max-w-md mx-auto flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold tracking-wide">Welcome Book</h1>
+        <p class="text-xs text-slate-400">La tua guida per un soggiorno perfetto</p>
+      </div>
+      <i class="fa-solid fa-house-user text-2xl text-amber-400"></i>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-md mx-auto p-4 space-y-4">
+
+    <!-- Section: Benvenuti -->
+    <section id="welcome" class="tab-content active bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+      <div class="text-center py-4">
+        <i class="fa-solid fa-hand-wave text-4xl text-amber-500 mb-3"></i>
+        <h2 class="text-2xl font-bold text-slate-900">Benvenuti!</h2>
+        <p class="text-slate-600 mt-2 text-sm leading-relaxed">
+          Siamo felici di ospitarvi. Abbiamo preparato questa guida per aiutarvi a rendere il vostro soggiorno il più confortevole e piacevole possibile.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section: Wi-Fi -->
+    <section id="wifi" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+      <div class="flex items-center space-x-3 mb-4">
+        <div class="p-3 bg-amber-100 text-amber-600 rounded-xl">
+          <i class="fa-solid fa-wifi text-xl"></i>
+        </div>
+        <h2 class="text-xl font-bold text-slate-900">Wi-Fi Network</h2>
+      </div>
+      <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+        <div>
+          <span class="text-xs text-slate-400 uppercase font-semibold">Nome Rete (SSID)</span>
+          <p class="font-mono font-bold text-slate-800">HomeGuest_WiFi</p>
+        </div>
+        <div>
+          <span class="text-xs text-slate-400 uppercase font-semibold">Password</span>
+          <p class="font-mono font-bold text-amber-600">Welcome2026!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Check-In & Arrival -->
+    <section id="checkin" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+      <div class="flex items-center space-x-3 mb-4">
+        <div class="p-3 bg-blue-100 text-blue-600 rounded-xl">
+          <i class="fa-solid fa-key text-xl"></i>
+        </div>
+        <h2 class="text-xl font-bold text-slate-900">Your Arrival & Check-In</h2>
+      </div>
+      <div class="space-y-3 text-sm text-slate-600">
+        <p><strong>Orario Check-in:</strong> Dalle 15:00 alle 20:00</p>
+        <p><strong>Self Check-in:</strong> Inserire il codice <span class="font-mono bg-slate-100 px-2 py-1 rounded">1234</span> sul tastierino all'ingresso per ritirare le chiavi.</p>
+      </div>
+    </section>
+
+    <!-- Section: Check-Out -->
+    <section id="checkout" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+      <div class="flex items-center space-x-3 mb-4">
+        <div class="p-3 bg-red-100 text-red-600 rounded-xl">
+          <i class="fa-solid fa-door-open text-xl"></i>
+        </div>
+        <h2 class="text-xl font-bold text-slate-900">Check-Out</h2>
+      </div>
+      <div class="space-y-3 text-sm text-slate-600">
+        <p><strong>Orario limite:</strong> Entro le ore 10:00</p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Si prega di gettare i rifiuti negli appositi cassonetti.</li>
+          <li>Chiudere le finestre e spegnere il condizionatore/riscaldamento.</li>
+          <li>Lasciare le chiavi sul tavolo all'ingresso.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section: House Rules -->
+    <section id="rules" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+      <div class="flex items-center space-x-3 mb-4">
+        <div class="p-3 bg-purple-100 text-purple-600 rounded-xl">
+          <i class="fa-solid fa-circle-exclamation text-xl"></i>
+        </div>
+        <h2 class="text-xl font-bold text-slate-900">House Rules</h2>
+      </div>
+      <ul class="space-y-2 text-sm text-slate-600">
+        <li class="flex items-center space-x-2"><i class="fa-solid fa-ban text-red-500"></i><span>Vietato fumare all'interno dell'appartamento.</span></li>
+        <li class="flex items-center space-x-2"><i class="fa-solid fa-volume-xmark text-amber-500"></i><span>Ore di silenzio: 23:00 - 08:00.</span></li>
+        <li class="flex items-center space-x-2"><i class="fa-solid fa-users-slash text-blue-500"></i><span>Feste ed eventi non sono consentiti.</span></li>
+      </ul>
+    </section>
+
+    <!-- Section: House Guide -->
+    <section id="guide" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+      <div class="flex items-center space-x-3 mb-4">
+        <div class="p-3 bg-teal-100 text-teal-600 rounded-xl">
+          <i class="fa-solid fa-sliders text-xl"></i>
+        </div>
+        <h2 class="text-xl font-bold text-slate-900">House Guide</h2>
+      </div>
+      <div class="space-y-3 text-sm text-slate-600">
+        <div>
+          <h3 class="font-bold text-slate-800">Aria Condizionata / Elettrodomestici</h3>
+          <p>Utilizzare il telecomando bianco sulla parete per regolare la temperatura.</p>
+        </div>
+        <div>
+          <h3 class="font-bold text-slate-800">Raccolta Differenziata</h3>
+          <p>I bidoni si trovano nel cortile interno (plastica, carta, umido, indifferenziato).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Transports & Info -->
+    <section id="transports" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+      <div class="flex items-center space-x-3 mb-4">
+        <div class="p-3 bg-indigo-100 text-indigo-600 rounded-xl">
+          <i class="fa-solid fa-bus text-xl"></i>
+        </div>
+        <h2 class="text-xl font-bold text-slate-900">Transports & Info</h2>
+      </div>
+      <p class="text-sm text-slate-600 leading-relaxed">
+        Fermata Autobus linea 12 a 50m. Stazione ferroviaria principale raggiungibile in 10 minuti a piedi.
+      </p>
+    </section>
+
+    <!-- Section: Best Tips -->
+    <section id="tips" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+      <div class="flex items-center space-x-3 mb-4">
+        <div class="p-3 bg-emerald-100 text-emerald-600 rounded-xl">
+          <i class="fa-solid fa-utensils text-xl"></i>
+        </div>
+        <h2 class="text-xl font-bold text-slate-900">Our Best Tips</h2>
+      </div>
+      <ul class="space-y-3 text-sm text-slate-600">
+        <li><strong>Ristorante Tipico:</strong> Osteria del Centro (prenotazione consigliata)</li>
+        <li><strong>Caffè & Colazione:</strong> Bar Central per le migliori brioche</li>
+        <li><strong>Supermercato:</strong> Conad a 200 metri aperto 8:00 - 20:00</li>
+      </ul>
+    </section>
+
+    <!-- Section: Emergency Info -->
+    <section id="emergency" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+      <div class="flex items-center space-x-3 mb-4">
+        <div class="p-3 bg-red-100 text-red-600 rounded-xl">
+          <i class="fa-solid fa-phone-flip text-xl"></i>
+        </div>
+        <h2 class="text-xl font-bold text-slate-900">Emergency Info</h2>
+      </div>
+      <div class="space-y-2 text-sm text-slate-600">
+        <p><strong>Numero Unico Emergenze:</strong> 112</p>
+        <p><strong>Proprietario / Contatto:</strong> +39 333 1234567</p>
+        <p><strong>Guardia Medica / Ospedale:</strong> Via Roma, 15</p>
+      </div>
+    </section>
+
+    <!-- Section: Disclaimer -->
+    <section id="disclaimer" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+      <div class="flex items-center space-x-3 mb-4">
+        <div class="p-3 bg-slate-100 text-slate-600 rounded-xl">
+          <i class="fa-solid fa-shield-halved text-xl"></i>
+        </div>
+        <h2 class="text-xl font-bold text-slate-900">Disclaimer</h2>
+      </div>
+      <p class="text-xs text-slate-500 leading-relaxed">
+        La struttura declina ogni responsabilità per eventuali smarrimenti di oggetti personali lasciati incustoditi. Si prega di prestare attenzione alla chiusura di porte e finestre prima di uscire.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- Navigation Bar (Fixed Bottom) -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-4 py-2 shadow-lg">
+    <div class="max-w-md mx-auto flex justify-between items-center overflow-x-auto text-center">
+      <button onclick="showTab('welcome')" class="p-2 text-slate-500 hover:text-amber-500 focus:text-amber-500">
+        <i class="fa-solid fa-house text-lg block"></i><span class="text-[10px]">Home</span>
+      </button>
+      <button onclick="showTab('wifi')" class="p-2 text-slate-500 hover:text-amber-500 focus:text-amber-500">
+        <i class="fa-solid fa-wifi text-lg block"></i><span class="text-[10px]">Wi-Fi</span>
+      </button>
+
+      <button onclick="showTab('checkin')" class="p-2 text-slate-500 hover:text-amber-500 focus:text-amber-500">
+        <i class="fa-solid fa-key text-lg block"></i><span class="text-[10px]">Check-In</span>
+      </button>
+      <button onclick="showTab('checkout')" class="p-2 text-slate-500 hover:text-amber-500 focus:text-amber-500">
+        <i class="fa-solid fa-door-open text-lg block"></i><span class="text-[10px]">Out</span>
+      </button>
+      <button onclick="showTab('rules')" class="p-2 text-slate-500 hover:text-amber-500 focus:text-amber-500">
+        <i class="fa-solid fa-list-check text-lg block"></i><span class="text-[10px]">Rules</span>
+      </button>
+      <button onclick="showTab('guide')" class="p-2 text-slate-500 hover:text-amber-500 focus:text-amber-500">
+        <i class="fa-solid fa-book text-lg block"></i><span class="text-[10px]">Guide</span>
+      </button>
+      <button onclick="showTab('tips')" class="p-2 text-slate-500 hover:text-amber-500 focus:text-amber-500">
+        <i class="fa-solid fa-map-location-dot text-lg block"></i><span class="text-[10px]">Tips</span>
+      </button>
+      <button onclick="showTab('emergency')" class="p-2 text-slate-500 hover:text-amber-500 focus:text-amber-500">
+        <i class="fa-solid fa-phone text-lg block"></i><span class="text-[10px]">Sos</span>
+      </button>
+    </div>
+  </nav>
+
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.getElementById(tabId).classList.add('active');
+      window.scrollTo(0, 0);
+    }
+  </script>
+</body>
+</html>
