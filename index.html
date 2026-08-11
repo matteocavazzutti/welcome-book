@@ -1,727 +1,275 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Benvenuti alla Terrazza di Maria</title>
-
-  <!-- Framework grafico Tailwind CSS -->
+  <title>Maria's Terrace - Guest Guide</title>
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Icone FontAwesome -->
+  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Icone Bandiere Flag Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
-
   <style>
-    .hidden-screen { display: none !important; }
     .tab-content { display: none; }
     .tab-content.active { display: block; }
-    /* Nasconde la barra di scorrimento orizzontale del menu pur mantenendo lo scroll */
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans">
+<body class="bg-slate-100 text-slate-800 font-sans min-h-screen pb-20">
 
-  <!-- ========================================== -->
-  <!-- 1. LANDING PAGE: SELEZIONE LINGUA          -->
-  <!-- ========================================== -->
-  <div id="language-screen" class="min-h-screen flex flex-col justify-center items-center p-6 text-center bg-slate-50">
-    
-    <div class="mb-6 w-64 h-32 rounded-2xl overflow-hidden shadow-md border-4 border-white">
-  <img src="1.t00gemR.png" alt="Terrazza di Maria" class="w-full h-full object-cover">
-</div>
+  <!-- ==================== 1. LANDING PAGE ==================== -->
+  <div id="screen-landing" class="min-h-screen flex flex-col items-center justify-center p-6 text-center bg-amber-50">
+    <div class="mb-6 w-32 h-32 rounded-full overflow-hidden shadow-md border-4 border-white">
+      <!-- Immagine personalizzabile della struttura -->
+      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=400&q=80" alt="Maria's Terrace" class="w-full h-full object-cover">
+    </div>
+    <h1 class="text-3xl font-bold text-slate-900 mb-2">Maria’s Terrace</h1>
+    <p class="text-slate-600 mb-8 max-w-xs">Welcome to your home in Rome!</p>
+    <button onclick="goToLanguageScreen()" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all transform active:scale-95">
+      Start / Inizia
+    </button>
+  </div>
 
-    <!-- Titolo fisso in Italiano -->
-    <h1 class="text-3xl font-bold text-slate-900 mb-2">Benvenuti alla Terrazza di Maria</h1>
-    <p class="text-slate-500 text-sm mb-8">Choose your language / Scegli la tua lingua</p>
-
-    <!-- Selettori lingua con testo + bandiera -->
-    <div class="w-full max-w-xs space-y-3">
-      <button onclick="selectLanguage('it')" class="w-full bg-white border border-slate-200 p-4 rounded-2xl shadow-sm flex items-center justify-between active:bg-slate-100">
-        <span class="font-semibold text-slate-700">Italiano</span>
-        <span class="fi fi-it text-2xl rounded"></span>
+  <!-- ==================== 2. SELEZIONE LINGUA ==================== -->
+  <div id="screen-language" class="hidden min-h-screen flex flex-col items-center justify-center p-6 text-center bg-white">
+    <h2 class="text-2xl font-bold text-slate-900 mb-6">Select your language / Seleziona la lingua</h2>
+    <div class="grid grid-cols-1 gap-4 w-full max-w-xs">
+      <button onclick="setLanguage('en')" class="p-4 bg-slate-50 border border-slate-200 rounded-2xl flex items-center justify-between font-semibold hover:bg-amber-50 hover:border-amber-300 transition-colors">
+        <span>🇬🇧 English</span>
+        <i class="fa-solid fa-chevron-right text-slate-400"></i>
       </button>
-
-      <button onclick="selectLanguage('en')" class="w-full bg-white border border-slate-200 p-4 rounded-2xl shadow-sm flex items-center justify-between active:bg-slate-100">
-        <span class="font-semibold text-slate-700">English</span>
-        <span class="fi fi-gb text-2xl rounded"></span>
+      <button onclick="setLanguage('it')" class="p-4 bg-slate-50 border border-slate-200 rounded-2xl flex items-center justify-between font-semibold hover:bg-amber-50 hover:border-amber-300 transition-colors">
+        <span>🇮🇹 Italiano</span>
+        <i class="fa-solid fa-chevron-right text-slate-400"></i>
       </button>
-
-      <button onclick="selectLanguage('fr')" class="w-full bg-white border border-slate-200 p-4 rounded-2xl shadow-sm flex items-center justify-between active:bg-slate-100">
-        <span class="font-semibold text-slate-700">Français</span>
-        <span class="fi fi-fr text-2xl rounded"></span>
-      </button>
-
-      <button onclick="selectLanguage('de')" class="w-full bg-white border border-slate-200 p-4 rounded-2xl shadow-sm flex items-center justify-between active:bg-slate-100">
-        <span class="font-semibold text-slate-700">Deutsch</span>
-        <span class="fi fi-de text-2xl rounded"></span>
+      <button onclick="setLanguage('fr')" class="p-4 bg-slate-50 border border-slate-200 rounded-2xl flex items-center justify-between font-semibold hover:bg-amber-50 hover:border-amber-300 transition-colors">
+        <span>🇫🇷 Français</span>
+        <i class="fa-solid fa-chevron-right text-slate-400"></i>
       </button>
     </div>
   </div>
 
+  <!-- ==================== 3. CONTENUTO GUIDA ==================== -->
+  <div id="screen-main" class="hidden max-w-md mx-auto p-4">
 
-  <!-- ========================================== -->
-  <!-- 2. APPLICAZIONE WELCOME BOOK               -->
-  <!-- ========================================== -->
-  <div id="app-screen" class="hidden-screen min-h-screen pb-28">
-    
-    <!-- Top Bar Sticky -->
-    <header class="bg-slate-900 text-white p-5 rounded-b-3xl shadow-lg sticky top-0 z-50">
-      <div class="max-w-md mx-auto flex justify-between items-center">
+    <!-- TAB 1: BEN VENUTI (WELCOME) -->
+    <section id="welcome" class="tab-content active bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+      <div class="text-center py-2 space-y-4">
+        <i class="fa-solid fa-hand-wave text-4xl text-amber-500 mb-2"></i>
+        <h2 id="txt-welcome-title" class="text-3xl font-bold text-amber-600 italic tracking-wide font-serif"></h2>
+        <p id="txt-welcome-subtitle" class="text-slate-900 font-bold text-base leading-snug px-2"></p>
+        <div id="txt-welcome-body" class="text-slate-600 text-sm leading-relaxed whitespace-pre-line text-left pt-2 space-y-3"></div>
+
+        <div class="pt-4 text-center">
+          <button onclick="goToLanguageScreen()" class="inline-flex items-center gap-2 text-xs text-amber-600 font-semibold bg-amber-50 px-4 py-2 rounded-xl border border-amber-200">
+            <i class="fa-solid fa-language"></i>
+            <span id="txt-btn-change-lang">Change Language</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: ARRIVAL -->
+    <section id="arrival" class="tab-content bg-white p-5 rounded-2xl shadow-sm border border-slate-100 space-y-6">
+      <div class="flex items-center gap-3 border-b pb-3 border-slate-100">
+        <div class="p-3 bg-amber-100 text-amber-600 rounded-xl">
+          <i class="fa-solid fa-plane-arrival text-xl"></i>
+        </div>
         <div>
-          <h1 class="text-lg font-bold tracking-wide">Terrazza di Maria</h1>
-          <p class="text-xs text-slate-400">Welcome Book</p>
+          <h2 class="text-xl font-bold text-slate-900">How to Reach Us</h2>
+          <p class="text-xs text-slate-500">Address & Transport Options</p>
         </div>
-        
-        <!-- Pulsante Torna a Scelta Lingua -->
-        <button onclick="showLanguageScreen()" class="bg-slate-800 hover:bg-slate-700 text-xs px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-2">
-          <i class="fa-solid fa-globe text-amber-400"></i>
-          <span id="current-lang-code" class="uppercase font-semibold">IT</span>
-        </button>
       </div>
-    </header>
 
-    <!-- Contenuto Principale delle Sezioni -->
-    <main class="max-w-md mx-auto p-4 space-y-4">
+      <!-- BOX INDIRIZZO & SELF CHECK-IN -->
+      <div class="bg-amber-50/60 border border-amber-200/60 rounded-xl p-4 space-y-3">
+        <div class="flex items-start gap-2">
+          <i class="fa-solid fa-location-dot text-amber-600 text-lg mt-0.5"></i>
+          <div>
+            <span class="text-xs font-semibold text-amber-700 uppercase tracking-wider">Address</span>
+            <p class="text-base font-bold text-slate-900">Via Sebastiano Ziani, 47, Rome</p>
+          </div>
+        </div>
 
-      <!-- 1. BEN VENUTI -->
-     <section id="welcome" class="tab-content active bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-  <div class="text-center py-2 space-y-4">
-    <i class="fa-solid fa-hand-wave text-4xl text-amber-500 mb-2"></i>
-    
-    <!-- Titolo principale con stile arancione corsivo come da immagine -->
-    <h2 id="txt-welcome-title" class="text-3xl font-bold text-amber-600 italic tracking-wide font-serif"></h2>
-    
-    <!-- Sottotitolo in grassetto -->
-    <p id="txt-welcome-subtitle" class="text-slate-900 font-bold text-base leading-snug px-2"></p>
-    
-    <!-- Paragrafi del testo normale (con spaziatura) -->
-    <div id="txt-welcome-body" class="text-slate-600 text-sm leading-relaxed whitespace-pre-line text-left pt-2 space-y-3"></div>
+        <div class="pt-2 border-t border-amber-200/50">
+          <h3 class="text-sm font-bold text-slate-800 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-key text-amber-600"></i> Self Check-in Instructions
+          </h3>
+          <ol class="text-xs text-slate-700 space-y-2 list-decimal list-inside pl-1">
+            <li><strong>Gate:</strong> Intercom #22 on the right of the gate. The property manager will open.</li>
+            <li><strong>Elevator:</strong> Go to the right, take the elevator to the 7th floor.</li>
+            <li><strong>Stairs:</strong> Walk up one more floor to reach the top (8th floor).</li>
+            <li><strong>Keybox:</strong> On the landing, keybox is in the middle. Type your custom code.</li>
+            <li><strong>Entrance:</strong> The apartment is the door on the left.</li>
+          </ol>
+        </div>
+      </div>
 
-    <div class="pt-4 text-center">
-      <button onclick="showLanguageScreen()" class="inline-flex items-center gap-2 text-xs text-amber-600 font-semibold bg-amber-50 px-4 py-2 rounded-xl border border-amber-200">
-        <i class="fa-solid fa-language"></i>
-        <span id="txt-btn-change-lang"></span>
+      <!-- FIUMICINO AIRPORT -->
+      <div class="border border-slate-100 rounded-xl p-4 bg-slate-50/50 space-y-3">
+        <div class="flex items-center gap-2 text-slate-800 font-bold border-b border-slate-200/60 pb-2">
+          <i class="fa-solid fa-plane-departure text-blue-600"></i>
+          <span>From Fiumicino Airport (FCO)</span>
+        </div>
+
+        <div class="bg-white p-3 rounded-lg border border-slate-100 space-y-1 text-xs">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-slate-800">⚡ Fastest & Comfortable</span>
+            <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono text-[11px]">30-45 min</span>
+          </div>
+          <p class="text-slate-600"><strong>Taxi (Official only):</strong> €50 - €60 <span class="text-slate-400">(Max €80 by regulation)</span></p>
+          <p class="text-slate-600"><strong>Private Shuttle:</strong> Car €65 | Van €70</p>
+        </div>
+
+        <div class="bg-white p-3 rounded-lg border border-slate-100 space-y-2 text-xs">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-slate-800">💡 The Cheapest</span>
+            <span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold font-mono text-[11px]">60-70 min | €16</span>
+          </div>
+          <p class="text-slate-600">Train + Metro (Trains leave every 15 minutes)</p>
+          <a href="https://www.trenitalia.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-700 text-white font-semibold text-xs py-2 px-3 rounded-lg shadow-xs transition-colors mt-1">
+            <i class="fa-solid fa-train"></i>
+            <span>official ticket here (Trenitalia)</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- CIAMPINO AIRPORT -->
+      <div class="border border-slate-100 rounded-xl p-4 bg-slate-50/50 space-y-3">
+        <div class="flex items-center gap-2 text-slate-800 font-bold border-b border-slate-200/60 pb-2">
+          <i class="fa-solid fa-plane-departure text-blue-600"></i>
+          <span>From Ciampino Airport (CIA)</span>
+        </div>
+
+        <div class="bg-white p-3 rounded-lg border border-slate-100 space-y-1 text-xs">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-slate-800">⚡ Fastest & Comfortable</span>
+            <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono text-[11px]">30-45 min</span>
+          </div>
+          <p class="text-slate-600"><strong>Taxi (Official only):</strong> €50 - €60 <span class="text-slate-400">(Max €80 by regulation)</span></p>
+          <p class="text-slate-600"><strong>Private Shuttle:</strong> Car €65 | Van €70</p>
+        </div>
+
+        <div class="bg-white p-3 rounded-lg border border-slate-100 space-y-2 text-xs">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-slate-800">💡 Cheapest</span>
+            <span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold font-mono text-[11px]">60-70 min | €16</span>
+          </div>
+          <ol class="text-slate-600 space-y-1 list-decimal list-inside">
+            <li>Train "Leonardo" to <strong>Stazione Termini</strong></li>
+            <li>Metro line "A" (direction "Battistini"), stop at <strong>"Cipro"</strong></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- STAZIONE TERMINI -->
+      <div class="border border-slate-100 rounded-xl p-4 bg-slate-50/50 space-y-3">
+        <div class="flex items-center gap-2 text-slate-800 font-bold border-b border-slate-200/60 pb-2">
+          <i class="fa-solid fa-train text-amber-600"></i>
+          <span>From Stazione Termini</span>
+        </div>
+
+        <div class="bg-white p-3 rounded-lg border border-slate-100 space-y-1 text-xs">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-slate-800">⚡ Fastest & Cheapest</span>
+            <span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold font-mono text-[11px]">20 min | €2</span>
+          </div>
+          <p class="text-slate-600">Take <strong>Metro line "A"</strong> (direction "Battistini") and stop at <strong>"Cipro"</strong>.</p>
+        </div>
+
+        <div class="bg-white p-3 rounded-lg border border-slate-100 space-y-1 text-xs">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-slate-800">🚕 Comfortable</span>
+            <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono text-[11px]">15-30 min</span>
+          </div>
+          <p class="text-slate-600"><strong>Taxi (Official only):</strong> €15 - €20 <span class="text-slate-400">(Max €80 by regulation)</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BARRA DI NAVIGAZIONE IN BASSO -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-6 py-2 flex justify-around items-center max-w-md mx-auto z-50">
+      <button onclick="switchTab('welcome')" class="tab-btn flex flex-col items-center text-amber-600 text-xs font-semibold">
+        <i class="fa-solid fa-house text-lg"></i>
+        <span>Welcome</span>
       </button>
-    </div>
-  </div>
-</section>
-
-      <!-- 2. DISCLAIMER -->
-      <section id="disclaimer" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-        <div class="flex items-center space-x-3 mb-4">
-          <div class="p-3 bg-slate-100 text-slate-600 rounded-xl">
-            <i class="fa-solid fa-shield-halved text-xl"></i>
-          </div>
-          <h2 id="txt-disclaimer-title" class="text-xl font-bold text-slate-900"></h2>
-        </div>
-        <p id="txt-disclaimer-body" class="text-xs text-slate-500 leading-relaxed"></p>
-      </section>
-
-      <!-- 3. WIFI -->
-      <section id="wifi" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-        <div class="flex items-center space-x-3 mb-4">
-          <div class="p-3 bg-amber-100 text-amber-600 rounded-xl">
-            <i class="fa-solid fa-wifi text-xl"></i>
-          </div>
-          <h2 id="txt-wifi-title" class="text-xl font-bold text-slate-900"></h2>
-        </div>
-        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-4">
-          <div>
-            <span id="txt-wifi-name-lbl" class="text-xs text-slate-400 uppercase font-semibold block mb-1"></span>
-            <p class="font-mono font-bold text-slate-800 text-lg">TerrazzaMaria_WiFi</p>
-          </div>
-          <div>
-            <span id="txt-wifi-pass-lbl" class="text-xs text-slate-400 uppercase font-semibold block mb-1"></span>
-            <div class="flex items-center justify-between bg-white p-2.5 rounded-lg border border-slate-200">
-              <span id="wifi-pass" class="font-mono font-bold text-amber-600">WelcomeMaria2026!</span>
-              <button onclick="copyPassword()" class="bg-amber-500 text-white text-xs px-3 py-1.5 rounded-md font-semibold">
-                <i class="fa-regular fa-copy"></i> <span id="txt-btn-copy"></span>
-              </button>
-            </div>
-            <p id="copy-feedback" class="text-xs text-emerald-600 font-medium mt-1 hidden"></p>
-          </div>
-        </div>
-      </section>
-
-     <!-- 4. YOUR ARRIVAL -->
-<section id="arrival" class="tab-content bg-white p-5 rounded-2xl shadow-sm border border-slate-100 space-y-6">
-  
-  <!-- Intestazione Sezione -->
-  <div class="flex items-center gap-3 border-b pb-3 border-slate-100">
-    <div class="p-3 bg-amber-100 text-amber-600 rounded-xl">
-      <i class="fa-solid fa-plane-arrival text-xl"></i>
-    </div>
-    <div>
-      <h2 class="text-xl font-bold text-slate-900">How to Reach Us</h2>
-      <p class="text-xs text-slate-500">Address & Transport Options</p>
-    </div>
-  </div>
-
-  <!-- BOX INDIRIZZO & SELF CHECK-IN -->
-  <div class="bg-amber-50/60 border border-amber-200/60 rounded-xl p-4 space-y-3">
-    <div class="flex items-start gap-2">
-      <i class="fa-solid fa-location-dot text-amber-600 text-lg mt-0.5"></i>
-      <div>
-        <span class="text-xs font-semibold text-amber-700 uppercase tracking-wider">Address</span>
-        <p class="text-base font-bold text-slate-900">Via Sebastiano Ziani, 47, Rome</p>
-      </div>
-    </div>
-
-    <div class="pt-2 border-t border-amber-200/50">
-      <h3 class="text-sm font-bold text-slate-800 mb-2 flex items-center gap-2">
-        <i class="fa-solid fa-key text-amber-600"></i> Self Check-in Instructions
-      </h3>
-      <ol class="text-xs text-slate-700 space-y-2 list-decimal list-inside pl-1">
-        <li><strong>Gate:</strong> Intercom #22 on the right of the gate. The property manager will open.</li>
-        <li><strong>Elevator:</strong> Go to the right, take the elevator to the 7th floor.</li>
-        <li><strong>Stairs:</strong> Walk up one more floor to reach the top (8th floor).</li>
-        <li><strong>Keybox:</strong> On the landing, keybox is in the middle. Type your custom code.</li>
-        <li><strong>Entrance:</strong> The apartment is the door on the left.</li>
-      </ol>
-    </div>
-  </div>
-
-  <!-- FIUMICINO AIRPORT -->
-  <div class="border border-slate-100 rounded-xl p-4 bg-slate-50/50 space-y-3">
-    <div class="flex items-center gap-2 text-slate-800 font-bold border-b border-slate-200/60 pb-2">
-      <i class="fa-solid fa-plane-departure text-blue-600"></i>
-      <span>From Fiumicino Airport (FCO)</span>
-    </div>
-
-    <!-- Opzione 1: Taxi/Shuttle -->
-    <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-2xs space-y-1 text-xs">
-      <div class="flex justify-between items-center">
-        <span class="font-bold text-slate-800">⚡ Fastest & Comfortable</span>
-        <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono text-[11px]">30-45 min</span>
-      </div>
-      <p class="text-slate-600"><strong>Taxi (Official only):</strong> €50 - €60 <span class="text-slate-400">(Max €80 by regulation)</span></p>
-      <p class="text-slate-600"><strong>Private Shuttle:</strong> Car €65 | Van €70</p>
-    </div>
-
-    <!-- Opzione 2: Train + Metro -->
-    <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-2xs space-y-2 text-xs">
-      <div class="flex justify-between items-center">
-        <span class="font-bold text-slate-800">💡 The Cheapest</span>
-        <span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold font-mono text-[11px]">60-70 min | €16</span>
-      </div>
-      <p class="text-slate-600">Train + Metro (Trains leave every 15 minutes)</p>
-      <a href="https://www.trenitalia.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-700 text-white font-semibold text-xs py-2 px-3 rounded-lg shadow-2xs transition-colors mt-1">
-        <i class="fa-solid fa-train"></i>
-        <span>official ticket here (Trenitalia)</span>
-        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-      </a>
-    </div>
-  </div>
-
-  <!-- CIAMPINO AIRPORT -->
-  <div class="border border-slate-100 rounded-xl p-4 bg-slate-50/50 space-y-3">
-    <div class="flex items-center gap-2 text-slate-800 font-bold border-b border-slate-200/60 pb-2">
-      <i class="fa-solid fa-plane-departure text-blue-600"></i>
-      <span>From Ciampino Airport (CIA)</span>
-    </div>
-
-    <!-- Taxi -->
-    <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-2xs space-y-1 text-xs">
-      <div class="flex justify-between items-center">
-        <span class="font-bold text-slate-800">⚡ Fastest & Comfortable</span>
-        <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono text-[11px]">30-45 min</span>
-      </div>
-      <p class="text-slate-600"><strong>Taxi (Official only):</strong> €50 - €60 <span class="text-slate-400">(Max €80 by regulation)</span></p>
-      <p class="text-slate-600"><strong>Private Shuttle:</strong> Car €65 | Van €70</p>
-    </div>
-
-    <!-- Train + Metro Step-by-Step -->
-    <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-2xs space-y-2 text-xs">
-      <div class="flex justify-between items-center">
-        <span class="font-bold text-slate-800">💡 Cheapest</span>
-        <span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold font-mono text-[11px]">60-70 min | €16</span>
-      </div>
-      <ol class="text-slate-600 space-y-1 list-decimal list-inside">
-        <li>Train "Leonardo" to <strong>Stazione Termini</strong></li>
-        <li>Metro line "A" (direction "Battistini"), stop at <strong>"Cipro"</strong></li>
-      </ol>
-    </div>
-  </div>
-
-  <!-- STAZIONE TERMINI -->
-  <div class="border border-slate-100 rounded-xl p-4 bg-slate-50/50 space-y-3">
-    <div class="flex items-center gap-2 text-slate-800 font-bold border-b border-slate-200/60 pb-2">
-      <i class="fa-solid fa-train text-amber-600"></i>
-      <span>From Stazione Termini</span>
-    </div>
-
-    <!-- Metro -->
-    <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-2xs space-y-1 text-xs">
-      <div class="flex justify-between items-center">
-        <span class="font-bold text-slate-800">⚡ Fastest & Cheapest</span>
-        <span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold font-mono text-[11px]">20 min | €2</span>
-      </div>
-      <p class="text-slate-600">Take <strong>Metro line "A"</strong> (direction "Battistini") and stop at <strong>"Cipro"</strong>.</p>
-    </div>
-
-    <!-- Taxi -->
-    <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-2xs space-y-1 text-xs">
-      <div class="flex justify-between items-center">
-        <span class="font-bold text-slate-800">🚕 Comfortable</span>
-        <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono text-[11px]">15-30 min</span>
-      </div>
-      <p class="text-slate-600"><strong>Taxi (Official only):</strong> €15 - €20 <span class="text-slate-400">(Max €80 by regulation)</span></p>
-    </div>
-  </div>
-
-</section>
-
-  <!-- Pulsante Diretto a Trenitalia (Opzione A) -->
- <!--
-      
-      <div id="arrival-ticket-container" class="pt-2">
-    <a href="https://www.trenitalia.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-700 text-white font-semibold text-sm py-3 px-4 rounded-xl shadow-sm transition-colors">
-      <i class="fa-solid fa-train"></i>
-      <span>official ticket here (Trenitalia)</span>
-      <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-80"></i>
-    </a>
-  </div>
-</section>
--->
-      <!-- 5. CHECK-IN -->
-      <section id="checkin" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-        <div class="flex items-center space-x-3 mb-4">
-          <div class="p-3 bg-emerald-100 text-emerald-600 rounded-xl">
-            <i class="fa-solid fa-key text-xl"></i>
-          </div>
-          <h2 id="txt-checkin-title" class="text-xl font-bold text-slate-900"></h2>
-        </div>
-        <p id="txt-checkin-body" class="text-sm text-slate-600 leading-relaxed"></p>
-      </section>
-
-      <!-- 6. CHECK-OUT -->
-      <section id="checkout" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-        <div class="flex items-center space-x-3 mb-4">
-          <div class="p-3 bg-red-100 text-red-600 rounded-xl">
-            <i class="fa-solid fa-door-open text-xl"></i>
-          </div>
-          <h2 id="txt-checkout-title" class="text-xl font-bold text-slate-900"></h2>
-        </div>
-        <p id="txt-checkout-body" class="text-sm text-slate-600 leading-relaxed"></p>
-      </section>
-
-      <!-- 7. HOUSE RULES -->
-      <section id="rules" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-        <div class="flex items-center space-x-3 mb-4">
-          <div class="p-3 bg-purple-100 text-purple-600 rounded-xl">
-            <i class="fa-solid fa-clipboard-list text-xl"></i>
-          </div>
-          <h2 id="txt-rules-title" class="text-xl font-bold text-slate-900"></h2>
-        </div>
-        <p id="txt-rules-body" class="text-sm text-slate-600 leading-relaxed"></p>
-      </section>
-
-      <!-- 8. HOUSE GUIDE -->
-      <section id="guide" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-        <div class="flex items-center space-x-3 mb-4">
-          <div class="p-3 bg-teal-100 text-teal-600 rounded-xl">
-            <i class="fa-solid fa-book-open text-xl"></i>
-          </div>
-          <h2 id="txt-guide-title" class="text-xl font-bold text-slate-900"></h2>
-        </div>
-        <p id="txt-guide-body" class="text-sm text-slate-600 leading-relaxed"></p>
-      </section>
-
-      <!-- 9. TRANSPORTS / TOURIST INFO -->
-      <section id="transports" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-        <div class="flex items-center space-x-3 mb-4">
-          <div class="p-3 bg-indigo-100 text-indigo-600 rounded-xl">
-            <i class="fa-solid fa-bus text-xl"></i>
-          </div>
-          <h2 id="txt-transports-title" class="text-xl font-bold text-slate-900"></h2>
-        </div>
-        <p id="txt-transports-body" class="text-sm text-slate-600 leading-relaxed"></p>
-      </section>
-
-      <!-- 10. BEST TIPS IN THE AREA -->
-      <section id="tips" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-        <div class="flex items-center space-x-3 mb-4">
-          <div class="p-3 bg-orange-100 text-orange-600 rounded-xl">
-            <i class="fa-solid fa-utensils text-xl"></i>
-          </div>
-          <h2 id="txt-tips-title" class="text-xl font-bold text-slate-900"></h2>
-        </div>
-        <p id="txt-tips-body" class="text-sm text-slate-600 leading-relaxed"></p>
-      </section>
-
-      <!-- 11. EMERGENCY INFO -->
-      <section id="emergency" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-        <div class="flex items-center space-x-3 mb-4">
-          <div class="p-3 bg-rose-100 text-rose-600 rounded-xl">
-            <i class="fa-solid fa-phone-volume text-xl"></i>
-          </div>
-          <h2 id="txt-emergency-title" class="text-xl font-bold text-slate-900"></h2>
-        </div>
-        <p id="txt-emergency-body" class="text-sm text-slate-600 leading-relaxed"></p>
-      </section>
-
-    </main>
-
-    <!-- Navigazione fissa in basso (Barra scorrevole per tutte e 11 le sezioni) -->
-    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-2 py-2 shadow-lg z-50">
-      <div class="max-w-md mx-auto flex items-center overflow-x-auto no-scrollbar space-x-3 text-center px-2">
-        
-        <button onclick="showTab('welcome')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-house text-base block"></i><span id="nav-welcome" class="text-[10px]"></span>
-        </button>
-
-        <button onclick="showTab('wifi')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-wifi text-base block"></i><span id="nav-wifi" class="text-[10px]"></span>
-        </button>
-
-        <button onclick="showTab('arrival')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-map-location-dot text-base block"></i><span id="nav-arrival" class="text-[10px]"></span>
-        </button>
-
-        <button onclick="showTab('checkin')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-key text-base block"></i><span id="nav-checkin" class="text-[10px]"></span>
-        </button>
-
-        <button onclick="showTab('checkout')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-door-open text-base block"></i><span id="nav-checkout" class="text-[10px]"></span>
-        </button>
-
-        <button onclick="showTab('rules')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-clipboard-list text-base block"></i><span id="nav-rules" class="text-[10px]"></span>
-        </button>
-
-        <button onclick="showTab('guide')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-book-open text-base block"></i><span id="nav-guide" class="text-[10px]"></span>
-        </button>
-
-        <button onclick="showTab('transports')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-bus text-base block"></i><span id="nav-transports" class="text-[10px]"></span>
-        </button>
-
-        <button onclick="showTab('tips')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-utensils text-base block"></i><span id="nav-tips" class="text-[10px]"></span>
-        </button>
-
-        <button onclick="showTab('emergency')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-phone-volume text-base block"></i><span id="nav-emergency" class="text-[10px]"></span>
-        </button>
-
-        <button onclick="showTab('disclaimer')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-shield-halved text-base block"></i><span id="nav-disclaimer" class="text-[10px]"></span>
-        </button>
-
-      </div>
+      <button onclick="switchTab('arrival')" class="tab-btn flex flex-col items-center text-slate-400 hover:text-amber-600 text-xs font-semibold">
+        <i class="fa-solid fa-plane-arrival text-lg"></i>
+        <span>Arrival</span>
+      </button>
     </nav>
 
   </div>
 
-
-  <!-- ========================================== -->
-  <!-- 3. GESTIONE DIZIONARIO & SCRIPT            -->
-  <!-- ========================================== -->
+  <!-- ==================== LOGICA JAVASCRIPT ==================== -->
   <script>
     const translations = {
-      it: {
-        welcomeTitle: "Benvenuti!",
-        welcomeBody: "Siamo felici di ospitarvi alla Terrazza di Maria. Abbiamo preparato questa guida per rendervi il soggiorno confortevole e piacevole.",
-        changeLangBtn: "Cambia Lingua / Change Language",
-        
-        disclaimerTitle: "Disclaimer",
-        disclaimerBody: "La struttura declina ogni responsabilità per eventuali smarrimenti o furti di oggetti personali lasciati incustoditi nell'appartamento.",
-        
-        wifiTitle: "Connessione Wi-Fi",
-        wifiNameLbl: "Nome Rete (SSID)",
-        wifiPassLbl: "Password",
-        btnCopy: "Copia",
-        copySuccess: "✓ Password copiata!",
-        
-        arrivalTitle: "Il tuo Arrivo",
-        arrivalBody: "Indirizzo: Via della Terrazza 12. Se arrivi in auto trovi parcheggio lungo la via o al garage convenzionato a 100m.",
-        
-        checkinTitle: "Check-in",
-        checkinBody: "Orario Check-in: Dalle 15:00 alle 20:00. Per il Self Check-in inserisci il codice sulla tastiera all'ingresso principale.",
-        
-        checkoutTitle: "Check-out",
-        checkoutBody: "Orario massimo: Entro le ore 10:00. Lascia le chiavi sul tavolo del soggiorno e chiudi bene la porta d'ingresso.",
-        
-        rulesTitle: "Regole della Casa",
-        rulesBody: "1. Vietato fumare all'interno.\n2. Ore di silenzio dalle 23:00 alle 08:00.\n3. Feste ed eventi non sono consentiti.",
-        
-        guideTitle: "Guida della Casa",
-        guideBody: "Aria condizionata: usa il telecomando sulla parete.\nSpazzatura: i bidoni per la differenziata si trovano nel cortile interno.",
-        
-        transportsTitle: "Trasporti & Info Turistiche",
-        transportsBody: "Fermata Autobus linea 12 a soli 50 metri. La stazione ferroviaria centrale dista 10 minuti a piedi.",
-        
-        tipsTitle: "I nostri Consigli",
-        tipsBody: "Ristorante consigliato: 'Osteria del Mare' (a 200m).\nCaffè & Colazione: Bar Central.\nSupermercato aperto fino alle 20:30 a 150m.",
-        
-        emergencyTitle: "Contatti di Emergenza",
-        emergencyBody: "Numero Unico Emergenze: 112\nHost / Proprietario: +39 333 1234567\nGuardia Medica più vicina: Via Roma 15.",
-
-        navWelcome: "Home",
-        navDisclaimer: "Info",
-        navWifi: "Wi-Fi",
-        navArrival: "Arrivo",
-        navCheckin: "Check-in",
-        navCheckout: "Check-out",
-        navRules: "Regole",
-        navGuide: "Guida",
-        navTransports: "Trasporti",
-        navTips: "Consigli",
-        navEmergency: "Sos"
-      },
       en: {
-       welcomeTitle: "Welcome to Maria’s Terrace !",
-  welcomeSubtitle: "Thank you very much for choosing our apartment for your stay in Rome!",
-  welcomeBody: `We are an Italian/French family who loves travelling. We furnished, decorated and equipped this apartment with the purpose of making your stay experience unforgettable!
+        welcomeTitle: "Welcome to Maria’s Terrace !",
+        welcomeSubtitle: "Thank you very much for choosing our apartment for your stay in Rome!",
+        welcomeBody: `We are an Italian/French family who loves travelling. We furnished, decorated and equipped this apartment with the purpose of making your stay experience unforgettable!
 
 In this book you will find important information about the apartment, safety and rules. Please take the time to review it.
 
 We also included useful touristic information, along with addresses for shopping, food and services in the area.
 
 Should you need any help, contact us: we will be delighted to support you!`,
-        changeLangBtn: "Change Language",
-        
-        disclaimerTitle: "Disclaimer",
-        disclaimerBody: "Management is not responsible for any lost or stolen personal belongings left unattended in the apartment.",
-        
-        wifiTitle: "Wi-Fi Network",
-        wifiNameLbl: "Network Name (SSID)",
-        wifiPassLbl: "Password",
-        btnCopy: "Copy",
-        copySuccess: "✓ Password copied!",
-        
-        arrivalTitle: "Your Arrival",
-        arrivalBody: "Address: Via della Terrazza 12. Parking is available along the street or at the partner garage 100m away.",
-        
-        checkinTitle: "Check-in",
-        checkinBody: "Check-in time: From 3:00 PM to 8:00 PM. For Self Check-in, enter your code on the keypad at the main door.",
-        
-        checkoutTitle: "Check-out",
-        checkoutBody: "Check-out time: By 10:00 AM. Please leave the keys on the living room table and lock the front door.",
-        
-        rulesTitle: "House Rules",
-        rulesBody: "1. No smoking inside.\n2. Quiet hours: 11:00 PM - 8:00 AM.\n3. Parties and events are not allowed.",
-        
-        guideTitle: "House Guide",
-        guideBody: "Air Conditioning: Use the remote wall control.\nTrash: Recycling bins are located in the inner courtyard.",
-        
-        transportsTitle: "Transports & Info",
-        transportsBody: "Bus stop line 12 is just 50 meters away. Central train station is a 10-minute walk.",
-        
-        tipsTitle: "Our Best Tips",
-        tipsBody: "Recommended Restaurant: 'Osteria del Mare' (200m).\nCoffee & Breakfast: Bar Central.\nSupermarket 150m away, open until 8:30 PM.",
-        
-        emergencyTitle: "Emergency Info",
-        emergencyBody: "Emergency Number: 112\nHost Contact: +39 333 1234567\nNearest Medical Center: Via Roma 15.",
+        changeLangBtn: "Change Language"
+      },
+      it: {
+        welcomeTitle: "Benvenuti a Maria’s Terrace !",
+        welcomeSubtitle: "Grazie mille per aver scelto il nostro appartamento per il vostro soggiorno a Roma!",
+        welcomeBody: `Siamo una famiglia italo-francese che ama viaggiare. Abbiamo arredato, decorato ed equipaggiato questo appartamento con l'obiettivo di rendere la vostra esperienza indimenticabile!
 
-        navWelcome: "Home",
-        navDisclaimer: "Info",
-        navWifi: "Wi-Fi",
-        navArrival: "Arrival",
-        navCheckin: "Check-in",
-        navCheckout: "Check-out",
-        navRules: "Rules",
-        navGuide: "Guide",
-        navTransports: "Transports",
-        navTips: "Tips",
-        navEmergency: "Sos"
+In questa guida troverete informazioni importanti sull'appartamento, la sicurezza e le regole della casa. Vi preghiamo di dedicarle qualche minuto.
+
+Abbiamo anche incluso utili informazioni turistiche, insieme a indirizzi per lo shopping, il cibo e i servizi nella zona.
+
+Se avete bisogno di aiuto, contattateci: saremo felici di darvi supporto!`,
+        changeLangBtn: "Cambia Lingua"
       },
       fr: {
-        welcomeTitle: "Bienvenue !",
-        welcomeBody: "Nous sommes ravis de vous accueillir à la Terrazza di Maria. Ce guide è fatto per rendervi il soggiorno il più piacevole possibile.",
-        changeLangBtn: "Changer de langue",
-        
-        disclaimerTitle: "Avertissement",
-        disclaimerBody: "L'établissement décline toute responsabilité en cas de perte ou de vol d'effets personnels.",
-        
-        wifiTitle: "Réseau Wi-Fi",
-        wifiNameLbl: "Nom du réseau (SSID)",
-        wifiPassLbl: "Mot de passe",
-        btnCopy: "Copier",
-        copySuccess: "✓ Mot de passe copié !",
-        
-        arrivalTitle: "Votre Arrivée",
-        arrivalBody: "Adresse: Via della Terrazza 12. Stationnement disponible dans la rue ou dans le garage partenaire.",
-        
-        checkinTitle: "Check-in",
-        checkinBody: "Arrivée : de 15h00 à 20h00. Pour le Self Check-in, entrez votre code sur le clavier de la porte principale.",
-        
-        checkoutTitle: "Check-out",
-        checkoutBody: "Départ : avant 10h00. Laissez les clés sur la table du salon et fermez bien la porte.",
-        
-        rulesTitle: "Règles de la Maison",
-        rulesBody: "1. Interdiction de fumer à l'intérieur.\n2. Heures de silence : 23h00 - 08h00.\n3. Fêtes non autorisées.",
-        
-        guideTitle: "Guide du Logement",
-        guideBody: "Climatisation : utilisez la télécommande murale.\nPoubelles : dans la cour intérieure.",
-        
-        transportsTitle: "Transports & Info",
-        transportsBody: "Arrêt de bus ligne 12 à 50 mètres. Gare centrale à 10 minutes à pied.",
-        
-        tipsTitle: "Nos Conseils",
-        tipsBody: "Restaurant recommandé : 'Osteria del Mare'.\nCafé : Bar Central.\nSupermarché à 150m.",
-        
-        emergencyTitle: "Urgences",
-        emergencyBody: "Numéro d'urgence : 112\nHôte : +39 333 1234567.",
+        welcomeTitle: "Bienvenue à Maria’s Terrace !",
+        welcomeSubtitle: "Merci beaucoup d'avoir choisi notre appartement pour votre séjour à Rome !",
+        welcomeBody: `Nous sommes une famille franco-italienne passionnée de voyages. Nous avons meublé, décoré et équipé cet appartement dans le but di rendere il vostro soggiorno indimenticabile!
 
-        navWelcome: "Accueil",
-        navDisclaimer: "Info",
-        navWifi: "Wi-Fi",
-        navArrival: "Arrivée",
-        navCheckin: "Check-in",
-        navCheckout: "Check-out",
-        navRules: "Règles",
-        navGuide: "Guide",
-        navTransports: "Transports",
-        navTips: "Conseils",
-        navEmergency: "Sos"
-      },
-      de: {
-        welcomeTitle: "Willkommen!",
-        welcomeBody: "Wir freuen uns, Sie in der Terrazza di Maria zu begrüßen. Dieser Reiseführer soll Ihren Aufenthalt angenehm gestalten.",
-        changeLangBtn: "Sprache ändern",
-        
-        disclaimerTitle: "Haftungsausschluss",
-        disclaimerBody: "Für den Verlust von persönlichen Gegenständen wird keine Haftung übernommen.",
-        
-        wifiTitle: "WLAN-Netzwerk",
-        wifiNameLbl: "Netzwerkname (SSID)",
-        wifiPassLbl: "Passwort",
-        btnCopy: "Kopieren",
-        copySuccess: "✓ Passwort kopiert!",
-        
-        arrivalTitle: "Ihre Anreise",
-        arrivalBody: "Adresse: Via della Terrazza 12. Parkplätze finden Sie in der Straße oder in der Garage in 100m Entfernung.",
-        
-        checkinTitle: "Check-in",
-        checkinBody: "Check-in Zeit: 15:00 bis 20:00 Uhr. Für den Self Check-in geben Sie den Code am Eingang ein.",
-        
-        checkoutTitle: "Check-out",
-        checkoutBody: "Check-out: Bis 10:00 Uhr. Bitte Schlüssel auf dem Tisch lassen und Tür schließen.",
-        
-        rulesTitle: "Hausregeln",
-        rulesBody: "1. Nichtrauchen in allen Räumen.\n2. Ruhezeiten: 23:00 - 08:00 Uhr.\n3. Keine Partys gestattet.",
-        
-        guideTitle: "Anleitungen",
-        guideBody: "Klimaanlage: Steuerung per Fernbedienung.\nMülltrennung: Behälter im Innenhof.",
-        
-        transportsTitle: "Verkehr & Info",
-        transportsBody: "Bushaltestelle Linie 12 in 50m. Hauptbahnhof 10 Gehminuten entfernt.",
-        
-        tipsTitle: "Unsere Tipps",
-        tipsBody: "Empfohlenes Restaurant: 'Osteria del Mare'.\nCafé: Bar Central.\nSupermarkt 150m entfernt.",
-        
-        emergencyTitle: "Notfallnummern",
-        emergencyBody: "Notruf: 112\nGastgeber: +39 333 1234567.",
+Dans questo guida troverete informazioni importanti sull'appartamento, la sicurezza e le regole. Vi preghiamo di dedicarvi qualche minuto.
 
-        navWelcome: "Start",
-        navDisclaimer: "Info",
-        navWifi: "WLAN",
-        navArrival: "Anreise",
-        navCheckin: "Check-in",
-        navCheckout: "Check-out",
-        navRules: "Regeln",
-        navGuide: "Guide",
-        navTransports: "Verkehr",
-        navTips: "Tipps",
-        navEmergency: "Notfall"
+Abbiamo anche incluso informazioni turistiche utili e indirizzi per lo shopping, i ristoranti e i servizi della zona.
+
+N'hésitez pas à nous contacter se avete bisogno di aiuto: saremo felicissimi di assistervi!`,
+        changeLangBtn: "Changer de langue"
       }
     };
 
-    function selectLanguage(lang) {
-      document.getElementById('current-lang-code').innerText = lang;
-      const t = translations[lang] || translations['it'];
+    function goToLanguageScreen() {
+      document.getElementById('screen-landing').classList.add('hidden');
+      document.getElementById('screen-main').classList.add('hidden');
+      document.getElementById('screen-language').classList.remove('hidden');
+    }
 
-      // Mappatura testi nelle sezioni
-      document.getElementById('txt-welcome-title').innerText = t.welcomeTitle;
-      document.getElementById('txt-welcome-body').innerText = t.welcomeBody;
-      document.getElementById('txt-btn-change-lang').innerText = t.changeLangBtn;
-
-      document.getElementById('txt-disclaimer-title').innerText = t.disclaimerTitle;
-      document.getElementById('txt-disclaimer-body').innerText = t.disclaimerBody;
-
-      document.getElementById('txt-wifi-title').innerText = t.wifiTitle;
-      document.getElementById('txt-wifi-name-lbl').innerText = t.wifiNameLbl;
-      document.getElementById('txt-wifi-pass-lbl').innerText = t.wifiPassLbl;
-      document.getElementById('txt-btn-copy').innerText = t.btnCopy;
-      document.getElementById('copy-feedback').innerText = t.copySuccess;
-
-      document.getElementById('txt-arrival-title').innerText = t.arrivalTitle;
-      document.getElementById('txt-arrival-body').innerText = t.arrivalBody;
-
-      document.getElementById('txt-checkin-title').innerText = t.checkinTitle;
-      document.getElementById('txt-checkin-body').innerText = t.checkinBody;
-
-      document.getElementById('txt-checkout-title').innerText = t.checkoutTitle;
-      document.getElementById('txt-checkout-body').innerText = t.checkoutBody;
-
-      document.getElementById('txt-rules-title').innerText = t.rulesTitle;
-      document.getElementById('txt-rules-body').innerText = t.rulesBody;
-
-      document.getElementById('txt-guide-title').innerText = t.guideTitle;
-      document.getElementById('txt-guide-body').innerText = t.guideBody;
-
-      document.getElementById('txt-transports-title').innerText = t.transportsTitle;
-      document.getElementById('txt-transports-body').innerText = t.transportsBody;
-
-      document.getElementById('txt-tips-title').innerText = t.tipsTitle;
-      document.getElementById('txt-tips-body').innerText = t.tipsBody;
-
-      document.getElementById('txt-emergency-title').innerText = t.emergencyTitle;
-      document.getElementById('txt-emergency-body').innerText = t.emergencyBody;
-
-      // Mappatura etichette menu in basso
-      document.getElementById('nav-welcome').innerText = t.navWelcome;
-      document.getElementById('nav-disclaimer').innerText = t.navDisclaimer;
-      document.getElementById('nav-wifi').innerText = t.navWifi;
-      document.getElementById('nav-arrival').innerText = t.navArrival;
-      document.getElementById('nav-checkin').innerText = t.navCheckin;
-      document.getElementById('nav-checkout').innerText = t.navCheckout;
-      document.getElementById('nav-rules').innerText = t.navRules;
-      document.getElementById('nav-guide').innerText = t.navGuide;
-      document.getElementById('nav-transports').innerText = t.navTransports;
-      document.getElementById('nav-tips').innerText = t.navTips;
-      document.getElementById('nav-emergency').innerText = t.navEmergency;
-
-      // Mostra schermata app e nasconde landing page
-      document.getElementById('language-screen').classList.add('hidden-screen');
-      document.getElementById('app-screen').classList.remove('hidden-screen');
+    function setLanguage(lang) {
+      const data = translations[lang] || translations['en'];
       
-      showTab('welcome');
-      window.scrollTo(0, 0);
+      document.getElementById('txt-welcome-title').innerText = data.welcomeTitle;
+      document.getElementById('txt-welcome-subtitle').innerText = data.welcomeSubtitle;
+      document.getElementById('txt-welcome-body').innerText = data.welcomeBody;
+      document.getElementById('txt-btn-change-lang').innerText = data.changeLangBtn;
 
-      // Dentro la funzione selectLanguage(lang):
-     
+      document.getElementById('screen-language').classList.add('hidden');
+      document.getElementById('screen-main').classList.remove('hidden');
     }
 
-    function showLanguageScreen() {
-      document.getElementById('app-screen').classList.add('hidden-screen');
-      document.getElementById('language-screen').classList.remove('hidden-screen');
-      window.scrollTo(0, 0);
-    }
-
-    function showTab(tabId) {
-      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
       document.getElementById(tabId).classList.add('active');
-      window.scrollTo(0, 0);
-    }
 
-    function copyPassword() {
-      const password = document.getElementById('wifi-pass').innerText;
-      navigator.clipboard.writeText(password).then(() => {
-        const feedback = document.getElementById('copy-feedback');
-        feedback.classList.remove('hidden');
-        setTimeout(() => feedback.classList.add('hidden'), 3000);
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('text-amber-600');
+        btn.classList.add('text-slate-400');
       });
+      event.currentTarget.classList.remove('text-slate-400');
+      event.currentTarget.classList.add('text-amber-600');
     }
-    
-
   </script>
 </body>
 </html>
