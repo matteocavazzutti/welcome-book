@@ -166,7 +166,10 @@
           </div>
           <h2 id="txt-checkin-title" class="text-xl font-bold text-slate-900"></h2>
         </div>
-        <p id="txt-checkin-body" class="text-sm text-slate-600 leading-relaxed"></p>
+
+        <div id="checkin-content-container">
+          <!-- Popolato dinamicamente da JavaScript -->
+        </div>
       </section>
 
       <!-- 6. CHECK-OUT -->
@@ -370,7 +373,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
         arrivalTitle: "How to Reach Us",
         
         checkinTitle: "Check-in",
-        checkinBody: "Check-in time: From 3:00 PM to 8:00 PM. For Self Check-in, enter your code on the keypad at the main door.",
         
         checkoutTitle: "Check-out",
         checkoutBody: "Check-out time: By 10:00 AM. Please leave the keys on the living room table and lock the front door.",
@@ -618,6 +620,57 @@ Should you need any help, contact us: we will be delighted to support you!`,
       }
     }
 
+    function renderCheckinSection(lang) {
+      const container = document.getElementById('checkin-content-container');
+
+      if (lang === 'en') {
+        container.innerHTML = `
+          <div class="space-y-4 text-left">
+            
+            <!-- CHECK-IN TIME & KEYBOX -->
+            <div class="p-4 bg-slate-50/80 border border-slate-100 rounded-xl space-y-1">
+              <div class="flex items-center gap-2 text-slate-900 font-bold text-sm">
+                <i class="fa-solid fa-clock text-emerald-600"></i>
+                <span>Check-in 3 pm - 8 pm</span>
+              </div>
+              <p class="text-xs text-slate-700 pt-1 leading-relaxed">
+                <strong>Check-in is available from 3 pm to 8 pm.</strong><br>
+                Should you need specific arrangement, please contact us.<br>
+                You will be assigned your personalised code for the keybox.
+              </p>
+            </div>
+
+            <!-- BRING YOUR ID -->
+            <div class="p-4 bg-slate-50/80 border border-slate-100 rounded-xl space-y-1">
+              <div class="flex items-center gap-2 text-slate-900 font-bold text-sm">
+                <i class="fa-solid fa-id-card text-emerald-600"></i>
+                <span>Bring your ID</span>
+              </div>
+              <p class="text-xs text-slate-700 pt-1 leading-relaxed">
+                <strong>You are requested to provide a valid identification for each guest included in the reservation.</strong><br>
+                This is a police authority requirement.
+              </p>
+            </div>
+
+            <!-- CHECK APARTMENT CONDITIONS -->
+            <div class="p-4 bg-slate-50/80 border border-slate-100 rounded-xl space-y-1">
+              <div class="flex items-center gap-2 text-slate-900 font-bold text-sm">
+                <i class="fa-solid fa-magnifying-glass text-emerald-600"></i>
+                <span>Check apartment conditions</span>
+              </div>
+              <p class="text-xs text-slate-700 pt-1 leading-relaxed">
+                <strong>Please notify us of any broken object / furniture</strong> quickly after your arrival. Failing to do so, may result in charges for those damages.
+              </p>
+            </div>
+
+          </div>
+        `;
+      } else {
+        const t = translations[lang] || translations['it'];
+        container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed">${t.checkinBody}</p>`;
+      }
+    }
+
     function selectLanguage(lang) {
       document.getElementById('current-lang-code').innerText = lang;
       const t = translations[lang] || translations['it'];
@@ -641,7 +694,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
       renderArrivalSection(lang);
 
       document.getElementById('txt-checkin-title').innerText = t.checkinTitle;
-      document.getElementById('txt-checkin-body').innerText = t.checkinBody;
+      renderCheckinSection(lang);
 
       document.getElementById('txt-checkout-title').innerText = t.checkoutTitle;
       document.getElementById('txt-checkout-body').innerText = t.checkoutBody;
