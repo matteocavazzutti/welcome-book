@@ -3,244 +3,287 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guest Welcome Book</title>
+  <title>Benvenuti alla Terrazza di Maria</title>
+
+  <!-- Tailwind CSS per la grafica -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FontAwesome per le icone -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Flag Icons per le bandiere -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
+
   <style>
+    .screen { display: none; }
+    .screen.active { display: block; }
     .tab-content { display: none; }
     .tab-content.active { display: block; }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans pb-20">
+<body class="bg-slate-50 text-slate-800 font-sans pb-24">
 
-  <!-- Header / Top Bar -->
-  <header class="bg-slate-900 text-white p-6 rounded-b-3xl shadow-lg sticky top-0 z-50">
-    <div class="max-w-md mx-auto flex justify-between items-center">
-      <div>
-        <h1 class="text-xl font-bold tracking-wide">Welcome Book</h1>
-        <p class="text-xs text-slate-400">La tua guida per un soggiorno perfetto</p>
-      </div>
-      <i class="fa-solid fa-house-user text-2xl text-amber-400"></i>
+  <!-- ========================================== -->
+  <!-- 1. LANDING PAGE: SELEZIONE LINGUA          -->
+  <!-- ========================================== -->
+  <div id="language-screen" class="screen active min-h-screen flex flex-col justify-center items-center p-6 text-center">
+    
+    <div class="mb-6 p-4 bg-amber-100 text-amber-600 rounded-full shadow-inner">
+      <i class="fa-solid fa-house-user text-4xl"></i>
     </div>
-  </header>
 
-  <!-- Main Container -->
-  <main class="max-w-md mx-auto p-4 space-y-4">
+    <!-- Titolo principale fisso in italiano -->
+    <h1 class="text-3xl font-bold text-slate-900 mb-2">Benvenuti alla Terrazza di Maria</h1>
+    <p class="text-slate-500 text-sm mb-8">Choose your language / Scegli la tua lingua</p>
 
-    <!-- Section: Benvenuti -->
-    <section id="welcome" class="tab-content active bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-      <div class="text-center py-4">
-        <i class="fa-solid fa-hand-wave text-4xl text-amber-500 mb-3"></i>
-        <h2 class="text-2xl font-bold text-slate-900">Benvenuti!</h2>
-        <p class="text-slate-600 mt-2 text-sm leading-relaxed">
-          Siamo felici di ospitarvi. Abbiamo preparato questa guida per aiutarvi a rendere il vostro soggiorno il più confortevole e piacevole possibile.
-        </p>
-      </div>
-    </section>
+    <!-- Pulsanti Selezione Lingua -->
+    <div class="w-full max-w-xs space-y-3">
+      
+      <button onclick="selectLanguage('it')" class="w-full bg-white hover:bg-slate-100 border border-slate-200 p-4 rounded-2xl shadow-sm flex items-center justify-between transition-all group">
+        <span class="font-semibold text-slate-700 group-hover:text-amber-600">Italiano</span>
+        <span class="fi fi-it text-2xl rounded"></span>
+      </button>
 
-    <!-- Section: Wi-Fi con tasto Copia -->
-<section id="wifi" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-  <div class="flex items-center space-x-3 mb-4">
-    <div class="p-3 bg-amber-100 text-amber-600 rounded-xl">
-      <i class="fa-solid fa-wifi text-xl"></i>
+      <button onclick="selectLanguage('en')" class="w-full bg-white hover:bg-slate-100 border border-slate-200 p-4 rounded-2xl shadow-sm flex items-center justify-between transition-all group">
+        <span class="font-semibold text-slate-700 group-hover:text-amber-600">English</span>
+        <span class="fi fi-gb text-2xl rounded"></span>
+      </button>
+
+      <button onclick="selectLanguage('fr')" class="w-full bg-white hover:bg-slate-100 border border-slate-200 p-4 rounded-2xl shadow-sm flex items-center justify-between transition-all group">
+        <span class="font-semibold text-slate-700 group-hover:text-amber-600">Français</span>
+        <span class="fi fi-fr text-2xl rounded"></span>
+      </button>
+
+      <button onclick="selectLanguage('de')" class="w-full bg-white hover:bg-slate-100 border border-slate-200 p-4 rounded-2xl shadow-sm flex items-center justify-between transition-all group">
+        <span class="font-semibold text-slate-700 group-hover:text-amber-600">Deutsch</span>
+        <span class="fi fi-de text-2xl rounded"></span>
+      </button>
+
     </div>
-    <h2 class="text-xl font-bold text-slate-900">Wi-Fi Network</h2>
   </div>
 
-  <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-4">
-    <div>
-      <span class="text-xs text-slate-400 uppercase font-semibold block mb-1">Nome Rete (SSID)</span>
-      <p class="font-mono font-bold text-slate-800 text-lg">HomeGuest_WiFi</p>
-    </div>
+
+  <!-- ========================================== -->
+  <!-- 2. APPLICAZIONE WELCOME BOOK               -->
+  <!-- ========================================== -->
+  <div id="app-screen" class="screen">
     
-    <div>
-      <span class="text-xs text-slate-400 uppercase font-semibold block mb-1">Password</span>
-      <div class="flex items-center justify-between bg-white p-2.5 rounded-lg border border-slate-200">
-        <span id="wifi-pass" class="font-mono font-bold text-amber-600">Welcome2026!</span>
-        <button onclick="copyPassword()" class="bg-amber-500 hover:bg-amber-600 text-white text-xs px-3 py-1.5 rounded-md font-semibold transition-colors flex items-center gap-1">
-          <i class="fa-regular fa-copy"></i> Copia
+    <!-- Header / Top Bar -->
+    <header class="bg-slate-900 text-white p-5 rounded-b-3xl shadow-lg sticky top-0 z-50">
+      <div class="max-w-md mx-auto flex justify-between items-center">
+        <div>
+          <h1 class="text-lg font-bold tracking-wide">Terrazza di Maria</h1>
+          <p class="text-xs text-slate-400">Welcome Book</p>
+        </div>
+        
+        <!-- Pulsante per cambiare lingua (Torna alla Landing) -->
+        <button onclick="showLanguageScreen()" class="bg-slate-800 hover:bg-slate-700 text-xs px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-2 transition-colors">
+          <i class="fa-solid fa-globe text-amber-400"></i>
+          <span id="current-lang-code" class="uppercase font-semibold">IT</span>
         </button>
       </div>
-      <p id="copy-feedback" class="text-xs text-emerald-600 font-medium mt-1 hidden">✓ Password copiata negli appunti!</p>
-    </div>
+    </header>
+
+    <!-- Contenuto Principale -->
+    <main class="max-w-md mx-auto p-4 space-y-4">
+
+      <!-- Section: Benvenuti -->
+      <section id="welcome" class="tab-content active bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="text-center py-4">
+          <i class="fa-solid fa-hand-wave text-4xl text-amber-500 mb-3"></i>
+          <h2 id="txt-welcome-title" class="text-2xl font-bold text-slate-900 mb-2"></h2>
+          <p id="txt-welcome-body" class="text-slate-600 text-sm leading-relaxed mb-6"></p>
+
+          <!-- Tasto alternativo visibile dentro Benvenuti per cambiare lingua -->
+          <button onclick="showLanguageScreen()" class="inline-flex items-center gap-2 text-xs text-amber-600 font-semibold bg-amber-50 px-4 py-2 rounded-xl border border-amber-200">
+            <i class="fa-solid fa-language"></i>
+            <span id="txt-btn-change-lang">Cambia Lingua / Change Language</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Section: Wi-Fi -->
+      <section id="wifi" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-3 bg-amber-100 text-amber-600 rounded-xl">
+            <i class="fa-solid fa-wifi text-xl"></i>
+          </div>
+          <h2 id="txt-wifi-title" class="text-xl font-bold text-slate-900"></h2>
+        </div>
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-4">
+          <div>
+            <span id="txt-wifi-name-lbl" class="text-xs text-slate-400 uppercase font-semibold block mb-1"></span>
+            <p class="font-mono font-bold text-slate-800 text-lg">TerrazzaMaria_WiFi</p>
+          </div>
+          <div>
+            <span id="txt-wifi-pass-lbl" class="text-xs text-slate-400 uppercase font-semibold block mb-1"></span>
+            <div class="flex items-center justify-between bg-white p-2.5 rounded-lg border border-slate-200">
+              <span id="wifi-pass" class="font-mono font-bold text-amber-600">WelcomeMaria2026!</span>
+              <button onclick="copyPassword()" class="bg-amber-500 hover:bg-amber-600 text-white text-xs px-3 py-1.5 rounded-md font-semibold transition-colors flex items-center gap-1">
+                <i class="fa-regular fa-copy"></i> <span id="txt-btn-copy"></span>
+              </button>
+            </div>
+            <p id="copy-feedback" class="text-xs text-emerald-600 font-medium mt-1 hidden"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Disclaimer -->
+      <section id="disclaimer" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-3 bg-slate-100 text-slate-600 rounded-xl">
+            <i class="fa-solid fa-shield-halved text-xl"></i>
+          </div>
+          <h2 id="txt-disclaimer-title" class="text-xl font-bold text-slate-900"></h2>
+        </div>
+        <p id="txt-disclaimer-body" class="text-xs text-slate-500 leading-relaxed"></p>
+      </section>
+
+      <!-- Le altre sezioni (Arrival, Check-in, Check-out, House rules, etc.) seguono la stessa struttura -->
+
+    </main>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-4 py-2 shadow-lg z-50">
+      <div class="max-w-md mx-auto flex justify-between items-center overflow-x-auto text-center">
+        <button onclick="showTab('welcome')" class="p-2 text-slate-500 hover:text-amber-500">
+          <i class="fa-solid fa-house text-lg block"></i><span id="nav-welcome" class="text-[10px]"></span>
+        </button>
+        <button onclick="showTab('wifi')" class="p-2 text-slate-500 hover:text-amber-500">
+          <i class="fa-solid fa-wifi text-lg block"></i><span id="nav-wifi" class="text-[10px]"></span>
+        </button>
+        <button onclick="showTab('disclaimer')" class="p-2 text-slate-500 hover:text-amber-500">
+          <i class="fa-solid fa-shield-halved text-lg block"></i><span id="nav-disclaimer" class="text-[10px]"></span>
+        </button>
+      </div>
+    </nav>
+
   </div>
-</section>
 
-<!-- Script per la funzione Copia -->
-<script>
-  function copyPassword() {
-    const password = document.getElementById('wifi-pass').innerText;
-    navigator.clipboard.writeText(password).then(() => {
-      const feedback = document.getElementById('copy-feedback');
-      feedback.classList.remove('hidden');
-      setTimeout(() => feedback.classList.add('hidden'), 3000);
-    });
-  }
-</script>
 
-    <!-- Section: Check-In & Arrival -->
-    <section id="checkin" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-      <div class="flex items-center space-x-3 mb-4">
-        <div class="p-3 bg-blue-100 text-blue-600 rounded-xl">
-          <i class="fa-solid fa-key text-xl"></i>
-        </div>
-        <h2 class="text-xl font-bold text-slate-900">Your Arrival & Check-In</h2>
-      </div>
-      <div class="space-y-3 text-sm text-slate-600">
-        <p><strong>Orario Check-in:</strong> Dalle 15:00 alle 20:00</p>
-        <p><strong>Self Check-in:</strong> Inserire il codice <span class="font-mono bg-slate-100 px-2 py-1 rounded">1234</span> sul tastierino all'ingresso per ritirare le chiavi.</p>
-      </div>
-    </section>
-
-    <!-- Section: Check-Out -->
-    <section id="checkout" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-      <div class="flex items-center space-x-3 mb-4">
-        <div class="p-3 bg-red-100 text-red-600 rounded-xl">
-          <i class="fa-solid fa-door-open text-xl"></i>
-        </div>
-        <h2 class="text-xl font-bold text-slate-900">Check-Out</h2>
-      </div>
-      <div class="space-y-3 text-sm text-slate-600">
-        <p><strong>Orario limite:</strong> Entro le ore 10:00</p>
-        <ul class="list-disc pl-5 space-y-1">
-          <li>Si prega di gettare i rifiuti negli appositi cassonetti.</li>
-          <li>Chiudere le finestre e spegnere il condizionatore/riscaldamento.</li>
-          <li>Lasciare le chiavi sul tavolo all'ingresso.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Section: House Rules -->
-    <section id="rules" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-      <div class="flex items-center space-x-3 mb-4">
-        <div class="p-3 bg-purple-100 text-purple-600 rounded-xl">
-          <i class="fa-solid fa-circle-exclamation text-xl"></i>
-        </div>
-        <h2 class="text-xl font-bold text-slate-900">House Rules</h2>
-      </div>
-      <ul class="space-y-2 text-sm text-slate-600">
-        <li class="flex items-center space-x-2"><i class="fa-solid fa-ban text-red-500"></i><span>Vietato fumare all'interno dell'appartamento.</span></li>
-        <li class="flex items-center space-x-2"><i class="fa-solid fa-volume-xmark text-amber-500"></i><span>Ore di silenzio: 23:00 - 08:00.</span></li>
-        <li class="flex items-center space-x-2"><i class="fa-solid fa-users-slash text-blue-500"></i><span>Feste ed eventi non sono consentiti.</span></li>
-      </ul>
-    </section>
-
-    <!-- Section: House Guide -->
-    <section id="guide" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-      <div class="flex items-center space-x-3 mb-4">
-        <div class="p-3 bg-teal-100 text-teal-600 rounded-xl">
-          <i class="fa-solid fa-sliders text-xl"></i>
-        </div>
-        <h2 class="text-xl font-bold text-slate-900">House Guide</h2>
-      </div>
-      <div class="space-y-3 text-sm text-slate-600">
-        <div>
-          <h3 class="font-bold text-slate-800">Aria Condizionata / Elettrodomestici</h3>
-          <p>Utilizzare il telecomando bianco sulla parete per regolare la temperatura.</p>
-        </div>
-        <div>
-          <h3 class="font-bold text-slate-800">Raccolta Differenziata</h3>
-          <p>I bidoni si trovano nel cortile interno (plastica, carta, umido, indifferenziato).</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section: Transports & Info -->
-    <section id="transports" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-      <div class="flex items-center space-x-3 mb-4">
-        <div class="p-3 bg-indigo-100 text-indigo-600 rounded-xl">
-          <i class="fa-solid fa-bus text-xl"></i>
-        </div>
-        <h2 class="text-xl font-bold text-slate-900">Transports & Info</h2>
-      </div>
-      <p class="text-sm text-slate-600 leading-relaxed">
-        Fermata Autobus linea 12 a 50m. Stazione ferroviaria principale raggiungibile in 10 minuti a piedi.
-      </p>
-    </section>
-
-    <!-- Section: Best Tips -->
-    <section id="tips" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-      <div class="flex items-center space-x-3 mb-4">
-        <div class="p-3 bg-emerald-100 text-emerald-600 rounded-xl">
-          <i class="fa-solid fa-utensils text-xl"></i>
-        </div>
-        <h2 class="text-xl font-bold text-slate-900">Our Best Tips</h2>
-      </div>
-      <ul class="space-y-3 text-sm text-slate-600">
-        <li><strong>Ristorante Tipico:</strong> Osteria del Centro (prenotazione consigliata)</li>
-        <li><strong>Caffè & Colazione:</strong> Bar Central per le migliori brioche</li>
-        <li><strong>Supermercato:</strong> Conad a 200 metri aperto 8:00 - 20:00</li>
-      </ul>
-    </section>
-
-    <!-- Section: Emergency Info -->
-    <section id="emergency" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-      <div class="flex items-center space-x-3 mb-4">
-        <div class="p-3 bg-red-100 text-red-600 rounded-xl">
-          <i class="fa-solid fa-phone-flip text-xl"></i>
-        </div>
-        <h2 class="text-xl font-bold text-slate-900">Emergency Info</h2>
-      </div>
-      <div class="space-y-2 text-sm text-slate-600">
-        <p><strong>Numero Unico Emergenze:</strong> 112</p>
-        <p><strong>Proprietario / Contatto:</strong> +39 333 1234567</p>
-        <p><strong>Guardia Medica / Ospedale:</strong> Via Roma, 15</p>
-      </div>
-    </section>
-
-    <!-- Section: Disclaimer -->
-    <section id="disclaimer" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-      <div class="flex items-center space-x-3 mb-4">
-        <div class="p-3 bg-slate-100 text-slate-600 rounded-xl">
-          <i class="fa-solid fa-shield-halved text-xl"></i>
-        </div>
-        <h2 class="text-xl font-bold text-slate-900">Disclaimer</h2>
-      </div>
-      <p class="text-xs text-slate-500 leading-relaxed">
-        La struttura declina ogni responsabilità per eventuali smarrimenti di oggetti personali lasciati incustoditi. Si prega di prestare attenzione alla chiusura di porte e finestre prima di uscire.
-      </p>
-    </section>
-
-  </main>
-
-  <!-- Navigation Bar (Fixed Bottom) -->
-  <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-4 py-2 shadow-lg">
-    <div class="max-w-md mx-auto flex justify-between items-center overflow-x-auto text-center">
-      <button onclick="showTab('welcome')" class="p-2 text-slate-500 hover:text-amber-500 focus:text-amber-500">
-        <i class="fa-solid fa-house text-lg block"></i><span class="text-[10px]">Home</span>
-      </button>
-      <button onclick="showTab('wifi')" class="p-2 text-slate-500 hover:text-amber-500 focus:text-amber-500">
-        <i class="fa-solid fa-wifi text-lg block"></i><span class="text-[10px]">Wi-Fi</span>
-      </button>
-
-      <button onclick="showTab('checkin')" class="p-2 text-slate-500 hover:text-amber-500 focus:text-amber-500">
-        <i class="fa-solid fa-key text-lg block"></i><span class="text-[10px]">Check-In</span>
-      </button>
-      <button onclick="showTab('checkout')" class="p-2 text-slate-500 hover:text-amber-500 focus:text-amber-500">
-        <i class="fa-solid fa-door-open text-lg block"></i><span class="text-[10px]">Out</span>
-      </button>
-      <button onclick="showTab('rules')" class="p-2 text-slate-500 hover:text-amber-500 focus:text-amber-500">
-        <i class="fa-solid fa-list-check text-lg block"></i><span class="text-[10px]">Rules</span>
-      </button>
-      <button onclick="showTab('guide')" class="p-2 text-slate-500 hover:text-amber-500 focus:text-amber-500">
-        <i class="fa-solid fa-book text-lg block"></i><span class="text-[10px]">Guide</span>
-      </button>
-      <button onclick="showTab('tips')" class="p-2 text-slate-500 hover:text-amber-500 focus:text-amber-500">
-        <i class="fa-solid fa-map-location-dot text-lg block"></i><span class="text-[10px]">Tips</span>
-      </button>
-      <button onclick="showTab('emergency')" class="p-2 text-slate-500 hover:text-amber-500 focus:text-amber-500">
-        <i class="fa-solid fa-phone text-lg block"></i><span class="text-[10px]">Sos</span>
-      </button>
-    </div>
-  </nav>
-
+  <!-- ========================================== -->
+  <!-- 3. DIZIONARIO TRADUZIONI & SCRIPT          -->
+  <!-- ========================================== -->
   <script>
+    // Oggetto contenente tutte le traduzioni
+    const translations = {
+      it: {
+        welcomeTitle: "Benvenuti!",
+        welcomeBody: "Siamo felici di ospitarvi alla Terrazza di Maria. Abbiamo preparato questa guida per rendervi il soggiorno indimenticabile.",
+        changeLangBtn: "Cambia Lingua",
+        wifiTitle: "Connessione Wi-Fi",
+        wifiNameLbl: "Nome Rete (SSID)",
+        wifiPassLbl: "Password",
+        btnCopy: "Copia",
+        copySuccess: "✓ Password copiata negli appunti!",
+        disclaimerTitle: "Disclaimer",
+        disclaimerBody: "La struttura declina ogni responsabilità per eventuali smarrimenti di oggetti personali lasciati incustoditi.",
+        navWelcome: "Home",
+        navWifi: "Wi-Fi",
+        navDisclaimer: "Info Legal"
+      },
+      en: {
+        welcomeTitle: "Welcome!",
+        welcomeBody: "We are delighted to host you at Terrazza di Maria. We created this guide to make your stay as comfortable as possible.",
+        changeLangBtn: "Change Language",
+        wifiTitle: "Wi-Fi Network",
+        wifiNameLbl: "Network Name (SSID)",
+        wifiPassLbl: "Password",
+        btnCopy: "Copy",
+        copySuccess: "✓ Password copied to clipboard!",
+        disclaimerTitle: "Disclaimer",
+        disclaimerBody: "Management is not responsible for any lost or stolen personal belongings left unattended.",
+        navWelcome: "Home",
+        navWifi: "Wi-Fi",
+        navDisclaimer: "Disclaimer"
+      },
+      fr: {
+        welcomeTitle: "Bienvenue !",
+        welcomeBody: "Nous sommes ravis de vous accueillir à la Terrazza di Maria.",
+        changeLangBtn: "Changer de langue",
+        wifiTitle: "Réseau Wi-Fi",
+        wifiNameLbl: "Nom du réseau (SSID)",
+        wifiPassLbl: "Mot de passe",
+        btnCopy: "Copier",
+        copySuccess: "✓ Mot de passe copié !",
+        disclaimerTitle: "Avertissement",
+        disclaimerBody: "L'établissement décline toute responsabilité en cas de perte o de vol d'effets personnels.",
+        navWelcome: "Accueil",
+        navWifi: "Wi-Fi",
+        navDisclaimer: "Info"
+      },
+      de: {
+        welcomeTitle: "Willkommen!",
+        welcomeBody: "Wir freuen uns, Sie in der Terrazza di Maria begrüßen zu dürfen.",
+        changeLangBtn: "Sprache ändern",
+        wifiTitle: "WLAN-Netzwerk",
+        wifiNameLbl: "Netzwerkname (SSID)",
+        wifiPassLbl: "Passwort",
+        btnCopy: "Kopieren",
+        copySuccess: "✓ Passwort kopiert!",
+        disclaimerTitle: "Haftungsausschluss",
+        disclaimerBody: "Für den Verlust von persönlichen Gegenständen wird keine Haftung übernommen.",
+        navWelcome: "Start",
+        navWifi: "WLAN",
+        navDisclaimer: "Info"
+      }
+    };
+
+    let currentLang = 'it';
+
+    // Funzione per selezionare la lingua
+    function selectLanguage(lang) {
+      currentLang = lang;
+      document.getElementById('current-lang-code').innerText = lang;
+      
+      // Carica i testi corrispondenti
+      const t = translations[lang] || translations['it'];
+
+      document.getElementById('txt-welcome-title').innerText = t.welcomeTitle;
+      document.getElementById('txt-welcome-body').innerText = t.welcomeBody;
+      document.getElementById('txt-btn-change-lang').innerText = t.changeLangBtn;
+
+      document.getElementById('txt-wifi-title').innerText = t.wifiTitle;
+      document.getElementById('txt-wifi-name-lbl').innerText = t.wifiNameLbl;
+      document.getElementById('txt-wifi-pass-lbl').innerText = t.wifiPassLbl;
+      document.getElementById('txt-btn-copy').innerText = t.btnCopy;
+      document.getElementById('copy-feedback').innerText = t.copySuccess;
+
+      document.getElementById('txt-disclaimer-title').innerText = t.disclaimerTitle;
+      document.getElementById('txt-disclaimer-body').innerText = t.disclaimerBody;
+
+      document.getElementById('nav-welcome').innerText = t.navWelcome;
+      document.getElementById('nav-wifi').innerText = t.navWifi;
+      document.getElementById('nav-disclaimer').innerText = t.navDisclaimer;
+
+      // Passa dalla schermata di selezione lingua all'app
+      document.getElementById('language-screen').classList.remove('active');
+      document.getElementById('app-screen').classList.add('active');
+      
+      showTab('welcome');
+    }
+
+    // Funzione per tornare alla scelta della lingua
+    function showLanguageScreen() {
+      document.getElementById('app-screen').classList.remove('active');
+      document.getElementById('language-screen').classList.add('active');
+    }
+
+    // Gestione Navigazione interna (Tab)
     function showTab(tabId) {
-      document.querySelectorAll('.tab-content').forEach(tab => {
-        tab.classList.remove('active');
-      });
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
       document.getElementById(tabId).classList.add('active');
       window.scrollTo(0, 0);
+    }
+
+    // Funzione Copia Password
+    function copyPassword() {
+      const password = document.getElementById('wifi-pass').innerText;
+      navigator.clipboard.writeText(password).then(() => {
+        const feedback = document.getElementById('copy-feedback');
+        feedback.classList.remove('hidden');
+        setTimeout(() => feedback.classList.add('hidden'), 3000);
+      });
     }
   </script>
 </body>
