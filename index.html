@@ -38,25 +38,45 @@
       </div>
     </section>
 
-    <!-- Section: Wi-Fi -->
-    <section id="wifi" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-      <div class="flex items-center space-x-3 mb-4">
-        <div class="p-3 bg-amber-100 text-amber-600 rounded-xl">
-          <i class="fa-solid fa-wifi text-xl"></i>
-        </div>
-        <h2 class="text-xl font-bold text-slate-900">Wi-Fi Network</h2>
+    <!-- Section: Wi-Fi con tasto Copia -->
+<section id="wifi" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+  <div class="flex items-center space-x-3 mb-4">
+    <div class="p-3 bg-amber-100 text-amber-600 rounded-xl">
+      <i class="fa-solid fa-wifi text-xl"></i>
+    </div>
+    <h2 class="text-xl font-bold text-slate-900">Wi-Fi Network</h2>
+  </div>
+
+  <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-4">
+    <div>
+      <span class="text-xs text-slate-400 uppercase font-semibold block mb-1">Nome Rete (SSID)</span>
+      <p class="font-mono font-bold text-slate-800 text-lg">HomeGuest_WiFi</p>
+    </div>
+    
+    <div>
+      <span class="text-xs text-slate-400 uppercase font-semibold block mb-1">Password</span>
+      <div class="flex items-center justify-between bg-white p-2.5 rounded-lg border border-slate-200">
+        <span id="wifi-pass" class="font-mono font-bold text-amber-600">Welcome2026!</span>
+        <button onclick="copyPassword()" class="bg-amber-500 hover:bg-amber-600 text-white text-xs px-3 py-1.5 rounded-md font-semibold transition-colors flex items-center gap-1">
+          <i class="fa-regular fa-copy"></i> Copia
+        </button>
       </div>
-      <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
-        <div>
-          <span class="text-xs text-slate-400 uppercase font-semibold">Nome Rete (SSID)</span>
-          <p class="font-mono font-bold text-slate-800">HomeGuest_WiFi</p>
-        </div>
-        <div>
-          <span class="text-xs text-slate-400 uppercase font-semibold">Password</span>
-          <p class="font-mono font-bold text-amber-600">Welcome2026!</p>
-        </div>
-      </div>
-    </section>
+      <p id="copy-feedback" class="text-xs text-emerald-600 font-medium mt-1 hidden">✓ Password copiata negli appunti!</p>
+    </div>
+  </div>
+</section>
+
+<!-- Script per la funzione Copia -->
+<script>
+  function copyPassword() {
+    const password = document.getElementById('wifi-pass').innerText;
+    navigator.clipboard.writeText(password).then(() => {
+      const feedback = document.getElementById('copy-feedback');
+      feedback.classList.remove('hidden');
+      setTimeout(() => feedback.classList.add('hidden'), 3000);
+    });
+  }
+</script>
 
     <!-- Section: Check-In & Arrival -->
     <section id="checkin" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
