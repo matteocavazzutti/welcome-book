@@ -31,8 +31,8 @@
   <div id="language-screen" class="min-h-screen flex flex-col justify-center items-center p-6 text-center bg-slate-50">
     
     <div class="mb-6 w-64 h-32 rounded-2xl overflow-hidden shadow-md border-4 border-white">
-  <img src="1.t00gemR.png" alt="Terrazza di Maria" class="w-full h-full object-cover">
-</div>
+      <img src="1.t00gemR.png" alt="Terrazza di Maria" class="w-full h-full object-cover">
+    </div>
 
     <!-- Titolo fisso in Italiano -->
     <h1 class="text-3xl font-bold text-slate-900 mb-2">Benvenuti alla Terrazza di Maria</h1>
@@ -88,27 +88,24 @@
     <main class="max-w-md mx-auto p-4 space-y-4">
 
       <!-- 1. BEN VENUTI -->
-     <section id="welcome" class="tab-content active bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-  <div class="text-center py-2 space-y-4">
-    <i class="fa-solid fa-hand-wave text-4xl text-amber-500 mb-2"></i>
-    
-    <!-- Titolo principale con stile arancione corsivo come da immagine -->
-    <h2 id="txt-welcome-title" class="text-3xl font-bold text-amber-600 italic tracking-wide font-serif"></h2>
-    
-    <!-- Sottotitolo in grassetto -->
-    <p id="txt-welcome-subtitle" class="text-slate-900 font-bold text-base leading-snug px-2"></p>
-    
-    <!-- Paragrafi del testo normale (con spaziatura) -->
-    <div id="txt-welcome-body" class="text-slate-600 text-sm leading-relaxed whitespace-pre-line text-left pt-2 space-y-3"></div>
+      <section id="welcome" class="tab-content active bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="text-center py-2 space-y-4">
+          <i class="fa-solid fa-hand-wave text-4xl text-amber-500 mb-2"></i>
+          
+          <h2 id="txt-welcome-title" class="text-3xl font-bold text-amber-600 italic tracking-wide font-serif"></h2>
+          
+          <p id="txt-welcome-subtitle" class="text-slate-900 font-bold text-base leading-snug px-2"></p>
+          
+          <div id="txt-welcome-body" class="text-slate-600 text-sm leading-relaxed whitespace-pre-line text-left pt-2 space-y-3"></div>
 
-    <div class="pt-4 text-center">
-      <button onclick="showLanguageScreen()" class="inline-flex items-center gap-2 text-xs text-amber-600 font-semibold bg-amber-50 px-4 py-2 rounded-xl border border-amber-200">
-        <i class="fa-solid fa-language"></i>
-        <span id="txt-btn-change-lang"></span>
-      </button>
-    </div>
-  </div>
-</section>
+          <div class="pt-4 text-center">
+            <button onclick="showLanguageScreen()" class="inline-flex items-center gap-2 text-xs text-amber-600 font-semibold bg-amber-50 px-4 py-2 rounded-xl border border-amber-200">
+              <i class="fa-solid fa-language"></i>
+              <span id="txt-btn-change-lang"></span>
+            </button>
+          </div>
+        </div>
+      </section>
 
       <!-- 2. DISCLAIMER -->
       <section id="disclaimer" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
@@ -148,25 +145,18 @@
       </section>
 
       <!-- 4. YOUR ARRIVAL -->
-     <section id="arrival" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-  <div class="flex items-center space-x-3 mb-4">
-    <div class="p-3 bg-blue-100 text-blue-600 rounded-xl">
-      <i class="fa-solid fa-map-location-dot text-xl"></i>
-    </div>
-    <h2 id="txt-arrival-title" class="text-xl font-bold text-slate-900"></h2>
-  </div>
-  
-  <p id="txt-arrival-body" class="text-sm text-slate-600 leading-relaxed mb-4"></p>
-
-  <!-- Pulsante Diretto a Trenitalia (Opzione A) -->
-  <div id="arrival-ticket-container" class="pt-2">
-    <a href="https://www.trenitalia.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-700 text-white font-semibold text-sm py-3 px-4 rounded-xl shadow-sm transition-colors">
-      <i class="fa-solid fa-train"></i>
-      <span>official ticket here (Trenitalia)</span>
-      <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-80"></i>
-    </a>
-  </div>
-</section>
+      <section id="arrival" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-3 bg-blue-100 text-blue-600 rounded-xl">
+            <i class="fa-solid fa-map-location-dot text-xl"></i>
+          </div>
+          <h2 id="txt-arrival-title" class="text-xl font-bold text-slate-900"></h2>
+        </div>
+        
+        <div id="arrival-content-container">
+          <!-- Popolato dinamicamente da JavaScript -->
+        </div>
+      </section>
 
       <!-- 5. CHECK-IN -->
       <section id="checkin" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
@@ -321,7 +311,7 @@
         copySuccess: "✓ Password copiata!",
         
         arrivalTitle: "Il tuo Arrivo",
-        arrivalBody: "Indirizzo: Via della Terrazza 12. Se arrivi in auto trovi parcheggio lungo la via o al garage convenzionato a 100m.",
+        arrivalBody: "Indirizzo: Via Sebastiano Ziani, 47, Roma. Se arrivi in auto trovi parcheggio lungo la via o al garage convenzionato a 100m.",
         
         checkinTitle: "Check-in",
         checkinBody: "Orario Check-in: Dalle 15:00 alle 20:00. Per il Self Check-in inserisci il codice sulla tastiera all'ingresso principale.",
@@ -357,9 +347,9 @@
         navEmergency: "Sos"
       },
       en: {
-       welcomeTitle: "Welcome to Maria’s Terrace !",
-  welcomeSubtitle: "Thank you very much for choosing our apartment for your stay in Rome!",
-  welcomeBody: `We are an Italian/French family who loves travelling. We furnished, decorated and equipped this apartment with the purpose of making your stay experience unforgettable!
+        welcomeTitle: "Welcome to Maria’s Terrace !",
+        welcomeSubtitle: "Thank you very much for choosing our apartment for your stay in Rome!",
+        welcomeBody: `We are an Italian/French family who loves travelling. We furnished, decorated and equipped this apartment with the purpose of making your stay experience unforgettable!
 
 In this book you will find important information about the apartment, safety and rules. Please take the time to review it.
 
@@ -377,8 +367,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         btnCopy: "Copy",
         copySuccess: "✓ Password copied!",
         
-        arrivalTitle: "Your Arrival",
-        arrivalBody: "Address: Via della Terrazza 12. Parking is available along the street or at the partner garage 100m away.",
+        arrivalTitle: "How to Reach Us",
         
         checkinTitle: "Check-in",
         checkinBody: "Check-in time: From 3:00 PM to 8:00 PM. For Self Check-in, enter your code on the keypad at the main door.",
@@ -428,7 +417,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         copySuccess: "✓ Mot de passe copié !",
         
         arrivalTitle: "Votre Arrivée",
-        arrivalBody: "Adresse: Via della Terrazza 12. Stationnement disponible dans la rue ou dans le garage partenaire.",
+        arrivalBody: "Adresse: Via Sebastiano Ziani, 47, Roma. Stationnement disponible dans la rue ou dans le garage partenaire.",
         
         checkinTitle: "Check-in",
         checkinBody: "Arrivée : de 15h00 à 20h00. Pour le Self Check-in, entrez votre code sur le clavier de la porte principale.",
@@ -478,7 +467,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         copySuccess: "✓ Passwort kopiert!",
         
         arrivalTitle: "Ihre Anreise",
-        arrivalBody: "Adresse: Via della Terrazza 12. Parkplätze finden Sie in der Straße oder in der Garage in 100m Entfernung.",
+        arrivalBody: "Adresse: Via Sebastiano Ziani, 47, Roma. Parkplätze finden Sie in der Straße oder in der Garage in 100m Entfernung.",
         
         checkinTitle: "Check-in",
         checkinBody: "Check-in Zeit: 15:00 bis 20:00 Uhr. Für den Self Check-in geben Sie den Code am Eingang ein.",
@@ -515,12 +504,127 @@ Should you need any help, contact us: we will be delighted to support you!`,
       }
     };
 
+    function renderArrivalSection(lang) {
+      const container = document.getElementById('arrival-content-container');
+      
+      if (lang === 'en') {
+        container.innerHTML = `
+          <div class="space-y-6 text-left">
+            <!-- BOX INDIRIZZO & SELF CHECK-IN -->
+            <div class="bg-amber-50/60 border border-amber-200/60 rounded-xl p-4 space-y-3">
+              <div class="flex items-start gap-2">
+                <i class="fa-solid fa-location-dot text-amber-600 text-lg mt-0.5"></i>
+                <div>
+                  <span class="text-xs font-semibold text-amber-700 uppercase tracking-wider">Address</span>
+                  <p class="text-base font-bold text-slate-900">Via Sebastiano Ziani, 47, Rome</p>
+                </div>
+              </div>
+
+              <div class="pt-2 border-t border-amber-200/50">
+                <h3 class="text-sm font-bold text-slate-800 mb-2 flex items-center gap-2">
+                  <i class="fa-solid fa-key text-amber-600"></i> Self Check-in Instructions
+                </h3>
+                <ol class="text-xs text-slate-700 space-y-2 list-decimal list-inside pl-1">
+                  <li><strong>Gate:</strong> Intercom #22 on the right of the gate. The property manager will open.</li>
+                  <li><strong>Elevator:</strong> Go to the right, take the elevator to the 7th floor.</li>
+                  <li><strong>Stairs:</strong> Walk up one more floor to reach the top (8th floor).</li>
+                  <li><strong>Keybox:</strong> On the landing, keybox is in the middle. Type your custom code.</li>
+                  <li><strong>Entrance:</strong> The apartment is the door on the left.</li>
+                </ol>
+              </div>
+            </div>
+
+            <!-- FIUMICINO AIRPORT -->
+            <div class="border border-slate-100 rounded-xl p-4 bg-slate-50/50 space-y-3">
+              <div class="flex items-center gap-2 text-slate-800 font-bold border-b border-slate-200/60 pb-2">
+                <i class="fa-solid fa-plane-departure text-blue-600"></i>
+                <span>From Fiumicino Airport (FCO)</span>
+              </div>
+
+              <div class="bg-white p-3 rounded-lg border border-slate-100 space-y-1 text-xs">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-slate-800">⚡ Fastest & Comfortable</span>
+                  <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono text-[11px]">30-45 min</span>
+                </div>
+                <p class="text-slate-600"><strong>Taxi (Official only):</strong> €50 - €60 <span class="text-slate-400">(Max €80 by regulation)</span></p>
+                <p class="text-slate-600"><strong>Private Shuttle:</strong> Car €65 | Van €70</p>
+              </div>
+
+              <div class="bg-white p-3 rounded-lg border border-slate-100 space-y-1 text-xs">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-slate-800">💡 The Cheapest</span>
+                  <span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold font-mono text-[11px]">60-70 min | €16</span>
+                </div>
+                <p class="text-slate-600">Train + Metro (Trains leave every 15 minutes)</p>
+              </div>
+            </div>
+
+            <!-- CIAMPINO AIRPORT -->
+            <div class="border border-slate-100 rounded-xl p-4 bg-slate-50/50 space-y-3">
+              <div class="flex items-center gap-2 text-slate-800 font-bold border-b border-slate-200/60 pb-2">
+                <i class="fa-solid fa-plane-departure text-blue-600"></i>
+                <span>From Ciampino Airport (CIA)</span>
+              </div>
+
+              <div class="bg-white p-3 rounded-lg border border-slate-100 space-y-1 text-xs">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-slate-800">⚡ Fastest & Comfortable</span>
+                  <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono text-[11px]">30-45 min</span>
+                </div>
+                <p class="text-slate-600"><strong>Taxi (Official only):</strong> €50 - €60 <span class="text-slate-400">(Max €80 by regulation)</span></p>
+                <p class="text-slate-600"><strong>Private Shuttle:</strong> Car €65 | Van €70</p>
+              </div>
+
+              <div class="bg-white p-3 rounded-lg border border-slate-100 space-y-1 text-xs">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-slate-800">💡 Cheapest</span>
+                  <span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold font-mono text-[11px]">60-70 min | €16</span>
+                </div>
+                <ol class="text-slate-600 space-y-1 list-decimal list-inside">
+                  <li>Train "Leonardo" to <strong>Stazione Termini</strong></li>
+                  <li>Metro line "A" (direction "Battistini"), stop at <strong>"Cipro"</strong></li>
+                </ol>
+              </div>
+            </div>
+
+            <!-- STAZIONE TERMINI -->
+            <div class="border border-slate-100 rounded-xl p-4 bg-slate-50/50 space-y-3">
+              <div class="flex items-center gap-2 text-slate-800 font-bold border-b border-slate-200/60 pb-2">
+                <i class="fa-solid fa-train text-amber-600"></i>
+                <span>From Stazione Termini</span>
+              </div>
+
+              <div class="bg-white p-3 rounded-lg border border-slate-100 space-y-1 text-xs">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-slate-800">⚡ Fastest & Cheapest</span>
+                  <span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold font-mono text-[11px]">20 min | €2</span>
+                </div>
+                <p class="text-slate-600">Take <strong>Metro line "A"</strong> (direction "Battistini") and stop at <strong>"Cipro"</strong>.</p>
+              </div>
+
+              <div class="bg-white p-3 rounded-lg border border-slate-100 space-y-1 text-xs">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-slate-800">🚕 Comfortable</span>
+                  <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono text-[11px]">15-30 min</span>
+                </div>
+                <p class="text-slate-600"><strong>Taxi (Official only):</strong> €15 - €20 <span class="text-slate-400">(Max €80 by regulation)</span></p>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        const t = translations[lang] || translations['it'];
+        container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed">${t.arrivalBody}</p>`;
+      }
+    }
+
     function selectLanguage(lang) {
       document.getElementById('current-lang-code').innerText = lang;
       const t = translations[lang] || translations['it'];
 
       // Mappatura testi nelle sezioni
       document.getElementById('txt-welcome-title').innerText = t.welcomeTitle;
+      document.getElementById('txt-welcome-subtitle').innerText = t.welcomeSubtitle || '';
       document.getElementById('txt-welcome-body').innerText = t.welcomeBody;
       document.getElementById('txt-btn-change-lang').innerText = t.changeLangBtn;
 
@@ -534,7 +638,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
       document.getElementById('copy-feedback').innerText = t.copySuccess;
 
       document.getElementById('txt-arrival-title').innerText = t.arrivalTitle;
-      document.getElementById('txt-arrival-body').innerText = t.arrivalBody;
+      renderArrivalSection(lang);
 
       document.getElementById('txt-checkin-title').innerText = t.checkinTitle;
       document.getElementById('txt-checkin-body').innerText = t.checkinBody;
@@ -576,9 +680,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
       
       showTab('welcome');
       window.scrollTo(0, 0);
-
-      // Dentro la funzione selectLanguage(lang):
-     
     }
 
     function showLanguageScreen() {
@@ -601,8 +702,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
         setTimeout(() => feedback.classList.add('hidden'), 3000);
       });
     }
-    
-
   </script>
 </body>
 </html>
