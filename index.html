@@ -148,15 +148,25 @@
       </section>
 
       <!-- 4. YOUR ARRIVAL -->
-      <section id="arrival" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-        <div class="flex items-center space-x-3 mb-4">
-          <div class="p-3 bg-blue-100 text-blue-600 rounded-xl">
-            <i class="fa-solid fa-map-location-dot text-xl"></i>
-          </div>
-          <h2 id="txt-arrival-title" class="text-xl font-bold text-slate-900"></h2>
-        </div>
-        <p id="txt-arrival-body" class="text-sm text-slate-600 leading-relaxed"></p>
-      </section>
+     <section id="arrival" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+  <div class="flex items-center space-x-3 mb-4">
+    <div class="p-3 bg-blue-100 text-blue-600 rounded-xl">
+      <i class="fa-solid fa-map-location-dot text-xl"></i>
+    </div>
+    <h2 id="txt-arrival-title" class="text-xl font-bold text-slate-900"></h2>
+  </div>
+  
+  <p id="txt-arrival-body" class="text-sm text-slate-600 leading-relaxed mb-4"></p>
+
+  <!-- Contenitore per il link dinamico Trenitalia -->
+  <div id="arrival-ticket-container" class="hidden pt-2">
+    <a id="btn-trenitalia-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-700 text-white font-semibold text-sm py-3 px-4 rounded-xl shadow-sm transition-colors">
+      <i class="fa-solid fa-train"></i>
+      <span>official ticket here</span>
+      <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-80"></i>
+    </a>
+  </div>
+</section>
 
       <!-- 5. CHECK-IN -->
       <section id="checkin" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
