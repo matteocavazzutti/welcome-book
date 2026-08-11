@@ -626,12 +626,12 @@ function generaLinkTrenitalia(origine, destinazione) {
   const dd = String(oggi.getDate()).padStart(2, '0');
   const mm = String(oggi.getMonth() + 1).padStart(2, '0');
   const yyyy = oggi.getFullYear();
-  
   const hh = String(oggi.getHours()).padStart(2, '0');
-  const dataFormattata = `${dd}-${mm}-${yyyy}`;
   
-  // URL aggiornato alla maschera di ricerca attiva di Trenitalia
-  return `https://www.trenitalia.com/it/soluzioni-di-viaggio.html?from=${encodeURIComponent(origine)}&to=${encodeURIComponent(destinazione)}&date=${dataFormattata}&time=${hh}`;
+  const dataFormattata = `${dd}%2F${mm}%2F${yyyy}`; // Formato GG/MM/AAAA codificato
+  
+  // URL corretto che punta alla ricerca soluzioni Trenitalia
+  return `https://www.trenitalia.com/it/soluzioni-di-viaggio.html?departure=${encodeURIComponent(origine)}&arrival=${encodeURIComponent(destinazione)}&date=${dataFormattata}&time=${hh}`;
 }
  
   </script>
