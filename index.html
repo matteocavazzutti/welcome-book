@@ -630,11 +630,10 @@ function generaLinkTrenitalia(origine, destinazione) {
   const hh = String(oggi.getHours()).padStart(2, '0');
   const dataFormattata = `${dd}-${mm}-${yyyy}`;
   
-  return `https://www.trenitalia.com/it.html?origin=${encodeURIComponent(origine)}&destination=${encodeURIComponent(destinazione)}&arriving=false&departureTime=${hh}&departureDate=${dataFormattata}`;
+  // URL aggiornato alla maschera di ricerca attiva di Trenitalia
+  return `https://www.trenitalia.com/it/soluzioni-di-viaggio.html?from=${encodeURIComponent(origine)}&to=${encodeURIComponent(destinazione)}&date=${dataFormattata}&time=${hh}`;
 }
-
-
-    
+ 
   </script>
 </body>
 </html>
