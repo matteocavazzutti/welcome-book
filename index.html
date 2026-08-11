@@ -576,6 +576,26 @@ Should you need any help, contact us: we will be delighted to support you!`,
       
       showTab('welcome');
       window.scrollTo(0, 0);
+
+      // Dentro la funzione selectLanguage(lang):
+
+if (lang === 'en') {
+  // Genera l'URL aggiornato Fiumicino Aeroporto -> Roma Termini
+  const linkTrenitalia = generaLinkTrenitalia("Fiumicino Aeroporto", "Roma Termini");
+  
+  // Assegna l'URL al pulsante
+  const btnLink = document.getElementById('btn-trenitalia-link');
+  if (btnLink) {
+    btnLink.href = linkTrenitalia;
+  }
+  
+  // Mostra il pulsante nella sezione Arrival
+  document.getElementById('arrival-ticket-container').classList.remove('hidden');
+} else {
+  // Nasconde il pulsante se si passa ad altre lingue (o puoi abilitarlo anche per IT/FR/DE)
+  document.getElementById('arrival-ticket-container').classList.add('hidden');
+}
+      
     }
 
     function showLanguageScreen() {
@@ -598,6 +618,23 @@ Should you need any help, contact us: we will be delighted to support you!`,
         setTimeout(() => feedback.classList.add('hidden'), 3000);
       });
     }
+    
+// Funzione per generare il link dinamico con data e ora correnti
+function generaLinkTrenitalia(origine, destinazione) {
+  const oggi = new Date();
+  
+  const dd = String(oggi.getDate()).padStart(2, '0');
+  const mm = String(oggi.getMonth() + 1).padStart(2, '0');
+  const yyyy = oggi.getFullYear();
+  
+  const hh = String(oggi.getHours()).padStart(2, '0');
+  const dataFormattata = `${dd}-${mm}-${yyyy}`;
+  
+  return `https://www.trenitalia.com/it.html?origin=${encodeURIComponent(origine)}&destination=${encodeURIComponent(destinazione)}&arriving=false&departureTime=${hh}&departureDate=${dataFormattata}`;
+}
+
+
+    
   </script>
 </body>
 </html>
