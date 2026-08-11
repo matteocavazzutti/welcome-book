@@ -158,11 +158,11 @@
   
   <p id="txt-arrival-body" class="text-sm text-slate-600 leading-relaxed mb-4"></p>
 
-  <!-- Contenitore per il link dinamico Trenitalia -->
-  <div id="arrival-ticket-container" class="hidden pt-2">
-    <a id="btn-trenitalia-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-700 text-white font-semibold text-sm py-3 px-4 rounded-xl shadow-sm transition-colors">
+  <!-- Pulsante Diretto a Trenitalia (Opzione A) -->
+  <div id="arrival-ticket-container" class="pt-2">
+    <a href="https://www.trenitalia.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-700 text-white font-semibold text-sm py-3 px-4 rounded-xl shadow-sm transition-colors">
       <i class="fa-solid fa-train"></i>
-      <span>official ticket here</span>
+      <span>official ticket here (Trenitalia)</span>
       <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-80"></i>
     </a>
   </div>
@@ -578,24 +578,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
       window.scrollTo(0, 0);
 
       // Dentro la funzione selectLanguage(lang):
-
-if (lang === 'en') {
-  // Genera l'URL aggiornato Fiumicino Aeroporto -> Roma Termini
-  const linkTrenitalia = generaLinkTrenitalia("Fiumicino Aeroporto", "Roma Termini");
-  
-  // Assegna l'URL al pulsante
-  const btnLink = document.getElementById('btn-trenitalia-link');
-  if (btnLink) {
-    btnLink.href = linkTrenitalia;
-  }
-  
-  // Mostra il pulsante nella sezione Arrival
-  document.getElementById('arrival-ticket-container').classList.remove('hidden');
-} else {
-  // Nasconde il pulsante se si passa ad altre lingue (o puoi abilitarlo anche per IT/FR/DE)
-  document.getElementById('arrival-ticket-container').classList.add('hidden');
-}
-      
+     
     }
 
     function showLanguageScreen() {
@@ -619,20 +602,7 @@ if (lang === 'en') {
       });
     }
     
-function generaLinkTrenitalia(origine, destinazione) {
-  const oggi = new Date();
-  
-  const dd = String(oggi.getDate()).padStart(2, '0');
-  const mm = String(oggi.getMonth() + 1).padStart(2, '0');
-  const yyyy = oggi.getFullYear();
-  const hh = String(oggi.getHours()).padStart(2, '0');
-  
-  const dataFormattata = `${dd}%2F${mm}%2F${yyyy}`; // Formato GG/MM/AAAA codificato
-  
-  // URL corretto che punta alla ricerca soluzioni Trenitalia
-  return `https://www.trenitalia.com/it/soluzioni-di-viaggio.html?departure=${encodeURIComponent(origine)}&arrival=${encodeURIComponent(destinazione)}&date=${dataFormattata}&time=${hh}`;
-}
- 
+
   </script>
 </body>
 </html>
