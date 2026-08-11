@@ -5,70 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Benvenuti alla Terrazza di Maria</title>
 
-  <!-- Tailwind CSS per la grafica -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- FontAwesome per le icone -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Flag Icons per le bandiere -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
 
   <style>
-    .screen { display: none; }
-    .screen.active { display: block; }
+    /* Nasconde completamente gli elementi che non devono essere visti */
+    .hidden-screen { display: none !important; }
     .tab-content { display: none; }
     .tab-content.active { display: block; }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans pb-24">
+<body class="bg-slate-50 text-slate-800 font-sans">
 
   <!-- ========================================== -->
-  <!-- 1. LANDING PAGE: SELEZIONE LINGUA          -->
+  <!-- 1. CHOOSE YOUR LANGUAGE (LANDING PAGE)     -->
   <!-- ========================================== -->
-  <div id="language-screen" class="screen active min-h-screen flex flex-col justify-center items-center p-6 text-center">
+  <div id="language-screen" class="min-h-screen flex flex-col justify-center items-center p-6 text-center bg-slate-50">
     
     <div class="mb-6 p-4 bg-amber-100 text-amber-600 rounded-full shadow-inner">
       <i class="fa-solid fa-house-user text-4xl"></i>
     </div>
 
-    <!-- Titolo principale fisso in italiano -->
     <h1 class="text-3xl font-bold text-slate-900 mb-2">Benvenuti alla Terrazza di Maria</h1>
     <p class="text-slate-500 text-sm mb-8">Choose your language / Scegli la tua lingua</p>
 
-    <!-- Pulsanti Selezione Lingua -->
     <div class="w-full max-w-xs space-y-3">
-      
-      <button onclick="selectLanguage('it')" class="w-full bg-white hover:bg-slate-100 border border-slate-200 p-4 rounded-2xl shadow-sm flex items-center justify-between transition-all group">
-        <span class="font-semibold text-slate-700 group-hover:text-amber-600">Italiano</span>
+      <button onclick="selectLanguage('it')" class="w-full bg-white border border-slate-200 p-4 rounded-2xl shadow-sm flex items-center justify-between active:bg-slate-100">
+        <span class="font-semibold text-slate-700">Italiano</span>
         <span class="fi fi-it text-2xl rounded"></span>
       </button>
 
-      <button onclick="selectLanguage('en')" class="w-full bg-white hover:bg-slate-100 border border-slate-200 p-4 rounded-2xl shadow-sm flex items-center justify-between transition-all group">
-        <span class="font-semibold text-slate-700 group-hover:text-amber-600">English</span>
+      <button onclick="selectLanguage('en')" class="w-full bg-white border border-slate-200 p-4 rounded-2xl shadow-sm flex items-center justify-between active:bg-slate-100">
+        <span class="font-semibold text-slate-700">English</span>
         <span class="fi fi-gb text-2xl rounded"></span>
       </button>
 
-      <button onclick="selectLanguage('fr')" class="w-full bg-white hover:bg-slate-100 border border-slate-200 p-4 rounded-2xl shadow-sm flex items-center justify-between transition-all group">
-        <span class="font-semibold text-slate-700 group-hover:text-amber-600">Français</span>
+      <button onclick="selectLanguage('fr')" class="w-full bg-white border border-slate-200 p-4 rounded-2xl shadow-sm flex items-center justify-between active:bg-slate-100">
+        <span class="font-semibold text-slate-700">Français</span>
         <span class="fi fi-fr text-2xl rounded"></span>
       </button>
 
-      <button onclick="selectLanguage('de')" class="w-full bg-white hover:bg-slate-100 border border-slate-200 p-4 rounded-2xl shadow-sm flex items-center justify-between transition-all group">
-        <span class="font-semibold text-slate-700 group-hover:text-amber-600">Deutsch</span>
+      <button onclick="selectLanguage('de')" class="w-full bg-white border border-slate-200 p-4 rounded-2xl shadow-sm flex items-center justify-between active:bg-slate-100">
+        <span class="font-semibold text-slate-700">Deutsch</span>
         <span class="fi fi-de text-2xl rounded"></span>
       </button>
-
     </div>
   </div>
 
 
   <!-- ========================================== -->
-  <!-- 2. APPLICAZIONE WELCOME BOOK               -->
+  <!-- 2. APPLICAZIONE WELCOME BOOK (SCHERMO INTERO) -->
   <!-- ========================================== -->
-  <div id="app-screen" class="screen">
+  <div id="app-screen" class="hidden-screen min-h-screen pb-24">
     
-    <!-- Header / Top Bar -->
+    <!-- Top Bar Sticky -->
     <header class="bg-slate-900 text-white p-5 rounded-b-3xl shadow-lg sticky top-0 z-50">
       <div class="max-w-md mx-auto flex justify-between items-center">
         <div>
@@ -76,15 +67,15 @@
           <p class="text-xs text-slate-400">Welcome Book</p>
         </div>
         
-        <!-- Pulsante per cambiare lingua (Torna alla Landing) -->
-        <button onclick="showLanguageScreen()" class="bg-slate-800 hover:bg-slate-700 text-xs px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-2 transition-colors">
+        <!-- Pulsante Torna a Scelta Lingua -->
+        <button onclick="showLanguageScreen()" class="bg-slate-800 hover:bg-slate-700 text-xs px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-2">
           <i class="fa-solid fa-globe text-amber-400"></i>
           <span id="current-lang-code" class="uppercase font-semibold">IT</span>
         </button>
       </div>
     </header>
 
-    <!-- Contenuto Principale -->
+    <!-- Contenuto della pagina principale -->
     <main class="max-w-md mx-auto p-4 space-y-4">
 
       <!-- Section: Benvenuti -->
@@ -94,10 +85,10 @@
           <h2 id="txt-welcome-title" class="text-2xl font-bold text-slate-900 mb-2"></h2>
           <p id="txt-welcome-body" class="text-slate-600 text-sm leading-relaxed mb-6"></p>
 
-          <!-- Tasto alternativo visibile dentro Benvenuti per cambiare lingua -->
+          <!-- Tasto separato per tornare alla scelta lingua -->
           <button onclick="showLanguageScreen()" class="inline-flex items-center gap-2 text-xs text-amber-600 font-semibold bg-amber-50 px-4 py-2 rounded-xl border border-amber-200">
             <i class="fa-solid fa-language"></i>
-            <span id="txt-btn-change-lang">Cambia Lingua / Change Language</span>
+            <span id="txt-btn-change-lang"></span>
           </button>
         </div>
       </section>
@@ -119,7 +110,7 @@
             <span id="txt-wifi-pass-lbl" class="text-xs text-slate-400 uppercase font-semibold block mb-1"></span>
             <div class="flex items-center justify-between bg-white p-2.5 rounded-lg border border-slate-200">
               <span id="wifi-pass" class="font-mono font-bold text-amber-600">WelcomeMaria2026!</span>
-              <button onclick="copyPassword()" class="bg-amber-500 hover:bg-amber-600 text-white text-xs px-3 py-1.5 rounded-md font-semibold transition-colors flex items-center gap-1">
+              <button onclick="copyPassword()" class="bg-amber-500 text-white text-xs px-3 py-1.5 rounded-md font-semibold">
                 <i class="fa-regular fa-copy"></i> <span id="txt-btn-copy"></span>
               </button>
             </div>
@@ -139,11 +130,9 @@
         <p id="txt-disclaimer-body" class="text-xs text-slate-500 leading-relaxed"></p>
       </section>
 
-      <!-- Le altre sezioni (Arrival, Check-in, Check-out, House rules, etc.) seguono la stessa struttura -->
-
     </main>
 
-    <!-- Bottom Navigation Bar -->
+    <!-- Navigazione fissa in basso -->
     <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-4 py-2 shadow-lg z-50">
       <div class="max-w-md mx-auto flex justify-between items-center overflow-x-auto text-center">
         <button onclick="showTab('welcome')" class="p-2 text-slate-500 hover:text-amber-500">
@@ -162,20 +151,19 @@
 
 
   <!-- ========================================== -->
-  <!-- 3. DIZIONARIO TRADUZIONI & SCRIPT          -->
+  <!-- 3. LOGICA DI CAMBIO SCHERMATA & LINGUE     -->
   <!-- ========================================== -->
   <script>
-    // Oggetto contenente tutte le traduzioni
     const translations = {
       it: {
         welcomeTitle: "Benvenuti!",
-        welcomeBody: "Siamo felici di ospitarvi alla Terrazza di Maria. Abbiamo preparato questa guida per rendervi il soggiorno indimenticabile.",
-        changeLangBtn: "Cambia Lingua",
+        welcomeBody: "Siamo felici di ospitarvi alla Terrazza di Maria. Abbiamo preparato questa guida per rendervi il soggiorno confortevole e piacevole.",
+        changeLangBtn: "Cambia Lingua / Change Language",
         wifiTitle: "Connessione Wi-Fi",
         wifiNameLbl: "Nome Rete (SSID)",
         wifiPassLbl: "Password",
         btnCopy: "Copia",
-        copySuccess: "✓ Password copiata negli appunti!",
+        copySuccess: "✓ Password copiata!",
         disclaimerTitle: "Disclaimer",
         disclaimerBody: "La struttura declina ogni responsabilità per eventuali smarrimenti di oggetti personali lasciati incustoditi.",
         navWelcome: "Home",
@@ -190,7 +178,7 @@
         wifiNameLbl: "Network Name (SSID)",
         wifiPassLbl: "Password",
         btnCopy: "Copy",
-        copySuccess: "✓ Password copied to clipboard!",
+        copySuccess: "✓ Password copied!",
         disclaimerTitle: "Disclaimer",
         disclaimerBody: "Management is not responsible for any lost or stolen personal belongings left unattended.",
         navWelcome: "Home",
@@ -199,7 +187,7 @@
       },
       fr: {
         welcomeTitle: "Bienvenue !",
-        welcomeBody: "Nous sommes ravis de vous accueillir à la Terrazza di Maria.",
+        welcomeBody: "Nous sommes ravis de vous accueillir à la Terrazza di Maria. Cette guide est là pour vous aider durant votre séjour.",
         changeLangBtn: "Changer de langue",
         wifiTitle: "Réseau Wi-Fi",
         wifiNameLbl: "Nom du réseau (SSID)",
@@ -207,14 +195,14 @@
         btnCopy: "Copier",
         copySuccess: "✓ Mot de passe copié !",
         disclaimerTitle: "Avertissement",
-        disclaimerBody: "L'établissement décline toute responsabilité en cas de perte o de vol d'effets personnels.",
+        disclaimerBody: "L'établissement décline toute responsabilité en cas de perte de vos effets personnels.",
         navWelcome: "Accueil",
         navWifi: "Wi-Fi",
         navDisclaimer: "Info"
       },
       de: {
         welcomeTitle: "Willkommen!",
-        welcomeBody: "Wir freuen uns, Sie in der Terrazza di Maria begrüßen zu dürfen.",
+        welcomeBody: "Wir freuen uns, Sie in der Terrazza di Maria begrüßen zu dürfen. Dieser Reiseführer soll Ihren Aufenthalt verschönern.",
         changeLangBtn: "Sprache ändern",
         wifiTitle: "WLAN-Netzwerk",
         wifiNameLbl: "Netzwerkname (SSID)",
@@ -229,16 +217,11 @@
       }
     };
 
-    let currentLang = 'it';
-
-    // Funzione per selezionare la lingua
     function selectLanguage(lang) {
-      currentLang = lang;
       document.getElementById('current-lang-code').innerText = lang;
-      
-      // Carica i testi corrispondenti
       const t = translations[lang] || translations['it'];
 
+      // Inserisce i testi
       document.getElementById('txt-welcome-title').innerText = t.welcomeTitle;
       document.getElementById('txt-welcome-body').innerText = t.welcomeBody;
       document.getElementById('txt-btn-change-lang').innerText = t.changeLangBtn;
@@ -256,27 +239,27 @@
       document.getElementById('nav-wifi').innerText = t.navWifi;
       document.getElementById('nav-disclaimer').innerText = t.navDisclaimer;
 
-      // Passa dalla schermata di selezione lingua all'app
-      document.getElementById('language-screen').classList.remove('active');
-      document.getElementById('app-screen').classList.add('active');
+      // NASCONDE la pagina iniziale e MOSTRA l'app a schermo intero in cima alla pagina
+      document.getElementById('language-screen').classList.add('hidden-screen');
+      document.getElementById('app-screen').classList.remove('hidden-screen');
       
       showTab('welcome');
+      window.scrollTo(0, 0);
     }
 
-    // Funzione per tornare alla scelta della lingua
     function showLanguageScreen() {
-      document.getElementById('app-screen').classList.remove('active');
-      document.getElementById('language-screen').classList.add('active');
+      // NASCONDE l'app e MOSTRA la landing page iniziale
+      document.getElementById('app-screen').classList.add('hidden-screen');
+      document.getElementById('language-screen').classList.remove('hidden-screen');
+      window.scrollTo(0, 0);
     }
 
-    // Gestione Navigazione interna (Tab)
     function showTab(tabId) {
       document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
       document.getElementById(tabId).classList.add('active');
       window.scrollTo(0, 0);
     }
 
-    // Funzione Copia Password
     function copyPassword() {
       const password = document.getElementById('wifi-pass').innerText;
       navigator.clipboard.writeText(password).then(() => {
