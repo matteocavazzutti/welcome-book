@@ -107,7 +107,21 @@
         </div>
       </section>
 
-      <!-- 2. DISCLAIMER -->
+      <!-- 2. CONTACT POINT -->
+      <section id="contact" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-3 bg-amber-100 text-amber-600 rounded-xl">
+            <i class="fa-solid fa-address-card text-xl"></i>
+          </div>
+          <h2 id="txt-contact-title" class="text-xl font-bold text-slate-900"></h2>
+        </div>
+
+        <div id="contact-content-container">
+          <!-- Popolato dinamicamente da JavaScript -->
+        </div>
+      </section>
+
+      <!-- 3. DISCLAIMER -->
       <section id="disclaimer" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-slate-100 text-slate-600 rounded-xl">
@@ -118,7 +132,7 @@
         <p id="txt-disclaimer-body" class="text-xs text-slate-500 leading-relaxed"></p>
       </section>
 
-      <!-- 3. WIFI -->
+      <!-- 4. WIFI -->
       <section id="wifi" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-amber-100 text-amber-600 rounded-xl">
@@ -144,7 +158,7 @@
         </div>
       </section>
 
-      <!-- 4. YOUR ARRIVAL -->
+      <!-- 5. YOUR ARRIVAL -->
       <section id="arrival" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-blue-100 text-blue-600 rounded-xl">
@@ -158,7 +172,7 @@
         </div>
       </section>
 
-      <!-- 5. CHECK-IN -->
+      <!-- 6. CHECK-IN -->
       <section id="checkin" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-emerald-100 text-emerald-600 rounded-xl">
@@ -172,7 +186,7 @@
         </div>
       </section>
 
-      <!-- 6. CHECK-OUT -->
+      <!-- 7. CHECK-OUT -->
       <section id="checkout" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-red-100 text-red-600 rounded-xl">
@@ -183,7 +197,7 @@
         <p id="txt-checkout-body" class="text-sm text-slate-600 leading-relaxed"></p>
       </section>
 
-      <!-- 7. HOUSE RULES -->
+      <!-- 8. HOUSE RULES -->
       <section id="rules" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-purple-100 text-purple-600 rounded-xl">
@@ -194,7 +208,7 @@
         <p id="txt-rules-body" class="text-sm text-slate-600 leading-relaxed"></p>
       </section>
 
-      <!-- 8. HOUSE GUIDE -->
+      <!-- 9. HOUSE GUIDE -->
       <section id="guide" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-teal-100 text-teal-600 rounded-xl">
@@ -205,7 +219,7 @@
         <p id="txt-guide-body" class="text-sm text-slate-600 leading-relaxed"></p>
       </section>
 
-      <!-- 9. TRANSPORTS / TOURIST INFO -->
+      <!-- 10. TRANSPORTS / TOURIST INFO -->
       <section id="transports" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-indigo-100 text-indigo-600 rounded-xl">
@@ -216,7 +230,7 @@
         <p id="txt-transports-body" class="text-sm text-slate-600 leading-relaxed"></p>
       </section>
 
-      <!-- 10. BEST TIPS IN THE AREA -->
+      <!-- 11. BEST TIPS IN THE AREA -->
       <section id="tips" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-orange-100 text-orange-600 rounded-xl">
@@ -227,7 +241,7 @@
         <p id="txt-tips-body" class="text-sm text-slate-600 leading-relaxed"></p>
       </section>
 
-      <!-- 11. EMERGENCY INFO -->
+      <!-- 12. EMERGENCY INFO -->
       <section id="emergency" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-rose-100 text-rose-600 rounded-xl">
@@ -240,12 +254,16 @@
 
     </main>
 
-    <!-- Navigazione fissa in basso (Barra scorrevole per tutte e 11 le sezioni) -->
+    <!-- Navigazione fissa in basso -->
     <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-2 py-2 shadow-lg z-50">
       <div class="max-w-md mx-auto flex items-center overflow-x-auto no-scrollbar space-x-3 text-center px-2">
         
         <button onclick="showTab('welcome')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
           <i class="fa-solid fa-house text-base block"></i><span id="nav-welcome" class="text-[10px]"></span>
+        </button>
+
+        <button onclick="showTab('contact')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
+          <i class="fa-solid fa-address-card text-base block"></i><span id="nav-contact" class="text-[10px]"></span>
         </button>
 
         <button onclick="showTab('wifi')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
@@ -304,6 +322,9 @@
         welcomeBody: "Siamo felici di ospitarvi alla Terrazza di Maria. Abbiamo preparato questa guida per rendervi il soggiorno confortevole e piacevole.",
         changeLangBtn: "Cambia Lingua / Change Language",
         
+        contactTitle: "Punto di Contatto",
+        contactBody: "Sonia è la nostra Property Manager. Contattala al +39 340 339 5237 dalle 08:00 alle 20:00.",
+
         disclaimerTitle: "Disclaimer",
         disclaimerBody: "La struttura declina ogni responsabilità per eventuali smarrimenti o furti di oggetti personali lasciati incustoditi nell'appartamento.",
         
@@ -338,6 +359,7 @@
         emergencyBody: "Numero Unico Emergenze: 112\nHost / Proprietario: +39 333 1234567\nGuardia Medica più vicina: Via Roma 15.",
 
         navWelcome: "Home",
+        navContact: "Contatti",
         navDisclaimer: "Info",
         navWifi: "Wi-Fi",
         navArrival: "Arrivo",
@@ -360,6 +382,8 @@ We also included useful touristic information, along with addresses for shopping
 
 Should you need any help, contact us: we will be delighted to support you!`,
         changeLangBtn: "Change Language",
+        
+        contactTitle: "Your point of contact",
         
         disclaimerTitle: "Disclaimer",
         disclaimerBody: "Management is not responsible for any lost or stolen personal belongings left unattended in the apartment.",
@@ -393,6 +417,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         emergencyBody: "Emergency Number: 112\nHost Contact: +39 333 1234567\nNearest Medical Center: Via Roma 15.",
 
         navWelcome: "Home",
+        navContact: "Contact",
         navDisclaimer: "Info",
         navWifi: "Wi-Fi",
         navArrival: "Arrival",
@@ -409,6 +434,9 @@ Should you need any help, contact us: we will be delighted to support you!`,
         welcomeBody: "Nous sommes ravis de vous accueillir à la Terrazza di Maria. Ce guide è fatto per rendervi il soggiorno il più piacevole possibile.",
         changeLangBtn: "Changer de langue",
         
+        contactTitle: "Point de Contact",
+        contactBody: "Sonia est notre Property Manager. Contactez-la au +39 340 339 5237 de 08h00 à 20h00.",
+
         disclaimerTitle: "Avertissement",
         disclaimerBody: "L'établissement décline toute responsabilité en cas de perte ou de vol d'effets personnels.",
         
@@ -443,6 +471,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         emergencyBody: "Numéro d'urgence : 112\nHôte : +39 333 1234567.",
 
         navWelcome: "Accueil",
+        navContact: "Contact",
         navDisclaimer: "Info",
         navWifi: "Wi-Fi",
         navArrival: "Arrivée",
@@ -459,6 +488,9 @@ Should you need any help, contact us: we will be delighted to support you!`,
         welcomeBody: "Wir freuen uns, Sie in der Terrazza di Maria zu begrüßen. Dieser Reiseführer soll Ihren Aufenthalt angenehm gestalten.",
         changeLangBtn: "Sprache ändern",
         
+        contactTitle: "Ansprechpartner",
+        contactBody: "Sonia ist unsere Property Managerin. Kontaktieren Sie sie unter +39 340 339 5237 von 08:00 bis 20:00 Uhr.",
+
         disclaimerTitle: "Haftungsausschluss",
         disclaimerBody: "Für den Verlust von persönlichen Gegenständen wird keine Haftung übernommen.",
         
@@ -493,6 +525,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         emergencyBody: "Notruf: 112\nGastgeber: +39 333 1234567.",
 
         navWelcome: "Start",
+        navContact: "Kontakt",
         navDisclaimer: "Info",
         navWifi: "WLAN",
         navArrival: "Anreise",
@@ -505,6 +538,63 @@ Should you need any help, contact us: we will be delighted to support you!`,
         navEmergency: "Notfall"
       }
     };
+
+    function renderContactSection(lang) {
+      const container = document.getElementById('contact-content-container');
+
+      if (lang === 'en') {
+        container.innerHTML = `
+          <div class="space-y-5 text-left">
+            
+            <div class="bg-amber-50/70 border border-amber-200/60 rounded-2xl p-5 space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="p-3 bg-amber-100 text-amber-600 rounded-xl">
+                  <i class="fa-solid fa-hand-holding-heart text-2xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-base font-bold text-slate-900">Sonia</h3>
+                  <p class="text-xs text-slate-500 font-medium">Property Manager</p>
+                </div>
+              </div>
+
+              <p class="text-xs text-slate-700 leading-relaxed">
+                <strong>Sonia is our talented and caring property manager.</strong><br>
+                Please contact her from <strong>8 am to 8 pm</strong>.
+              </p>
+
+              <!-- PULSANTI AZIONE -->
+              <div class="grid grid-cols-2 gap-2 pt-2">
+                <a href="tel:+393403395237" class="flex items-center justify-center gap-2 bg-slate-900 text-white py-2.5 px-3 rounded-xl text-xs font-semibold shadow-sm active:scale-95 transition-all">
+                  <i class="fa-solid fa-phone text-amber-400"></i>
+                  <span>Call Sonia</span>
+                </a>
+
+                <a href="https://wa.me/393403395237" target="_blank" class="flex items-center justify-center gap-2 bg-emerald-600 text-white py-2.5 px-3 rounded-xl text-xs font-semibold shadow-sm active:scale-95 transition-all">
+                  <i class="fa-brands fa-whatsapp text-lg"></i>
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- CARD CON QR CODE -->
+            <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 flex items-center justify-between gap-3">
+              <div class="space-y-1">
+                <span class="text-[10px] font-bold tracking-wider text-slate-400 uppercase">Direct Chat</span>
+                <p class="text-xs font-bold text-slate-800">Scan QR Code to chat on WhatsApp</p>
+                <p class="text-[11px] font-mono text-slate-500">+39 340 339 5237</p>
+              </div>
+              <div class="bg-white p-2 rounded-xl border border-slate-200 shadow-sm flex-shrink-0">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://wa.me/393403395237" alt="WhatsApp QR Code" class="w-16 h-16">
+              </div>
+            </div>
+
+          </div>
+        `;
+      } else {
+        const t = translations[lang] || translations['it'];
+        container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed">${t.contactBody}</p>`;
+      }
+    }
 
     function renderArrivalSection(lang) {
       const container = document.getElementById('arrival-content-container');
@@ -681,6 +771,9 @@ Should you need any help, contact us: we will be delighted to support you!`,
       document.getElementById('txt-welcome-body').innerText = t.welcomeBody;
       document.getElementById('txt-btn-change-lang').innerText = t.changeLangBtn;
 
+      document.getElementById('txt-contact-title').innerText = t.contactTitle;
+      renderContactSection(lang);
+
       document.getElementById('txt-disclaimer-title').innerText = t.disclaimerTitle;
       document.getElementById('txt-disclaimer-body').innerText = t.disclaimerBody;
 
@@ -716,6 +809,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
 
       // Mappatura etichette menu in basso
       document.getElementById('nav-welcome').innerText = t.navWelcome;
+      document.getElementById('nav-contact').innerText = t.navContact;
       document.getElementById('nav-disclaimer').innerText = t.navDisclaimer;
       document.getElementById('nav-wifi').innerText = t.navWifi;
       document.getElementById('nav-arrival').innerText = t.navArrival;
