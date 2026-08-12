@@ -1,172 +1,1450 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guest Welcome Guide</title>
-  
-  <!-- Tailwind CSS CDN -->
+  <title>Benvenuti alla Terrazza di Maria</title>
+
+  <!-- Framework grafico Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Swiper.js CSS CDN -->
+
+  <!-- Icone FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Icone Bandiere Flag Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
+
+  <!-- Swiper CSS per Navigazione Circolare -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <style>
-    /* Swiper Customizations for Coverflow Navigation */
-    .swiper-bottom-nav {
+    .hidden-screen { display: none !important; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    
+    /* Personalizzazione Swiper Dock Apple */
+    .swiper {
+      width: 100%;
       padding-top: 10px;
-      padding-bottom: 20px;
+      padding-bottom: 10px;
     }
-    .swiper-bottom-nav .swiper-slide {
-      width: 140px;
+    .swiper-slide {
+      width: 68px !important;
       height: 60px;
-      opacity: 0.5;
-      transition: opacity 0.3s ease, transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      opacity: 0.4;
+      transform: scale(0.85);
+      cursor: pointer;
     }
-    .swiper-bottom-nav .swiper-slide-active {
-      opacity: 1;
-      transform: scale(1.05);
+    /* Stile Icona Centrale Attiva (Apple Dock Style) */
+    .swiper-slide-active {
+      opacity: 1 !important;
+      transform: scale(1.25) translateY(-2px) !important;
+    }
+    .swiper-slide-active i {
+      color: #f59e0b !important; /* Colore Amber */
+    }
+    .swiper-slide-active span {
+      color: #0f172a !important;
+      font-weight: 700 !important;
     }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800 pb-28">
+<body class="bg-slate-50 text-slate-800 font-sans">
 
-  <!-- MAIN CONTENT CONTAINER -->
-  <main class="max-w-xl mx-auto p-4 space-y-6">
-
-    <!-- TRANSPORTS SECTION -->
-    <section id="transports" class="space-y-4">
-      <div class="flex items-center justify-between border-b pb-2">
-        <h2 class="text-2xl font-bold text-gray-800 flex items-center gap-2">
-          <span>🚗</span> Transports
-        </h2>
-        <!-- Link Mappa Google Drive -->
-        <a 
-          href="https://drive.google.com/file/d/1h_WdOZJz15EyDYQQuO-6nZCG-3J9_jpD/view" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition flex items-center gap-1 shadow-sm"
-        >
-          🗺️ View Map
-        </a>
-      </div>
-
-      <!-- Our tips -->
-      <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 shadow-sm">
-        <div class="flex items-center gap-2 mb-2 text-amber-900 font-bold text-lg">
-          <span>💡</span> Our tips
-        </div>
-        <ul class="list-disc pl-5 text-sm text-amber-950 space-y-1.5">
-          <li>Use <strong>Metro</strong> station to reach all main sightseeing.</li>
-          <li>Enjoy <strong>walking</strong> in Rome.</li>
-          <li>Use <strong>buses</strong> in locations where metro is not available</li>
-          <li><strong>Use Apps</strong> for itineraries : we like to use: <a href="https://citymapper.com" target="_blank" rel="noreferrer" class="underline font-semibold text-amber-900 hover:text-black">citymapper.com</a></li>
-          <li>In touristic spots and in public transports <strong>look carefully after your goods at anytime</strong>. Pickpockets adore tourists.</li>
-        </ul>
-      </div>
-
-      <!-- Ticketing -->
-      <div class="bg-white border rounded-2xl p-4 shadow-sm space-y-2">
-        <div class="flex items-center gap-2 text-gray-800 font-bold text-base">
-          <span>🎟️</span> Ticketing
-        </div>
-        <ul class="list-disc pl-5 text-sm text-gray-600 space-y-2">
-          <li><strong>"Tap & Go" service:</strong> you pay instantly at turnstiles or on board with your contactless credit card. No extra fees. Remember each traveler must use a separate card.</li>
-          <li><strong>Paper Tickets:</strong> Available at self-service machines in any Metro station.</li>
-        </ul>
-      </div>
-
-      <!-- Metro / Bus -->
-      <div class="bg-white border rounded-2xl p-4 shadow-sm space-y-2">
-        <div class="flex items-center gap-2 text-gray-800 font-bold text-base">
-          <span>🚇</span> Metro / Bus
-        </div>
-        <ul class="list-disc pl-5 text-sm text-gray-600 space-y-2">
-          <li><strong>Metro:</strong> Cipro Station, Line A (500m). This is the fastest and most cost-effective option.</li>
-          <li><strong>Bus:</strong> Slower than the train, but more extensive coverage across territory.<br/>
-          <span class="text-xs bg-gray-100 p-1 rounded inline-block mt-1 font-medium text-gray-700">Tip: Line 492 goes through the whole city center, starting from Cipro</span></li>
-        </ul>
-      </div>
-
-      <!-- Taxi -->
-      <div class="bg-white border rounded-2xl p-4 shadow-sm space-y-2">
-        <div class="flex items-center gap-2 text-gray-800 font-bold text-base">
-          <span>🚕</span> Taxi
-        </div>
-        <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1.5">
-          <li><strong>General Dispatch:</strong> <a href="tel:+39060609" class="text-blue-600 underline font-semibold">+39 06.06.09</a> (Connects to all local companies)</li>
-          <li><strong>Recommended Private Line:</strong> <a href="tel:+39063570" class="text-blue-600 underline font-semibold">+39 06.35.70</a> (Known for good standards).</li>
-          <li><strong>Uber/apps:</strong> Usually limited to luxury "limousine" services.</li>
-          <li><strong>Fares:</strong> Always verify the estimated fare with the driver.</li>
-          <li><strong>Availability:</strong> During peak hours, expect long wait time for booking.</li>
-        </ul>
-      </div>
-
-      <!-- Car parking -->
-      <div class="bg-white border rounded-2xl p-4 shadow-sm space-y-2">
-        <div class="flex items-center gap-2 text-gray-800 font-bold text-base">
-          <span>🅿️</span> Car parking
-        </div>
-        <p class="text-sm text-gray-600">
-          Street parking is paid, and finding a spot can be very difficult. Near the apartment, sometimes, we’ve found it easier to park here:
-        </p>
-        <ul class="list-disc pl-5 text-sm font-medium text-gray-700 space-y-1">
-          <li>Via Simone Simoni</li>
-          <li>Via Angelo Emo, 4 (behind the Metro station)</li>
-        </ul>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FIXED BOTTOM NAVIGATION BAR (SWIPER COVERFLOW LOOP) -->
-  <nav class="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg z-50">
-    <div class="swiper swiper-bottom-nav max-w-md mx-auto">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide cursor-pointer bg-gray-100 rounded-xl flex flex-col items-center justify-center p-2 text-xs font-semibold text-gray-700">
-          <span>🏠</span>
-          <span>House Rules</span>
-        </div>
-        <div class="swiper-slide cursor-pointer bg-gray-100 rounded-xl flex flex-col items-center justify-center p-2 text-xs font-semibold text-gray-700">
-          <span>🔑</span>
-          <span>Check-In</span>
-        </div>
-        <div class="swiper-slide cursor-pointer bg-blue-50 border border-blue-300 rounded-xl flex flex-col items-center justify-center p-2 text-xs font-semibold text-blue-800">
-          <span>🚗</span>
-          <span>Transports</span>
-        </div>
-        <div class="swiper-slide cursor-pointer bg-gray-100 rounded-xl flex flex-col items-center justify-center p-2 text-xs font-semibold text-gray-700">
-          <span>🍕</span>
-          <span>Restaurants</span>
-        </div>
-        <div class="swiper-slide cursor-pointer bg-gray-100 rounded-xl flex flex-col items-center justify-center p-2 text-xs font-semibold text-gray-700">
-          <span>💡</span>
-          <span>Services</span>
-        </div>
-      </div>
+  <!-- ========================================== -->
+  <!-- 1. LANDING PAGE: SELEZIONE LINGUA          -->
+  <!-- ========================================== -->
+  <div id="language-screen" class="min-h-screen flex flex-col justify-center items-center p-6 text-center bg-slate-50">
+    
+    <div class="mb-6 w-64 h-32 rounded-2xl overflow-hidden shadow-md border-4 border-white">
+      <img src="1.t00gemR.png" alt="Terrazza di Maria" class="w-full h-full object-cover">
     </div>
-  </nav>
 
-  <!-- Swiper.js JS CDN -->
+    <!-- Titolo fisso in Italiano -->
+    <h1 class="text-3xl font-bold text-slate-900 mb-2">Benvenuti alla Terrazza di Maria</h1>
+    <p class="text-slate-500 text-sm mb-8">Choose your language / Scegli la tua lingua</p>
+
+    <!-- Selettori lingua con testo + bandiera -->
+    <div class="w-full max-w-xs space-y-3">
+      <button onclick="selectLanguage('it')" class="w-full bg-white border border-slate-200 p-4 rounded-2xl shadow-sm flex items-center justify-between active:bg-slate-100">
+        <span class="font-semibold text-slate-700">Italiano</span>
+        <span class="fi fi-it text-2xl rounded"></span>
+      </button>
+
+      <button onclick="selectLanguage('en')" class="w-full bg-white border border-slate-200 p-4 rounded-2xl shadow-sm flex items-center justify-between active:bg-slate-100">
+        <span class="font-semibold text-slate-700">English</span>
+        <span class="fi fi-gb text-2xl rounded"></span>
+      </button>
+
+      <button onclick="selectLanguage('fr')" class="w-full bg-white border border-slate-200 p-4 rounded-2xl shadow-sm flex items-center justify-between active:bg-slate-100">
+        <span class="font-semibold text-slate-700">Français</span>
+        <span class="fi fi-fr text-2xl rounded"></span>
+      </button>
+
+      <button onclick="selectLanguage('de')" class="w-full bg-white border border-slate-200 p-4 rounded-2xl shadow-sm flex items-center justify-between active:bg-slate-100">
+        <span class="font-semibold text-slate-700">Deutsch</span>
+        <span class="fi fi-de text-2xl rounded"></span>
+      </button>
+    </div>
+  </div>
+
+
+  <!-- ========================================== -->
+  <!-- 2. APPLICAZIONE WELCOME BOOK               -->
+  <!-- ========================================== -->
+  <div id="app-screen" class="hidden-screen min-h-screen pb-28">
+    
+    <!-- Top Bar Sticky -->
+    <header class="bg-slate-900 text-white p-5 rounded-b-3xl shadow-lg sticky top-0 z-50">
+      <div class="max-w-md mx-auto flex justify-between items-center">
+        <div>
+          <h1 class="text-lg font-bold tracking-wide">Terrazza di Maria</h1>
+          <p class="text-xs text-slate-400">Welcome Book</p>
+        </div>
+        
+        <!-- Pulsante Torna a Scelta Lingua -->
+        <button onclick="showLanguageScreen()" class="bg-slate-800 hover:bg-slate-700 text-xs px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-2">
+          <i class="fa-solid fa-globe text-amber-400"></i>
+          <span id="current-lang-code" class="uppercase font-semibold">IT</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Contenuto Principale delle Sezioni -->
+    <main class="max-w-md mx-auto p-4 space-y-4">
+
+      <!-- 1. BEN VENUTI -->
+      <section id="welcome" class="tab-content active bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="text-center py-2 space-y-4">
+          <i class="fa-solid fa-hand-wave text-4xl text-amber-500 mb-2"></i>
+          
+          <h2 id="txt-welcome-title" class="text-3xl font-bold text-amber-600 italic tracking-wide font-serif"></h2>
+          
+          <p id="txt-welcome-subtitle" class="text-slate-900 font-bold text-base leading-snug px-2"></p>
+          
+          <div id="txt-welcome-body" class="text-slate-600 text-sm leading-relaxed whitespace-pre-line text-left pt-2 space-y-3"></div>
+
+          <div class="pt-4 text-center">
+            <button onclick="showLanguageScreen()" class="inline-flex items-center gap-2 text-xs text-amber-600 font-semibold bg-amber-50 px-4 py-2 rounded-xl border border-amber-200">
+              <i class="fa-solid fa-language"></i>
+              <span id="txt-btn-change-lang"></span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. CONTACT POINT -->
+      <section id="contact" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-3 bg-amber-100 text-amber-600 rounded-xl">
+            <i class="fa-solid fa-address-card text-xl"></i>
+          </div>
+          <h2 id="txt-contact-title" class="text-xl font-bold text-slate-900"></h2>
+        </div>
+
+        <div id="contact-content-container"></div>
+      </section>
+
+      <!-- 3. DISCLAIMER -->
+      <section id="disclaimer" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-3 bg-slate-100 text-slate-600 rounded-xl">
+            <i class="fa-solid fa-shield-halved text-xl"></i>
+          </div>
+          <h2 id="txt-disclaimer-title" class="text-xl font-bold text-slate-900"></h2>
+        </div>
+        <p id="txt-disclaimer-body" class="text-xs text-slate-500 leading-relaxed"></p>
+      </section>
+
+      <!-- 4. WIFI -->
+      <section id="wifi" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-3 bg-amber-100 text-amber-600 rounded-xl">
+            <i class="fa-solid fa-wifi text-xl"></i>
+          </div>
+          <h2 id="txt-wifi-title" class="text-xl font-bold text-slate-900"></h2>
+        </div>
+
+        <div id="wifi-content-container"></div>
+      </section>
+
+      <!-- 5. YOUR ARRIVAL -->
+      <section id="arrival" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-3 bg-blue-100 text-blue-600 rounded-xl">
+            <i class="fa-solid fa-map-location-dot text-xl"></i>
+          </div>
+          <h2 id="txt-arrival-title" class="text-xl font-bold text-slate-900"></h2>
+        </div>
+        
+        <div id="arrival-content-container"></div>
+      </section>
+
+      <!-- 6. CHECK-IN -->
+      <section id="checkin" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-3 bg-emerald-100 text-emerald-600 rounded-xl">
+            <i class="fa-solid fa-key text-xl"></i>
+          </div>
+          <h2 id="txt-checkin-title" class="text-xl font-bold text-slate-900"></h2>
+        </div>
+
+        <div id="checkin-content-container"></div>
+      </section>
+
+      <!-- 7. CHECK-OUT -->
+      <section id="checkout" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-3 bg-red-100 text-red-600 rounded-xl">
+            <i class="fa-solid fa-door-open text-xl"></i>
+          </div>
+          <h2 id="txt-checkout-title" class="text-xl font-bold text-slate-900"></h2>
+        </div>
+
+        <div id="checkout-content-container"></div>
+      </section>
+
+      <!-- 8. HOUSE RULES -->
+      <section id="rules" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-3 bg-purple-100 text-purple-600 rounded-xl">
+            <i class="fa-solid fa-clipboard-list text-xl"></i>
+          </div>
+          <h2 id="txt-rules-title" class="text-xl font-bold text-slate-900"></h2>
+        </div>
+
+        <div id="rules-content-container"></div>
+      </section>
+
+      <!-- 9. HOUSE GUIDE -->
+      <section id="guide" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-3 bg-teal-100 text-teal-600 rounded-xl">
+            <i class="fa-solid fa-book-open text-xl"></i>
+          </div>
+          <h2 id="txt-guide-title" class="text-xl font-bold text-slate-900">House Guide</h2>
+        </div>
+
+        <div id="guide-content-container"></div>
+      </section>
+
+      <!-- 10. TRANSPORTS / TOURIST INFO -->
+      <section id="transports" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-3 bg-indigo-100 text-indigo-600 rounded-xl">
+            <i class="fa-solid fa-bus text-xl"></i>
+          </div>
+          <h2 id="txt-transports-title" class="text-xl font-bold text-slate-900"></h2>
+        </div>
+        <p id="txt-transports-body" class="text-sm text-slate-600 leading-relaxed"></p>
+      </section>
+
+      <!-- 11. BEST TIPS IN THE AREA -->
+      <section id="tips" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-3 bg-orange-100 text-orange-600 rounded-xl">
+            <i class="fa-solid fa-utensils text-xl"></i>
+          </div>
+          <h2 id="txt-tips-title" class="text-xl font-bold text-slate-900"></h2>
+        </div>
+        <p id="txt-tips-body" class="text-sm text-slate-600 leading-relaxed"></p>
+      </section>
+
+      <!-- 12. EMERGENCY INFO -->
+      <section id="emergency" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-3 bg-rose-100 text-rose-600 rounded-xl">
+            <i class="fa-solid fa-phone-volume text-xl"></i>
+          </div>
+          <h2 id="txt-emergency-title" class="text-xl font-bold text-slate-900"></h2>
+        </div>
+        <p id="txt-emergency-body" class="text-sm text-slate-600 leading-relaxed"></p>
+      </section>
+
+    </main>
+
+    <!-- Navigazione Fissa in Basso: Swiper Dock Apple Circolare -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-slate-200/80 shadow-2xl z-50 py-1">
+      <div class="max-w-md mx-auto">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide" data-tab="welcome">
+              <i class="fa-solid fa-house text-lg text-slate-600"></i>
+              <span id="nav-welcome" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
+
+            <div class="swiper-slide" data-tab="contact">
+              <i class="fa-solid fa-address-card text-lg text-slate-600"></i>
+              <span id="nav-contact" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
+
+            <div class="swiper-slide" data-tab="wifi">
+              <i class="fa-solid fa-wifi text-lg text-slate-600"></i>
+              <span id="nav-wifi" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
+
+            <div class="swiper-slide" data-tab="arrival">
+              <i class="fa-solid fa-map-location-dot text-lg text-slate-600"></i>
+              <span id="nav-arrival" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
+
+            <div class="swiper-slide" data-tab="checkin">
+              <i class="fa-solid fa-key text-lg text-slate-600"></i>
+              <span id="nav-checkin" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
+
+            <div class="swiper-slide" data-tab="checkout">
+              <i class="fa-solid fa-door-open text-lg text-slate-600"></i>
+              <span id="nav-checkout" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
+
+            <div class="swiper-slide" data-tab="rules">
+              <i class="fa-solid fa-clipboard-list text-lg text-slate-600"></i>
+              <span id="nav-rules" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
+
+            <div class="swiper-slide" data-tab="guide">
+              <i class="fa-solid fa-book-open text-lg text-slate-600"></i>
+              <span id="nav-guide" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
+
+            <div class="swiper-slide" data-tab="transports">
+              <i class="fa-solid fa-bus text-lg text-slate-600"></i>
+              <span id="nav-transports" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
+
+            <div class="swiper-slide" data-tab="tips">
+              <i class="fa-solid fa-utensils text-lg text-slate-600"></i>
+              <span id="nav-tips" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
+
+            <div class="swiper-slide" data-tab="emergency">
+              <i class="fa-solid fa-phone-volume text-lg text-slate-600"></i>
+              <span id="nav-emergency" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
+
+            <div class="swiper-slide" data-tab="disclaimer">
+              <i class="fa-solid fa-shield-halved text-lg text-slate-600"></i>
+              <span id="nav-disclaimer" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </div>
+
+
+  <!-- Swiper JS Script per la barra di navigazione -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  
+
+  <!-- ========================================== -->
+  <!-- 3. GESTIONE DIZIONARIO & SCRIPT            -->
+  <!-- ========================================== -->
   <script>
-    // Initialize Swiper with Coverflow Effect and Loop
-    const navSwiper = new Swiper('.swiper-bottom-nav', {
-      effect: 'coverflow',
-      grabCursor: true,
-      centeredSlides: true,
-      slidesPerView: 'auto',
-      loop: true,
-      initialSlide: 2, // Centered on Transports
-      coverflowEffect: {
-        rotate: 0,
-        stretch: 0,
-        depth: 80,
-        modifier: 1,
-        slideShadows: false,
+    let navSwiper = null;
+    let isProgrammaticSlide = false;
+
+    const translations = {
+      it: {
+        welcomeTitle: "Benvenuti!",
+        welcomeBody: "Siamo felici di ospitarvi alla Terrazza di Maria. Abbiamo preparato questa guida per rendervi il soggiorno confortevole e piacevole.",
+        changeLangBtn: "Cambia Lingua / Change Language",
+        
+        contactTitle: "Punto di Contatto",
+        contactBody: "Sonia è la nostra Property Manager. Contattala al +39 340 339 5237 dalle 08:00 alle 20:00.",
+
+        disclaimerTitle: "Disclaimer",
+        disclaimerBody: "La struttura declina ogni responsabilità per eventuali smarrimenti o furti di oggetti personali lasciati incustoditi nell'appartamento.",
+        
+        wifiTitle: "Connessione Wi-Fi",
+        
+        arrivalTitle: "Il tuo Arrivo",
+        arrivalBody: "Indirizzo: Via Sebastiano Ziani, 47, Roma. Se arrivi in auto trovi parcheggio lungo la via o al garage convenzionato a 100m.",
+        
+        checkinTitle: "Check-in",
+        checkinBody: "Orario Check-in: Dalle 15:00 alle 20:00. Per il Self Check-in inserisci il codice sulla tastiera all'ingresso principale.",
+        
+        checkoutTitle: "Check-out Procedure",
+        checkoutBody: "Orario massimo: Entro le ore 10:00. Lascia le chiavi nella keybox e assicurati di chiudere tutte le finestre.",
+        
+        rulesTitle: "Regole della Casa",
+        rulesBody: "1. Vietato fumare all'interno.\n2. Ore di silenzio dalle 22:00 alle 07:00.\n3. Feste ed eventi non sono consentiti.",
+        
+        guideTitle: "Guida della Casa",
+        guideBody: "Seleziona un ambiente per visualizzare le istruzioni trasversali sugli elettrodomestici e sui servizi.",
+        
+        transportsTitle: "Trasporti & Info Turistiche",
+        transportsBody: "Fermata Autobus linea 12 a soli 50 metri. La stazione ferroviaria centrale dista 10 minuti a piedi.",
+        
+        tipsTitle: "I nostri Consigli",
+        tipsBody: "Ristorante consigliato: 'Osteria del Mare' (a 200m).\nCaffè & Colazione: Bar Central.\nSupermercato aperto fino alle 20:30 a 150m.",
+        
+        emergencyTitle: "Contatti di Emergenza",
+        emergencyBody: "Numero Unico Emergenze: 112\nHost / Proprietario: +39 333 1234567\nGuardia Medica più vicina: Via Roma 15.",
+
+        navWelcome: "Home",
+        navContact: "Contatti",
+        navDisclaimer: "Info",
+        navWifi: "Wi-Fi",
+        navArrival: "Arrivo",
+        navCheckin: "Check-in",
+        navCheckout: "Check-out",
+        navRules: "Regole",
+        navGuide: "Guida",
+        navTransports: "Trasporti",
+        navTips: "Consigli",
+        navEmergency: "Sos"
       },
-    });
+      en: {
+        welcomeTitle: "Welcome to Maria’s Terrace !",
+        welcomeSubtitle: "Thank you very much for choosing our apartment for your stay in Rome!",
+        welcomeBody: `We are an Italian/French family who loves travelling. We furnished, decorated and equipped this apartment with the purpose of making your stay experience unforgettable!
+
+In this book you will find important information about the apartment, safety and rules. Please take the time to review it.
+
+We also included useful touristic information, along with addresses for shopping, food and services in the area.
+
+Should you need any help, contact us: we will be delighted to support you!`,
+        changeLangBtn: "Change Language",
+        
+        contactTitle: "Your point of contact",
+        
+        disclaimerTitle: "Disclaimer",
+        disclaimerBody: "Management is not responsible for any lost or stolen personal belongings left unattended in the apartment.",
+        
+        wifiTitle: "Wifi internet connection",
+        
+        arrivalTitle: "How to Reach Us",
+        
+        checkinTitle: "Check-in",
+        
+        checkoutTitle: "Check-out procedure",
+        
+        rulesTitle: "House Rules",
+        
+        guideTitle: "House Guide",
+        
+        transportsTitle: "Transports & Info",
+        transportsBody: "Bus stop line 12 is just 50 meters away. Central train station is a 10-minute walk.",
+        
+        tipsTitle: "Our Best Tips",
+        tipsBody: "Recommended Restaurant: 'Osteria del Mare' (200m).\nCoffee & Breakfast: Bar Central.\nSupermarket 150m away, open until 8:30 PM.",
+        
+        emergencyTitle: "Emergency Info",
+        emergencyBody: "Emergency Number: 112\nHost Contact: +39 333 1234567\nNearest Medical Center: Via Roma 15.",
+
+        navWelcome: "Home",
+        navContact: "Contact",
+        navDisclaimer: "Info",
+        navWifi: "Wi-Fi",
+        navArrival: "Arrival",
+        navCheckin: "Check-in",
+        navCheckout: "Check-out",
+        navRules: "Rules",
+        navGuide: "Guide",
+        navTransports: "Transports",
+        navTips: "Tips",
+        navEmergency: "Sos"
+      },
+      fr: {
+        welcomeTitle: "Bienvenue !",
+        welcomeBody: "Nous sommes ravis de vous accueillir à la Terrazza di Maria. Ce guide est fait pour vous offrir un séjour agréable.",
+        changeLangBtn: "Changer de langue",
+        
+        contactTitle: "Point de Contact",
+        contactBody: "Sonia est notre Property Manager. Contactez-la au +39 340 339 5237 de 08h00 à 20h00.",
+
+        disclaimerTitle: "Avertissement",
+        disclaimerBody: "L'établissement décline toute responsabilité en cas de perte ou de vol d'effets personnels.",
+        
+        wifiTitle: "Connexion Wi-Fi",
+        
+        arrivalTitle: "Votre Arrivée",
+        arrivalBody: "Adresse: Via Sebastiano Ziani, 47, Roma. Stationnement disponible dans la rue ou dans le garage partenaire.",
+        
+        checkinTitle: "Check-in",
+        checkinBody: "Arrivée : de 15h00 à 20h00. Pour le Self Check-in, entrez votre code sur le clavier de la porte principale.",
+        
+        checkoutTitle: "Check-out",
+        checkoutBody: "Départ : avant 10h00. Laissez les clés dans la keybox et fermez bien la porte.",
+        
+        rulesTitle: "Règles de la Maison",
+        rulesBody: "1. Interdiction de fumer à l'intérieur.\n2. Heures de silence : 22h00 - 07h00.\n3. Fêtes non autorisées.",
+        
+        guideTitle: "Guide du Logement",
+        
+        transportsTitle: "Transports & Info",
+        transportsBody: "Arrêt de bus ligne 12 à 50 mètres. Gare centrale à 10 minutes à pied.",
+        
+        tipsTitle: "Nos Conseils",
+        tipsBody: "Restaurant recommandé : 'Osteria del Mare'.\nCafé : Bar Central.\nSupermarché à 150m.",
+        
+        emergencyTitle: "Urgences",
+        emergencyBody: "Numéro d'urgence : 112\nHôte : +39 333 1234567.",
+
+        navWelcome: "Accueil",
+        navContact: "Contact",
+        navDisclaimer: "Info",
+        navWifi: "Wi-Fi",
+        navArrival: "Arrivée",
+        navCheckin: "Check-in",
+        navCheckout: "Check-out",
+        navRules: "Règles",
+        navGuide: "Guide",
+        navTransports: "Transports",
+        navTips: "Conseils",
+        navEmergency: "Sos"
+      },
+      de: {
+        welcomeTitle: "Willkommen!",
+        welcomeBody: "Wir freuen uns, Sie in der Terrazza di Maria zu begrüßen. Dieser Reiseführer soll Ihren Aufenthalt angenehm gestalten.",
+        changeLangBtn: "Sprache ändern",
+        
+        contactTitle: "Ansprechpartner",
+        contactBody: "Sonia ist unsere Property Managerin. Kontaktieren Sie sie unter +39 340 339 5237 von 08:00 bis 20:00 Uhr.",
+
+        disclaimerTitle: "Haftungsausschluss",
+        disclaimerBody: "Für den Verlust von persönlichen Gegenständen wird keine Haftung übernommen.",
+        
+        wifiTitle: "WLAN-Verbindung",
+        
+        arrivalTitle: "Ihre Anreise",
+        arrivalBody: "Adresse: Via Sebastiano Ziani, 47, Roma. Parkplätze finden Sie in der Straße oder in der Garage in 100m Entfernung.",
+        
+        checkinTitle: "Check-in",
+        checkinBody: "Check-in Zeit: 15:00 bis 20:00 Uhr. Für den Self Check-in geben Sie den Code am Eingang ein.",
+        
+        checkoutTitle: "Check-out",
+        checkoutBody: "Check-out: Bis 10:00 Uhr. Bitte Schlüssel in die Keybox legen und Tür schließen.",
+        
+        rulesTitle: "Hausregeln",
+        rulesBody: "1. Nichtrauchen in allen Räumen.\n2. Ruhezeiten: 22:00 - 07:00 Uhr.\n3. Keine Partys gestattet.",
+        
+        guideTitle: "Anleitungen",
+        
+        transportsTitle: "Verkehr & Info",
+        transportsBody: "Bushaltestelle Linie 12 in 50m. Hauptbahnhof 10 Gehminuten entfernt.",
+        
+        tipsTitle: "Unsere Tipps",
+        tipsBody: "Empfohlenes Restaurant: 'Osteria del Mare'.\nCafé: Bar Central.\nSupermarkt 150m entfernt.",
+        
+        emergencyTitle: "Notfallnummern",
+        emergencyBody: "Notruf: 112\nGastgeber: +39 333 1234567.",
+
+        navWelcome: "Start",
+        navContact: "Kontakt",
+        navDisclaimer: "Info",
+        navWifi: "WLAN",
+        navArrival: "Anreise",
+        navCheckin: "Check-in",
+        navCheckout: "Check-out",
+        navRules: "Regeln",
+        navGuide: "Guide",
+        navTransports: "Verkehr",
+        navTips: "Tipps",
+        navEmergency: "Notfall"
+      }
+    };
+
+    function renderContactSection(lang) {
+      const container = document.getElementById('contact-content-container');
+
+      if (lang === 'en') {
+        container.innerHTML = `
+          <div class="space-y-5 text-left">
+            <div class="bg-amber-50/70 border border-amber-200/60 rounded-2xl p-5 space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="p-3 bg-amber-100 text-amber-600 rounded-xl">
+                  <i class="fa-solid fa-hand-holding-heart text-2xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-base font-bold text-slate-900">Sonia</h3>
+                  <p class="text-xs text-slate-500 font-medium">Property Manager</p>
+                </div>
+              </div>
+
+              <p class="text-xs text-slate-700 leading-relaxed">
+                <strong>Sonia is our talented and caring property manager.</strong><br>
+                Please contact her from <strong>8 am to 8 pm</strong>.
+              </p>
+
+              <div class="grid grid-cols-2 gap-2 pt-2">
+                <a href="tel:+393403395237" class="flex items-center justify-center gap-2 bg-slate-900 text-white py-2.5 px-3 rounded-xl text-xs font-semibold shadow-sm active:scale-95 transition-all">
+                  <i class="fa-solid fa-phone text-amber-400"></i>
+                  <span>Call Sonia</span>
+                </a>
+
+                <a href="https://wa.me/393403395237" target="_blank" class="flex items-center justify-center gap-2 bg-emerald-600 text-white py-2.5 px-3 rounded-xl text-xs font-semibold shadow-sm active:scale-95 transition-all">
+                  <i class="fa-brands fa-whatsapp text-lg"></i>
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 flex items-center justify-between gap-3">
+              <div class="space-y-1">
+                <span class="text-[10px] font-bold tracking-wider text-slate-400 uppercase">Direct Chat</span>
+                <p class="text-xs font-bold text-slate-800">Scan QR Code to chat on WhatsApp</p>
+                <p class="text-[11px] font-mono text-slate-500">+39 340 339 5237</p>
+              </div>
+              <div class="bg-white p-2 rounded-xl border border-slate-200 shadow-sm flex-shrink-0">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://wa.me/393403395237" alt="WhatsApp QR Code" class="w-16 h-16">
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        const t = translations[lang] || translations['it'];
+        container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed">${t.contactBody}</p>`;
+      }
+    }
+
+    function renderWifiSection(lang) {
+      const container = document.getElementById('wifi-content-container');
+      const wifi5GString = encodeURIComponent("WIFI:S:C-5G;T:WPA;P:33902210;;");
+      const wifi2GString = encodeURIComponent("WIFI:S:C-2G;T:WPA;P:33902210;;");
+
+      container.innerHTML = `
+        <div class="space-y-5 text-left">
+          <div class="bg-amber-50/70 border border-amber-200/70 rounded-2xl p-5 space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-[10px] font-bold tracking-wider text-amber-700 uppercase bg-amber-100 px-2.5 py-1 rounded-full">Recommended</span>
+                <h3 class="text-base font-bold text-slate-900 mt-2">High speed connection</h3>
+                <p class="text-xs text-slate-500">Scan QR Code to connect automatically</p>
+              </div>
+              <i class="fa-solid fa-bolt text-amber-500 text-2xl"></i>
+            </div>
+
+            <div class="flex justify-center py-2">
+              <div class="bg-white p-3 rounded-2xl border border-amber-200 shadow-sm text-center space-y-1">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${wifi5GString}" alt="Wi-Fi C-5G QR Code" class="w-36 h-36 mx-auto">
+                <span class="text-[10px] text-slate-400 block font-medium">Scan with camera</span>
+              </div>
+            </div>
+
+            <div class="bg-white p-3.5 rounded-xl border border-slate-200/80 space-y-2">
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-slate-400 uppercase font-semibold text-[10px]">Network name</span>
+                <span class="font-mono font-bold text-slate-900">C-5G</span>
+              </div>
+              <div class="flex justify-between items-center text-xs pt-1 border-t border-slate-100">
+                <span class="text-slate-400 uppercase font-semibold text-[10px]">Password</span>
+                <span id="pass-5g" class="font-mono font-bold text-amber-600">33902210</span>
+              </div>
+            </div>
+
+            <button onclick="copyWifiPassword('33902210', 'feedback-5g')" class="w-full bg-amber-500 hover:bg-amber-600 active:scale-95 text-white py-2.5 rounded-xl text-xs font-bold shadow-sm transition-all flex items-center justify-center gap-2">
+              <i class="fa-regular fa-copy"></i>
+              <span>Copy Password</span>
+            </button>
+            <p id="feedback-5g" class="text-xs text-emerald-600 text-center font-medium hidden">✓ Password copied!</p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 space-y-4">
+            <div>
+              <h3 class="text-sm font-bold text-slate-800">In case of trouble, please try the low speed connection:</h3>
+            </div>
+
+            <div class="flex items-center justify-between gap-4">
+              <div class="space-y-2 flex-1">
+                <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1 text-xs">
+                  <div class="flex justify-between">
+                    <span class="text-slate-400 text-[10px] uppercase font-semibold">Network</span>
+                    <span class="font-mono font-bold text-slate-800">C-2G</span>
+                  </div>
+                  <div class="flex justify-between pt-1 border-t border-slate-100">
+                    <span class="text-slate-400 text-[10px] uppercase font-semibold">Password</span>
+                    <span class="font-mono font-bold text-slate-800">33902210</span>
+                  </div>
+                </div>
+
+                <button onclick="copyWifiPassword('33902210', 'feedback-2g')" class="w-full bg-slate-800 text-white py-2 rounded-xl text-xs font-semibold active:scale-95 transition-all flex items-center justify-center gap-2">
+                  <i class="fa-regular fa-copy"></i>
+                  <span>Copy Password</span>
+                </button>
+                <p id="feedback-2g" class="text-xs text-emerald-600 text-center font-medium hidden">✓ Password copied!</p>
+              </div>
+
+              <div class="bg-white p-2 rounded-xl border border-slate-200 shadow-sm flex-shrink-0 text-center">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${wifi2GString}" alt="Wi-Fi C-2G QR Code" class="w-20 h-20">
+                <span class="text-[9px] text-slate-400 block mt-1">Scan QR</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderArrivalSection(lang) {
+      const container = document.getElementById('arrival-content-container');
+      
+      if (lang === 'en') {
+        container.innerHTML = `
+          <div class="space-y-6 text-left">
+            <div class="bg-amber-50/60 border border-amber-200/60 rounded-xl p-4 space-y-3">
+              <div class="flex items-start gap-2">
+                <i class="fa-solid fa-location-dot text-amber-600 text-lg mt-0.5"></i>
+                <div>
+                  <span class="text-xs font-semibold text-amber-700 uppercase tracking-wider">Address</span>
+                  <p class="text-base font-bold text-slate-900">Via Sebastiano Ziani, 47, Rome</p>
+                </div>
+              </div>
+
+              <div class="pt-2 border-t border-amber-200/50">
+                <h3 class="text-sm font-bold text-slate-800 mb-2 flex items-center gap-2">
+                  <i class="fa-solid fa-key text-amber-600"></i> Self Check-in Instructions
+                </h3>
+                <ol class="text-xs text-slate-700 space-y-2 list-decimal list-inside pl-1">
+                  <li><strong>Gate:</strong> Intercom #22 on the right of the gate. The property manager will open.</li>
+                  <li><strong>Elevator:</strong> Go to the right, take the elevator to the 7th floor.</li>
+                  <li><strong>Stairs:</strong> Walk up one more floor to reach the top (8th floor).</li>
+                  <li><strong>Keybox:</strong> On the landing, keybox is in the middle. Type your custom code.</li>
+                  <li><strong>Entrance:</strong> The apartment is the door on the left.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="border border-slate-100 rounded-xl p-4 bg-slate-50/50 space-y-3">
+              <div class="flex items-center gap-2 text-slate-800 font-bold border-b border-slate-200/60 pb-2">
+                <i class="fa-solid fa-plane-departure text-blue-600"></i>
+                <span>From Fiumicino Airport (FCO)</span>
+              </div>
+
+              <div class="bg-white p-3 rounded-lg border border-slate-100 space-y-1 text-xs">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-slate-800">⚡ Fastest & Comfortable</span>
+                  <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono text-[11px]">30-45 min</span>
+                </div>
+                <p class="text-slate-600"><strong>Taxi (Official only):</strong> €50 - €60 <span class="text-slate-400">(Max €80 by regulation)</span></p>
+                <p class="text-slate-600"><strong>Private Shuttle:</strong> Car €65 | Van €70</p>
+              </div>
+
+              <div class="bg-white p-3 rounded-lg border border-slate-100 space-y-1 text-xs">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-slate-800">💡 The Cheapest</span>
+                  <span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold font-mono text-[11px]">60-70 min | €16</span>
+                </div>
+                <p class="text-slate-600">Train + Metro (Trains leave every 15 minutes)</p>
+              </div>
+            </div>
+
+            <div class="border border-slate-100 rounded-xl p-4 bg-slate-50/50 space-y-3">
+              <div class="flex items-center gap-2 text-slate-800 font-bold border-b border-slate-200/60 pb-2">
+                <i class="fa-solid fa-plane-departure text-blue-600"></i>
+                <span>From Ciampino Airport (CIA)</span>
+              </div>
+
+              <div class="bg-white p-3 rounded-lg border border-slate-100 space-y-1 text-xs">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-slate-800">⚡ Fastest & Comfortable</span>
+                  <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono text-[11px]">30-45 min</span>
+                </div>
+                <p class="text-slate-600"><strong>Taxi (Official only):</strong> €50 - €60 <span class="text-slate-400">(Max €80 by regulation)</span></p>
+                <p class="text-slate-600"><strong>Private Shuttle:</strong> Car €65 | Van €70</p>
+              </div>
+
+              <div class="bg-white p-3 rounded-lg border border-slate-100 space-y-1 text-xs">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-slate-800">💡 Cheapest</span>
+                  <span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold font-mono text-[11px]">60-70 min | €16</span>
+                </div>
+                <ol class="text-slate-600 space-y-1 list-decimal list-inside">
+                  <li>Train "Leonardo" to <strong>Stazione Termini</strong></li>
+                  <li>Metro line "A" (direction "Battistini"), stop at <strong>"Cipro"</strong></li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="border border-slate-100 rounded-xl p-4 bg-slate-50/50 space-y-3">
+              <div class="flex items-center gap-2 text-slate-800 font-bold border-b border-slate-200/60 pb-2">
+                <i class="fa-solid fa-train text-amber-600"></i>
+                <span>From Stazione Termini</span>
+              </div>
+
+              <div class="bg-white p-3 rounded-lg border border-slate-100 space-y-1 text-xs">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-slate-800">⚡ Fastest & Cheapest</span>
+                  <span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold font-mono text-[11px]">20 min | €2</span>
+                </div>
+                <p class="text-slate-600">Take <strong>Metro line "A"</strong> (direction "Battistini") and stop at <strong>"Cipro"</strong>.</p>
+              </div>
+
+              <div class="bg-white p-3 rounded-lg border border-slate-100 space-y-1 text-xs">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-slate-800">🚕 Comfortable</span>
+                  <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono text-[11px]">15-30 min</span>
+                </div>
+                <p class="text-slate-600"><strong>Taxi (Official only):</strong> €15 - €20 <span class="text-slate-400">(Max €80 by regulation)</span></p>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        const t = translations[lang] || translations['it'];
+        container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed">${t.arrivalBody}</p>`;
+      }
+    }
+
+    function renderCheckinSection(lang) {
+      const container = document.getElementById('checkin-content-container');
+
+      if (lang === 'en') {
+        container.innerHTML = `
+          <div class="space-y-4 text-left">
+            <div class="p-4 bg-slate-50/80 border border-slate-100 rounded-xl space-y-1">
+              <div class="flex items-center gap-2 text-slate-900 font-bold text-sm">
+                <i class="fa-solid fa-clock text-emerald-600"></i>
+                <span>Check-in 3 pm - 8 pm</span>
+              </div>
+              <p class="text-xs text-slate-700 pt-1 leading-relaxed">
+                <strong>Check-in is available from 3 pm to 8 pm.</strong><br>
+                Should you need specific arrangement, please contact us.<br>
+                You will be assigned your personalised code for the keybox.
+              </p>
+            </div>
+
+            <div class="p-4 bg-slate-50/80 border border-slate-100 rounded-xl space-y-1">
+              <div class="flex items-center gap-2 text-slate-900 font-bold text-sm">
+                <i class="fa-solid fa-id-card text-emerald-600"></i>
+                <span>Bring your ID</span>
+              </div>
+              <p class="text-xs text-slate-700 pt-1 leading-relaxed">
+                <strong>You are requested to provide a valid identification for each guest included in the reservation.</strong><br>
+                This is a police authority requirement.
+              </p>
+            </div>
+
+            <div class="p-4 bg-slate-50/80 border border-slate-100 rounded-xl space-y-1">
+              <div class="flex items-center gap-2 text-slate-900 font-bold text-sm">
+                <i class="fa-solid fa-magnifying-glass text-emerald-600"></i>
+                <span>Check apartment conditions</span>
+              </div>
+              <p class="text-xs text-slate-700 pt-1 leading-relaxed">
+                <strong>Please notify us of any broken object / furniture</strong> quickly after your arrival. Failing to do so, may result in charges for those damages.
+              </p>
+            </div>
+          </div>
+        `;
+      } else {
+        const t = translations[lang] || translations['it'];
+        container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed">${t.checkinBody}</p>`;
+      }
+    }
+
+    function renderCheckoutSection(lang) {
+      const container = document.getElementById('checkout-content-container');
+
+      if (lang === 'en') {
+        container.innerHTML = `
+          <div class="space-y-4 text-left">
+            <p class="text-xs text-slate-500 font-medium pb-1">
+              Before leaving the property, guests are expected to follow the following steps:
+            </p>
+
+            <div class="relative border-l-2 border-amber-200 ml-3 pl-4 space-y-4">
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800 font-bold">Check-out before 10 am.</p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Let us know about</strong> any accidental damage, maintenance concerns, or items in need of repair so we can address them promptly.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Keys:</strong> Lock the front door and leave the keys inside the key box.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Terrace:</strong> Close awnings. Put back cushions and towels in the box. Close windows, window bars, shutters.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Trash & Recycling:</strong> Dispose of all trash in the designated bins located outside the building, in Via degli Ammiragli 112 (20m).
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Kitchen:</strong> Wash dirty dishes or place them in the dishwasher and start the cycle. Empty the fridge.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Appliances:</strong> Switch off the air conditioning and ensure all small electrical appliances (hair dryer, iron, etc.) are unplugged.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Remotes:</strong> Return the 3 remote controls (TV and AC) to their original places.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Privacy:</strong> Log out of any personal accounts in the TV (such as Netflix or similar).
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        const t = translations[lang] || translations['it'];
+        container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed">${t.checkoutBody}</p>`;
+      }
+    }
+
+    function renderRulesSection(lang) {
+      const container = document.getElementById('rules-content-container');
+
+      if (lang === 'en') {
+        container.innerHTML = `
+          <div class="space-y-4 text-left">
+            <p class="text-xs text-slate-500 font-medium">
+              We appreciate your cooperation in keeping our home safe and pleasant.
+            </p>
+
+            <div class="bg-rose-50 border-2 border-rose-300 rounded-2xl p-4 space-y-3">
+              <div class="flex items-center gap-3 text-rose-700 font-bold text-sm border-b border-rose-200 pb-2">
+                <i class="fa-solid fa-triangle-exclamation text-xl text-rose-600"></i>
+                <span>Safety rules on the terrace</span>
+              </div>
+              <p class="text-xs font-semibold text-rose-900 leading-snug">
+                For your safety and the safety of others, we kindly ask you to be extremely mindful of the following rules at all times:
+              </p>
+              <ul class="text-xs text-rose-800 space-y-1.5 list-disc list-inside">
+                <li>Do not sit, climb, or lean over the parapet.</li>
+                <li>Children must be supervised by an adult at all times.</li>
+                <li>Do not place or leave any objects on the parapet of the terrace.</li>
+                <li>Please exercise caution to prevent items from falling down the street.</li>
+                <li>Do not touch the plants, to prevent any risk of allergy or intoxication.</li>
+              </ul>
+            </div>
+
+            <div class="space-y-3 pt-1">
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-rose-100 text-rose-600 rounded-lg flex-shrink-0">
+                  <i class="fa-solid fa-ban-smoking text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">No Smoking</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">The whole property, terrace included, is a strictly non-smoking area.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-purple-100 text-purple-600 rounded-lg flex-shrink-0">
+                  <i class="fa-solid fa-moon text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Quiet hours</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">Quiet hours inside and outside: <strong>from 10 pm to 7 am</strong>. Remember that also the terrace is right above the neighbour's ceiling.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-amber-100 text-amber-600 rounded-lg flex-shrink-0">
+                  <i class="fa-solid fa-user-slash text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">No visitors / No parties</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">Outside visitors are not allowed. Only checked-in guests. Parties, gatherings, or events of any kind are prohibited.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-blue-100 text-blue-600 rounded-lg flex-shrink-0">
+                  <i class="fa-solid fa-couch text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Furniture</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">Do not move furniture. This may cause noise, and they can get broken.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-emerald-100 text-emerald-600 rounded-lg flex-shrink-0">
+                  <i class="fa-solid fa-dog text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Pets</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">Pets are not allowed in the property.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-indigo-100 text-indigo-600 rounded-lg flex-shrink-0">
+                  <i class="fa-solid fa-lock text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Security of your belongings</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">Every time you leave the apartment, please:</p>
+                  <ul class="text-xs text-slate-600 list-disc list-inside mt-1 space-y-0.5">
+                    <li>Close windows bars, windows and shutters</li>
+                    <li>Switch off the AC, heater fan, and lights</li>
+                    <li>Lock the front door (double-lock)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-orange-100 text-orange-600 rounded-lg flex-shrink-0">
+                  <i class="fa-solid fa-wine-glass-crack text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Broken / lost items policy</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">Please inform us promptly of any damage or missing items. Failure to do so may result in charges for those damages.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        const t = translations[lang] || translations['it'];
+        container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed whitespace-pre-line">${t.rulesBody}</p>`;
+      }
+    }
+
+    function renderGuideSection(lang) {
+      const container = document.getElementById('guide-content-container');
+
+      if (lang === 'en') {
+        container.innerHTML = `
+          <div class="space-y-4 text-left">
+            <p class="text-xs text-slate-500 font-medium">Select a room below to view detailed equipment instructions:</p>
+
+            <div class="space-y-3">
+
+              <!-- 1. KITCHEN BLOCK -->
+              <div class="guide-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button onclick="toggleGuideSubSection('guide-kitchen', this)" class="w-full hover:bg-teal-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-teal-100 text-teal-700 rounded-xl">
+                      <i class="fa-solid fa-utensils text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Kitchen</h3>
+                      <p class="text-[11px] text-slate-500">Appliances, Coffee Machines, Tools</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down guide-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="guide-kitchen" class="guide-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
+                  <h3 class="text-sm font-bold text-teal-700 border-b border-slate-100 pb-2">Kitchen Appliances</h3>
+                  <p class="text-xs text-slate-600">Appliances at your disposal include: washing machine, dishwasher, toaster, water boiler, espresso machine.</p>
+
+                  <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-slate-700">
+                    <strong>Pro Tip:</strong> Please note that inside the first drawer near the oven, there is a second 'hidden' drawer stocked with plenty of kitchen tools. Be sure to check this out!
+                  </div>
+
+                  <div class="space-y-3 pt-2">
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <i class="fa-solid fa-soap text-lg text-teal-600 mt-1"></i>
+                      <div class="text-xs">
+                        <strong>Washing machine:</strong> Detergent pods are available in the base cabinet to the right of the machine.
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <i class="fa-solid fa-sink text-lg text-teal-600 mt-1"></i>
+                      <div class="text-xs">
+                        <strong>Dish-washer:</strong> Detergent pods are at your disposal in the base cabinet, on the right side of the washing machine.
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <i class="fa-solid fa-mug-hot text-lg text-teal-600 mt-1"></i>
+                      <div class="text-xs">
+                        <strong>Espresso coffee machine:</strong> Works with Lavazza's <em>« A Modo Mio »</em> capsules. Complimentary set for you to enjoy during your stay!
+                      </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 space-y-2">
+                      <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-coffee text-lg text-teal-600 mt-1"></i>
+                        <div class="text-xs">
+                          <strong>"Moka" coffee maker:</strong> This is the iconic Italian home-made coffee machine.
+                        </div>
+                      </div>
+                      <a href="https://www.youtube.com/shorts/JA2dBog-8Dg" target="_blank" class="inline-flex items-center gap-2 text-xs text-rose-600 font-bold bg-rose-50 hover:bg-rose-100 px-3 py-1.5 rounded-lg border border-rose-200 transition-all">
+                        <i class="fa-brands fa-youtube text-base"></i>
+                        <span>Watch the 60" video tutorial</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. BATHROOM / TOILET BLOCK -->
+              <div class="guide-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button onclick="toggleGuideSubSection('guide-toilet', this)" class="w-full hover:bg-teal-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-teal-100 text-teal-700 rounded-xl">
+                      <i class="fa-solid fa-bath text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Bathroom / Toilet</h3>
+                      <p class="text-[11px] text-slate-500">Water Supply, Utilities & Heater</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down guide-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="guide-toilet" class="guide-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
+                  <h3 class="text-sm font-bold text-teal-700 border-b border-slate-100 pb-2">Bathroom / Toilet</h3>
+                  
+                  <div class="bg-rose-50 border border-rose-200 p-3 rounded-xl text-xs text-rose-800 font-medium">
+                    Please flush only toilet paper. For all other waste, please use the bin provided.
+                  </div>
+
+                  <div class="space-y-3">
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                      <strong>Water supply:</strong>
+                      <p class="text-slate-600">There is a water pump to ensure consistent water pressure. Please allow 5-10 seconds for the water flow to stabilize.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                      <strong>Utilities:</strong>
+                      <p class="text-slate-600">For your convenience, in the cabinet (left hand), you will find: drying rack, iron, ironing board, vacuum, tools, and first aid kit.</p>
+                      <p class="text-slate-600 pt-1">Inside the right-hand compartment, you will find four empty baskets for your personal use.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-2">
+                      <strong>Electric heater (bathroom):</strong>
+                      <p class="text-slate-600">Plug it only when needed.</p>
+                      <ul class="list-disc list-inside text-slate-600 space-y-0.5">
+                        <li>On: push ⏻</li>
+                        <li>Set the temperature: +/-</li>
+                        <li>Off: push ⏻ twice</li>
+                      </ul>
+                      <div class="bg-amber-50 p-2.5 rounded-lg border border-amber-200 text-[11px] text-amber-900 mt-2">
+                        As a safety precaution, please ensure <strong>all electrical appliances are unplugged</strong> once you have finished using them.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. LIVING ROOM & BEDROOM BLOCK -->
+              <div class="guide-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button onclick="toggleGuideSubSection('guide-living', this)" class="w-full hover:bg-teal-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-teal-100 text-teal-700 rounded-xl">
+                      <i class="fa-solid fa-bed text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Living room & Bedroom</h3>
+                      <p class="text-[11px] text-slate-500">Air-conditioning, Smart TV & Lights</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down guide-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="guide-living" class="guide-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
+                  <h3 class="text-sm font-bold text-teal-700 border-b border-slate-100 pb-2">Living room & Bedroom</h3>
+
+                  <div class="space-y-3">
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <i class="fa-solid fa-temperature-arrow-up text-lg text-teal-600 mt-1"></i>
+                      <div class="text-xs space-y-1">
+                        <strong>Air-conditioning:</strong>
+                        <p class="text-slate-600">There are two AC units: one in the living area and one in the bedroom, providing both cooling and heating.</p>
+                        <p class="text-slate-800 font-semibold">Please switch them off when you leave the rooms.</p>
+                        <p class="text-slate-500 text-[11px]">Remotes are located right by the doors. Please put them back after use.</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <i class="fa-solid fa-tv text-lg text-teal-600 mt-1"></i>
+                      <div class="text-xs space-y-1">
+                        <strong>Smart TV:</strong>
+                        <p class="text-slate-600">Feel free to connect with your account to your preferred streaming platform if you want to watch your own movies and series.</p>
+                        <p class="text-rose-700 font-medium">Before leaving, don't forget to log out from your accounts.</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <i class="fa-solid fa-lightbulb text-lg text-teal-600 mt-1"></i>
+                      <div class="text-xs space-y-1">
+                        <strong>Lights in the bedroom:</strong>
+                        <p class="text-slate-600">Floor Lamp: operated by switches (1 at the door, 2 next to each bed side).</p>
+                        <p class="text-slate-600">Bedside Lamps: operated via the built-in switches, on the right side of each fixture.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. TERRACE BLOCK -->
+              <div class="guide-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button onclick="toggleGuideSubSection('guide-terrace', this)" class="w-full hover:bg-teal-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-teal-100 text-teal-700 rounded-xl">
+                      <i class="fa-solid fa-sun text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Terrace</h3>
+                      <p class="text-[11px] text-slate-500">Awnings, Cushions & Safety</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down guide-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="guide-terrace" class="guide-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
+                  <h3 class="text-sm font-bold text-teal-700 border-b border-slate-100 pb-2">Terrace</h3>
+                  
+                  <p class="text-xs text-slate-600">While the terrace is the most enjoyable and rare place in the property, please follow important rules regarding safety and equipment security.</p>
+
+                  <div class="bg-rose-50 border border-rose-200 p-3 rounded-xl space-y-1 text-xs text-rose-900">
+                    <strong>Safety:</strong>
+                    <ul class="list-disc list-inside space-y-0.5 text-rose-800">
+                      <li>Do not sit, climb, nor lean over the parapet.</li>
+                      <li>Supervise children at all times.</li>
+                      <li>Do not place any objects on the parapet of the terrace.</li>
+                      <li>Exercise caution to prevent items from falling down the street.</li>
+                      <li>Do not touch the plants, to prevent any risk of allergy or intoxication.</li>
+                    </ul>
+                  </div>
+
+                  <div class="space-y-3">
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 space-y-2 text-xs">
+                      <strong>Awnings – Risk of injuries:</strong>
+                      <p class="text-slate-600">When opening/closing the awnings, do not let the rope slide through your hands. Follow the procedure carefully.</p>
+                      
+                      <a href="https://vimeo.com/manage/videos/1061295566/d45e8078c2" target="_blank" class="inline-flex items-center gap-2 text-xs text-blue-600 font-bold bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-200 transition-all">
+                        <i class="fa-brands fa-vimeo-v text-base"></i>
+                        <span>Watch video tutorial on Vimeo →</span>
+                      </a>
+
+                      <p class="text-rose-700 font-semibold pt-1">In case of rainy or windy conditions, do not open awnings.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs">
+                      <strong>Cushion box:</strong>
+                      <p class="text-slate-600 mt-1">Feel free to use amenities like: cushions, plaids, garden lights, extension cable.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs">
+                      <strong>Table – Risk of damage:</strong>
+                      <p class="text-slate-600 mt-1">Do not move the table. Legs may get broken while sliding.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                      <strong>When leaving the terrace:</strong>
+                      <ul class="list-disc list-inside text-slate-600 space-y-0.5">
+                        <li>Close the awnings</li>
+                        <li>Put back cushions and any other object in the box</li>
+                        <li>Remove any object which may fall because of wind</li>
+                        <li>Close windows bars, windows and shutters</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        `;
+      } else {
+        const t = translations[lang] || translations['it'];
+        container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed">${t.guideBody}</p>`;
+      }
+    }
+
+    function toggleGuideSubSection(sectionId, btnElement) {
+      const targetContent = document.getElementById(sectionId);
+      if (!targetContent) return;
+
+      const isHidden = targetContent.classList.contains('hidden');
+
+      document.querySelectorAll('.guide-subsection').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.guide-icon').forEach(icon => icon.style.transform = 'rotate(0deg)');
+
+      if (isHidden) {
+        targetContent.classList.remove('hidden');
+        if (btnElement) {
+          const icon = btnElement.querySelector('.guide-icon');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+      }
+    }
+
+    function initSwiperNav() {
+      if (navSwiper) return;
+
+      navSwiper = new Swiper(".mySwiper", {
+        slidesPerView: "auto",
+        centeredSlides: true,
+        spaceBetween: 10,
+        loop: true,
+        slideToClickedSlide: true,
+        grabCursor: true,
+        on: {
+          slideChange: function () {
+            // Sincronizza il contenuto con la slide arrivata al centro
+            const activeSlide = this.slides[this.activeIndex];
+            if (activeSlide) {
+              const tabId = activeSlide.getAttribute('data-tab');
+              if (tabId && !isProgrammaticSlide) {
+                switchTabContent(tabId);
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function switchTabContent(tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      const activeTab = document.getElementById(tabId);
+      if (activeTab) {
+        activeTab.classList.add('active');
+        window.scrollTo(0, 0);
+      }
+    }
+
+    function showTab(tabId) {
+      switchTabContent(tabId);
+      if (navSwiper) {
+        // Cerca l'indice della slide corrispondente al tab
+        const slides = navSwiper.slides;
+        for (let i = 0; i < slides.length; i++) {
+          if (slides[i].getAttribute('data-tab') === tabId) {
+            isProgrammaticSlide = true;
+            navSwiper.slideToLoop(navSwiper.realIndex, 300);
+            setTimeout(() => { isProgrammaticSlide = false; }, 350);
+            break;
+          }
+        }
+      }
+    }
+
+    function selectLanguage(lang) {
+      document.getElementById('current-lang-code').innerText = lang;
+      const t = translations[lang] || translations['it'];
+
+      // Mappatura testi
+      document.getElementById('txt-welcome-title').innerText = t.welcomeTitle;
+      document.getElementById('txt-welcome-subtitle').innerText = t.welcomeSubtitle || '';
+      document.getElementById('txt-welcome-body').innerText = t.welcomeBody;
+      document.getElementById('txt-btn-change-lang').innerText = t.changeLangBtn;
+
+      document.getElementById('txt-contact-title').innerText = t.contactTitle;
+      renderContactSection(lang);
+
+      document.getElementById('txt-disclaimer-title').innerText = t.disclaimerTitle;
+      document.getElementById('txt-disclaimer-body').innerText = t.disclaimerBody;
+
+      document.getElementById('txt-wifi-title').innerText = t.wifiTitle;
+      renderWifiSection(lang);
+
+      document.getElementById('txt-arrival-title').innerText = t.arrivalTitle;
+      renderArrivalSection(lang);
+
+      document.getElementById('txt-checkin-title').innerText = t.checkinTitle;
+      renderCheckinSection(lang);
+
+      document.getElementById('txt-checkout-title').innerText = t.checkoutTitle;
+      renderCheckoutSection(lang);
+
+      document.getElementById('txt-rules-title').innerText = t.rulesTitle;
+      renderRulesSection(lang);
+
+      document.getElementById('txt-guide-title').innerText = t.guideTitle;
+      renderGuideSection(lang);
+
+      document.getElementById('txt-transports-title').innerText = t.transportsTitle;
+      document.getElementById('txt-transports-body').innerText = t.transportsBody;
+
+      document.getElementById('txt-tips-title').innerText = t.tipsTitle;
+      document.getElementById('txt-tips-body').innerText = t.tipsBody;
+
+      document.getElementById('txt-emergency-title').innerText = t.emergencyTitle;
+      document.getElementById('txt-emergency-body').innerText = t.emergencyBody;
+
+      // Etichette dock
+      document.getElementById('nav-welcome').innerText = t.navWelcome;
+      document.getElementById('nav-contact').innerText = t.navContact;
+      document.getElementById('nav-disclaimer').innerText = t.navDisclaimer;
+      document.getElementById('nav-wifi').innerText = t.navWifi;
+      document.getElementById('nav-arrival').innerText = t.navArrival;
+      document.getElementById('nav-checkin').innerText = t.navCheckin;
+      document.getElementById('nav-checkout').innerText = t.navCheckout;
+      document.getElementById('nav-rules').innerText = t.navRules;
+      document.getElementById('nav-guide').innerText = t.navGuide;
+      document.getElementById('nav-transports').innerText = t.navTransports;
+      document.getElementById('nav-tips').innerText = t.navTips;
+      document.getElementById('nav-emergency').innerText = t.navEmergency;
+
+      // Transizione schermata
+      document.getElementById('language-screen').classList.add('hidden-screen');
+      document.getElementById('app-screen').classList.remove('hidden-screen');
+      
+      // Inizializza Swiper dopo il cambio schermata
+      setTimeout(() => {
+        initSwiperNav();
+        switchTabContent('welcome');
+      }, 50);
+    }
+
+    function showLanguageScreen() {
+      document.getElementById('app-screen').classList.add('hidden-screen');
+      document.getElementById('language-screen').classList.remove('hidden-screen');
+      window.scrollTo(0, 0);
+    }
+
+    function copyWifiPassword(password, feedbackId) {
+      navigator.clipboard.writeText(password).then(() => {
+        const feedback = document.getElementById(feedbackId);
+        feedback.classList.remove('hidden');
+        setTimeout(() => feedback.classList.add('hidden'), 3000);
+      });
+    }
   </script>
 </body>
 </html>
