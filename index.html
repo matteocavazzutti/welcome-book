@@ -31,7 +31,7 @@
   <div id="language-screen" class="min-h-screen flex flex-col justify-center items-center p-6 text-center bg-slate-50">
     
     <div class="mb-6 w-64 h-32 rounded-2xl overflow-hidden shadow-md border-4 border-white">
-      <img src="1.t00gemR.png" alt="La Terrazza di Maria" class="w-full h-full object-cover">
+      <img src="1.t00gemR.png" alt="Terrazza di Maria" class="w-full h-full object-cover">
     </div>
 
     <!-- Titolo fisso in Italiano -->
@@ -140,21 +140,9 @@
           </div>
           <h2 id="txt-wifi-title" class="text-xl font-bold text-slate-900"></h2>
         </div>
-        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-4">
-          <div>
-            <span id="txt-wifi-name-lbl" class="text-xs text-slate-400 uppercase font-semibold block mb-1"></span>
-            <p class="font-mono font-bold text-slate-800 text-lg">TerrazzaMaria_WiFi</p>
-          </div>
-          <div>
-            <span id="txt-wifi-pass-lbl" class="text-xs text-slate-400 uppercase font-semibold block mb-1"></span>
-            <div class="flex items-center justify-between bg-white p-2.5 rounded-lg border border-slate-200">
-              <span id="wifi-pass" class="font-mono font-bold text-amber-600">WelcomeMaria2026!</span>
-              <button onclick="copyPassword()" class="bg-amber-500 text-white text-xs px-3 py-1.5 rounded-md font-semibold">
-                <i class="fa-regular fa-copy"></i> <span id="txt-btn-copy"></span>
-              </button>
-            </div>
-            <p id="copy-feedback" class="text-xs text-emerald-600 font-medium mt-1 hidden"></p>
-          </div>
+
+        <div id="wifi-content-container">
+          <!-- Popolato dinamicamente da JavaScript -->
         </div>
       </section>
 
@@ -332,10 +320,6 @@
         disclaimerBody: "La struttura declina ogni responsabilità per eventuali smarrimenti o furti di oggetti personali lasciati incustoditi nell'appartamento.",
         
         wifiTitle: "Connessione Wi-Fi",
-        wifiNameLbl: "Nome Rete (SSID)",
-        wifiPassLbl: "Password",
-        btnCopy: "Copia",
-        copySuccess: "✓ Password copiata!",
         
         arrivalTitle: "Il tuo Arrivo",
         arrivalBody: "Indirizzo: Via Sebastiano Ziani, 47, Roma. Se arrivi in auto trovi parcheggio lungo la via o al garage convenzionato a 100m.",
@@ -391,11 +375,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         disclaimerTitle: "Disclaimer",
         disclaimerBody: "Management is not responsible for any lost or stolen personal belongings left unattended in the apartment.",
         
-        wifiTitle: "Wi-Fi Network",
-        wifiNameLbl: "Network Name (SSID)",
-        wifiPassLbl: "Password",
-        btnCopy: "Copy",
-        copySuccess: "✓ Password copied!",
+        wifiTitle: "Wifi internet connection",
         
         arrivalTitle: "How to Reach Us",
         
@@ -442,11 +422,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         disclaimerTitle: "Avertissement",
         disclaimerBody: "L'établissement décline toute responsabilité en cas de perte ou de vol d'effets personnels.",
         
-        wifiTitle: "Réseau Wi-Fi",
-        wifiNameLbl: "Nom du réseau (SSID)",
-        wifiPassLbl: "Mot de passe",
-        btnCopy: "Copier",
-        copySuccess: "✓ Mot de passe copié !",
+        wifiTitle: "Connexion Wi-Fi",
         
         arrivalTitle: "Votre Arrivée",
         arrivalBody: "Adresse: Via Sebastiano Ziani, 47, Roma. Stationnement disponible dans la rue ou dans le garage partenaire.",
@@ -496,11 +472,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         disclaimerTitle: "Haftungsausschluss",
         disclaimerBody: "Für den Verlust von persönlichen Gegenständen wird keine Haftung übernommen.",
         
-        wifiTitle: "WLAN-Netzwerk",
-        wifiNameLbl: "Netzwerkname (SSID)",
-        wifiPassLbl: "Passwort",
-        btnCopy: "Kopieren",
-        copySuccess: "✓ Passwort kopiert!",
+        wifiTitle: "WLAN-Verbindung",
         
         arrivalTitle: "Ihre Anreise",
         arrivalBody: "Adresse: Via Sebastiano Ziani, 47, Roma. Parkplätze finden Sie in der Straße oder in der Garage in 100m Entfernung.",
@@ -596,6 +568,92 @@ Should you need any help, contact us: we will be delighted to support you!`,
         const t = translations[lang] || translations['it'];
         container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed">${t.contactBody}</p>`;
       }
+    }
+
+    function renderWifiSection(lang) {
+      const container = document.getElementById('wifi-content-container');
+
+      // Stringhe di configurazione WiFi per la scansione automatica del telefono
+      const wifi5GString = encodeURIComponent("WIFI:S:C-5G;T:WPA;P:33902210;;");
+      const wifi2GString = encodeURIComponent("WIFI:S:C-2G;T:WPA;P:33902210;;");
+
+      container.innerHTML = `
+        <div class="space-y-5 text-left">
+          
+          <!-- RETE PRINCIPALE (HIGH SPEED) -->
+          <div class="bg-amber-50/70 border border-amber-200/70 rounded-2xl p-5 space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-[10px] font-bold tracking-wider text-amber-700 uppercase bg-amber-100 px-2.5 py-1 rounded-full">Recommended</span>
+                <h3 class="text-base font-bold text-slate-900 mt-2">High speed connection</h3>
+                <p class="text-xs text-slate-500">Scan QR Code to connect automatically</p>
+              </div>
+              <i class="fa-solid fa-bolt text-amber-500 text-2xl"></i>
+            </div>
+
+            <!-- QR CODE HIGH SPEED -->
+            <div class="flex justify-center py-2">
+              <div class="bg-white p-3 rounded-2xl border border-amber-200 shadow-sm text-center space-y-1">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${wifi5GString}" alt="Wi-Fi C-5G QR Code" class="w-36 h-36 mx-auto">
+                <span class="text-[10px] text-slate-400 block font-medium">Scan with camera</span>
+              </div>
+            </div>
+
+            <!-- DETAILS & COPY BUTTON -->
+            <div class="bg-white p-3.5 rounded-xl border border-slate-200/80 space-y-2">
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-slate-400 uppercase font-semibold text-[10px]">Network name</span>
+                <span class="font-mono font-bold text-slate-900">C-5G</span>
+              </div>
+              <div class="flex justify-between items-center text-xs pt-1 border-t border-slate-100">
+                <span class="text-slate-400 uppercase font-semibold text-[10px]">Password</span>
+                <span id="pass-5g" class="font-mono font-bold text-amber-600">33902210</span>
+              </div>
+            </div>
+
+            <button onclick="copyWifiPassword('33902210', 'feedback-5g')" class="w-full bg-amber-500 hover:bg-amber-600 active:scale-95 text-white py-2.5 rounded-xl text-xs font-bold shadow-sm transition-all flex items-center justify-center gap-2">
+              <i class="fa-regular fa-copy"></i>
+              <span>Copy Password</span>
+            </button>
+            <p id="feedback-5g" class="text-xs text-emerald-600 text-center font-medium hidden">✓ Password copied!</p>
+          </div>
+
+          <!-- RETE SECONDARIA (LOW SPEED) -->
+          <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 space-y-4">
+            <div>
+              <h3 class="text-sm font-bold text-slate-800">In case of trouble, please try the low speed connection:</h3>
+            </div>
+
+            <div class="flex items-center justify-between gap-4">
+              <div class="space-y-2 flex-1">
+                <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1 text-xs">
+                  <div class="flex justify-between">
+                    <span class="text-slate-400 text-[10px] uppercase font-semibold">Network</span>
+                    <span class="font-mono font-bold text-slate-800">C-2G</span>
+                  </div>
+                  <div class="flex justify-between pt-1 border-t border-slate-100">
+                    <span class="text-slate-400 text-[10px] uppercase font-semibold">Password</span>
+                    <span class="font-mono font-bold text-slate-800">33902210</span>
+                  </div>
+                </div>
+
+                <button onclick="copyWifiPassword('33902210', 'feedback-2g')" class="w-full bg-slate-800 text-white py-2 rounded-xl text-xs font-semibold active:scale-95 transition-all flex items-center justify-center gap-2">
+                  <i class="fa-regular fa-copy"></i>
+                  <span>Copy Password</span>
+                </button>
+                <p id="feedback-2g" class="text-xs text-emerald-600 text-center font-medium hidden">✓ Password copied!</p>
+              </div>
+
+              <!-- QR CODE LOW SPEED -->
+              <div class="bg-white p-2 rounded-xl border border-slate-200 shadow-sm flex-shrink-0 text-center">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${wifi2GString}" alt="Wi-Fi C-2G QR Code" class="w-20 h-20">
+                <span class="text-[9px] text-slate-400 block mt-1">Scan QR</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      `;
     }
 
     function renderArrivalSection(lang) {
@@ -889,10 +947,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
       document.getElementById('txt-disclaimer-body').innerText = t.disclaimerBody;
 
       document.getElementById('txt-wifi-title').innerText = t.wifiTitle;
-      document.getElementById('txt-wifi-name-lbl').innerText = t.wifiNameLbl;
-      document.getElementById('txt-wifi-pass-lbl').innerText = t.wifiPassLbl;
-      document.getElementById('txt-btn-copy').innerText = t.btnCopy;
-      document.getElementById('copy-feedback').innerText = t.copySuccess;
+      renderWifiSection(lang);
 
       document.getElementById('txt-arrival-title').innerText = t.arrivalTitle;
       renderArrivalSection(lang);
@@ -952,10 +1007,9 @@ Should you need any help, contact us: we will be delighted to support you!`,
       window.scrollTo(0, 0);
     }
 
-    function copyPassword() {
-      const password = document.getElementById('wifi-pass').innerText;
+    function copyWifiPassword(password, feedbackId) {
       navigator.clipboard.writeText(password).then(() => {
-        const feedback = document.getElementById('copy-feedback');
+        const feedback = document.getElementById(feedbackId);
         feedback.classList.remove('hidden');
         setTimeout(() => feedback.classList.add('hidden'), 3000);
       });
