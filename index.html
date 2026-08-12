@@ -31,7 +31,7 @@
   <div id="language-screen" class="min-h-screen flex flex-col justify-center items-center p-6 text-center bg-slate-50">
     
     <div class="mb-6 w-64 h-32 rounded-2xl overflow-hidden shadow-md border-4 border-white">
-      <img src="1.t00gemR.png" alt="Terrazza di Maria" class="w-full h-full object-cover">
+      <img src="1.t00gemR.png" alt="La Terrazza di Maria" class="w-full h-full object-cover">
     </div>
 
     <!-- Titolo fisso in Italiano -->
@@ -116,9 +116,7 @@
           <h2 id="txt-contact-title" class="text-xl font-bold text-slate-900"></h2>
         </div>
 
-        <div id="contact-content-container">
-          <!-- Popolato dinamicamente da JavaScript -->
-        </div>
+        <div id="contact-content-container"></div>
       </section>
 
       <!-- 3. DISCLAIMER -->
@@ -141,9 +139,7 @@
           <h2 id="txt-wifi-title" class="text-xl font-bold text-slate-900"></h2>
         </div>
 
-        <div id="wifi-content-container">
-          <!-- Popolato dinamicamente da JavaScript -->
-        </div>
+        <div id="wifi-content-container"></div>
       </section>
 
       <!-- 5. YOUR ARRIVAL -->
@@ -155,9 +151,7 @@
           <h2 id="txt-arrival-title" class="text-xl font-bold text-slate-900"></h2>
         </div>
         
-        <div id="arrival-content-container">
-          <!-- Popolato dinamicamente da JavaScript -->
-        </div>
+        <div id="arrival-content-container"></div>
       </section>
 
       <!-- 6. CHECK-IN -->
@@ -169,9 +163,7 @@
           <h2 id="txt-checkin-title" class="text-xl font-bold text-slate-900"></h2>
         </div>
 
-        <div id="checkin-content-container">
-          <!-- Popolato dinamicamente da JavaScript -->
-        </div>
+        <div id="checkin-content-container"></div>
       </section>
 
       <!-- 7. CHECK-OUT -->
@@ -183,9 +175,7 @@
           <h2 id="txt-checkout-title" class="text-xl font-bold text-slate-900"></h2>
         </div>
 
-        <div id="checkout-content-container">
-          <!-- Popolato dinamicamente da JavaScript -->
-        </div>
+        <div id="checkout-content-container"></div>
       </section>
 
       <!-- 8. HOUSE RULES -->
@@ -196,7 +186,8 @@
           </div>
           <h2 id="txt-rules-title" class="text-xl font-bold text-slate-900"></h2>
         </div>
-        <p id="txt-rules-body" class="text-sm text-slate-600 leading-relaxed"></p>
+
+        <div id="rules-content-container"></div>
       </section>
 
       <!-- 9. HOUSE GUIDE -->
@@ -331,7 +322,7 @@
         checkoutBody: "Orario massimo: Entro le ore 10:00. Lascia le chiavi nella keybox e assicurati di chiudere tutte le finestre.",
         
         rulesTitle: "Regole della Casa",
-        rulesBody: "1. Vietato fumare all'interno.\n2. Ore di silenzio dalle 23:00 alle 08:00.\n3. Feste ed eventi non sono consentiti.",
+        rulesBody: "1. Vietato fumare all'interno.\n2. Ore di silenzio dalle 22:00 alle 07:00.\n3. Feste ed eventi non sono consentiti.",
         
         guideTitle: "Guida della Casa",
         guideBody: "Aria condizionata: usa il telecomando sulla parete.\nSpazzatura: i bidoni per la differenziata si trovano nel cortile interno.",
@@ -384,7 +375,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
         checkoutTitle: "Check-out procedure",
         
         rulesTitle: "House Rules",
-        rulesBody: "1. No smoking inside.\n2. Quiet hours: 11:00 PM - 8:00 AM.\n3. Parties and events are not allowed.",
         
         guideTitle: "House Guide",
         guideBody: "Air Conditioning: Use the remote wall control.\nTrash: Recycling bins are located in the inner courtyard.",
@@ -434,7 +424,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         checkoutBody: "Départ : avant 10h00. Laissez les clés dans la keybox et fermez bien la porte.",
         
         rulesTitle: "Règles de la Maison",
-        rulesBody: "1. Interdiction de fumer à l'intérieur.\n2. Heures de silence : 23h00 - 08h00.\n3. Fêtes non autorisées.",
+        rulesBody: "1. Interdiction de fumer à l'intérieur.\n2. Heures de silence : 22h00 - 07h00.\n3. Fêtes non autorisées.",
         
         guideTitle: "Guide du Logement",
         guideBody: "Climatisation : utilisez la télécommande murale.\nPoubelles : dans la cour intérieure.",
@@ -484,7 +474,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         checkoutBody: "Check-out: Bis 10:00 Uhr. Bitte Schlüssel in die Keybox legen und Tür schließen.",
         
         rulesTitle: "Hausregeln",
-        rulesBody: "1. Nichtrauchen in allen Räumen.\n2. Ruhezeiten: 23:00 - 08:00 Uhr.\n3. Keine Partys gestattet.",
+        rulesBody: "1. Nichtrauchen in allen Räumen.\n2. Ruhezeiten: 22:00 - 07:00 Uhr.\n3. Keine Partys gestattet.",
         
         guideTitle: "Anleitungen",
         guideBody: "Klimaanlage: Steuerung per Fernbedienung.\nMülltrennung: Behälter im Innenhof.",
@@ -573,7 +563,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
     function renderWifiSection(lang) {
       const container = document.getElementById('wifi-content-container');
 
-      // Stringhe di configurazione WiFi per la scansione automatica del telefono
       const wifi5GString = encodeURIComponent("WIFI:S:C-5G;T:WPA;P:33902210;;");
       const wifi2GString = encodeURIComponent("WIFI:S:C-2G;T:WPA;P:33902210;;");
 
@@ -776,8 +765,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
       if (lang === 'en') {
         container.innerHTML = `
           <div class="space-y-4 text-left">
-            
-            <!-- CHECK-IN TIME & KEYBOX -->
             <div class="p-4 bg-slate-50/80 border border-slate-100 rounded-xl space-y-1">
               <div class="flex items-center gap-2 text-slate-900 font-bold text-sm">
                 <i class="fa-solid fa-clock text-emerald-600"></i>
@@ -790,7 +777,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
               </p>
             </div>
 
-            <!-- BRING YOUR ID -->
             <div class="p-4 bg-slate-50/80 border border-slate-100 rounded-xl space-y-1">
               <div class="flex items-center gap-2 text-slate-900 font-bold text-sm">
                 <i class="fa-solid fa-id-card text-emerald-600"></i>
@@ -802,7 +788,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
               </p>
             </div>
 
-            <!-- CHECK APARTMENT CONDITIONS -->
             <div class="p-4 bg-slate-50/80 border border-slate-100 rounded-xl space-y-1">
               <div class="flex items-center gap-2 text-slate-900 font-bold text-sm">
                 <i class="fa-solid fa-magnifying-glass text-emerald-600"></i>
@@ -812,7 +797,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                 <strong>Please notify us of any broken object / furniture</strong> quickly after your arrival. Failing to do so, may result in charges for those damages.
               </p>
             </div>
-
           </div>
         `;
       } else {
@@ -833,7 +817,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
 
             <div class="relative border-l-2 border-amber-200 ml-3 pl-4 space-y-4">
               
-              <!-- STEP 1 -->
               <div class="relative">
                 <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
                 <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
@@ -841,7 +824,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                 </div>
               </div>
 
-              <!-- STEP 2 -->
               <div class="relative">
                 <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
                 <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
@@ -851,7 +833,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                 </div>
               </div>
 
-              <!-- STEP 3 -->
               <div class="relative">
                 <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
                 <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
@@ -861,7 +842,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                 </div>
               </div>
 
-              <!-- STEP 4 -->
               <div class="relative">
                 <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
                 <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
@@ -871,7 +851,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                 </div>
               </div>
 
-              <!-- STEP 5 -->
               <div class="relative">
                 <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
                 <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
@@ -881,7 +860,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                 </div>
               </div>
 
-              <!-- STEP 6 -->
               <div class="relative">
                 <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
                 <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
@@ -891,7 +869,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                 </div>
               </div>
 
-              <!-- STEP 7 -->
               <div class="relative">
                 <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
                 <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
@@ -901,7 +878,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                 </div>
               </div>
 
-              <!-- STEP 8 -->
               <div class="relative">
                 <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
                 <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
@@ -911,7 +887,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                 </div>
               </div>
 
-              <!-- STEP 9 -->
               <div class="relative">
                 <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
                 <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
@@ -927,6 +902,128 @@ Should you need any help, contact us: we will be delighted to support you!`,
       } else {
         const t = translations[lang] || translations['it'];
         container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed">${t.checkoutBody}</p>`;
+      }
+    }
+
+    function renderRulesSection(lang) {
+      const container = document.getElementById('rules-content-container');
+
+      if (lang === 'en') {
+        container.innerHTML = `
+          <div class="space-y-4 text-left">
+            <p class="text-xs text-slate-500 font-medium">
+              We appreciate your cooperation in keeping our home safe and pleasant.
+            </p>
+
+            <!-- BOX SICUREZZA TERRAZZA -->
+            <div class="bg-rose-50 border-2 border-rose-300 rounded-2xl p-4 space-y-3">
+              <div class="flex items-center gap-3 text-rose-700 font-bold text-sm border-b border-rose-200 pb-2">
+                <i class="fa-solid fa-triangle-exclamation text-xl text-rose-600"></i>
+                <span>Safety rules on the terrace</span>
+              </div>
+              <p class="text-xs font-semibold text-rose-900 leading-snug">
+                For your safety and the safety of others, we kindly ask you to be extremely mindful of the following rules at all times:
+              </p>
+              <ul class="text-xs text-rose-800 space-y-1.5 list-disc list-inside">
+                <li>Do not sit, climb, or lean over the parapet.</li>
+                <li>Children must be supervised by an adult at all times.</li>
+                <li>Do not place or leave any objects on the parapet of the terrace.</li>
+                <li>Please exercise caution to prevent items from falling down the street.</li>
+                <li>Do not touch the plants, to prevent any risk of allergy or intoxication.</li>
+              </ul>
+            </div>
+
+            <!-- LISTA REGOLE SOTTOSTANTI -->
+            <div class="space-y-3 pt-1">
+              
+              <!-- NO SMOKING -->
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-rose-100 text-rose-600 rounded-lg flex-shrink-0">
+                  <i class="fa-solid fa-ban-smoking text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">No Smoking</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">The whole property, terrace included, is a strictly non-smoking area.</p>
+                </div>
+              </div>
+
+              <!-- QUIET HOURS -->
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-purple-100 text-purple-600 rounded-lg flex-shrink-0">
+                  <i class="fa-solid fa-moon text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Quiet hours</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">Quiet hours inside and outside: <strong>from 10 pm to 7 am</strong>. Remember that also the terrace is right above the neighbour's ceiling.</p>
+                </div>
+              </div>
+
+              <!-- NO VISITORS / NO PARTIES -->
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-amber-100 text-amber-600 rounded-lg flex-shrink-0">
+                  <i class="fa-solid fa-user-slash text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">No visitors / No parties</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">Outside visitors are not allowed. Only checked-in guests. Parties, gatherings, or events of any kind are prohibited.</p>
+                </div>
+              </div>
+
+              <!-- FURNITURE -->
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-blue-100 text-blue-600 rounded-lg flex-shrink-0">
+                  <i class="fa-solid fa-couch text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Furniture</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">Do not move furniture. This may cause noise, and they can get broken.</p>
+                </div>
+              </div>
+
+              <!-- PETS -->
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-emerald-100 text-emerald-600 rounded-lg flex-shrink-0">
+                  <i class="fa-solid fa-dog text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Pets</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">Pets are not allowed in the property.</p>
+                </div>
+              </div>
+
+              <!-- SECURITY OF YOUR BELONGINGS -->
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-indigo-100 text-indigo-600 rounded-lg flex-shrink-0">
+                  <i class="fa-solid fa-lock text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Security of your belongings</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">Every time you leave the apartment, please:</p>
+                  <ul class="text-xs text-slate-600 list-disc list-inside mt-1 space-y-0.5">
+                    <li>Close windows bars, windows and shutters</li>
+                    <li>Switch off the AC, heater fan, and lights</li>
+                    <li>Lock the front door (double-lock)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- BROKEN / LOST ITEMS POLICY -->
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-orange-100 text-orange-600 rounded-lg flex-shrink-0">
+                  <i class="fa-solid fa-wine-glass-crack text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Broken / lost items policy</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">Please inform us promptly of any damage or missing items. Failure to do so may result in charges for those damages.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        `;
+      } else {
+        const t = translations[lang] || translations['it'];
+        container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed whitespace-pre-line">${t.rulesBody}</p>`;
       }
     }
 
@@ -959,7 +1056,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
       renderCheckoutSection(lang);
 
       document.getElementById('txt-rules-title').innerText = t.rulesTitle;
-      document.getElementById('txt-rules-body').innerText = t.rulesBody;
+      renderRulesSection(lang);
 
       document.getElementById('txt-guide-title').innerText = t.guideTitle;
       document.getElementById('txt-guide-body').innerText = t.guideBody;
