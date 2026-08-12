@@ -241,7 +241,8 @@
           </div>
           <h2 id="txt-transports-title" class="text-xl font-bold text-slate-900"></h2>
         </div>
-        <p id="txt-transports-body" class="text-sm text-slate-600 leading-relaxed"></p>
+
+        <div id="transports-content-container"></div>
       </section>
 
       <!-- 11. BEST TIPS IN THE AREA -->
@@ -1296,6 +1297,111 @@ Should you need any help, contact us: we will be delighted to support you!`,
       }
     }
 
+    function renderTransportsSection(lang) {
+      const container = document.getElementById('transports-content-container');
+      if (!container) return;
+
+      if (lang === 'en') {
+        container.innerHTML = `
+          <div class="space-y-4 text-left">
+
+            <!-- OUR TIPS -->
+            <div class="bg-amber-50/70 border border-amber-200/80 rounded-2xl p-4 space-y-2">
+              <div class="flex items-center gap-2.5 text-amber-900 font-bold text-sm">
+                <div class="p-2 bg-amber-100 text-amber-600 rounded-lg">
+                  <i class="fa-regular fa-lightbulb text-base"></i>
+                </div>
+                <span>Our tips</span>
+              </div>
+              <ul class="text-xs text-slate-700 space-y-1.5 list-disc list-inside pl-1">
+                <li>Use <strong>Metro</strong> station to reach all main sights.</li>
+                <li>Enjoy <strong>walking</strong> in Rome.</li>
+                <li>Use <strong>buses</strong> in locations where metro is not available.</li>
+                <li><strong>Use Apps</strong> for itineraries: we like to use <a href="https://citymapper.com" target="_blank" class="text-amber-600 font-medium underline">citymapper.com</a></li>
+                <li>In touristic spots and in public transports <strong>look carefully after your goods at anytime</strong>. Pickpockets adore tourists.</li>
+              </ul>
+            </div>
+
+            <!-- TICKETING -->
+            <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 space-y-2">
+              <div class="flex items-center gap-2.5 text-slate-900 font-bold text-sm">
+                <div class="p-2 bg-slate-200 text-slate-700 rounded-lg">
+                  <i class="fa-solid fa-ticket text-base"></i>
+                </div>
+                <span>Ticketing</span>
+              </div>
+              <ul class="text-xs text-slate-700 space-y-2 list-disc list-inside pl-1">
+                <li>
+                  <strong>“Tap & Go” service:</strong> you pay instantly at turnstiles or on board with your contactless credit card. No extra fees. Remember each traveler must use a separate card.
+                </li>
+                <li>
+                  <strong>Paper Tickets:</strong> Available at self-service machines in any Metro station.
+                </li>
+              </ul>
+            </div>
+
+            <!-- METRO / BUS -->
+            <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 space-y-2">
+              <div class="flex items-center gap-2.5 text-slate-900 font-bold text-sm">
+                <div class="p-2 bg-indigo-100 text-indigo-600 rounded-lg">
+                  <i class="fa-solid fa-bus text-base"></i>
+                </div>
+                <span>Metro / Bus</span>
+              </div>
+              <ul class="text-xs text-slate-700 space-y-2 list-disc list-inside pl-1">
+                <li>
+                  <strong>Metro:</strong> Cipro Station, Line A (500m). This is the fastest and most cost-effective option.
+                </li>
+                <li>
+                  <strong>Bus:</strong> Slower than the train, but more extensive coverage across territory.<br>
+                  <span class="text-slate-500 italic pl-4 block mt-0.5">Tip: Line 492 goes through the whole city center, starting from Cipro</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- TAXI -->
+            <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 space-y-2">
+              <div class="flex items-center gap-2.5 text-slate-900 font-bold text-sm">
+                <div class="p-2 bg-yellow-100 text-yellow-700 rounded-lg">
+                  <i class="fa-solid fa-taxi text-base"></i>
+                </div>
+                <span>Taxi</span>
+              </div>
+              <ul class="text-xs text-slate-700 space-y-1.5 list-disc list-inside pl-1">
+                <li><strong>General Dispatch:</strong> <a href="tel:+39060609" class="font-mono text-slate-900 font-bold">+39 06.06.09</a> (Connects to all local companies)</li>
+                <li><strong>Recommended Private Line:</strong> <a href="tel:+39063570" class="font-mono text-slate-900 font-bold">+39 06.35.70</a> (Known for good standards)</li>
+                <li><strong>Uber/apps:</strong> Usually limited to luxury "limousine" services.</li>
+                <li><strong>Fares:</strong> Always verify the estimated fare with the driver.</li>
+                <li><strong>Availability:</strong> During peak hours, expect long wait time for booking.</li>
+              </ul>
+            </div>
+
+            <!-- CAR PARKING -->
+            <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 space-y-2">
+              <div class="flex items-center gap-2.5 text-slate-900 font-bold text-sm">
+                <div class="p-2 bg-blue-100 text-blue-600 rounded-lg">
+                  <i class="fa-solid fa-square-parking text-base"></i>
+                </div>
+                <span>Car parking</span>
+              </div>
+              <p class="text-xs text-slate-700 leading-relaxed">
+                Street parking is paid, and finding a spot can be very difficult.<br>
+                Near the apartment, sometimes, we’ve found it easier to park here:
+              </p>
+              <ul class="text-xs text-slate-700 font-medium list-disc list-inside pl-1 space-y-0.5">
+                <li>Via Simone Simoni</li>
+                <li>Via Angelo Emo, 4 (behind the Metro station)</li>
+              </ul>
+            </div>
+
+          </div>
+        `;
+      } else {
+        const t = translations[lang] || translations['it'];
+        container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed">${t.transportsBody}</p>`;
+      }
+    }
+
     function toggleGuideSubSection(sectionId, btnElement) {
       const targetContent = document.getElementById(sectionId);
       if (!targetContent) return;
@@ -1399,7 +1505,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
       renderGuideSection(lang);
 
       document.getElementById('txt-transports-title').innerText = t.transportsTitle;
-      document.getElementById('txt-transports-body').innerText = t.transportsBody;
+      renderTransportsSection(lang);
 
       document.getElementById('txt-tips-title').innerText = t.tipsTitle;
       document.getElementById('txt-tips-body').innerText = t.tipsBody;
