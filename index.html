@@ -14,13 +14,44 @@
   <!-- Icone Bandiere Flag Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
 
+  <!-- Swiper CSS per Navigazione Circolare -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
   <style>
     .hidden-screen { display: none !important; }
     .tab-content { display: none; }
     .tab-content.active { display: block; }
-    /* Nasconde la barra di scorrimento orizzontale del menu pur mantenendo lo scroll */
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    /* Personalizzazione Swiper Dock Apple */
+    .swiper {
+      width: 100%;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    .swiper-slide {
+      width: 68px !important;
+      height: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      opacity: 0.4;
+      transform: scale(0.85);
+      cursor: pointer;
+    }
+    /* Stile Icona Centrale Attiva (Apple Dock Style) */
+    .swiper-slide-active {
+      opacity: 1 !important;
+      transform: scale(1.25) translateY(-2px) !important;
+    }
+    .swiper-slide-active i {
+      color: #f59e0b !important; /* Colore Amber */
+    }
+    .swiper-slide-active span {
+      color: #0f172a !important;
+      font-weight: 700 !important;
+    }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans">
@@ -237,68 +268,90 @@
 
     </main>
 
-    <!-- Navigazione fissa in basso -->
-    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-2 py-2 shadow-lg z-50">
-      <div class="max-w-md mx-auto flex items-center overflow-x-auto no-scrollbar space-x-3 text-center px-2">
-        
-        <button onclick="showTab('welcome')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-house text-base block"></i><span id="nav-welcome" class="text-[10px]"></span>
-        </button>
+    <!-- Navigazione Fissa in Basso: Swiper Dock Apple Circolare -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-slate-200/80 shadow-2xl z-50 py-1">
+      <div class="max-w-md mx-auto">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
 
-        <button onclick="showTab('contact')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-address-card text-base block"></i><span id="nav-contact" class="text-[10px]"></span>
-        </button>
+            <div class="swiper-slide" data-tab="welcome">
+              <i class="fa-solid fa-house text-lg text-slate-600"></i>
+              <span id="nav-welcome" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
 
-        <button onclick="showTab('wifi')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-wifi text-base block"></i><span id="nav-wifi" class="text-[10px]"></span>
-        </button>
+            <div class="swiper-slide" data-tab="contact">
+              <i class="fa-solid fa-address-card text-lg text-slate-600"></i>
+              <span id="nav-contact" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
 
-        <button onclick="showTab('arrival')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-map-location-dot text-base block"></i><span id="nav-arrival" class="text-[10px]"></span>
-        </button>
+            <div class="swiper-slide" data-tab="wifi">
+              <i class="fa-solid fa-wifi text-lg text-slate-600"></i>
+              <span id="nav-wifi" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
 
-        <button onclick="showTab('checkin')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-key text-base block"></i><span id="nav-checkin" class="text-[10px]"></span>
-        </button>
+            <div class="swiper-slide" data-tab="arrival">
+              <i class="fa-solid fa-map-location-dot text-lg text-slate-600"></i>
+              <span id="nav-arrival" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
 
-        <button onclick="showTab('checkout')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-door-open text-base block"></i><span id="nav-checkout" class="text-[10px]"></span>
-        </button>
+            <div class="swiper-slide" data-tab="checkin">
+              <i class="fa-solid fa-key text-lg text-slate-600"></i>
+              <span id="nav-checkin" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
 
-        <button onclick="showTab('rules')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-clipboard-list text-base block"></i><span id="nav-rules" class="text-[10px]"></span>
-        </button>
+            <div class="swiper-slide" data-tab="checkout">
+              <i class="fa-solid fa-door-open text-lg text-slate-600"></i>
+              <span id="nav-checkout" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
 
-        <button onclick="showTab('guide')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-book-open text-base block"></i><span id="nav-guide" class="text-[10px]"></span>
-        </button>
+            <div class="swiper-slide" data-tab="rules">
+              <i class="fa-solid fa-clipboard-list text-lg text-slate-600"></i>
+              <span id="nav-rules" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
 
-        <button onclick="showTab('transports')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-bus text-base block"></i><span id="nav-transports" class="text-[10px]"></span>
-        </button>
+            <div class="swiper-slide" data-tab="guide">
+              <i class="fa-solid fa-book-open text-lg text-slate-600"></i>
+              <span id="nav-guide" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
 
-        <button onclick="showTab('tips')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-utensils text-base block"></i><span id="nav-tips" class="text-[10px]"></span>
-        </button>
+            <div class="swiper-slide" data-tab="transports">
+              <i class="fa-solid fa-bus text-lg text-slate-600"></i>
+              <span id="nav-transports" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
 
-        <button onclick="showTab('emergency')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-phone-volume text-base block"></i><span id="nav-emergency" class="text-[10px]"></span>
-        </button>
+            <div class="swiper-slide" data-tab="tips">
+              <i class="fa-solid fa-utensils text-lg text-slate-600"></i>
+              <span id="nav-tips" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
 
-        <button onclick="showTab('disclaimer')" class="flex-shrink-0 p-2 text-slate-500 hover:text-amber-500">
-          <i class="fa-solid fa-shield-halved text-base block"></i><span id="nav-disclaimer" class="text-[10px]"></span>
-        </button>
+            <div class="swiper-slide" data-tab="emergency">
+              <i class="fa-solid fa-phone-volume text-lg text-slate-600"></i>
+              <span id="nav-emergency" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
 
+            <div class="swiper-slide" data-tab="disclaimer">
+              <i class="fa-solid fa-shield-halved text-lg text-slate-600"></i>
+              <span id="nav-disclaimer" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
+
+          </div>
+        </div>
       </div>
     </nav>
 
   </div>
 
 
+  <!-- Swiper JS Script per la barra di navigazione -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
   <!-- ========================================== -->
   <!-- 3. GESTIONE DIZIONARIO & SCRIPT            -->
   <!-- ========================================== -->
   <script>
+    let navSwiper = null;
+    let isProgrammaticSlide = false;
+
     const translations = {
       it: {
         welcomeTitle: "Benvenuti!",
@@ -403,7 +456,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
       },
       fr: {
         welcomeTitle: "Bienvenue !",
-        welcomeBody: "Nous sommes ravis de vous accueillir à la Terrazza di Maria. Ce guide è fatto pour rendervi il soggiorno il più piacevole possibile.",
+        welcomeBody: "Nous sommes ravis de vous accueillir à la Terrazza di Maria. Ce guide est fait pour vous offrir un séjour agréable.",
         changeLangBtn: "Changer de langue",
         
         contactTitle: "Point de Contact",
@@ -996,9 +1049,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
       }
     }
 
-    /* ========================================== */
-    /* INTEGRATION: ACCORDION HOUSE GUIDE SECTION */
-    /* ========================================== */
     function renderGuideSection(lang) {
       const container = document.getElementById('guide-content-container');
 
@@ -1024,7 +1074,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                   <i class="fa-solid fa-chevron-down guide-icon text-slate-400 text-xs transition-transform duration-200"></i>
                 </button>
 
-                <!-- CONTENT DIRECTLY BELOW KITCHEN BUTTON -->
                 <div id="guide-kitchen" class="guide-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
                   <h3 class="text-sm font-bold text-teal-700 border-b border-slate-100 pb-2">Kitchen Appliances</h3>
                   <p class="text-xs text-slate-600">Appliances at your disposal include: washing machine, dishwasher, toaster, water boiler, espresso machine.</p>
@@ -1086,7 +1135,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                   <i class="fa-solid fa-chevron-down guide-icon text-slate-400 text-xs transition-transform duration-200"></i>
                 </button>
 
-                <!-- CONTENT DIRECTLY BELOW TOILET BUTTON -->
                 <div id="guide-toilet" class="guide-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
                   <h3 class="text-sm font-bold text-teal-700 border-b border-slate-100 pb-2">Bathroom / Toilet</h3>
                   
@@ -1137,7 +1185,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                   <i class="fa-solid fa-chevron-down guide-icon text-slate-400 text-xs transition-transform duration-200"></i>
                 </button>
 
-                <!-- CONTENT DIRECTLY BELOW LIVING BUTTON -->
                 <div id="guide-living" class="guide-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
                   <h3 class="text-sm font-bold text-teal-700 border-b border-slate-100 pb-2">Living room & Bedroom</h3>
 
@@ -1188,7 +1235,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                   <i class="fa-solid fa-chevron-down guide-icon text-slate-400 text-xs transition-transform duration-200"></i>
                 </button>
 
-                <!-- CONTENT DIRECTLY BELOW TERRACE BUTTON -->
                 <div id="guide-terrace" class="guide-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
                   <h3 class="text-sm font-bold text-teal-700 border-b border-slate-100 pb-2">Terrace</h3>
                   
@@ -1256,11 +1302,9 @@ Should you need any help, contact us: we will be delighted to support you!`,
 
       const isHidden = targetContent.classList.contains('hidden');
 
-      // Chiude tutte le altre sezioni e ripristina le freccette
       document.querySelectorAll('.guide-subsection').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('.guide-icon').forEach(icon => icon.style.transform = 'rotate(0deg)');
 
-      // Se la sezione cliccata era chiusa, la apre e ruota la freccia
       if (isHidden) {
         targetContent.classList.remove('hidden');
         if (btnElement) {
@@ -1270,11 +1314,61 @@ Should you need any help, contact us: we will be delighted to support you!`,
       }
     }
 
+    function initSwiperNav() {
+      if (navSwiper) return;
+
+      navSwiper = new Swiper(".mySwiper", {
+        slidesPerView: "auto",
+        centeredSlides: true,
+        spaceBetween: 10,
+        loop: true,
+        slideToClickedSlide: true,
+        grabCursor: true,
+        on: {
+          slideChange: function () {
+            // Sincronizza il contenuto con la slide arrivata al centro
+            const activeSlide = this.slides[this.activeIndex];
+            if (activeSlide) {
+              const tabId = activeSlide.getAttribute('data-tab');
+              if (tabId && !isProgrammaticSlide) {
+                switchTabContent(tabId);
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function switchTabContent(tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      const activeTab = document.getElementById(tabId);
+      if (activeTab) {
+        activeTab.classList.add('active');
+        window.scrollTo(0, 0);
+      }
+    }
+
+    function showTab(tabId) {
+      switchTabContent(tabId);
+      if (navSwiper) {
+        // Cerca l'indice della slide corrispondente al tab
+        const slides = navSwiper.slides;
+        for (let i = 0; i < slides.length; i++) {
+          if (slides[i].getAttribute('data-tab') === tabId) {
+            isProgrammaticSlide = true;
+            navSwiper.slideToLoop(navSwiper.realIndex, 300);
+            setTimeout(() => { isProgrammaticSlide = false; }, 350);
+            break;
+          }
+        }
+      }
+    }
+
     function selectLanguage(lang) {
       document.getElementById('current-lang-code').innerText = lang;
       const t = translations[lang] || translations['it'];
 
-      // Mappatura testi nelle sezioni
+      // Mappatura testi
       document.getElementById('txt-welcome-title').innerText = t.welcomeTitle;
       document.getElementById('txt-welcome-subtitle').innerText = t.welcomeSubtitle || '';
       document.getElementById('txt-welcome-body').innerText = t.welcomeBody;
@@ -1313,7 +1407,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
       document.getElementById('txt-emergency-title').innerText = t.emergencyTitle;
       document.getElementById('txt-emergency-body').innerText = t.emergencyBody;
 
-      // Mappatura etichette menu in basso
+      // Etichette dock
       document.getElementById('nav-welcome').innerText = t.navWelcome;
       document.getElementById('nav-contact').innerText = t.navContact;
       document.getElementById('nav-disclaimer').innerText = t.navDisclaimer;
@@ -1327,23 +1421,20 @@ Should you need any help, contact us: we will be delighted to support you!`,
       document.getElementById('nav-tips').innerText = t.navTips;
       document.getElementById('nav-emergency').innerText = t.navEmergency;
 
-      // Mostra schermata app e nasconde landing page
+      // Transizione schermata
       document.getElementById('language-screen').classList.add('hidden-screen');
       document.getElementById('app-screen').classList.remove('hidden-screen');
       
-      showTab('welcome');
-      window.scrollTo(0, 0);
+      // Inizializza Swiper dopo il cambio schermata
+      setTimeout(() => {
+        initSwiperNav();
+        switchTabContent('welcome');
+      }, 50);
     }
 
     function showLanguageScreen() {
       document.getElementById('app-screen').classList.add('hidden-screen');
       document.getElementById('language-screen').classList.remove('hidden-screen');
-      window.scrollTo(0, 0);
-    }
-
-    function showTab(tabId) {
-      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-      document.getElementById(tabId).classList.add('active');
       window.scrollTo(0, 0);
     }
 
