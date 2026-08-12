@@ -31,7 +31,7 @@
   <div id="language-screen" class="min-h-screen flex flex-col justify-center items-center p-6 text-center bg-slate-50">
     
     <div class="mb-6 w-64 h-32 rounded-2xl overflow-hidden shadow-md border-4 border-white">
-      <img src="1.t00gemR.png" alt="La Terrazza di Maria" class="w-full h-full object-cover">
+      <img src="1.t00gemR.png" alt="Terrazza di Maria" class="w-full h-full object-cover">
     </div>
 
     <!-- Titolo fisso in Italiano -->
@@ -196,9 +196,10 @@
           <div class="p-3 bg-teal-100 text-teal-600 rounded-xl">
             <i class="fa-solid fa-book-open text-xl"></i>
           </div>
-          <h2 id="txt-guide-title" class="text-xl font-bold text-slate-900"></h2>
+          <h2 id="txt-guide-title" class="text-xl font-bold text-slate-900">House Guide</h2>
         </div>
-        <p id="txt-guide-body" class="text-sm text-slate-600 leading-relaxed"></p>
+
+        <div id="guide-content-container"></div>
       </section>
 
       <!-- 10. TRANSPORTS / TOURIST INFO -->
@@ -325,7 +326,7 @@
         rulesBody: "1. Vietato fumare all'interno.\n2. Ore di silenzio dalle 22:00 alle 07:00.\n3. Feste ed eventi non sono consentiti.",
         
         guideTitle: "Guida della Casa",
-        guideBody: "Aria condizionata: usa il telecomando sulla parete.\nSpazzatura: i bidoni per la differenziata si trovano nel cortile interno.",
+        guideBody: "Seleziona un ambiente per visualizzare le istruzioni trasversali sugli elettrodomestici e sui servizi.",
         
         transportsTitle: "Trasporti & Info Turistiche",
         transportsBody: "Fermata Autobus linea 12 a soli 50 metri. La stazione ferroviaria centrale dista 10 minuti a piedi.",
@@ -377,7 +378,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
         rulesTitle: "House Rules",
         
         guideTitle: "House Guide",
-        guideBody: "Air Conditioning: Use the remote wall control.\nTrash: Recycling bins are located in the inner courtyard.",
         
         transportsTitle: "Transports & Info",
         transportsBody: "Bus stop line 12 is just 50 meters away. Central train station is a 10-minute walk.",
@@ -403,7 +403,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
       },
       fr: {
         welcomeTitle: "Bienvenue !",
-        welcomeBody: "Nous sommes ravis de vous accueillir à la Terrazza di Maria. Ce guide è fatto per rendervi il soggiorno il più piacevole possibile.",
+        welcomeBody: "Nous sommes ravis de vous accueillir à la Terrazza di Maria. Ce guide è fatto pour rendervi il soggiorno il più piacevole possibile.",
         changeLangBtn: "Changer de langue",
         
         contactTitle: "Point de Contact",
@@ -427,7 +427,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
         rulesBody: "1. Interdiction de fumer à l'intérieur.\n2. Heures de silence : 22h00 - 07h00.\n3. Fêtes non autorisées.",
         
         guideTitle: "Guide du Logement",
-        guideBody: "Climatisation : utilisez la télécommande murale.\nPoubelles : dans la cour intérieure.",
         
         transportsTitle: "Transports & Info",
         transportsBody: "Arrêt de bus ligne 12 à 50 mètres. Gare centrale à 10 minutes à pied.",
@@ -477,7 +476,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
         rulesBody: "1. Nichtrauchen in allen Räumen.\n2. Ruhezeiten: 22:00 - 07:00 Uhr.\n3. Keine Partys gestattet.",
         
         guideTitle: "Anleitungen",
-        guideBody: "Klimaanlage: Steuerung per Fernbedienung.\nMülltrennung: Behälter im Innenhof.",
         
         transportsTitle: "Verkehr & Info",
         transportsBody: "Bushaltestelle Linie 12 in 50m. Hauptbahnhof 10 Gehminuten entfernt.",
@@ -509,7 +507,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
       if (lang === 'en') {
         container.innerHTML = `
           <div class="space-y-5 text-left">
-            
             <div class="bg-amber-50/70 border border-amber-200/60 rounded-2xl p-5 space-y-4">
               <div class="flex items-center gap-3">
                 <div class="p-3 bg-amber-100 text-amber-600 rounded-xl">
@@ -526,7 +523,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                 Please contact her from <strong>8 am to 8 pm</strong>.
               </p>
 
-              <!-- PULSANTI AZIONE -->
               <div class="grid grid-cols-2 gap-2 pt-2">
                 <a href="tel:+393403395237" class="flex items-center justify-center gap-2 bg-slate-900 text-white py-2.5 px-3 rounded-xl text-xs font-semibold shadow-sm active:scale-95 transition-all">
                   <i class="fa-solid fa-phone text-amber-400"></i>
@@ -540,7 +536,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
               </div>
             </div>
 
-            <!-- CARD CON QR CODE -->
             <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 flex items-center justify-between gap-3">
               <div class="space-y-1">
                 <span class="text-[10px] font-bold tracking-wider text-slate-400 uppercase">Direct Chat</span>
@@ -551,7 +546,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://wa.me/393403395237" alt="WhatsApp QR Code" class="w-16 h-16">
               </div>
             </div>
-
           </div>
         `;
       } else {
@@ -562,14 +556,11 @@ Should you need any help, contact us: we will be delighted to support you!`,
 
     function renderWifiSection(lang) {
       const container = document.getElementById('wifi-content-container');
-
       const wifi5GString = encodeURIComponent("WIFI:S:C-5G;T:WPA;P:33902210;;");
       const wifi2GString = encodeURIComponent("WIFI:S:C-2G;T:WPA;P:33902210;;");
 
       container.innerHTML = `
         <div class="space-y-5 text-left">
-          
-          <!-- RETE PRINCIPALE (HIGH SPEED) -->
           <div class="bg-amber-50/70 border border-amber-200/70 rounded-2xl p-5 space-y-4">
             <div class="flex items-center justify-between">
               <div>
@@ -580,7 +571,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
               <i class="fa-solid fa-bolt text-amber-500 text-2xl"></i>
             </div>
 
-            <!-- QR CODE HIGH SPEED -->
             <div class="flex justify-center py-2">
               <div class="bg-white p-3 rounded-2xl border border-amber-200 shadow-sm text-center space-y-1">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${wifi5GString}" alt="Wi-Fi C-5G QR Code" class="w-36 h-36 mx-auto">
@@ -588,7 +578,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
               </div>
             </div>
 
-            <!-- DETAILS & COPY BUTTON -->
             <div class="bg-white p-3.5 rounded-xl border border-slate-200/80 space-y-2">
               <div class="flex justify-between items-center text-xs">
                 <span class="text-slate-400 uppercase font-semibold text-[10px]">Network name</span>
@@ -607,7 +596,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
             <p id="feedback-5g" class="text-xs text-emerald-600 text-center font-medium hidden">✓ Password copied!</p>
           </div>
 
-          <!-- RETE SECONDARIA (LOW SPEED) -->
           <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 space-y-4">
             <div>
               <h3 class="text-sm font-bold text-slate-800">In case of trouble, please try the low speed connection:</h3>
@@ -633,14 +621,12 @@ Should you need any help, contact us: we will be delighted to support you!`,
                 <p id="feedback-2g" class="text-xs text-emerald-600 text-center font-medium hidden">✓ Password copied!</p>
               </div>
 
-              <!-- QR CODE LOW SPEED -->
               <div class="bg-white p-2 rounded-xl border border-slate-200 shadow-sm flex-shrink-0 text-center">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${wifi2GString}" alt="Wi-Fi C-2G QR Code" class="w-20 h-20">
                 <span class="text-[9px] text-slate-400 block mt-1">Scan QR</span>
               </div>
             </div>
           </div>
-
         </div>
       `;
     }
@@ -651,7 +637,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
       if (lang === 'en') {
         container.innerHTML = `
           <div class="space-y-6 text-left">
-            <!-- BOX INDIRIZZO & SELF CHECK-IN -->
             <div class="bg-amber-50/60 border border-amber-200/60 rounded-xl p-4 space-y-3">
               <div class="flex items-start gap-2">
                 <i class="fa-solid fa-location-dot text-amber-600 text-lg mt-0.5"></i>
@@ -675,7 +660,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
               </div>
             </div>
 
-            <!-- FIUMICINO AIRPORT -->
             <div class="border border-slate-100 rounded-xl p-4 bg-slate-50/50 space-y-3">
               <div class="flex items-center gap-2 text-slate-800 font-bold border-b border-slate-200/60 pb-2">
                 <i class="fa-solid fa-plane-departure text-blue-600"></i>
@@ -700,7 +684,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
               </div>
             </div>
 
-            <!-- CIAMPINO AIRPORT -->
             <div class="border border-slate-100 rounded-xl p-4 bg-slate-50/50 space-y-3">
               <div class="flex items-center gap-2 text-slate-800 font-bold border-b border-slate-200/60 pb-2">
                 <i class="fa-solid fa-plane-departure text-blue-600"></i>
@@ -728,7 +711,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
               </div>
             </div>
 
-            <!-- STAZIONE TERMINI -->
             <div class="border border-slate-100 rounded-xl p-4 bg-slate-50/50 space-y-3">
               <div class="flex items-center gap-2 text-slate-800 font-bold border-b border-slate-200/60 pb-2">
                 <i class="fa-solid fa-train text-amber-600"></i>
@@ -816,7 +798,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
             </p>
 
             <div class="relative border-l-2 border-amber-200 ml-3 pl-4 space-y-4">
-              
               <div class="relative">
                 <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
                 <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
@@ -895,7 +876,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                   </p>
                 </div>
               </div>
-
             </div>
           </div>
         `;
@@ -915,7 +895,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
               We appreciate your cooperation in keeping our home safe and pleasant.
             </p>
 
-            <!-- BOX SICUREZZA TERRAZZA -->
             <div class="bg-rose-50 border-2 border-rose-300 rounded-2xl p-4 space-y-3">
               <div class="flex items-center gap-3 text-rose-700 font-bold text-sm border-b border-rose-200 pb-2">
                 <i class="fa-solid fa-triangle-exclamation text-xl text-rose-600"></i>
@@ -933,10 +912,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
               </ul>
             </div>
 
-            <!-- LISTA REGOLE SOTTOSTANTI -->
             <div class="space-y-3 pt-1">
-              
-              <!-- NO SMOKING -->
               <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
                 <div class="p-2.5 bg-rose-100 text-rose-600 rounded-lg flex-shrink-0">
                   <i class="fa-solid fa-ban-smoking text-lg"></i>
@@ -947,7 +923,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                 </div>
               </div>
 
-              <!-- QUIET HOURS -->
               <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
                 <div class="p-2.5 bg-purple-100 text-purple-600 rounded-lg flex-shrink-0">
                   <i class="fa-solid fa-moon text-lg"></i>
@@ -958,7 +933,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                 </div>
               </div>
 
-              <!-- NO VISITORS / NO PARTIES -->
               <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
                 <div class="p-2.5 bg-amber-100 text-amber-600 rounded-lg flex-shrink-0">
                   <i class="fa-solid fa-user-slash text-lg"></i>
@@ -969,7 +943,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                 </div>
               </div>
 
-              <!-- FURNITURE -->
               <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
                 <div class="p-2.5 bg-blue-100 text-blue-600 rounded-lg flex-shrink-0">
                   <i class="fa-solid fa-couch text-lg"></i>
@@ -980,7 +953,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                 </div>
               </div>
 
-              <!-- PETS -->
               <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
                 <div class="p-2.5 bg-emerald-100 text-emerald-600 rounded-lg flex-shrink-0">
                   <i class="fa-solid fa-dog text-lg"></i>
@@ -991,7 +963,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                 </div>
               </div>
 
-              <!-- SECURITY OF YOUR BELONGINGS -->
               <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
                 <div class="p-2.5 bg-indigo-100 text-indigo-600 rounded-lg flex-shrink-0">
                   <i class="fa-solid fa-lock text-lg"></i>
@@ -1007,7 +978,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                 </div>
               </div>
 
-              <!-- BROKEN / LOST ITEMS POLICY -->
               <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
                 <div class="p-2.5 bg-orange-100 text-orange-600 rounded-lg flex-shrink-0">
                   <i class="fa-solid fa-wine-glass-crack text-lg"></i>
@@ -1017,13 +987,272 @@ Should you need any help, contact us: we will be delighted to support you!`,
                   <p class="text-xs text-slate-600 mt-0.5">Please inform us promptly of any damage or missing items. Failure to do so may result in charges for those damages.</p>
                 </div>
               </div>
-
             </div>
           </div>
         `;
       } else {
         const t = translations[lang] || translations['it'];
         container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed whitespace-pre-line">${t.rulesBody}</p>`;
+      }
+    }
+
+    /* ========================================== */
+    /* INTEGRAZIONE NUOVA SEZIONE: HOUSE GUIDE    */
+    /* ========================================== */
+    function renderGuideSection(lang) {
+      const container = document.getElementById('guide-content-container');
+
+      if (lang === 'en') {
+        container.innerHTML = `
+          <div class="space-y-4 text-left">
+            <p class="text-xs text-slate-500 font-medium">Select a room below to view detailed equipment instructions:</p>
+
+            <!-- 4 BOTTONI A LARGHEZZA PIENA -->
+            <div class="space-y-3">
+              <button onclick="toggleGuideSubSection('guide-kitchen')" class="w-full bg-slate-50 hover:bg-teal-50 border border-slate-200 p-4 rounded-2xl flex items-center justify-between text-left transition-all active:scale-[0.98]">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-teal-100 text-teal-700 rounded-xl">
+                    <i class="fa-solid fa-utensils text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Kitchen</h3>
+                    <p class="text-[11px] text-slate-500">Appliances, Coffee Machines, Tools</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-down text-slate-400 text-xs"></i>
+              </button>
+
+              <button onclick="toggleGuideSubSection('guide-toilet')" class="w-full bg-slate-50 hover:bg-teal-50 border border-slate-200 p-4 rounded-2xl flex items-center justify-between text-left transition-all active:scale-[0.98]">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-teal-100 text-teal-700 rounded-xl">
+                    <i class="fa-solid fa-bath text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Bathroom / Toilet</h3>
+                    <p class="text-[11px] text-slate-500">Water Supply, Utilities & Heater</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-down text-slate-400 text-xs"></i>
+              </button>
+
+              <button onclick="toggleGuideSubSection('guide-living')" class="w-full bg-slate-50 hover:bg-teal-50 border border-slate-200 p-4 rounded-2xl flex items-center justify-between text-left transition-all active:scale-[0.98]">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-teal-100 text-teal-700 rounded-xl">
+                    <i class="fa-solid fa-bed text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Living room & Bedroom</h3>
+                    <p class="text-[11px] text-slate-500">Air-conditioning, Smart TV & Lights</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-down text-slate-400 text-xs"></i>
+              </button>
+
+              <button onclick="toggleGuideSubSection('guide-terrace')" class="w-full bg-slate-50 hover:bg-teal-50 border border-slate-200 p-4 rounded-2xl flex items-center justify-between text-left transition-all active:scale-[0.98]">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-teal-100 text-teal-700 rounded-xl">
+                    <i class="fa-solid fa-sun text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Terrace</h3>
+                    <p class="text-[11px] text-slate-500">Awnings, Cushions & Safety</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-down text-slate-400 text-xs"></i>
+              </button>
+            </div>
+
+            <!-- CONTENUTI SELEZIONABILI -->
+
+            <!-- 1. KITCHEN -->
+            <div id="guide-kitchen" class="guide-subsection hidden bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-4">
+              <h3 class="text-sm font-bold text-teal-700 border-b border-slate-200 pb-2">Kitchen Appliances</h3>
+              <p class="text-xs text-slate-600">Appliances at your disposal include: washing machine, dishwasher, toaster, water boiler, espresso machine.</p>
+
+              <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-slate-700">
+                <strong>Pro Tip:</strong> Please note that inside the first drawer near the oven, there is a second 'hidden' drawer stocked with plenty of kitchen tools. Be sure to check this out!
+              </div>
+
+              <div class="space-y-3 pt-2">
+                <div class="flex items-start gap-3 bg-white p-3 rounded-xl border border-slate-100">
+                  <i class="fa-solid fa-soap text-lg text-teal-600 mt-1"></i>
+                  <div class="text-xs">
+                    <strong>Washing machine:</strong> Detergent pods are available in the base cabinet to the right of the machine.
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3 bg-white p-3 rounded-xl border border-slate-100">
+                  <i class="fa-solid fa-sink text-lg text-teal-600 mt-1"></i>
+                  <div class="text-xs">
+                    <strong>Dish-washer:</strong> Detergent pods are at your disposal in the base cabinet, on the right side of the washing machine.
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3 bg-white p-3 rounded-xl border border-slate-100">
+                  <i class="fa-solid fa-mug-hot text-lg text-teal-600 mt-1"></i>
+                  <div class="text-xs">
+                    <strong>Espresso coffee machine:</strong> Works with Lavazza's <em>« A Modo Mio »</em> capsules. Complimentary set for you to enjoy during your stay!
+                  </div>
+                </div>
+
+                <div class="bg-white p-3 rounded-xl border border-slate-100 space-y-2">
+                  <div class="flex items-start gap-3">
+                    <i class="fa-solid fa-coffee text-lg text-teal-600 mt-1"></i>
+                    <div class="text-xs">
+                      <strong>"Moka" coffee maker:</strong> This is the iconic Italian home-made coffee machine.
+                    </div>
+                  </div>
+                  <!-- LINK VIDEO YOUTUBE -->
+                  <a href="https://www.youtube.com/shorts/JA2dBog-8Dg" target="_blank" class="inline-flex items-center gap-2 text-xs text-rose-600 font-bold bg-rose-50 hover:bg-rose-100 px-3 py-1.5 rounded-lg border border-rose-200 transition-all">
+                    <i class="fa-brands fa-youtube text-base"></i>
+                    <span>Watch the 60" video tutorial</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. TOILET -->
+            <div id="guide-toilet" class="guide-subsection hidden bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-4">
+              <h3 class="text-sm font-bold text-teal-700 border-b border-slate-200 pb-2">Bathroom / Toilet</h3>
+              
+              <div class="bg-rose-50 border border-rose-200 p-3 rounded-xl text-xs text-rose-800 font-medium">
+                Please flush only toilet paper. For all other waste, please use the bin provided.
+              </div>
+
+              <div class="space-y-3">
+                <div class="bg-white p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                  <strong>Water supply:</strong>
+                  <p class="text-slate-600">There is a water pump to ensure consistent water pressure. Please allow 5-10 seconds for the water flow to stabilize.</p>
+                </div>
+
+                <div class="bg-white p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                  <strong>Utilities:</strong>
+                  <p class="text-slate-600">For your convenience, in the cabinet (left hand), you will find: drying rack, iron, ironing board, vacuum, tools, and first aid kit.</p>
+                  <p class="text-slate-600 pt-1">Inside the right-hand compartment, you will find four empty baskets for your personal use.</p>
+                </div>
+
+                <div class="bg-white p-3 rounded-xl border border-slate-100 text-xs space-y-2">
+                  <strong>Electric heater (bathroom):</strong>
+                  <p class="text-slate-600">Plug it only when needed.</p>
+                  <ul class="list-disc list-inside text-slate-600 space-y-0.5">
+                    <li>On: push ⏻</li>
+                    <li>Set the temperature: +/-</li>
+                    <li>Off: push ⏻ twice</li>
+                  </ul>
+                  <div class="bg-amber-50 p-2.5 rounded-lg border border-amber-200 text-[11px] text-amber-900 mt-2">
+                    As a safety precaution, please ensure <strong>all electrical appliances are unplugged</strong> once you have finished using them.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. LIVING ROOM & BEDROOM -->
+            <div id="guide-living" class="guide-subsection hidden bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-4">
+              <h3 class="text-sm font-bold text-teal-700 border-b border-slate-200 pb-2">Living room & Bedroom</h3>
+
+              <div class="space-y-3">
+                <div class="flex items-start gap-3 bg-white p-3 rounded-xl border border-slate-100">
+                  <i class="fa-solid fa-temperature-arrow-up text-lg text-teal-600 mt-1"></i>
+                  <div class="text-xs space-y-1">
+                    <strong>Air-conditioning:</strong>
+                    <p class="text-slate-600">There are two AC units: one in the living area and one in the bedroom, providing both cooling and heating.</p>
+                    <p class="text-slate-800 font-semibold">Please switch them off when you leave the rooms.</p>
+                    <p class="text-slate-500 text-[11px]">Remotes are located right by the doors. Please put them back after use.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3 bg-white p-3 rounded-xl border border-slate-100">
+                  <i class="fa-solid fa-tv text-lg text-teal-600 mt-1"></i>
+                  <div class="text-xs space-y-1">
+                    <strong>Smart TV:</strong>
+                    <p class="text-slate-600">Feel free to connect with your account to your preferred streaming platform if you want to watch your own movies and series.</p>
+                    <p class="text-rose-700 font-medium">Before leaving, don't forget to log out from your accounts.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3 bg-white p-3 rounded-xl border border-slate-100">
+                  <i class="fa-solid fa-lightbulb text-lg text-teal-600 mt-1"></i>
+                  <div class="text-xs space-y-1">
+                    <strong>Lights in the bedroom:</strong>
+                    <p class="text-slate-600">Floor Lamp: operated by switches (1 at the door, 2 next to each bed side).</p>
+                    <p class="text-slate-600">Bedside Lamps: operated via the built-in switches, on the right side of each fixture.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. TERRACE -->
+            <div id="guide-terrace" class="guide-subsection hidden bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-4">
+              <h3 class="text-sm font-bold text-teal-700 border-b border-slate-200 pb-2">Terrace</h3>
+              
+              <p class="text-xs text-slate-600">While the terrace is the most enjoyable and rare place in the property, please follow important rules regarding safety and equipment security.</p>
+
+              <!-- SAFETY BOX -->
+              <div class="bg-rose-50 border border-rose-200 p-3 rounded-xl space-y-1 text-xs text-rose-900">
+                <strong>Safety:</strong>
+                <ul class="list-disc list-inside space-y-0.5 text-rose-800">
+                  <li>Do not sit, climb, nor lean over the parapet.</li>
+                  <li>Supervise children at all times.</li>
+                  <li>Do not place any objects on the parapet of the terrace.</li>
+                  <li>Exercise caution to prevent items from falling down the street.</li>
+                  <li>Do not touch the plants, to prevent any risk of allergy or intoxication.</li>
+                </ul>
+              </div>
+
+              <div class="space-y-3">
+                <!-- AWNINGS WITH VIMEO LINK -->
+                <div class="bg-white p-3 rounded-xl border border-slate-100 space-y-2 text-xs">
+                  <strong>Awnings – Risk of injuries:</strong>
+                  <p class="text-slate-600">When opening/closing the awnings, do not let the rope slide through your hands. Follow the procedure carefully.</p>
+                  
+                  <!-- LINK VIDEO VIMEO -->
+                  <a href="https://vimeo.com/manage/videos/1061295566/d45e8078c2" target="_blank" class="inline-flex items-center gap-2 text-xs text-blue-600 font-bold bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-200 transition-all">
+                    <i class="fa-brands fa-vimeo-v text-base"></i>
+                    <span>Watch video tutorial on Vimeo →</span>
+                  </a>
+
+                  <p class="text-rose-700 font-semibold pt-1">In case of rainy or windy conditions, do not open awnings.</p>
+                </div>
+
+                <div class="bg-white p-3 rounded-xl border border-slate-100 text-xs">
+                  <strong>Cushion box:</strong>
+                  <p class="text-slate-600 mt-1">Feel free to use amenities like: cushions, plaids, garden lights, extension cable.</p>
+                </div>
+
+                <div class="bg-white p-3 rounded-xl border border-slate-100 text-xs">
+                  <strong>Table – Risk of damage:</strong>
+                  <p class="text-slate-600 mt-1">Do not move the table. Legs may get broken while sliding.</p>
+                </div>
+
+                <div class="bg-white p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                  <strong>When leaving the terrace:</strong>
+                  <ul class="list-disc list-inside text-slate-600 space-y-0.5">
+                    <li>Close the awnings</li>
+                    <li>Put back cushions and any other object in the box</li>
+                    <li>Remove any object which may fall because of wind</li>
+                    <li>Close windows bars, windows and shutters</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        `;
+      } else {
+        const t = translations[lang] || translations['it'];
+        container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed">${t.guideBody}</p>`;
+      }
+    }
+
+    function toggleGuideSubSection(sectionId) {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        if (el.classList.contains('hidden')) {
+          document.querySelectorAll('.guide-subsection').forEach(s => s.classList.add('hidden'));
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
       }
     }
 
@@ -1059,7 +1288,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
       renderRulesSection(lang);
 
       document.getElementById('txt-guide-title').innerText = t.guideTitle;
-      document.getElementById('txt-guide-body').innerText = t.guideBody;
+      renderGuideSection(lang);
 
       document.getElementById('txt-transports-title').innerText = t.transportsTitle;
       document.getElementById('txt-transports-body').innerText = t.transportsBody;
