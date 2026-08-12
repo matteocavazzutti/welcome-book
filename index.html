@@ -31,7 +31,7 @@
   <div id="language-screen" class="min-h-screen flex flex-col justify-center items-center p-6 text-center bg-slate-50">
     
     <div class="mb-6 w-64 h-32 rounded-2xl overflow-hidden shadow-md border-4 border-white">
-      <img src="1.t00gemR.png" alt="Terrazza di Maria" class="w-full h-full object-cover">
+      <img src="1.t00gemR.png" alt="La Terrazza di Maria" class="w-full h-full object-cover">
     </div>
 
     <!-- Titolo fisso in Italiano -->
@@ -194,7 +194,10 @@
           </div>
           <h2 id="txt-checkout-title" class="text-xl font-bold text-slate-900"></h2>
         </div>
-        <p id="txt-checkout-body" class="text-sm text-slate-600 leading-relaxed"></p>
+
+        <div id="checkout-content-container">
+          <!-- Popolato dinamicamente da JavaScript -->
+        </div>
       </section>
 
       <!-- 8. HOUSE RULES -->
@@ -340,8 +343,8 @@
         checkinTitle: "Check-in",
         checkinBody: "Orario Check-in: Dalle 15:00 alle 20:00. Per il Self Check-in inserisci il codice sulla tastiera all'ingresso principale.",
         
-        checkoutTitle: "Check-out",
-        checkoutBody: "Orario massimo: Entro le ore 10:00. Lascia le chiavi sul tavolo del soggiorno e chiudi bene la porta d'ingresso.",
+        checkoutTitle: "Check-out Procedure",
+        checkoutBody: "Orario massimo: Entro le ore 10:00. Lascia le chiavi nella keybox e assicurati di chiudere tutte le finestre.",
         
         rulesTitle: "Regole della Casa",
         rulesBody: "1. Vietato fumare all'interno.\n2. Ore di silenzio dalle 23:00 alle 08:00.\n3. Feste ed eventi non sono consentiti.",
@@ -398,8 +401,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         
         checkinTitle: "Check-in",
         
-        checkoutTitle: "Check-out",
-        checkoutBody: "Check-out time: By 10:00 AM. Please leave the keys on the living room table and lock the front door.",
+        checkoutTitle: "Check-out procedure",
         
         rulesTitle: "House Rules",
         rulesBody: "1. No smoking inside.\n2. Quiet hours: 11:00 PM - 8:00 AM.\n3. Parties and events are not allowed.",
@@ -453,7 +455,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         checkinBody: "Arrivée : de 15h00 à 20h00. Pour le Self Check-in, entrez votre code sur le clavier de la porte principale.",
         
         checkoutTitle: "Check-out",
-        checkoutBody: "Départ : avant 10h00. Laissez les clés sur la table du salon et fermez bien la porte.",
+        checkoutBody: "Départ : avant 10h00. Laissez les clés dans la keybox et fermez bien la porte.",
         
         rulesTitle: "Règles de la Maison",
         rulesBody: "1. Interdiction de fumer à l'intérieur.\n2. Heures de silence : 23h00 - 08h00.\n3. Fêtes non autorisées.",
@@ -507,7 +509,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         checkinBody: "Check-in Zeit: 15:00 bis 20:00 Uhr. Für den Self Check-in geben Sie den Code am Eingang ein.",
         
         checkoutTitle: "Check-out",
-        checkoutBody: "Check-out: Bis 10:00 Uhr. Bitte Schlüssel auf dem Tisch lassen und Tür schließen.",
+        checkoutBody: "Check-out: Bis 10:00 Uhr. Bitte Schlüssel in die Keybox legen und Tür schließen.",
         
         rulesTitle: "Hausregeln",
         rulesBody: "1. Nichtrauchen in allen Räumen.\n2. Ruhezeiten: 23:00 - 08:00 Uhr.\n3. Keine Partys gestattet.",
@@ -761,6 +763,115 @@ Should you need any help, contact us: we will be delighted to support you!`,
       }
     }
 
+    function renderCheckoutSection(lang) {
+      const container = document.getElementById('checkout-content-container');
+
+      if (lang === 'en') {
+        container.innerHTML = `
+          <div class="space-y-4 text-left">
+            <p class="text-xs text-slate-500 font-medium pb-1">
+              Before leaving the property, guests are expected to follow the following steps:
+            </p>
+
+            <div class="relative border-l-2 border-amber-200 ml-3 pl-4 space-y-4">
+              
+              <!-- STEP 1 -->
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800 font-bold">Check-out before 10 am.</p>
+                </div>
+              </div>
+
+              <!-- STEP 2 -->
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Let us know about</strong> any accidental damage, maintenance concerns, or items in need of repair so we can address them promptly.
+                  </p>
+                </div>
+              </div>
+
+              <!-- STEP 3 -->
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Keys:</strong> Lock the front door and leave the keys inside the key box.
+                  </p>
+                </div>
+              </div>
+
+              <!-- STEP 4 -->
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Terrace:</strong> Close awnings. Put back cushions and towels in the box. Close windows, window bars, shutters.
+                  </p>
+                </div>
+              </div>
+
+              <!-- STEP 5 -->
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Trash & Recycling:</strong> Dispose of all trash in the designated bins located outside the building, in Via degli Ammiragli 112 (20m).
+                  </p>
+                </div>
+              </div>
+
+              <!-- STEP 6 -->
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Kitchen:</strong> Wash dirty dishes or place them in the dishwasher and start the cycle. Empty the fridge.
+                  </p>
+                </div>
+              </div>
+
+              <!-- STEP 7 -->
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Appliances:</strong> Switch off the air conditioning and ensure all small electrical appliances (hair dryer, iron, etc.) are unplugged.
+                  </p>
+                </div>
+              </div>
+
+              <!-- STEP 8 -->
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Remotes:</strong> Return the 3 remote controls (TV and AC) to their original places.
+                  </p>
+                </div>
+              </div>
+
+              <!-- STEP 9 -->
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Privacy:</strong> Log out of any personal accounts in the TV (such as Netflix or similar).
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        `;
+      } else {
+        const t = translations[lang] || translations['it'];
+        container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed">${t.checkoutBody}</p>`;
+      }
+    }
+
     function selectLanguage(lang) {
       document.getElementById('current-lang-code').innerText = lang;
       const t = translations[lang] || translations['it'];
@@ -790,7 +901,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
       renderCheckinSection(lang);
 
       document.getElementById('txt-checkout-title').innerText = t.checkoutTitle;
-      document.getElementById('txt-checkout-body').innerText = t.checkoutBody;
+      renderCheckoutSection(lang);
 
       document.getElementById('txt-rules-title').innerText = t.rulesTitle;
       document.getElementById('txt-rules-body').innerText = t.rulesBody;
