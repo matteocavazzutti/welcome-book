@@ -245,7 +245,7 @@
         <div id="transports-content-container"></div>
       </section>
 
-      <!-- 11. BEST TIPS IN THE AREA -->
+      <!-- 11. FOOD & DRINK -->
       <section id="tips" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-orange-100 text-orange-600 rounded-xl">
@@ -253,7 +253,7 @@
           </div>
           <h2 id="txt-tips-title" class="text-xl font-bold text-slate-900"></h2>
         </div>
-        <p id="txt-tips-body" class="text-sm text-slate-600 leading-relaxed"></p>
+        <div id="tips-content-container"></div>
       </section>
 
       <!-- 12. EMERGENCY INFO -->
@@ -385,7 +385,7 @@
         transportsTitle: "Trasporti & Info Turistiche",
         transportsBody: "Fermata Autobus linea 12 a soli 50 metri. La stazione ferroviaria centrale dista 10 minuti a piedi.",
         
-        tipsTitle: "I nostri Consigli",
+        tipsTitle: "Food & Drink",
         tipsBody: "Ristorante consigliato: 'Osteria del Mare' (a 200m).\nCaffè & Colazione: Bar Central.\nSupermercato aperto fino alle 20:30 a 150m.",
         
         emergencyTitle: "Contatti di Emergenza",
@@ -436,7 +436,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         transportsTitle: "Transports & Info",
         transportsBody: "Bus stop line 12 is just 50 meters away. Central train station is a 10-minute walk.",
         
-        tipsTitle: "Our Best Tips",
+        tipsTitle: "Food & Drink",
         tipsBody: "Recommended Restaurant: 'Osteria del Mare' (200m).\nCoffee & Breakfast: Bar Central.\nSupermarket 150m away, open until 8:30 PM.",
         
         emergencyTitle: "Emergency Info",
@@ -485,7 +485,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         transportsTitle: "Transports & Info",
         transportsBody: "Arrêt de bus ligne 12 à 50 mètres. Gare centrale à 10 minutes à pied.",
         
-        tipsTitle: "Nos Conseils",
+        tipsTitle: "Food & Drink",
         tipsBody: "Restaurant recommandé : 'Osteria del Mare'.\nCafé : Bar Central.\nSupermarché à 150m.",
         
         emergencyTitle: "Urgences",
@@ -534,7 +534,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         transportsTitle: "Verkehr & Info",
         transportsBody: "Bushaltestelle Linie 12 in 50m. Hauptbahnhof 10 Gehminuten entfernt.",
         
-        tipsTitle: "Unsere Tipps",
+        tipsTitle: "Food & Drink",
         tipsBody: "Empfohlenes Restaurant: 'Osteria del Mare'.\nCafé: Bar Central.\nSupermarkt 150m entfernt.",
         
         emergencyTitle: "Notfallnummern",
@@ -1048,6 +1048,200 @@ Should you need any help, contact us: we will be delighted to support you!`,
         const t = translations[lang] || translations['it'];
         container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed whitespace-pre-line">${t.rulesBody}</p>`;
       }
+    }
+
+    function renderFoodDrinkSection(lang) {
+      const container = document.getElementById('tips-content-container');
+      if (!container) return;
+
+      container.innerHTML = `
+        <div class="space-y-4 text-left">
+          <p class="text-xs text-slate-500 font-medium">
+            Our selection of places <strong>at walking distance</strong> to enjoy food, drinks, local products
+          </p>
+
+          <div class="space-y-3">
+
+            <!-- RESTAURANTS -->
+            <div class="food-drink-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+              <button onclick="toggleFoodDrinkSubSection('food-restaurants', this)" class="w-full hover:bg-orange-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-orange-100 text-orange-700 rounded-xl">
+                    <i class="fa-solid fa-utensils text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Restaurants</h3>
+                    <p class="text-[11px] text-slate-500">Roman, Italian & international dining</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-down food-drink-icon text-slate-400 text-xs transition-transform duration-200"></i>
+              </button>
+
+              <div id="food-restaurants" class="food-drink-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
+                <div>
+                  <h3 class="text-sm font-bold text-orange-700 border-b border-slate-100 pb-2">Restaurants</h3>
+                </div>
+
+                <div class="space-y-3">
+                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                    <p class="text-xs font-bold text-slate-900"><em>Romanè</em> – Via Cipro, 106 <span class="font-medium text-slate-500">(100m)</span></p>
+                    <p class="text-xs text-slate-600 mt-1 leading-relaxed">Good place for Roman and Italian tasty dishes. Reservation required.</p>
+                  </div>
+
+                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                    <p class="text-xs font-bold text-slate-900"><em>Secondo Tradizione</em> – Via Rialto, 39 <span class="font-medium text-slate-500">(200m)</span></p>
+                    <p class="text-xs text-slate-600 mt-1 leading-relaxed">With a cozy terrace offering a more elegant setting. Reservation required.</p>
+                  </div>
+
+                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                    <p class="text-xs font-bold text-slate-900"><em>Mama Shelter</em> (Hotel / Restaurant) – Via Luigi Rizzo, 20 <span class="font-medium text-slate-500">(300m)</span></p>
+                    <p class="text-xs text-slate-600 mt-1 leading-relaxed">Large Roof-top under stars. International dishes. Reservation recommended.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- WINE BAR -->
+            <div class="food-drink-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+              <button onclick="toggleFoodDrinkSubSection('food-wine-bar', this)" class="w-full hover:bg-orange-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-orange-100 text-orange-700 rounded-xl">
+                    <i class="fa-solid fa-wine-glass text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Wine Bar</h3>
+                    <p class="text-[11px] text-slate-500">Wine, home-made dishes & suggestions</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-down food-drink-icon text-slate-400 text-xs transition-transform duration-200"></i>
+              </button>
+
+              <div id="food-wine-bar" class="food-drink-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
+                <div>
+                  <h3 class="text-sm font-bold text-orange-700 border-b border-slate-100 pb-2">Wine Bar</h3>
+                </div>
+                <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                  <p class="text-xs font-bold text-slate-900"><em>Solovino</em> – Via Rialto, 25 <span class="font-medium text-slate-500">(200m)</span></p>
+                  <p class="text-xs text-slate-600 mt-1 leading-relaxed">Wine bar providing also home-made dishes. Large choice of wines, staff well trained to provide suggestions and explanations.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- DELICATESSEN / GOURMET -->
+            <div class="food-drink-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+              <button onclick="toggleFoodDrinkSubSection('food-delicatessen', this)" class="w-full hover:bg-orange-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-orange-100 text-orange-700 rounded-xl">
+                    <i class="fa-solid fa-cheese text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Delicatessen / Gourmet</h3>
+                    <p class="text-[11px] text-slate-500">Deli, cured meats, cheeses, wines & delicacies</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-down food-drink-icon text-slate-400 text-xs transition-transform duration-200"></i>
+              </button>
+
+              <div id="food-delicatessen" class="food-drink-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
+                <div>
+                  <h3 class="text-sm font-bold text-orange-700 border-b border-slate-100 pb-2">Delicatessen / Gourmet</h3>
+                </div>
+                <div class="space-y-3">
+                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                    <p class="text-xs font-bold text-slate-900"><em>La Tradizione</em> – Via Cipro 8/C <span class="font-medium text-slate-500">(200m)</span></p>
+                    <p class="text-xs text-slate-600 mt-1 leading-relaxed">Deli, cured meats, cheeses, wines, and delicacies. Huge selection.</p>
+                  </div>
+
+                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                    <p class="text-xs font-bold text-slate-900"><em>Salumeria Paciotti</em> – Via Marcantonio Bragadin, 51 <span class="font-medium text-slate-500">(150m)</span></p>
+                    <p class="text-xs text-slate-600 mt-1 leading-relaxed">Specialists in cured meats and cheeses. The experience begins as soon as you enter.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- BAKERY -->
+            <div class="food-drink-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+              <button onclick="toggleFoodDrinkSubSection('food-bakery', this)" class="w-full hover:bg-orange-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-orange-100 text-orange-700 rounded-xl">
+                    <i class="fa-solid fa-bread-slice text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Bakery</h3>
+                    <p class="text-[11px] text-slate-500">Pizza al taglio & bakery specialties</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-down food-drink-icon text-slate-400 text-xs transition-transform duration-200"></i>
+              </button>
+
+              <div id="food-bakery" class="food-drink-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
+                <div>
+                  <h3 class="text-sm font-bold text-orange-700 border-b border-slate-100 pb-2">Bakery</h3>
+                </div>
+                <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                  <p class="text-xs font-bold text-slate-900"><em>Voglia di pane</em> – Via Marcantonio Bragadin, 81 <span class="font-medium text-slate-500">(100m)</span></p>
+                  <p class="text-xs text-slate-600 mt-1 leading-relaxed">Tasty «pizza al taglio» (takeaway) and some dishes you may eat there. With terrace.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- STREET MARKET -->
+            <div class="food-drink-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+              <button onclick="toggleFoodDrinkSubSection('food-street-market', this)" class="w-full hover:bg-orange-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-orange-100 text-orange-700 rounded-xl">
+                    <i class="fa-solid fa-store text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Street Market</h3>
+                    <p class="text-[11px] text-slate-500">Fresh local products & authentic Roman market</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-down food-drink-icon text-slate-400 text-xs transition-transform duration-200"></i>
+              </button>
+
+              <div id="food-street-market" class="food-drink-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
+                <div>
+                  <h3 class="text-sm font-bold text-orange-700 border-b border-slate-100 pb-2">Street Market</h3>
+                </div>
+                <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                  <p class="text-xs font-bold text-slate-900"><em>Mercato Trionfale</em> – Via Andrea Doria 41 <span class="font-medium text-slate-500">(~13 minutes walk)</span></p>
+                  <p class="text-xs text-slate-600 mt-1 leading-relaxed">One of the most beautiful and authentic street market in Rome. Vegetables, meat, fish, bakery, cheese, cured meat..</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- CAFÉ -->
+            <div class="food-drink-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+              <button onclick="toggleFoodDrinkSubSection('food-cafe', this)" class="w-full hover:bg-orange-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-orange-100 text-orange-700 rounded-xl">
+                    <i class="fa-solid fa-mug-hot text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Café</h3>
+                    <p class="text-[11px] text-slate-500">A Roman-style breakfast experience</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-down food-drink-icon text-slate-400 text-xs transition-transform duration-200"></i>
+              </button>
+
+              <div id="food-cafe" class="food-drink-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
+                <div>
+                  <h3 class="text-sm font-bold text-orange-700 border-b border-slate-100 pb-2">Café</h3>
+                </div>
+                <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                  <p class="text-xs text-slate-700 leading-relaxed">
+                    A tip for experiencing breakfast as Romans. Go to one of the 2 “Bar” just down the building in viale degli Ammiragli. Sit outside and enjoy the buzz of the city over a classic “cappuccino and cornetto”!
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      `;
     }
 
     function renderGuideSection(lang) {
@@ -1749,6 +1943,24 @@ Should you need any help, contact us: we will be delighted to support you!`,
       }
     }
 
+    function toggleFoodDrinkSubSection(sectionId, btnElement) {
+      const targetContent = document.getElementById(sectionId);
+      if (!targetContent) return;
+
+      const isHidden = targetContent.classList.contains('hidden');
+
+      document.querySelectorAll('.food-drink-subsection').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.food-drink-icon').forEach(icon => icon.style.transform = 'rotate(0deg)');
+
+      if (isHidden) {
+        targetContent.classList.remove('hidden');
+        if (btnElement) {
+          const icon = btnElement.querySelector('.food-drink-icon');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+      }
+    }
+
     function initSwiperNav() {
       if (navSwiper) return;
 
@@ -1837,7 +2049,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
       renderTransportsSection(lang);
 
       document.getElementById('txt-tips-title').innerText = t.tipsTitle;
-      document.getElementById('txt-tips-body').innerText = t.tipsBody;
+      renderFoodDrinkSection(lang);
 
       document.getElementById('txt-emergency-title').innerText = t.emergencyTitle;
       document.getElementById('txt-emergency-body').innerText = t.emergencyBody;
