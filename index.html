@@ -1304,96 +1304,178 @@ Should you need any help, contact us: we will be delighted to support you!`,
       if (lang === 'en') {
         container.innerHTML = `
           <div class="space-y-4 text-left">
+            <p class="text-xs text-slate-500 font-medium">Select a category below to view transport information and tips:</p>
 
-            <!-- OUR TIPS -->
-            <div class="bg-amber-50/70 border border-amber-200/80 rounded-2xl p-4 space-y-2">
-              <div class="flex items-center gap-2.5 text-amber-900 font-bold text-sm">
-                <div class="p-2 bg-amber-100 text-amber-600 rounded-lg">
-                  <i class="fa-regular fa-lightbulb text-base"></i>
+            <div class="space-y-3">
+
+              <!-- 1. OUR TIPS -->
+              <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button onclick="toggleTransportSubSection('transport-tips', this)" class="w-full hover:bg-amber-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-amber-100 text-amber-700 rounded-xl">
+                      <i class="fa-regular fa-lightbulb text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Our Tips</h3>
+                      <p class="text-[11px] text-slate-500">Useful advice for moving around Rome</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="transport-tips" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                  <h3 class="text-sm font-bold text-amber-700 border-b border-slate-100 pb-2">Our Best Recommendations</h3>
+                  <ul class="text-xs text-slate-700 space-y-2 list-disc list-inside pl-1 leading-relaxed">
+                    <li>Use the <strong>Metro</strong> station to reach all main sights efficiently.</li>
+                    <li>Enjoy <strong>walking</strong> in Rome — it is often the best way to explore!</li>
+                    <li>Use <strong>buses</strong> in locations where the metro is not directly available.</li>
+                    <li><strong>Use Apps</strong> for transit itineraries: we recommend <a href="https://citymapper.com" target="_blank" class="text-amber-600 font-semibold underline">citymapper.com</a></li>
+                    <li class="text-rose-800">In touristic spots and on public transport, <strong>look carefully after your belongings at all times</strong>. Pickpockets operate frequently in crowded areas.</li>
+                  </ul>
                 </div>
-                <span>Our tips</span>
               </div>
-              <ul class="text-xs text-slate-700 space-y-1.5 list-disc list-inside pl-1">
-                <li>Use <strong>Metro</strong> station to reach all main sights.</li>
-                <li>Enjoy <strong>walking</strong> in Rome.</li>
-                <li>Use <strong>buses</strong> in locations where metro is not available.</li>
-                <li><strong>Use Apps</strong> for itineraries: we like to use <a href="https://citymapper.com" target="_blank" class="text-amber-600 font-medium underline">citymapper.com</a></li>
-                <li>In touristic spots and in public transports <strong>look carefully after your goods at anytime</strong>. Pickpockets adore tourists.</li>
-              </ul>
-            </div>
 
-            <!-- TICKETING -->
-            <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 space-y-2">
-              <div class="flex items-center gap-2.5 text-slate-900 font-bold text-sm">
-                <div class="p-2 bg-slate-200 text-slate-700 rounded-lg">
-                  <i class="fa-solid fa-ticket text-base"></i>
+              <!-- 2. TICKETING -->
+              <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button onclick="toggleTransportSubSection('transport-tickets', this)" class="w-full hover:bg-indigo-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-slate-200 text-slate-700 rounded-xl">
+                      <i class="fa-solid fa-ticket text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Ticketing</h3>
+                      <p class="text-[11px] text-slate-500">Tap & Go and Paper Tickets</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="transport-tickets" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                  <h3 class="text-sm font-bold text-slate-800 border-b border-slate-100 pb-2">How to Pay for Transport</h3>
+                  <div class="space-y-3">
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                      <strong class="text-slate-900">“Tap & Go” Service:</strong>
+                      <p class="text-slate-600 leading-relaxed">Pay instantly at turnstiles or on board with your contactless credit/debit card. No extra fees apply.</p>
+                      <p class="text-amber-700 font-semibold text-[11px] pt-1">Note: Each traveler must tap using a separate card.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                      <strong class="text-slate-900">Paper Tickets:</strong>
+                      <p class="text-slate-600 leading-relaxed">Available at self-service ticket machines located in any Metro station, as well as in newsstands (Edicola) and tobacco shops (Tabacchi).</p>
+                    </div>
+                  </div>
                 </div>
-                <span>Ticketing</span>
               </div>
-              <ul class="text-xs text-slate-700 space-y-2 list-disc list-inside pl-1">
-                <li>
-                  <strong>“Tap & Go” service:</strong> you pay instantly at turnstiles or on board with your contactless credit card. No extra fees. Remember each traveler must use a separate card.
-                </li>
-                <li>
-                  <strong>Paper Tickets:</strong> Available at self-service machines in any Metro station.
-                </li>
-              </ul>
-            </div>
 
-            <!-- METRO / BUS -->
-            <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 space-y-2">
-              <div class="flex items-center gap-2.5 text-slate-900 font-bold text-sm">
-                <div class="p-2 bg-indigo-100 text-indigo-600 rounded-lg">
-                  <i class="fa-solid fa-bus text-base"></i>
+              <!-- 3. METRO / BUS -->
+              <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button onclick="toggleTransportSubSection('transport-metrobus', this)" class="w-full hover:bg-indigo-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-indigo-100 text-indigo-700 rounded-xl">
+                      <i class="fa-solid fa-bus text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Metro / Bus</h3>
+                      <p class="text-[11px] text-slate-500">Lines, Stations & Suggestions</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="transport-metrobus" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                  <h3 class="text-sm font-bold text-indigo-700 border-b border-slate-100 pb-2">Public Transit Options</h3>
+                  <div class="space-y-3">
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                      <strong class="text-slate-900">Metro Line A:</strong>
+                      <p class="text-slate-600 leading-relaxed"><strong>Cipro Station</strong> (500m from the apartment). This is the fastest, most convenient option to reach key locations (Ottaviano/Vatican, Spagna, Trevi, Termini).</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                      <strong class="text-slate-900">Bus Network:</strong>
+                      <p class="text-slate-600 leading-relaxed">Buses offer extensive coverage throughout Rome, though traffic may slow them down.</p>
+                      <div class="bg-amber-50 p-2 rounded-lg border border-amber-200 text-amber-900 text-[11px] mt-1">
+                        <strong>Recommended Line:</strong> Bus <strong>492</strong> travels across the entire historical city center, starting directly from Cipro!
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <span>Metro / Bus</span>
               </div>
-              <ul class="text-xs text-slate-700 space-y-2 list-disc list-inside pl-1">
-                <li>
-                  <strong>Metro:</strong> Cipro Station, Line A (500m). This is the fastest and most cost-effective option.
-                </li>
-                <li>
-                  <strong>Bus:</strong> Slower than the train, but more extensive coverage across territory.<br>
-                  <span class="text-slate-500 italic pl-4 block mt-0.5">Tip: Line 492 goes through the whole city center, starting from Cipro</span>
-                </li>
-              </ul>
-            </div>
 
-            <!-- TAXI -->
-            <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 space-y-2">
-              <div class="flex items-center gap-2.5 text-slate-900 font-bold text-sm">
-                <div class="p-2 bg-yellow-100 text-yellow-700 rounded-lg">
-                  <i class="fa-solid fa-taxi text-base"></i>
+              <!-- 4. TAXI -->
+              <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button onclick="toggleTransportSubSection('transport-taxi', this)" class="w-full hover:bg-yellow-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-yellow-100 text-yellow-700 rounded-xl">
+                      <i class="fa-solid fa-taxi text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Taxi</h3>
+                      <p class="text-[11px] text-slate-500">Phone numbers & Uber info</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="transport-taxi" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                  <h3 class="text-sm font-bold text-yellow-800 border-b border-slate-100 pb-2">Taxi Services & Ordering</h3>
+                  
+                  <div class="space-y-2 text-xs">
+                    <div class="flex items-center justify-between bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <div>
+                        <strong>General Dispatch:</strong>
+                        <p class="text-slate-500 text-[11px]">Connects to all local taxi companies</p>
+                      </div>
+                      <a href="tel:+39060609" class="font-mono font-bold text-slate-900 bg-white px-2.5 py-1 rounded-lg border border-slate-200 text-xs">06.06.09</a>
+                    </div>
+
+                    <div class="flex items-center justify-between bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <div>
+                        <strong>Recommended Line (Samarcanda / Radio Taxi):</strong>
+                        <p class="text-slate-500 text-[11px]">Known for high service standards</p>
+                      </div>
+                      <a href="tel:+39063570" class="font-mono font-bold text-slate-900 bg-white px-2.5 py-1 rounded-lg border border-slate-200 text-xs">06.35.70</a>
+                    </div>
+                  </div>
+
+                  <div class="space-y-1.5 text-xs text-slate-600 pt-1">
+                    <p><strong>Uber & Ride-hailing:</strong> Uber operates mainly with luxury NCC ("limousine") vehicles in Rome and is often more expensive than standard taxis.</p>
+                    <p><strong>Fares:</strong> Always confirm estimated fares with the driver prior to departure.</p>
+                    <p class="text-amber-700"><strong>Availability:</strong> During peak hours or rainy days, taxi wait times for telephone bookings can be high.</p>
+                  </div>
                 </div>
-                <span>Taxi</span>
               </div>
-              <ul class="text-xs text-slate-700 space-y-1.5 list-disc list-inside pl-1">
-                <li><strong>General Dispatch:</strong> <a href="tel:+39060609" class="font-mono text-slate-900 font-bold">+39 06.06.09</a> (Connects to all local companies)</li>
-                <li><strong>Recommended Private Line:</strong> <a href="tel:+39063570" class="font-mono text-slate-900 font-bold">+39 06.35.70</a> (Known for good standards)</li>
-                <li><strong>Uber/apps:</strong> Usually limited to luxury "limousine" services.</li>
-                <li><strong>Fares:</strong> Always verify the estimated fare with the driver.</li>
-                <li><strong>Availability:</strong> During peak hours, expect long wait time for booking.</li>
-              </ul>
-            </div>
 
-            <!-- CAR PARKING -->
-            <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 space-y-2">
-              <div class="flex items-center gap-2.5 text-slate-900 font-bold text-sm">
-                <div class="p-2 bg-blue-100 text-blue-600 rounded-lg">
-                  <i class="fa-solid fa-square-parking text-base"></i>
+              <!-- 5. CAR PARKING -->
+              <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button onclick="toggleTransportSubSection('transport-parking', this)" class="w-full hover:bg-blue-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-blue-100 text-blue-700 rounded-xl">
+                      <i class="fa-solid fa-square-parking text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Car Parking</h3>
+                      <p class="text-[11px] text-slate-500">Street parking & Nearby streets</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="transport-parking" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                  <h3 class="text-sm font-bold text-blue-800 border-b border-slate-100 pb-2">Parking Options Nearby</h3>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Street parking in Rome is paid (blue lines), and finding an available spot can be challenging.
+                  </p>
+                  <p class="text-xs text-slate-700 font-semibold">
+                    Recommended streets near the apartment where parking is easier:
+                  </p>
+                  <ul class="text-xs text-slate-700 font-medium list-disc list-inside pl-1 space-y-1">
+                    <li><strong>Via Simone Simoni</strong></li>
+                    <li><strong>Via Angelo Emo, 4</strong> (located right behind the Cipro Metro Station)</li>
+                  </ul>
                 </div>
-                <span>Car parking</span>
               </div>
-              <p class="text-xs text-slate-700 leading-relaxed">
-                Street parking is paid, and finding a spot can be very difficult.<br>
-                Near the apartment, sometimes, we’ve found it easier to park here:
-              </p>
-              <ul class="text-xs text-slate-700 font-medium list-disc list-inside pl-1 space-y-0.5">
-                <li>Via Simone Simoni</li>
-                <li>Via Angelo Emo, 4 (behind the Metro station)</li>
-              </ul>
-            </div>
 
+            </div>
           </div>
         `;
       } else {
@@ -1415,6 +1497,24 @@ Should you need any help, contact us: we will be delighted to support you!`,
         targetContent.classList.remove('hidden');
         if (btnElement) {
           const icon = btnElement.querySelector('.guide-icon');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+      }
+    }
+
+    function toggleTransportSubSection(sectionId, btnElement) {
+      const targetContent = document.getElementById(sectionId);
+      if (!targetContent) return;
+
+      const isHidden = targetContent.classList.contains('hidden');
+
+      document.querySelectorAll('.transport-subsection').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.transport-icon').forEach(icon => icon.style.transform = 'rotate(0deg)');
+
+      if (isHidden) {
+        targetContent.classList.remove('hidden');
+        if (btnElement) {
+          const icon = btnElement.querySelector('.transport-icon');
           if (icon) icon.style.transform = 'rotate(180deg)';
         }
       }
