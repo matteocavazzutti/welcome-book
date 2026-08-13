@@ -1308,6 +1308,79 @@ Should you need any help, contact us: we will be delighted to support you!`,
 
             <div class="space-y-3">
 
+              <!-- 0. MAPS -->
+              <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button onclick="toggleTransportSubSection('transport-maps', this)" class="w-full hover:bg-indigo-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-indigo-100 text-indigo-700 rounded-xl">
+                      <i class="fa-solid fa-map-location-dot text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Maps</h3>
+                      <p class="text-[11px] text-slate-500">Downloadable maps and transit diagrams</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="transport-maps" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                  <h3 class="text-sm font-bold text-indigo-700 border-b border-slate-100 pb-2">City & Transport Maps</h3>
+                  
+                  <div class="space-y-2">
+                    <!-- Link 1 (In evidenza) -->
+                    <a href="https://drive.google.com/file/d/1h_WdOZJz15EyDYQQuO-6nZCG-3J9_jpD" target="_blank" class="flex items-center justify-between p-3 bg-amber-50 hover:bg-amber-100/80 border-2 border-amber-400/80 rounded-xl transition-all group">
+                      <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-map text-amber-600 text-base"></i>
+                        <span class="text-xs font-bold text-slate-900">Touristic Map</span>
+                      </div>
+                      <span class="text-[10px] font-bold uppercase tracking-wider bg-amber-200/80 text-amber-900 px-2 py-0.5 rounded-full flex items-center gap-1">
+                        ★ Top
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[9px] group-hover:translate-x-0.5 transition-transform"></i>
+                      </span>
+                    </a>
+
+                    <!-- Link 2 (In evidenza) -->
+                    <a href="https://drive.google.com/file/d/17Mws7jLBa0dyM_GXjGys4GtOcraT1enH/" target="_blank" class="flex items-center justify-between p-3 bg-amber-50 hover:bg-amber-100/80 border-2 border-amber-400/80 rounded-xl transition-all group">
+                      <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-bus-simple text-amber-600 text-base"></i>
+                        <span class="text-xs font-bold text-slate-900">Transports city center</span>
+                      </div>
+                      <span class="text-[10px] font-bold uppercase tracking-wider bg-amber-200/80 text-amber-900 px-2 py-0.5 rounded-full flex items-center gap-1">
+                        ★ Top
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[9px] group-hover:translate-x-0.5 transition-transform"></i>
+                      </span>
+                    </a>
+
+                    <!-- Link 3 -->
+                    <a href="https://drive.google.com/file/d/1TO7BXO-syCY6RSHS2u2P3iE-D5RQ_QY" target="_blank" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
+                      <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-train text-indigo-600 text-sm"></i>
+                        <span class="text-xs font-semibold text-slate-800">Metro and train</span>
+                      </div>
+                      <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-slate-600 group-hover:translate-x-0.5 transition-all"></i>
+                    </a>
+
+                    <!-- Link 4 -->
+                    <a href="https://drive.google.com/file/d/1aSt6SHDM3NyOLGMssy7v7miUc3eDwy0S/" target="_blank" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
+                      <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-subway text-indigo-600 text-sm"></i>
+                        <span class="text-xs font-semibold text-slate-800">Metro Stripes</span>
+                      </div>
+                      <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-slate-600 group-hover:translate-x-0.5 transition-all"></i>
+                    </a>
+
+                    <!-- Link 5 -->
+                    <a href="https://drive.google.com/file/d/15apnXHI1Mh8VdMMQKOA-v2g28tVSG0zE_/" target="_blank" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
+                      <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-route text-indigo-600 text-sm"></i>
+                        <span class="text-xs font-semibold text-slate-800">Transports all city</span>
+                      </div>
+                      <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-slate-600 group-hover:translate-x-0.5 transition-all"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
               <!-- 1. OUR TIPS -->
               <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
                 <button onclick="toggleTransportSubSection('transport-tips', this)" class="w-full hover:bg-amber-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
