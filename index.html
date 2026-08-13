@@ -256,7 +256,18 @@
         <div id="tips-content-container"></div>
       </section>
 
-      <!-- 12. EMERGENCY INFO -->
+      <!-- 12. LOCAL SERVICES -->
+      <section id="local-services" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-3 bg-emerald-100 text-emerald-600 rounded-xl">
+            <i class="fa-solid fa-location-dot text-xl"></i>
+          </div>
+          <h2 id="txt-local-services-title" class="text-xl font-bold text-slate-900"></h2>
+        </div>
+        <div id="local-services-content-container"></div>
+      </section>
+
+      <!-- 13. EMERGENCY INFO -->
       <section id="emergency" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-rose-100 text-rose-600 rounded-xl">
@@ -325,6 +336,11 @@
               <span id="nav-tips" class="text-[9px] text-slate-500 mt-1"></span>
             </div>
 
+            <div class="swiper-slide" data-tab="local-services">
+              <i class="fa-solid fa-location-dot text-lg text-slate-600"></i>
+              <span id="nav-local-services" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
+
             <div class="swiper-slide" data-tab="emergency">
               <i class="fa-solid fa-phone-volume text-lg text-slate-600"></i>
               <span id="nav-emergency" class="text-[9px] text-slate-500 mt-1"></span>
@@ -385,9 +401,10 @@
         transportsTitle: "Trasporti & Info Turistiche",
         transportsBody: "Fermata Autobus linea 12 a soli 50 metri. La stazione ferroviaria centrale dista 10 minuti a piedi.",
         
-        tipsTitle: "Food & Drink",
+        tipsTitle: "Local tips",
         tipsBody: "Ristorante consigliato: 'Osteria del Mare' (a 200m).\nCaffè & Colazione: Bar Central.\nSupermercato aperto fino alle 20:30 a 150m.",
         
+        localServicesTitle: "Local Services",
         emergencyTitle: "Contatti di Emergenza",
         emergencyBody: "Numero Unico Emergenze: 112\nHost / Proprietario: +39 333 1234567\nGuardia Medica più vicina: Via Roma 15.",
 
@@ -401,7 +418,8 @@
         navRules: "Regole",
         navGuide: "Guida",
         navTransports: "Trasporti",
-        navTips: "Consigli",
+        navTips: "Local tips",
+        navLocalServices: "Local Services",
         navEmergency: "Sos"
       },
       en: {
@@ -436,9 +454,10 @@ Should you need any help, contact us: we will be delighted to support you!`,
         transportsTitle: "Transports & Info",
         transportsBody: "Bus stop line 12 is just 50 meters away. Central train station is a 10-minute walk.",
         
-        tipsTitle: "Food & Drink",
+        tipsTitle: "Local tips",
         tipsBody: "Recommended Restaurant: 'Osteria del Mare' (200m).\nCoffee & Breakfast: Bar Central.\nSupermarket 150m away, open until 8:30 PM.",
         
+        localServicesTitle: "Local Services",
         emergencyTitle: "Emergency Info",
         emergencyBody: "Emergency Number: 112\nHost Contact: +39 333 1234567\nNearest Medical Center: Via Roma 15.",
 
@@ -452,7 +471,8 @@ Should you need any help, contact us: we will be delighted to support you!`,
         navRules: "Rules",
         navGuide: "Guide",
         navTransports: "Transports",
-        navTips: "Tips",
+        navTips: "Local tips",
+        navLocalServices: "Local Services",
         navEmergency: "Sos"
       },
       fr: {
@@ -485,9 +505,10 @@ Should you need any help, contact us: we will be delighted to support you!`,
         transportsTitle: "Transports & Info",
         transportsBody: "Arrêt de bus ligne 12 à 50 mètres. Gare centrale à 10 minutes à pied.",
         
-        tipsTitle: "Food & Drink",
+        tipsTitle: "Local tips",
         tipsBody: "Restaurant recommandé : 'Osteria del Mare'.\nCafé : Bar Central.\nSupermarché à 150m.",
         
+        localServicesTitle: "Local Services",
         emergencyTitle: "Urgences",
         emergencyBody: "Numéro d'urgence : 112\nHôte : +39 333 1234567.",
 
@@ -501,7 +522,8 @@ Should you need any help, contact us: we will be delighted to support you!`,
         navRules: "Règles",
         navGuide: "Guide",
         navTransports: "Transports",
-        navTips: "Conseils",
+        navTips: "Local tips",
+        navLocalServices: "Local Services",
         navEmergency: "Sos"
       },
       de: {
@@ -534,9 +556,10 @@ Should you need any help, contact us: we will be delighted to support you!`,
         transportsTitle: "Verkehr & Info",
         transportsBody: "Bushaltestelle Linie 12 in 50m. Hauptbahnhof 10 Gehminuten entfernt.",
         
-        tipsTitle: "Food & Drink",
+        tipsTitle: "Local tips",
         tipsBody: "Empfohlenes Restaurant: 'Osteria del Mare'.\nCafé: Bar Central.\nSupermarkt 150m entfernt.",
         
+        localServicesTitle: "Local Services",
         emergencyTitle: "Notfallnummern",
         emergencyBody: "Notruf: 112\nGastgeber: +39 333 1234567.",
 
@@ -550,7 +573,8 @@ Should you need any help, contact us: we will be delighted to support you!`,
         navRules: "Regeln",
         navGuide: "Guide",
         navTransports: "Verkehr",
-        navTips: "Tipps",
+        navTips: "Local tips",
+        navLocalServices: "Local Services",
         navEmergency: "Notfall"
       }
     };
@@ -1244,6 +1268,160 @@ Should you need any help, contact us: we will be delighted to support you!`,
       `;
     }
 
+    function renderLocalServicesSection(lang) {
+      const container = document.getElementById('local-services-content-container');
+      if (!container) return;
+
+      container.innerHTML = `
+        <div class="space-y-4 text-left">
+          <p class="text-xs text-slate-500 font-medium">Select a category below to view local services:</p>
+
+          <div class="space-y-3">
+
+            <!-- SUPERMARKET -->
+            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+              <button onclick="toggleLocalServicesSubSection('local-supermarket', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
+                    <i class="fa-solid fa-cart-shopping text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Supermarket</h3>
+                    <p class="text-[11px] text-slate-500">Groceries and everyday shopping</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
+              </button>
+
+              <div id="local-supermarket" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Supermarket</h3>
+                <div class="space-y-2">
+                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                    <p class="text-xs font-bold text-slate-900"><em>Effepiù</em> – Via degli Ammiragli, 101 <span class="font-medium text-slate-500">(50m)</span></p>
+                  </div>
+                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                    <p class="text-xs font-bold text-slate-900"><em>Tigre</em> – Via Anastasio II, 387 <span class="font-medium text-slate-500">(200m)</span></p>
+                  </div>
+                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                    <p class="text-xs font-bold text-slate-900"><em>Carrefour Market</em> – Via Giulio Venticinque, 9 <span class="font-medium text-slate-500">(400m)</span></p>
+                    <p class="text-xs text-emerald-700 font-semibold mt-1">Open 24h/24h</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ATM / BANK -->
+            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+              <button onclick="toggleLocalServicesSubSection('local-atm-bank', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
+                    <i class="fa-solid fa-building-columns text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm">ATM / Bank</h3>
+                    <p class="text-[11px] text-slate-500">Banks and cash withdrawal</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
+              </button>
+
+              <div id="local-atm-bank" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">ATM / Bank</h3>
+                <div class="space-y-2">
+                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                    <p class="text-xs font-bold text-slate-900">Intesa Sanpaolo Bank – Via Anastasio II, 409 <span class="font-medium text-slate-500">(150m)</span></p>
+                  </div>
+                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                    <p class="text-xs font-bold text-slate-900">Unicredit Bank – Vle degli Ammiragli, 13 <span class="font-medium text-slate-500">(200m)</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PHARMACY -->
+            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+              <button onclick="toggleLocalServicesSubSection('local-pharmacy', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
+                    <i class="fa-solid fa-prescription-bottle-medical text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Pharmacy</h3>
+                    <p class="text-[11px] text-slate-500">Nearby pharmacy</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
+              </button>
+
+              <div id="local-pharmacy" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Pharmacy</h3>
+                <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                  <p class="text-xs font-bold text-slate-900">Farmacia Cipro – Viale degli Ammiragli, 33 <span class="font-medium text-slate-500">(200m)</span></p>
+                  <p class="text-xs text-emerald-700 font-semibold mt-1">Open 24h/24h</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- POSTAL SERVICES -->
+            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+              <button onclick="toggleLocalServicesSubSection('local-postal-services', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
+                    <i class="fa-solid fa-envelope text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Postal Services</h3>
+                    <p class="text-[11px] text-slate-500">Post office, parcels and pick-up</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
+              </button>
+
+              <div id="local-postal-services" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Postal Services</h3>
+                <div class="space-y-2">
+                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                    <p class="text-xs font-bold text-slate-900">Public Post Office – Via Anastasio II, 374 <span class="font-medium text-slate-500">(300m)</span></p>
+                  </div>
+                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                    <p class="text-xs font-bold text-slate-900">Parcel services / pick-up / Amazon counter: <em>Spartaco Express</em> – Via degli Ammiragli, 108 <span class="font-medium text-slate-500">(30m)</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- MALL / SHOPPING CENTRE -->
+            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+              <button onclick="toggleLocalServicesSubSection('local-mall', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
+                    <i class="fa-solid fa-store text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Mall / Shopping centre</h3>
+                    <p class="text-[11px] text-slate-500">Shopping, branded shops and food</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
+              </button>
+
+              <div id="local-mall" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Mall / Shopping centre</h3>
+                <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl space-y-2">
+                  <p class="text-xs font-bold text-slate-900"><em>Centro Commerciale Aura</em> – Metro Valle Aurelia <span class="font-medium text-slate-500">(10 minutes walking)</span></p>
+                  <ul class="text-xs text-slate-700 list-disc list-inside space-y-1">
+                    <li>40+ shops / branded-shops</li>
+                    <li>10+ quality & fast-food</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      `;
+    }
+
     function renderGuideSection(lang) {
       const container = document.getElementById('guide-content-container');
 
@@ -1907,6 +2085,24 @@ Should you need any help, contact us: we will be delighted to support you!`,
       }
     }
 
+    function toggleLocalServicesSubSection(sectionId, btnElement) {
+      const targetContent = document.getElementById(sectionId);
+      if (!targetContent) return;
+
+      const isHidden = targetContent.classList.contains('hidden');
+
+      document.querySelectorAll('.local-services-subsection').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.local-services-icon').forEach(icon => icon.style.transform = 'rotate(0deg)');
+
+      if (isHidden) {
+        targetContent.classList.remove('hidden');
+        if (btnElement) {
+          const icon = btnElement.querySelector('.local-services-icon');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+      }
+    }
+
     function toggleGuideSubSection(sectionId, btnElement) {
       const targetContent = document.getElementById(sectionId);
       if (!targetContent) return;
@@ -2051,6 +2247,9 @@ Should you need any help, contact us: we will be delighted to support you!`,
       document.getElementById('txt-tips-title').innerText = t.tipsTitle;
       renderFoodDrinkSection(lang);
 
+      document.getElementById('txt-local-services-title').innerText = t.localServicesTitle;
+      renderLocalServicesSection(lang);
+
       document.getElementById('txt-emergency-title').innerText = t.emergencyTitle;
       document.getElementById('txt-emergency-body').innerText = t.emergencyBody;
 
@@ -2066,6 +2265,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
       document.getElementById('nav-guide').innerText = t.navGuide;
       document.getElementById('nav-transports').innerText = t.navTransports;
       document.getElementById('nav-tips').innerText = t.navTips;
+      document.getElementById('nav-local-services').innerText = t.navLocalServices;
       document.getElementById('nav-emergency').innerText = t.navEmergency;
 
       // Transizione schermata
@@ -2095,3 +2295,4 @@ Should you need any help, contact us: we will be delighted to support you!`,
   </script>
 </body>
 </html>
+
