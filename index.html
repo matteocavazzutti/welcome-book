@@ -273,9 +273,9 @@
           <div class="p-3 bg-rose-100 text-rose-600 rounded-xl">
             <i class="fa-solid fa-phone-volume text-xl"></i>
           </div>
-          <h2 id="txt-emergency-title" class="text-xl font-bold text-slate-900"></h2>
+          <h2 id="txt-emergency-title" class="text-xl font-bold text-slate-900">Emergency</h2>
         </div>
-        <p id="txt-emergency-body" class="text-sm text-slate-600 leading-relaxed"></p>
+        <div id="emergency-content-container"></div>
       </section>
 
     </main>
@@ -405,8 +405,7 @@
         tipsBody: "Ristorante consigliato: 'Osteria del Mare' (a 200m).\nCaffè & Colazione: Bar Central.\nSupermercato aperto fino alle 20:30 a 150m.",
         
         localServicesTitle: "Local Services",
-        emergencyTitle: "Contatti di Emergenza",
-        emergencyBody: "Numero Unico Emergenze: 112\nHost / Proprietario: +39 333 1234567\nGuardia Medica più vicina: Via Roma 15.",
+        emergencyTitle: "Emergency",
 
         navWelcome: "Home",
         navContact: "Contatti",
@@ -420,7 +419,7 @@
         navTransports: "Trasporti",
         navTips: "Local tips",
         navLocalServices: "Local Services",
-        navEmergency: "Sos"
+        navEmergency: "Emergency"
       },
       en: {
         welcomeTitle: "Welcome to Maria’s Terrace !",
@@ -458,13 +457,12 @@ Should you need any help, contact us: we will be delighted to support you!`,
         tipsBody: "Recommended Restaurant: 'Osteria del Mare' (200m).\nCoffee & Breakfast: Bar Central.\nSupermarket 150m away, open until 8:30 PM.",
         
         localServicesTitle: "Local Services",
-        emergencyTitle: "Emergency Info",
-        emergencyBody: "Emergency Number: 112\nHost Contact: +39 333 1234567\nNearest Medical Center: Via Roma 15.",
+        emergencyTitle: "Emergency",
 
         navWelcome: "Home",
         navContact: "Contact",
         navDisclaimer: "Info",
-        navWifi: "Wi-Fi",
+        navWifi: "Wifi",
         navArrival: "Arrival",
         navCheckin: "Check-in",
         navCheckout: "Check-out",
@@ -473,7 +471,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         navTransports: "Transports",
         navTips: "Local tips",
         navLocalServices: "Local Services",
-        navEmergency: "Sos"
+        navEmergency: "Emergency"
       },
       fr: {
         welcomeTitle: "Bienvenue !",
@@ -509,8 +507,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         tipsBody: "Restaurant recommandé : 'Osteria del Mare'.\nCafé : Bar Central.\nSupermarché à 150m.",
         
         localServicesTitle: "Local Services",
-        emergencyTitle: "Urgences",
-        emergencyBody: "Numéro d'urgence : 112\nHôte : +39 333 1234567.",
+        emergencyTitle: "Emergency",
 
         navWelcome: "Accueil",
         navContact: "Contact",
@@ -524,7 +521,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         navTransports: "Transports",
         navTips: "Local tips",
         navLocalServices: "Local Services",
-        navEmergency: "Sos"
+        navEmergency: "Emergency"
       },
       de: {
         welcomeTitle: "Willkommen!",
@@ -560,8 +557,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         tipsBody: "Empfohlenes Restaurant: 'Osteria del Mare'.\nCafé: Bar Central.\nSupermarkt 150m entfernt.",
         
         localServicesTitle: "Local Services",
-        emergencyTitle: "Notfallnummern",
-        emergencyBody: "Notruf: 112\nGastgeber: +39 333 1234567.",
+        emergencyTitle: "Emergency",
 
         navWelcome: "Start",
         navContact: "Kontakt",
@@ -575,7 +571,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         navTransports: "Verkehr",
         navTips: "Local tips",
         navLocalServices: "Local Services",
-        navEmergency: "Notfall"
+        navEmergency: "Emergency"
       }
     };
 
@@ -1422,6 +1418,103 @@ Should you need any help, contact us: we will be delighted to support you!`,
       `;
     }
 
+    function renderEmergencySection(lang) {
+      const container = document.getElementById('emergency-content-container');
+      if (!container) return;
+
+      container.innerHTML = `
+        <div class="space-y-4 text-left">
+          
+          <!-- GENERAL EMERGENCY NUMBER -->
+          <div class="bg-rose-50 border border-rose-200 rounded-2xl p-4 flex items-center justify-between gap-3">
+            <div class="space-y-1">
+              <span class="text-[10px] font-bold tracking-wider text-rose-600 uppercase">General Emergency Number</span>
+              <p class="text-xl font-extrabold text-rose-900">112</p>
+              <p class="text-[11px] text-rose-700">All emergency services (Police, Ambulance, Firemen)</p>
+            </div>
+            <a href="tel:112" class="p-3.5 bg-rose-600 text-white rounded-xl shadow-md active:scale-95 transition-all flex items-center justify-center flex-shrink-0">
+              <i class="fa-solid fa-phone text-lg"></i>
+            </a>
+          </div>
+
+          <!-- MEDICAL EMERGENCY -->
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center gap-2 text-slate-900 font-bold border-b border-slate-200 pb-2">
+              <i class="fa-solid fa-user-doctor text-rose-600 text-base"></i>
+              <span class="text-sm">Medical Emergency</span>
+            </div>
+
+            <!-- Out of hours medical service -->
+            <div class="bg-white p-3 rounded-xl border border-slate-100 space-y-1">
+              <p class="text-xs font-bold text-slate-800">Out of hours medical service <span class="font-normal text-slate-500">(Guardia medica)</span></p>
+              <div class="flex items-center justify-between pt-1">
+                <a href="tel:06570600" class="text-xs font-mono font-bold text-rose-600 flex items-center gap-1.5 hover:underline">
+                  <i class="fa-solid fa-phone text-[10px]"></i> 06 570600
+                </a>
+                <span class="text-[10px] bg-slate-100 text-slate-600 font-semibold px-2 py-0.5 rounded">Night & Holidays</span>
+              </div>
+            </div>
+
+            <!-- List of English speaking doctors -->
+            <div class="bg-white p-3 rounded-xl border border-slate-100 space-y-2">
+              <p class="text-xs font-bold text-slate-800">List of English-speaking doctors</p>
+              <a href="https://drive.google.com/file/d/1-uHzF09L0Hp5cMO1ijZxiTVD8vog5HZp" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs px-3 py-2 rounded-xl border border-rose-200 transition-all w-full justify-between">
+                <span class="flex items-center gap-2">
+                  <i class="fa-solid fa-file-pdf text-rose-600 text-sm"></i>
+                  <span>Download / View List</span>
+                </span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+              </a>
+            </div>
+
+            <!-- Pharmacy 24h/24h -->
+            <div class="bg-white p-3 rounded-xl border border-slate-100 space-y-1">
+              <p class="text-xs font-bold text-slate-800">Pharmacy 24h/24h: <em>Farmacia Cipro</em></p>
+              <p class="text-xs text-slate-600">Viale degli Ammiragli, 33 <span class="font-medium text-slate-500">(200m)</span></p>
+            </div>
+          </div>
+
+          <!-- POLICE / THEFT OR LOSS -->
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center gap-2 text-slate-900 font-bold border-b border-slate-200 pb-2">
+              <i class="fa-solid fa-shield-cat text-rose-600 text-base"></i>
+              <span class="text-sm">Police / Theft or Loss</span>
+            </div>
+
+            <p class="text-xs text-slate-700 leading-relaxed">
+              If you need to report a theft or loss of documents, you can go to the nearest Police Station <span class="font-semibold text-slate-900">(Carabinieri or Polizia di Stato)</span>:
+            </p>
+
+            <div class="bg-white p-3 rounded-xl border border-slate-100 space-y-1">
+              <p class="text-xs font-bold text-slate-900">Carabinieri Station – Stazione Roma Trionfale</p>
+              <p class="text-xs text-slate-600">Via Barberini, 23 <span class="font-medium text-slate-500">(~600m)</span></p>
+            </div>
+          </div>
+
+          <!-- HOSPITALS WITH EMERGENCY ROOM -->
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center gap-2 text-slate-900 font-bold border-b border-slate-200 pb-2">
+              <i class="fa-solid fa-hospital text-rose-600 text-base"></i>
+              <span class="text-sm">Hospitals with Emergency Room <span class="text-xs font-normal text-slate-500">(Pronto Soccorso)</span></span>
+            </div>
+
+            <div class="space-y-2">
+              <div class="bg-white p-3 rounded-xl border border-slate-100 space-y-1">
+                <p class="text-xs font-bold text-slate-900">Ospedale Santo Spirito in Sassia</p>
+                <p class="text-xs text-slate-600">Lungotevere in Sassia, 1 <span class="font-medium text-slate-500">(~2.5 km)</span></p>
+              </div>
+
+              <div class="bg-white p-3 rounded-xl border border-slate-100 space-y-1">
+                <p class="text-xs font-bold text-slate-900">Policlinico Gemelli</p>
+                <p class="text-xs text-slate-600">Largo Agostino Gemelli, 8 <span class="font-medium text-slate-500">(~3.5 km)</span></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      `;
+    }
+
     function renderGuideSection(lang) {
       const container = document.getElementById('guide-content-container');
 
@@ -1680,7 +1773,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
 
             <div class="space-y-3">
 
-              <!-- 0. TOURISTIC INFO (Nuova Sottosezione per prima) -->
+              <!-- 0. TOURISTIC INFO -->
               <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
                 <button onclick="toggleTransportSubSection('transport-touristic-info', this)" class="w-full hover:bg-indigo-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
                   <div class="flex items-center gap-3">
@@ -1788,7 +1881,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                   <h3 class="text-sm font-bold text-indigo-700 border-b border-slate-100 pb-2">City & Transport Maps</h3>
                   
                   <div class="space-y-2">
-                    <!-- Link 1 (In evidenza) -->
                     <a href="https://drive.google.com/file/d/1h_WdOZJz15EyDYQQuO-6nZCG-3J9_jpD" target="_blank" class="flex items-center justify-between p-3 bg-amber-50 hover:bg-amber-100/80 border-2 border-amber-400/80 rounded-xl transition-all group">
                       <div class="flex items-center gap-2.5">
                         <i class="fa-solid fa-map text-amber-600 text-base"></i>
@@ -1800,7 +1892,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                       </span>
                     </a>
 
-                    <!-- Link 2 (In evidenza) -->
                     <a href="https://drive.google.com/file/d/17Mws7jLBa0dyM_GXjGys4GtOcraT1enH/" target="_blank" class="flex items-center justify-between p-3 bg-amber-50 hover:bg-amber-100/80 border-2 border-amber-400/80 rounded-xl transition-all group">
                       <div class="flex items-center gap-2.5">
                         <i class="fa-solid fa-bus-simple text-amber-600 text-base"></i>
@@ -1812,7 +1903,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                       </span>
                     </a>
 
-                    <!-- Link 3 -->
                     <a href="https://drive.google.com/file/d/1TO7BXO-syCY6RSHS2u2P3iE-D5RQ_QY" target="_blank" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
                       <div class="flex items-center gap-2.5">
                         <i class="fa-solid fa-train text-indigo-600 text-sm"></i>
@@ -1821,7 +1911,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                       <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-slate-600 group-hover:translate-x-0.5 transition-all"></i>
                     </a>
 
-                    <!-- Link 4 -->
                     <a href="https://drive.google.com/file/d/1aSt6SHDM3NyOLGMssy7v7miUc3eDwy0S/" target="_blank" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
                       <div class="flex items-center gap-2.5">
                         <i class="fa-solid fa-subway text-indigo-600 text-sm"></i>
@@ -1830,7 +1919,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                       <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-slate-600 group-hover:translate-x-0.5 transition-all"></i>
                     </a>
 
-                    <!-- Link 5 -->
                     <a href="https://drive.google.com/file/d/15apnXHI1Mh8VdMMQKOA-v2g28tVSG0zE_/" target="_blank" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
                       <div class="flex items-center gap-2.5">
                         <i class="fa-solid fa-route text-indigo-600 text-sm"></i>
@@ -1941,138 +2029,48 @@ Should you need any help, contact us: we will be delighted to support you!`,
                 <button onclick="toggleTransportSubSection('transport-metrobus', this)" class="w-full hover:bg-indigo-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
                   <div class="flex items-center gap-3">
                     <div class="p-3 bg-indigo-100 text-indigo-700 rounded-xl">
-                      <i class="fa-solid fa-bus text-lg"></i>
+                      <i class="fa-solid fa-subway text-lg"></i>
                     </div>
                     <div>
                       <h3 class="font-bold text-slate-900 text-sm">Metro / Bus</h3>
-                      <p class="text-[11px] text-slate-500">Lines, Stations & Suggestions</p>
+                      <p class="text-[11px] text-slate-500">Tickets, contactless & operating hours</p>
                     </div>
                   </div>
                   <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
                 </button>
 
-                <div id="transport-metrobus" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
-                  <h3 class="text-sm font-bold text-indigo-700 border-b border-slate-100 pb-2">Public Transit Options</h3>
-                  <div class="space-y-3">
-                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
-                      <strong class="text-slate-900">Metro Line A:</strong>
-                      <p class="text-slate-600 leading-relaxed"><strong>Cipro Station</strong> (500m from the apartment). This is the fastest, most convenient option to reach key locations (Ottaviano/Vatican, Spagna, Trevi, Termini).</p>
-                    </div>
-
-                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
-                      <strong class="text-slate-900">Bus Network:</strong>
-                      <p class="text-slate-600 leading-relaxed">Buses offer extensive coverage throughout Rome, though traffic may slow them down.</p>
-                      <div class="bg-amber-50 p-2 rounded-lg border border-amber-200 text-amber-900 text-[11px] mt-1">
-                        <strong>Recommended Line:</strong> Bus <strong>492</strong> travels across the entire historical city center, starting directly from Cipro!
-                      </div>
-                    </div>
+                <div id="transport-metrobus" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3 text-xs text-slate-700 leading-relaxed">
+                  <h3 class="text-sm font-bold text-indigo-700 border-b border-slate-100 pb-2">Public Transport Essentials</h3>
+                  <div class="space-y-2">
+                    <p><strong>Nearest Metro Station:</strong> Line A — <strong>Cipro</strong> (5 min walk)</p>
+                    <p><strong>Tickets:</strong> Single ticket (BIT) costs €1.50, valid for 100 minutes. You can also pay contactless directly at metro gates and on most buses with your credit card / smartphone.</p>
+                    <p><strong>Operating Hours:</strong> Metro operates daily from 5:30 AM to 11:30 PM (extended to 1:30 AM on Fridays and Saturdays).</p>
                   </div>
                 </div>
               </div>
 
-              <!-- 5. TICKETING -->
+              <!-- 5. TAXI & SHUTTLE -->
               <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-                <button onclick="toggleTransportSubSection('transport-tickets', this)" class="w-full hover:bg-indigo-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
+                <button onclick="toggleTransportSubSection('transport-taxi', this)" class="w-full hover:bg-indigo-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
                   <div class="flex items-center gap-3">
-                    <div class="p-3 bg-slate-200 text-slate-700 rounded-xl">
-                      <i class="fa-solid fa-ticket text-lg"></i>
-                    </div>
-                    <div>
-                      <h3 class="font-bold text-slate-900 text-sm">Ticketing</h3>
-                      <p class="text-[11px] text-slate-500">Tap & Go and Paper Tickets</p>
-                    </div>
-                  </div>
-                  <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
-                </button>
-
-                <div id="transport-tickets" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
-                  <h3 class="text-sm font-bold text-slate-800 border-b border-slate-100 pb-2">How to Pay for Transport</h3>
-                  <div class="space-y-3">
-                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
-                      <strong class="text-slate-900">“Tap & Go” Service:</strong>
-                      <p class="text-slate-600 leading-relaxed">Pay instantly at turnstiles or on board with your contactless credit/debit card. No extra fees apply.</p>
-                      <p class="text-amber-700 font-semibold text-[11px] pt-1">Note: Each traveler must tap using a separate card.</p>
-                    </div>
-
-                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
-                      <strong class="text-slate-900">Paper Tickets:</strong>
-                      <p class="text-slate-600 leading-relaxed">Available at self-service ticket machines located in any Metro station, as well as in newsstands (Edicola) and tobacco shops (Tabacchi).</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 6. TAXI -->
-              <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-                <button onclick="toggleTransportSubSection('transport-taxi', this)" class="w-full hover:bg-yellow-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
-                  <div class="flex items-center gap-3">
-                    <div class="p-3 bg-yellow-100 text-yellow-700 rounded-xl">
+                    <div class="p-3 bg-indigo-100 text-indigo-700 rounded-xl">
                       <i class="fa-solid fa-taxi text-lg"></i>
                     </div>
                     <div>
-                      <h3 class="font-bold text-slate-900 text-sm">Taxi</h3>
-                      <p class="text-[11px] text-slate-500">Phone numbers & Uber info</p>
+                      <h3 class="font-bold text-slate-900 text-sm">Taxi & Shuttle</h3>
+                      <p class="text-[11px] text-slate-500">Official taxis & booking options</p>
                     </div>
                   </div>
                   <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
                 </button>
 
-                <div id="transport-taxi" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
-                  <h3 class="text-sm font-bold text-yellow-800 border-b border-slate-100 pb-2">Taxi Services & Ordering</h3>
-                  
-                  <div class="space-y-2 text-xs">
-                    <div class="flex items-center justify-between bg-slate-50 p-3 rounded-xl border border-slate-100">
-                      <div>
-                        <strong>General Dispatch:</strong>
-                        <p class="text-slate-500 text-[11px]">Connects to all local taxi companies</p>
-                      </div>
-                      <a href="tel:+39060609" class="font-mono font-bold text-slate-900 bg-white px-2.5 py-1 rounded-lg border border-slate-200 text-xs">06.06.09</a>
-                    </div>
-
-                    <div class="flex items-center justify-between bg-slate-50 p-3 rounded-xl border border-slate-100">
-                      <div>
-                        <strong>Recommended Line (Samarcanda / Radio Taxi):</strong>
-                        <p class="text-slate-500 text-[11px]">Known for high service standards</p>
-                      </div>
-                      <a href="tel:+39063570" class="font-mono font-bold text-slate-900 bg-white px-2.5 py-1 rounded-lg border border-slate-200 text-xs">06.35.70</a>
-                    </div>
+                <div id="transport-taxi" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3 text-xs text-slate-700 leading-relaxed">
+                  <h3 class="text-sm font-bold text-indigo-700 border-b border-slate-100 pb-2">Taxi & Private Transport</h3>
+                  <div class="space-y-2">
+                    <p><strong>Official Taxis:</strong> White cars with "TAXI" sign on top and license number on doors.</p>
+                    <p><strong>Phone Booking:</strong> Call <strong>+39 06 3570</strong> or <strong>+39 06 0609</strong>.</p>
+                    <p><strong>Apps:</strong> FreeNow and Uber (Uber Black / Taxi) are widely available in Rome.</p>
                   </div>
-
-                  <div class="space-y-1.5 text-xs text-slate-600 pt-1">
-                    <p><strong>Uber & Ride-hailing:</strong> Uber operates mainly with luxury NCC ("limousine") vehicles in Rome and is often more expensive than standard taxis.</p>
-                    <p><strong>Fares:</strong> Always confirm estimated fares with the driver prior to departure.</p>
-                    <p class="text-amber-700"><strong>Availability:</strong> During peak hours or rainy days, taxi wait times for telephone bookings can be high.</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 7. CAR PARKING -->
-              <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-                <button onclick="toggleTransportSubSection('transport-parking', this)" class="w-full hover:bg-blue-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
-                  <div class="flex items-center gap-3">
-                    <div class="p-3 bg-blue-100 text-blue-700 rounded-xl">
-                      <i class="fa-solid fa-square-parking text-lg"></i>
-                    </div>
-                    <div>
-                      <h3 class="font-bold text-slate-900 text-sm">Car Parking</h3>
-                      <p class="text-[11px] text-slate-500">Street parking & Nearby streets</p>
-                    </div>
-                  </div>
-                  <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
-                </button>
-
-                <div id="transport-parking" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
-                  <h3 class="text-sm font-bold text-blue-800 border-b border-slate-100 pb-2">Parking Options Nearby</h3>
-                  <p class="text-xs text-slate-600 leading-relaxed">
-                    Street parking in Rome is paid (blue lines), and finding an available spot can be challenging.
-                  </p>
-                  <p class="text-xs text-slate-700 font-semibold">
-                    Recommended streets near the apartment where parking is easier:
-                  </p>
-                  <ul class="text-xs text-slate-700 font-medium list-disc list-inside pl-1 space-y-1">
-                    <li><strong>Via Simone Simoni</strong></li>
-                    <li><strong>Via Angelo Emo, 4</strong> (located right behind the Cipro Metro Station)</li>
-                  </ul>
                 </div>
               </div>
 
@@ -2085,135 +2083,96 @@ Should you need any help, contact us: we will be delighted to support you!`,
       }
     }
 
-    function toggleLocalServicesSubSection(sectionId, btnElement) {
-      const targetContent = document.getElementById(sectionId);
-      if (!targetContent) return;
+    function toggleGuideSubSection(id, btnElement) {
+      const target = document.getElementById(id);
+      const icon = btnElement.querySelector('.guide-icon');
+      if (!target) return;
 
-      const isHidden = targetContent.classList.contains('hidden');
-
-      document.querySelectorAll('.local-services-subsection').forEach(el => el.classList.add('hidden'));
-      document.querySelectorAll('.local-services-icon').forEach(icon => icon.style.transform = 'rotate(0deg)');
-
-      if (isHidden) {
-        targetContent.classList.remove('hidden');
-        if (btnElement) {
-          const icon = btnElement.querySelector('.local-services-icon');
-          if (icon) icon.style.transform = 'rotate(180deg)';
-        }
-      }
-    }
-
-    function toggleGuideSubSection(sectionId, btnElement) {
-      const targetContent = document.getElementById(sectionId);
-      if (!targetContent) return;
-
-      const isHidden = targetContent.classList.contains('hidden');
+      const isHidden = target.classList.contains('hidden');
 
       document.querySelectorAll('.guide-subsection').forEach(el => el.classList.add('hidden'));
-      document.querySelectorAll('.guide-icon').forEach(icon => icon.style.transform = 'rotate(0deg)');
+      document.querySelectorAll('.guide-icon').forEach(el => el.classList.remove('rotate-180'));
 
       if (isHidden) {
-        targetContent.classList.remove('hidden');
-        if (btnElement) {
-          const icon = btnElement.querySelector('.guide-icon');
-          if (icon) icon.style.transform = 'rotate(180deg)';
-        }
+        target.classList.remove('hidden');
+        if (icon) icon.classList.add('rotate-180');
       }
     }
 
-    function toggleTransportSubSection(sectionId, btnElement) {
-      const targetContent = document.getElementById(sectionId);
-      if (!targetContent) return;
+    function toggleTransportSubSection(id, btnElement) {
+      const target = document.getElementById(id);
+      const icon = btnElement.querySelector('.transport-icon');
+      if (!target) return;
 
-      const isHidden = targetContent.classList.contains('hidden');
+      const isHidden = target.classList.contains('hidden');
 
       document.querySelectorAll('.transport-subsection').forEach(el => el.classList.add('hidden'));
-      document.querySelectorAll('.transport-icon').forEach(icon => icon.style.transform = 'rotate(0deg)');
+      document.querySelectorAll('.transport-icon').forEach(el => el.classList.remove('rotate-180'));
 
       if (isHidden) {
-        targetContent.classList.remove('hidden');
-        if (btnElement) {
-          const icon = btnElement.querySelector('.transport-icon');
-          if (icon) icon.style.transform = 'rotate(180deg)';
-        }
+        target.classList.remove('hidden');
+        if (icon) icon.classList.add('rotate-180');
       }
     }
 
-    function toggleFoodDrinkSubSection(sectionId, btnElement) {
-      const targetContent = document.getElementById(sectionId);
-      if (!targetContent) return;
+    function toggleFoodDrinkSubSection(id, btnElement) {
+      const target = document.getElementById(id);
+      const icon = btnElement.querySelector('.food-drink-icon');
+      if (!target) return;
 
-      const isHidden = targetContent.classList.contains('hidden');
+      const isHidden = target.classList.contains('hidden');
 
       document.querySelectorAll('.food-drink-subsection').forEach(el => el.classList.add('hidden'));
-      document.querySelectorAll('.food-drink-icon').forEach(icon => icon.style.transform = 'rotate(0deg)');
+      document.querySelectorAll('.food-drink-icon').forEach(el => el.classList.remove('rotate-180'));
 
       if (isHidden) {
-        targetContent.classList.remove('hidden');
-        if (btnElement) {
-          const icon = btnElement.querySelector('.food-drink-icon');
-          if (icon) icon.style.transform = 'rotate(180deg)';
-        }
+        target.classList.remove('hidden');
+        if (icon) icon.classList.add('rotate-180');
       }
     }
 
-    function initSwiperNav() {
-      if (navSwiper) return;
+    function toggleLocalServicesSubSection(id, btnElement) {
+      const target = document.getElementById(id);
+      const icon = btnElement.querySelector('.local-services-icon');
+      if (!target) return;
 
-      navSwiper = new Swiper(".mySwiper", {
-        slidesPerView: "auto",
-        centeredSlides: true,
-        spaceBetween: 10,
-        loop: true,
-        slideToClickedSlide: true,
-        grabCursor: true,
-        on: {
-          slideChange: function () {
-            // Sincronizza il contenuto con la slide arrivata al centro
-            const activeSlide = this.slides[this.activeIndex];
-            if (activeSlide) {
-              const tabId = activeSlide.getAttribute('data-tab');
-              if (tabId && !isProgrammaticSlide) {
-                switchTabContent(tabId);
-              }
-            }
-          }
+      const isHidden = target.classList.contains('hidden');
+
+      document.querySelectorAll('.local-services-subsection').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.local-services-icon').forEach(el => el.classList.remove('rotate-180'));
+
+      if (isHidden) {
+        target.classList.remove('hidden');
+        if (icon) icon.classList.add('rotate-180');
+      }
+    }
+
+    function copyWifiPassword(passwordText, feedbackId) {
+      navigator.clipboard.writeText(passwordText).then(() => {
+        const feedback = document.getElementById(feedbackId);
+        if (feedback) {
+          feedback.classList.remove('hidden');
+          setTimeout(() => feedback.classList.add('hidden'), 2500);
         }
+      }).catch(err => {
+        console.error("Errore nel copiare la password: ", err);
       });
     }
 
-    function switchTabContent(tabId) {
-      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-      const activeTab = document.getElementById(tabId);
-      if (activeTab) {
-        activeTab.classList.add('active');
-        window.scrollTo(0, 0);
-      }
-    }
-
-    function showTab(tabId) {
-      switchTabContent(tabId);
-      if (navSwiper) {
-        // Cerca l'indice della slide corrispondente al tab
-        const slides = navSwiper.slides;
-        for (let i = 0; i < slides.length; i++) {
-          if (slides[i].getAttribute('data-tab') === tabId) {
-            isProgrammaticSlide = true;
-            navSwiper.slideToLoop(navSwiper.realIndex, 300);
-            setTimeout(() => { isProgrammaticSlide = false; }, 350);
-            break;
-          }
-        }
-      }
-    }
-
     function selectLanguage(lang) {
-      document.getElementById('current-lang-code').innerText = lang;
+      document.getElementById('language-screen').classList.add('hidden-screen');
+      document.getElementById('app-screen').classList.remove('hidden-screen');
+      
       const t = translations[lang] || translations['it'];
 
-      // Mappatura testi
+      document.getElementById('current-lang-code').innerText = lang;
+
       document.getElementById('txt-welcome-title').innerText = t.welcomeTitle;
-      document.getElementById('txt-welcome-subtitle').innerText = t.welcomeSubtitle || '';
+      const subtitleEl = document.getElementById('txt-welcome-subtitle');
+      if (subtitleEl) {
+        subtitleEl.innerText = t.welcomeSubtitle || "";
+        subtitleEl.style.display = t.welcomeSubtitle ? "block" : "none";
+      }
       document.getElementById('txt-welcome-body').innerText = t.welcomeBody;
       document.getElementById('txt-btn-change-lang').innerText = t.changeLangBtn;
 
@@ -2251,9 +2210,8 @@ Should you need any help, contact us: we will be delighted to support you!`,
       renderLocalServicesSection(lang);
 
       document.getElementById('txt-emergency-title').innerText = t.emergencyTitle;
-      document.getElementById('txt-emergency-body').innerText = t.emergencyBody;
+      renderEmergencySection(lang);
 
-      // Etichette dock
       document.getElementById('nav-welcome').innerText = t.navWelcome;
       document.getElementById('nav-contact').innerText = t.navContact;
       document.getElementById('nav-disclaimer').innerText = t.navDisclaimer;
@@ -2268,15 +2226,8 @@ Should you need any help, contact us: we will be delighted to support you!`,
       document.getElementById('nav-local-services').innerText = t.navLocalServices;
       document.getElementById('nav-emergency').innerText = t.navEmergency;
 
-      // Transizione schermata
-      document.getElementById('language-screen').classList.add('hidden-screen');
-      document.getElementById('app-screen').classList.remove('hidden-screen');
-      
-      // Inizializza Swiper dopo il cambio schermata
-      setTimeout(() => {
-        initSwiperNav();
-        switchTabContent('welcome');
-      }, 50);
+      initSwiperNav();
+      window.scrollTo(0, 0);
     }
 
     function showLanguageScreen() {
@@ -2285,12 +2236,53 @@ Should you need any help, contact us: we will be delighted to support you!`,
       window.scrollTo(0, 0);
     }
 
-    function copyWifiPassword(password, feedbackId) {
-      navigator.clipboard.writeText(password).then(() => {
-        const feedback = document.getElementById(feedbackId);
-        feedback.classList.remove('hidden');
-        setTimeout(() => feedback.classList.add('hidden'), 3000);
+    function initSwiperNav() {
+      if (navSwiper) {
+        navSwiper.destroy(true, true);
+      }
+
+      navSwiper = new Swiper('.mySwiper', {
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        slideToClickedSlide: true,
+        loop: true,
+        spaceBetween: 2,
+        speed: 350,
+        grabCursor: true,
+        on: {
+          init: function () {
+            const activeSlide = this.slides[this.activeIndex];
+            if (activeSlide) {
+              const tabId = activeSlide.getAttribute('data-tab');
+              if (tabId) switchTabContent(tabId);
+            }
+          },
+          slideChange: function () {
+            const activeSlide = this.slides[this.activeIndex];
+            if (activeSlide) {
+              const tabId = activeSlide.getAttribute('data-tab');
+              if (tabId) {
+                switchTabContent(tabId);
+                if (!isProgrammaticSlide) {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }
+            }
+          }
+        }
       });
+    }
+
+    function switchTabContent(tabId) {
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(content => {
+        content.classList.remove('active');
+      });
+
+      const activeContent = document.getElementById(tabId);
+      if (activeContent) {
+        activeContent.classList.add('active');
+      }
     }
   </script>
 </body>
