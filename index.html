@@ -103,7 +103,7 @@
     <header class="bg-slate-900 text-white p-5 rounded-b-3xl shadow-lg sticky top-0 z-50">
       <div class="max-w-md mx-auto flex justify-between items-center">
         <div>
-          <h1 class="text-lg font-bold tracking-wide">La Terrazza di Maria</h1>
+          <h1 class="text-lg font-bold tracking-wide">Terrazza di Maria</h1>
           <p class="text-xs text-slate-400">Welcome Book</p>
         </div>
         
@@ -115,10 +115,10 @@
       </div>
     </header>
 
-    <!-- Contenuto Principale delle Sezioni -->
+    <!-- Contenuto Principale delle Sezioni (Nuovo Ordine) -->
     <main class="max-w-md mx-auto p-4 space-y-4">
 
-      <!-- 1. BEN VENUTI -->
+      <!-- 1. HOME -->
       <section id="welcome" class="tab-content active bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="text-center py-2 space-y-4">
           <i class="fa-solid fa-hand-wave text-4xl text-amber-500 mb-2"></i>
@@ -138,27 +138,28 @@
         </div>
       </section>
 
-      <!-- 2. CONTACT POINT -->
-      <section id="contact" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+      <!-- 2. YOUR ARRIVAL -->
+      <section id="arrival" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
-          <div class="p-3 bg-amber-100 text-amber-600 rounded-xl">
-            <i class="fa-solid fa-address-card text-xl"></i>
+          <div class="p-3 bg-blue-100 text-blue-600 rounded-xl">
+            <i class="fa-solid fa-map-location-dot text-xl"></i>
           </div>
-          <h2 id="txt-contact-title" class="text-xl font-bold text-slate-900"></h2>
+          <h2 id="txt-arrival-title" class="text-xl font-bold text-slate-900"></h2>
         </div>
-
-        <div id="contact-content-container"></div>
+        
+        <div id="arrival-content-container"></div>
       </section>
 
-      <!-- 3. DISCLAIMER -->
-      <section id="disclaimer" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+      <!-- 3. CHECK-IN -->
+      <section id="checkin" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
-          <div class="p-3 bg-slate-100 text-slate-600 rounded-xl">
-            <i class="fa-solid fa-shield-halved text-xl"></i>
+          <div class="p-3 bg-emerald-100 text-emerald-600 rounded-xl">
+            <i class="fa-solid fa-key text-xl"></i>
           </div>
-          <h2 id="txt-disclaimer-title" class="text-xl font-bold text-slate-900"></h2>
+          <h2 id="txt-checkin-title" class="text-xl font-bold text-slate-900"></h2>
         </div>
-        <div id="disclaimer-content-container"></div>
+
+        <div id="checkin-content-container"></div>
       </section>
 
       <!-- 4. WIFI -->
@@ -173,43 +174,7 @@
         <div id="wifi-content-container"></div>
       </section>
 
-      <!-- 5. YOUR ARRIVAL -->
-      <section id="arrival" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-        <div class="flex items-center space-x-3 mb-4">
-          <div class="p-3 bg-blue-100 text-blue-600 rounded-xl">
-            <i class="fa-solid fa-map-location-dot text-xl"></i>
-          </div>
-          <h2 id="txt-arrival-title" class="text-xl font-bold text-slate-900"></h2>
-        </div>
-        
-        <div id="arrival-content-container"></div>
-      </section>
-
-      <!-- 6. CHECK-IN -->
-      <section id="checkin" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-        <div class="flex items-center space-x-3 mb-4">
-          <div class="p-3 bg-emerald-100 text-emerald-600 rounded-xl">
-            <i class="fa-solid fa-key text-xl"></i>
-          </div>
-          <h2 id="txt-checkin-title" class="text-xl font-bold text-slate-900"></h2>
-        </div>
-
-        <div id="checkin-content-container"></div>
-      </section>
-
-      <!-- 7. CHECK-OUT -->
-      <section id="checkout" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-        <div class="flex items-center space-x-3 mb-4">
-          <div class="p-3 bg-red-100 text-red-600 rounded-xl">
-            <i class="fa-solid fa-door-open text-xl"></i>
-          </div>
-          <h2 id="txt-checkout-title" class="text-xl font-bold text-slate-900"></h2>
-        </div>
-
-        <div id="checkout-content-container"></div>
-      </section>
-
-      <!-- 8. HOUSE RULES -->
+      <!-- 5. HOUSE RULES -->
       <section id="rules" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-purple-100 text-purple-600 rounded-xl">
@@ -221,7 +186,7 @@
         <div id="rules-content-container"></div>
       </section>
 
-      <!-- 9. HOUSE GUIDE -->
+      <!-- 6. HOUSE GUIDE -->
       <section id="guide" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-teal-100 text-teal-600 rounded-xl">
@@ -233,7 +198,7 @@
         <div id="guide-content-container"></div>
       </section>
 
-      <!-- 10. TRANSPORTS / TOURIST INFO -->
+      <!-- 7. TRANSPORTS & TOURS -->
       <section id="transports" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-indigo-100 text-indigo-600 rounded-xl">
@@ -245,7 +210,7 @@
         <div id="transports-content-container"></div>
       </section>
 
-      <!-- 11. FOOD & DRINK -->
+      <!-- 8. LOCAL TIPS (FOOD & DRINK) -->
       <section id="tips" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-orange-100 text-orange-600 rounded-xl">
@@ -256,7 +221,7 @@
         <div id="tips-content-container"></div>
       </section>
 
-      <!-- 12. LOCAL SERVICES -->
+      <!-- 9. LOCAL SERVICES -->
       <section id="local-services" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-emerald-100 text-emerald-600 rounded-xl">
@@ -267,7 +232,31 @@
         <div id="local-services-content-container"></div>
       </section>
 
-      <!-- 13. EMERGENCY INFO -->
+      <!-- 10. CHECK-OUT -->
+      <section id="checkout" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-3 bg-red-100 text-red-600 rounded-xl">
+            <i class="fa-solid fa-door-open text-xl"></i>
+          </div>
+          <h2 id="txt-checkout-title" class="text-xl font-bold text-slate-900"></h2>
+        </div>
+
+        <div id="checkout-content-container"></div>
+      </section>
+
+      <!-- 11. CONTACT POINT -->
+      <section id="contact" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-3 bg-amber-100 text-amber-600 rounded-xl">
+            <i class="fa-solid fa-address-card text-xl"></i>
+          </div>
+          <h2 id="txt-contact-title" class="text-xl font-bold text-slate-900"></h2>
+        </div>
+
+        <div id="contact-content-container"></div>
+      </section>
+
+      <!-- 12. EMERGENCY INFO -->
       <section id="emergency" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-rose-100 text-rose-600 rounded-xl">
@@ -278,74 +267,98 @@
         <div id="emergency-content-container"></div>
       </section>
 
+      <!-- 13. DISCLAIMER -->
+      <section id="disclaimer" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-3 bg-slate-100 text-slate-600 rounded-xl">
+            <i class="fa-solid fa-shield-halved text-xl"></i>
+          </div>
+          <h2 id="txt-disclaimer-title" class="text-xl font-bold text-slate-900"></h2>
+        </div>
+        <div id="disclaimer-content-container"></div>
+      </section>
+
     </main>
 
-    <!-- Navigazione Fissa in Basso: Swiper Dock Apple Circolare -->
+    <!-- Navigazione Fissa in Basso: Swiper Dock Apple Circolare nel Nuovo Ordine -->
     <nav class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-slate-200/80 shadow-2xl z-50 py-1">
       <div class="max-w-md mx-auto">
         <div class="swiper mySwiper">
           <div class="swiper-wrapper">
 
+            <!-- 1. Home -->
             <div class="swiper-slide" data-tab="welcome">
               <i class="fa-solid fa-house text-lg text-slate-600"></i>
               <span id="nav-welcome" class="text-[9px] text-slate-500 mt-1"></span>
             </div>
 
-            <div class="swiper-slide" data-tab="contact">
-              <i class="fa-solid fa-address-card text-lg text-slate-600"></i>
-              <span id="nav-contact" class="text-[9px] text-slate-500 mt-1"></span>
-            </div>
-
-            <div class="swiper-slide" data-tab="wifi">
-              <i class="fa-solid fa-wifi text-lg text-slate-600"></i>
-              <span id="nav-wifi" class="text-[9px] text-slate-500 mt-1"></span>
-            </div>
-
+            <!-- 2. Arrival -->
             <div class="swiper-slide" data-tab="arrival">
               <i class="fa-solid fa-map-location-dot text-lg text-slate-600"></i>
               <span id="nav-arrival" class="text-[9px] text-slate-500 mt-1"></span>
             </div>
 
+            <!-- 3. Check-in -->
             <div class="swiper-slide" data-tab="checkin">
               <i class="fa-solid fa-key text-lg text-slate-600"></i>
               <span id="nav-checkin" class="text-[9px] text-slate-500 mt-1"></span>
             </div>
 
-            <div class="swiper-slide" data-tab="checkout">
-              <i class="fa-solid fa-door-open text-lg text-slate-600"></i>
-              <span id="nav-checkout" class="text-[9px] text-slate-500 mt-1"></span>
+            <!-- 4. Wi-Fi -->
+            <div class="swiper-slide" data-tab="wifi">
+              <i class="fa-solid fa-wifi text-lg text-slate-600"></i>
+              <span id="nav-wifi" class="text-[9px] text-slate-500 mt-1"></span>
             </div>
 
+            <!-- 5. House Rules -->
             <div class="swiper-slide" data-tab="rules">
               <i class="fa-solid fa-clipboard-list text-lg text-slate-600"></i>
               <span id="nav-rules" class="text-[9px] text-slate-500 mt-1"></span>
             </div>
 
+            <!-- 6. House Guide -->
             <div class="swiper-slide" data-tab="guide">
               <i class="fa-solid fa-book-open text-lg text-slate-600"></i>
               <span id="nav-guide" class="text-[9px] text-slate-500 mt-1"></span>
             </div>
 
+            <!-- 7. Transports & Tours -->
             <div class="swiper-slide" data-tab="transports">
               <i class="fa-solid fa-bus text-lg text-slate-600"></i>
               <span id="nav-transports" class="text-[9px] text-slate-500 mt-1"></span>
             </div>
 
+            <!-- 8. Local Tips -->
             <div class="swiper-slide" data-tab="tips">
               <i class="fa-solid fa-utensils text-lg text-slate-600"></i>
               <span id="nav-tips" class="text-[9px] text-slate-500 mt-1"></span>
             </div>
 
+            <!-- 9. Local Services -->
             <div class="swiper-slide" data-tab="local-services">
               <i class="fa-solid fa-location-dot text-lg text-slate-600"></i>
               <span id="nav-local-services" class="text-[9px] text-slate-500 mt-1"></span>
             </div>
 
+            <!-- 10. Check-out -->
+            <div class="swiper-slide" data-tab="checkout">
+              <i class="fa-solid fa-door-open text-lg text-slate-600"></i>
+              <span id="nav-checkout" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
+
+            <!-- 11. Contact -->
+            <div class="swiper-slide" data-tab="contact">
+              <i class="fa-solid fa-address-card text-lg text-slate-600"></i>
+              <span id="nav-contact" class="text-[9px] text-slate-500 mt-1"></span>
+            </div>
+
+            <!-- 12. Emergency -->
             <div class="swiper-slide" data-tab="emergency">
               <i class="fa-solid fa-phone-volume text-lg text-slate-600"></i>
               <span id="nav-emergency" class="text-[9px] text-slate-500 mt-1"></span>
             </div>
 
+            <!-- 13. Disclaimer -->
             <div class="swiper-slide" data-tab="disclaimer">
               <i class="fa-solid fa-shield-halved text-lg text-slate-600"></i>
               <span id="nav-disclaimer" class="text-[9px] text-slate-500 mt-1"></span>
@@ -391,34 +404,34 @@
         checkoutTitle: "Check-out Procedure",
         checkoutBody: "Orario massimo: Entro le ore 10:00. Lascia le chiavi nella keybox e assicurati di chiudere tutte le finestre.",
         
-        rulesTitle: "Regole della Casa",
+        rulesTitle: "House Rules",
         rulesBody: "1. Vietato fumare all'interno.\n2. Ore di silenzio dalle 22:00 alle 07:00.\n3. Feste ed eventi non sono consentiti.",
         
-        guideTitle: "Guida della Casa",
+        guideTitle: "House Guide",
         guideBody: "Seleziona un ambiente per visualizzare le istruzioni trasversali sugli elettrodomestici e sui servizi.",
         
-        transportsTitle: "Trasporti & Info Turistiche",
+        transportsTitle: "Transports & Tours",
         transportsBody: "Fermata Autobus linea 12 a soli 50 metri. La stazione ferroviaria centrale dista 10 minuti a piedi.",
         
-        tipsTitle: "Local tips",
+        tipsTitle: "Local Tips",
         tipsBody: "Ristorante consigliato: 'Osteria del Mare' (a 200m).\nCaffè & Colazione: Bar Central.\nSupermercato aperto fino alle 20:30 a 150m.",
         
         localServicesTitle: "Local Services",
         emergencyTitle: "Emergency",
 
         navWelcome: "Home",
-        navContact: "Contatti",
-        navDisclaimer: "Disclaimer",
-        navWifi: "Wi-Fi",
         navArrival: "Arrivo",
         navCheckin: "Check-in",
-        navCheckout: "Check-out",
-        navRules: "Regole",
-        navGuide: "Guida",
-        navTransports: "Trasporti",
-        navTips: "Local tips",
+        navWifi: "Wi-Fi",
+        navRules: "House Rules",
+        navGuide: "House Guide",
+        navTransports: "Transports",
+        navTips: "Local Tips",
         navLocalServices: "Local Services",
-        navEmergency: "Emergency"
+        navCheckout: "Check-out",
+        navContact: "Contatti",
+        navEmergency: "Emergency",
+        navDisclaimer: "Disclaimer"
       },
       en: {
         welcomeTitle: "Welcome to Maria’s Terrace !",
@@ -448,28 +461,28 @@ Should you need any help, contact us: we will be delighted to support you!`,
         
         guideTitle: "House Guide",
         
-        transportsTitle: "Transports & Info",
+        transportsTitle: "Transports & Tours",
         transportsBody: "Bus stop line 12 is just 50 meters away. Central train station is a 10-minute walk.",
         
-        tipsTitle: "Local tips",
+        tipsTitle: "Local Tips",
         tipsBody: "Recommended Restaurant: 'Osteria del Mare' (200m).\nCoffee & Breakfast: Bar Central.\nSupermarket 150m away, open until 8:30 PM.",
         
         localServicesTitle: "Local Services",
         emergencyTitle: "Emergency",
 
         navWelcome: "Home",
-        navContact: "Contact",
-        navDisclaimer: "Disclaimer",
-        navWifi: "Wi-Fi",
         navArrival: "Arrival",
         navCheckin: "Check-in",
-        navCheckout: "Check-out",
-        navRules: "Rules",
-        navGuide: "Guide",
+        navWifi: "Wi-Fi",
+        navRules: "House Rules",
+        navGuide: "House Guide",
         navTransports: "Transports",
-        navTips: "Local tips",
+        navTips: "Local Tips",
         navLocalServices: "Local Services",
-        navEmergency: "Emergency"
+        navCheckout: "Check-out",
+        navContact: "Contact",
+        navEmergency: "Emergency",
+        navDisclaimer: "Disclaimer"
       },
       fr: {
         welcomeTitle: "Bienvenue !",
@@ -492,33 +505,33 @@ Should you need any help, contact us: we will be delighted to support you!`,
         checkoutTitle: "Check-out",
         checkoutBody: "Départ : avant 10h00. Laissez les clés dans la keybox et fermez bien la porte.",
         
-        rulesTitle: "Règles de la Maison",
+        rulesTitle: "House Rules",
         rulesBody: "1. Interdiction de fumer à l'intérieur.\n2. Heures de silence : 22h00 - 07h00.\n3. Fêtes non autorisées.",
         
-        guideTitle: "Guide du Logement",
+        guideTitle: "House Guide",
         
-        transportsTitle: "Transports & Info",
+        transportsTitle: "Transports & Tours",
         transportsBody: "Arrêt de bus ligne 12 à 50 mètres. Gare centrale à 10 minutes à pied.",
         
-        tipsTitle: "Local tips",
+        tipsTitle: "Local Tips",
         tipsBody: "Restaurant recommandé : 'Osteria del Mare'.\nCafé : Bar Central.\nSupermarché à 150m.",
         
         localServicesTitle: "Local Services",
         emergencyTitle: "Emergency",
 
         navWelcome: "Accueil",
-        navContact: "Contact",
-        navDisclaimer: "Disclaimer",
-        navWifi: "Wi-Fi",
         navArrival: "Arrivée",
         navCheckin: "Check-in",
-        navCheckout: "Check-out",
-        navRules: "Règles",
-        navGuide: "Guide",
+        navWifi: "Wi-Fi",
+        navRules: "House Rules",
+        navGuide: "House Guide",
         navTransports: "Transports",
-        navTips: "Local tips",
+        navTips: "Local Tips",
         navLocalServices: "Local Services",
-        navEmergency: "Emergency"
+        navCheckout: "Check-out",
+        navContact: "Contact",
+        navEmergency: "Emergency",
+        navDisclaimer: "Disclaimer"
       },
       de: {
         welcomeTitle: "Willkommen!",
@@ -541,35 +554,174 @@ Should you need any help, contact us: we will be delighted to support you!`,
         checkoutTitle: "Check-out",
         checkoutBody: "Check-out: Bis 10:00 Uhr. Bitte Schlüssel in die Keybox legen und Tür schließen.",
         
-        rulesTitle: "Hausregeln",
+        rulesTitle: "House Rules",
         rulesBody: "1. Nichtrauchen in allen Räumen.\n2. Ruhezeiten: 22:00 - 07:00 Uhr.\n3. Keine Partys gestattet.",
         
-        guideTitle: "Anleitungen",
+        guideTitle: "House Guide",
         
-        transportsTitle: "Verkehr & Info",
+        transportsTitle: "Transports & Tours",
         transportsBody: "Bushaltestelle Linie 12 in 50m. Hauptbahnhof 10 Gehminuten entfernt.",
         
-        tipsTitle: "Local tips",
+        tipsTitle: "Local Tips",
         tipsBody: "Empfohlenes Restaurant: 'Osteria del Mare'.\nCafé: Bar Central.\nSupermarkt 150m entfernt.",
         
         localServicesTitle: "Local Services",
         emergencyTitle: "Emergency",
 
         navWelcome: "Start",
-        navContact: "Kontakt",
-        navDisclaimer: "Disclaimer",
-        navWifi: "WLAN",
         navArrival: "Anreise",
         navCheckin: "Check-in",
-        navCheckout: "Check-out",
-        navRules: "Regeln",
-        navGuide: "Guide",
-        navTransports: "Verkehr",
-        navTips: "Local tips",
+        navWifi: "WLAN",
+        navRules: "House Rules",
+        navGuide: "House Guide",
+        navTransports: "Transports",
+        navTips: "Local Tips",
         navLocalServices: "Local Services",
-        navEmergency: "Emergency"
+        navCheckout: "Check-out",
+        navContact: "Kontakt",
+        navEmergency: "Emergency",
+        navDisclaimer: "Disclaimer"
       }
     };
+
+    function renderCheckoutSection(lang) {
+      const container = document.getElementById('checkout-content-container');
+
+      if (lang === 'en') {
+        container.innerHTML = `
+          <div class="space-y-4 text-left">
+            <p class="text-xs text-slate-500 font-medium pb-1">
+              Before leaving the property, guests are expected to follow the following steps:
+            </p>
+
+            <div class="relative border-l-2 border-amber-200 ml-3 pl-4 space-y-4">
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800 font-bold">Check-out before 10 am.</p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Let us know about</strong> any accidental damage, maintenance concerns, or items in need of repair so we can address them promptly.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Keys:</strong> Lock the front door and leave the keys inside the key box.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Terrace:</strong> Close awnings. Put back cushions and towels in the box. Close windows, window bars, shutters.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Trash & Recycling:</strong> Dispose of all trash in the designated bins located outside the building, in Via degli Ammiragli 112 (20m).
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Kitchen:</strong> Wash dirty dishes or place them in the dishwasher and start the cycle. Empty the fridge.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Appliances:</strong> Switch off the air conditioning and ensure all small electrical appliances (hair dryer, iron, etc.) are unplugged.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Remotes:</strong> Return the 3 remote controls (TV and AC) to their original places.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Privacy:</strong> Log out of any personal accounts in the TV (such as Netflix or similar).
+                  </p>
+                </div>
+              </div>
+
+              <!-- Nuova Tappa Airbnb in evidenza -->
+              <div class="relative pt-1">
+                <span class="absolute -left-[23px] top-3 w-3 h-3 bg-rose-500 rounded-full ring-4 ring-white animate-pulse"></span>
+                <a href="https://www.airbnb.fr/rooms/1655819661396931146" target="_blank" rel="noopener noreferrer" class="block bg-gradient-to-r from-rose-50 to-amber-50 hover:from-rose-100 hover:to-amber-100 p-3.5 rounded-2xl border-2 border-rose-300/80 shadow-sm transition-all group active:scale-[0.98]">
+                  <div class="flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                      <div class="p-2.5 bg-rose-500 text-white rounded-xl shadow-sm">
+                        <i class="fa-solid fa-star text-sm"></i>
+                      </div>
+                      <div>
+                        <p class="text-xs font-extrabold text-slate-900 leading-snug group-hover:text-rose-600 transition-colors">
+                          Rate your "La Terrazza di Maria" experience
+                        </p>
+                        <p class="text-[10px] text-slate-500 mt-0.5">Leave your review on Airbnb</p>
+                      </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-rose-500 group-hover:translate-x-0.5 transition-transform"></i>
+                  </div>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        `;
+      } else {
+        const t = translations[lang] || translations['it'];
+        container.innerHTML = `
+          <div class="space-y-4 text-left">
+            <p class="text-sm text-slate-600 leading-relaxed">${t.checkoutBody}</p>
+            <div class="pt-2">
+              <a href="https://www.airbnb.fr/rooms/1655819661396931146" target="_blank" rel="noopener noreferrer" class="block bg-gradient-to-r from-rose-50 to-amber-50 hover:from-rose-100 hover:to-amber-100 p-3.5 rounded-2xl border-2 border-rose-300/80 shadow-sm transition-all group">
+                <div class="flex items-center justify-between gap-3">
+                  <div class="flex items-center gap-3">
+                    <div class="p-2.5 bg-rose-500 text-white rounded-xl shadow-sm">
+                      <i class="fa-solid fa-star text-sm"></i>
+                    </div>
+                    <p class="text-xs font-extrabold text-slate-900 leading-snug group-hover:text-rose-600 transition-colors">
+                      Rate your "La Terrazza di Maria" experience
+                    </p>
+                  </div>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-xs text-rose-500"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+        `;
+      }
+    }
 
     function renderDisclaimerSection(lang) {
       const container = document.getElementById('disclaimer-content-container');
@@ -663,7 +815,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
             <div class="flex items-start gap-4">
               <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
                 <span class="text-xs font-bold text-rose-700 uppercase tracking-tight mb-2 leading-tight">Generic Emergency</span>
-                <i class="fa-solid fa-bell-concierge text-3xl text-rose-600 hidden"></i>
                 <div class="p-2.5 bg-rose-100 text-rose-600 rounded-2xl">
                   <i class="fa-solid fa-tower-broadcast text-2xl"></i>
                 </div>
@@ -682,7 +833,100 @@ Should you need any help, contact us: we will be delighted to support you!`,
             </div>
           </div>
 
-          <!-- 2. ENGLISH SPEAKING DOCTORS -->
+          <!-- 2. HOSPITAL -->
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
+            <div class="flex items-start gap-4">
+              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
+                <span class="text-xs font-bold text-slate-800 uppercase mb-2">Hospital</span>
+                <div class="p-2.5 bg-red-100 text-red-600 rounded-2xl">
+                  <i class="fa-solid fa-hospital text-2xl"></i>
+                </div>
+              </div>
+              <div class="text-xs space-y-1 flex-1">
+                <p class="text-slate-600 font-medium">The closest hospital with 24/7 emergency room is :</p>
+                <div class="pt-1 text-center sm:text-left">
+                  <p class="font-extrabold text-slate-900 text-sm tracking-wide">OSPEDALE SAN CARLO DI NANCY</p>
+                  <p class="text-slate-700">Via Aurelia 275</p>
+                  <p class="text-slate-500 font-semibold">( 2Km )</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. POLICE DEPARTMENT -->
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
+            <div class="flex items-start gap-4">
+              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
+                <span class="text-xs font-bold text-slate-800 uppercase mb-2 leading-tight">Police department</span>
+                <div class="p-2.5 bg-blue-100 text-blue-600 rounded-2xl">
+                  <i class="fa-solid fa-user-shield text-2xl"></i>
+                </div>
+              </div>
+              <div class="text-xs space-y-1 flex-1">
+                <p class="text-slate-600 font-medium">The nearest police department is located in :</p>
+                <div class="pt-1">
+                  <p class="font-bold text-slate-900">Viale Giulio Cesare, 58</p>
+                  <p class="text-slate-500 font-semibold">(1,5Km)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. PHARMACY -->
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
+            <div class="flex items-start gap-4">
+              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
+                <span class="text-xs font-bold text-slate-800 uppercase mb-2">Pharmacy</span>
+                <div class="p-2.5 bg-emerald-100 text-emerald-600 rounded-2xl">
+                  <i class="fa-solid fa-square-plus text-2xl"></i>
+                </div>
+              </div>
+              <div class="text-xs space-y-1 flex-1">
+                <p class="text-slate-600 font-medium">The nearest pharmacy:</p>
+                <div class="pt-1">
+                  <p class="font-extrabold text-slate-900">Farmacia Cipro</p>
+                  <p class="text-slate-700">Viale degli Ammiragli, 33</p>
+                  <p class="text-slate-500 font-semibold">(200m)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. FIRST-AID KIT -->
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
+            <div class="flex items-start gap-4">
+              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
+                <span class="text-xs font-bold text-slate-800 uppercase mb-2 leading-tight">First-aid kit</span>
+                <div class="p-2.5 bg-amber-100 text-amber-600 rounded-2xl">
+                  <i class="fa-solid fa-kit-medical text-2xl"></i>
+                </div>
+              </div>
+              <div class="text-xs space-y-1 flex-1 flex items-center">
+                <p class="text-slate-700 leading-relaxed font-medium">
+                  The first-aid kit is an orange plastic box and is located in the bathroom cabinet.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. FIRE EXTINGUISHER -->
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
+            <div class="flex items-start gap-4">
+              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
+                <span class="text-xs font-bold text-slate-800 uppercase mb-2 leading-tight">Fire extinguisher</span>
+                <div class="p-2.5 bg-rose-100 text-rose-600 rounded-2xl">
+                  <i class="fa-solid fa-fire-extinguisher text-2xl"></i>
+                </div>
+              </div>
+              <div class="text-xs space-y-1 flex-1 flex items-center">
+                <p class="text-slate-700 leading-relaxed font-medium">
+                  The fire-extinguisher in the apartment is located in the corridor.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. ENGLISH SPEAKING DOCTORS -->
           <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
             <div class="flex items-start gap-4">
               <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
@@ -707,98 +951,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
                     <img src="${qrCodeUrl}" alt="English Speaking Doctors List QR" class="w-24 h-24">
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <!-- 3. HOSPITAL -->
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
-            <div class="flex items-start gap-4">
-              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
-                <span class="text-xs font-bold text-slate-800 uppercase mb-2">Hospital</span>
-                <div class="p-2.5 bg-red-100 text-red-600 rounded-2xl">
-                  <i class="fa-solid fa-hospital text-2xl"></i>
-                </div>
-              </div>
-              <div class="text-xs space-y-1 flex-1">
-                <p class="text-slate-600 font-medium">The closest hospital with 24/7 emergency room is :</p>
-                <div class="pt-1 text-center sm:text-left">
-                  <p class="font-extrabold text-slate-900 text-sm tracking-wide">OSPEDALE SAN CARLO DI NANCY</p>
-                  <p class="text-slate-700">Via Aurelia 275</p>
-                  <p class="text-slate-500 font-semibold">( 2Km )</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 4. POLICE DEPARTMENT -->
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
-            <div class="flex items-start gap-4">
-              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
-                <span class="text-xs font-bold text-slate-800 uppercase mb-2 leading-tight">Police department</span>
-                <div class="p-2.5 bg-blue-100 text-blue-600 rounded-2xl">
-                  <i class="fa-solid fa-user-shield text-2xl"></i>
-                </div>
-              </div>
-              <div class="text-xs space-y-1 flex-1">
-                <p class="text-slate-600 font-medium">The nearest police department is located in :</p>
-                <div class="pt-1">
-                  <p class="font-bold text-slate-900">Viale Giulio Cesare, 58</p>
-                  <p class="text-slate-500 font-semibold">(1,5Km)</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 5. PHARMACY -->
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
-            <div class="flex items-start gap-4">
-              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
-                <span class="text-xs font-bold text-slate-800 uppercase mb-2">Pharmacy</span>
-                <div class="p-2.5 bg-emerald-100 text-emerald-600 rounded-2xl">
-                  <i class="fa-solid fa-square-plus text-2xl"></i>
-                </div>
-              </div>
-              <div class="text-xs space-y-1 flex-1">
-                <p class="text-slate-600 font-medium">The nearest pharmacy:</p>
-                <div class="pt-1">
-                  <p class="font-extrabold text-slate-900">Farmacia Cipro</p>
-                  <p class="text-slate-700">Viale degli Ammiragli, 33</p>
-                  <p class="text-slate-500 font-semibold">(200m)</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 6. FIRST-AID KIT -->
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
-            <div class="flex items-start gap-4">
-              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
-                <span class="text-xs font-bold text-slate-800 uppercase mb-2 leading-tight">First-aid kit</span>
-                <div class="p-2.5 bg-amber-100 text-amber-600 rounded-2xl">
-                  <i class="fa-solid fa-kit-medical text-2xl"></i>
-                </div>
-              </div>
-              <div class="text-xs space-y-1 flex-1 flex items-center">
-                <p class="text-slate-700 leading-relaxed font-medium">
-                  The first-aid kit is an orange plastic box and is located in the bathroom cabinet.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 7. FIRE EXTINGUISHER -->
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
-            <div class="flex items-start gap-4">
-              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
-                <span class="text-xs font-bold text-slate-800 uppercase mb-2 leading-tight">Fire extinguisher</span>
-                <div class="p-2.5 bg-rose-100 text-rose-600 rounded-2xl">
-                  <i class="fa-solid fa-fire-extinguisher text-2xl"></i>
-                </div>
-              </div>
-              <div class="text-xs space-y-1 flex-1 flex items-center">
-                <p class="text-slate-700 leading-relaxed font-medium">
-                  The fire-extinguisher in the apartment is located in the corridor.
-                </p>
               </div>
             </div>
           </div>
@@ -1090,104 +1242,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
       } else {
         const t = translations[lang] || translations['it'];
         container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed">${t.checkinBody}</p>`;
-      }
-    }
-
-    function renderCheckoutSection(lang) {
-      const container = document.getElementById('checkout-content-container');
-
-      if (lang === 'en') {
-        container.innerHTML = `
-          <div class="space-y-4 text-left">
-            <p class="text-xs text-slate-500 font-medium pb-1">
-              Before leaving the property, guests are expected to follow the following steps:
-            </p>
-
-            <div class="relative border-l-2 border-amber-200 ml-3 pl-4 space-y-4">
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800 font-bold">Check-out before 10 am.</p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Let us know about</strong> any accidental damage, maintenance concerns, or items in need of repair so we can address them promptly.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Keys:</strong> Lock the front door and leave the keys inside the key box.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Terrace:</strong> Close awnings. Put back cushions and towels in the box. Close windows, window bars, shutters.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Trash & Recycling:</strong> Dispose of all trash in the designated bins located outside the building, in Via degli Ammiragli 112 (20m).
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Kitchen:</strong> Wash dirty dishes or place them in the dishwasher and start the cycle. Empty the fridge.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Appliances:</strong> Switch off the air conditioning and ensure all small electrical appliances (hair dryer, iron, etc.) are unplugged.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Remotes:</strong> Return the 3 remote controls (TV and AC) to their original places.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Privacy:</strong> Log out of any personal accounts in the TV (such as Netflix or similar).
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        `;
-      } else {
-        const t = translations[lang] || translations['it'];
-        container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed">${t.checkoutBody}</p>`;
       }
     }
 
@@ -2438,23 +2492,14 @@ Should you need any help, contact us: we will be delighted to support you!`,
       document.getElementById('txt-welcome-body').innerText = t.welcomeBody;
       document.getElementById('txt-btn-change-lang').innerText = t.changeLangBtn;
 
-      document.getElementById('txt-contact-title').innerText = t.contactTitle;
-      renderContactSection(lang);
-
-      document.getElementById('txt-disclaimer-title').innerText = t.disclaimerTitle;
-      renderDisclaimerSection(lang);
-
-      document.getElementById('txt-wifi-title').innerText = t.wifiTitle;
-      renderWifiSection(lang);
-
       document.getElementById('txt-arrival-title').innerText = t.arrivalTitle;
       renderArrivalSection(lang);
 
       document.getElementById('txt-checkin-title').innerText = t.checkinTitle;
       renderCheckinSection(lang);
 
-      document.getElementById('txt-checkout-title').innerText = t.checkoutTitle;
-      renderCheckoutSection(lang);
+      document.getElementById('txt-wifi-title').innerText = t.wifiTitle;
+      renderWifiSection(lang);
 
       document.getElementById('txt-rules-title').innerText = t.rulesTitle;
       renderRulesSection(lang);
@@ -2471,23 +2516,32 @@ Should you need any help, contact us: we will be delighted to support you!`,
       document.getElementById('txt-local-services-title').innerText = t.localServicesTitle;
       renderLocalServicesSection(lang);
 
+      document.getElementById('txt-checkout-title').innerText = t.checkoutTitle;
+      renderCheckoutSection(lang);
+
+      document.getElementById('txt-contact-title').innerText = t.contactTitle;
+      renderContactSection(lang);
+
       document.getElementById('txt-emergency-title').innerText = t.emergencyTitle;
       renderEmergencySection(lang);
 
+      document.getElementById('txt-disclaimer-title').innerText = t.disclaimerTitle;
+      renderDisclaimerSection(lang);
+
       // Etichette dock
       document.getElementById('nav-welcome').innerText = t.navWelcome;
-      document.getElementById('nav-contact').innerText = t.navContact;
-      document.getElementById('nav-disclaimer').innerText = t.navDisclaimer;
-      document.getElementById('nav-wifi').innerText = t.navWifi;
       document.getElementById('nav-arrival').innerText = t.navArrival;
       document.getElementById('nav-checkin').innerText = t.navCheckin;
-      document.getElementById('nav-checkout').innerText = t.navCheckout;
+      document.getElementById('nav-wifi').innerText = t.navWifi;
       document.getElementById('nav-rules').innerText = t.navRules;
       document.getElementById('nav-guide').innerText = t.navGuide;
       document.getElementById('nav-transports').innerText = t.navTransports;
       document.getElementById('nav-tips').innerText = t.navTips;
       document.getElementById('nav-local-services').innerText = t.navLocalServices;
+      document.getElementById('nav-checkout').innerText = t.navCheckout;
+      document.getElementById('nav-contact').innerText = t.navContact;
       document.getElementById('nav-emergency').innerText = t.navEmergency;
+      document.getElementById('nav-disclaimer').innerText = t.navDisclaimer;
 
       // Transizione schermata
       document.getElementById('language-screen').classList.add('hidden-screen');
