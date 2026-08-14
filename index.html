@@ -103,7 +103,7 @@
     <header class="bg-slate-900 text-white p-5 rounded-b-3xl shadow-lg sticky top-0 z-50">
       <div class="max-w-md mx-auto flex justify-between items-center">
         <div>
-          <h1 class="text-lg font-bold tracking-wide">Terrazza di Maria</h1>
+          <h1 class="text-lg font-bold tracking-wide">La Terrazza di Maria</h1>
           <p class="text-xs text-slate-400">Welcome Book</p>
         </div>
         
@@ -158,7 +158,7 @@
           </div>
           <h2 id="txt-disclaimer-title" class="text-xl font-bold text-slate-900"></h2>
         </div>
-        <p id="txt-disclaimer-body" class="text-xs text-slate-500 leading-relaxed"></p>
+        <div id="disclaimer-content-container"></div>
       </section>
 
       <!-- 4. WIFI -->
@@ -379,7 +379,6 @@
         contactBody: "Sonia è la nostra Property Manager. Contattala al +39 340 339 5237 dalle 08:00 alle 20:00.",
 
         disclaimerTitle: "Disclaimer",
-        disclaimerBody: "La struttura declina ogni responsabilità per eventuali smarrimenti o furti di oggetti personali lasciati incustoditi nell'appartamento.",
         
         wifiTitle: "Connessione Wi-Fi",
         
@@ -409,7 +408,7 @@
 
         navWelcome: "Home",
         navContact: "Contatti",
-        navDisclaimer: "Info",
+        navDisclaimer: "Disclaimer",
         navWifi: "Wi-Fi",
         navArrival: "Arrivo",
         navCheckin: "Check-in",
@@ -436,7 +435,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
         contactTitle: "Your point of contact",
         
         disclaimerTitle: "Disclaimer",
-        disclaimerBody: "Management is not responsible for any lost or stolen personal belongings left unattended in the apartment.",
         
         wifiTitle: "Wifi internet connection",
         
@@ -461,7 +459,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
 
         navWelcome: "Home",
         navContact: "Contact",
-        navDisclaimer: "Info",
+        navDisclaimer: "Disclaimer",
         navWifi: "Wi-Fi",
         navArrival: "Arrival",
         navCheckin: "Check-in",
@@ -481,8 +479,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         contactTitle: "Point de Contact",
         contactBody: "Sonia est notre Property Manager. Contactez-la au +39 340 339 5237 de 08h00 à 20h00.",
 
-        disclaimerTitle: "Avertissement",
-        disclaimerBody: "L'établissement décline toute responsabilité en cas de perte ou de vol d'effets personnels.",
+        disclaimerTitle: "Disclaimer",
         
         wifiTitle: "Connexion Wi-Fi",
         
@@ -511,7 +508,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
 
         navWelcome: "Accueil",
         navContact: "Contact",
-        navDisclaimer: "Info",
+        navDisclaimer: "Disclaimer",
         navWifi: "Wi-Fi",
         navArrival: "Arrivée",
         navCheckin: "Check-in",
@@ -531,8 +528,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         contactTitle: "Ansprechpartner",
         contactBody: "Sonia ist unsere Property Managerin. Kontaktieren Sie sie unter +39 340 339 5237 von 08:00 bis 20:00 Uhr.",
 
-        disclaimerTitle: "Haftungsausschluss",
-        disclaimerBody: "Für den Verlust von persönlichen Gegenständen wird keine Haftung übernommen.",
+        disclaimerTitle: "Disclaimer",
         
         wifiTitle: "WLAN-Verbindung",
         
@@ -561,7 +557,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
 
         navWelcome: "Start",
         navContact: "Kontakt",
-        navDisclaimer: "Info",
+        navDisclaimer: "Disclaimer",
         navWifi: "WLAN",
         navArrival: "Anreise",
         navCheckin: "Check-in",
@@ -574,6 +570,83 @@ Should you need any help, contact us: we will be delighted to support you!`,
         navEmergency: "Emergency"
       }
     };
+
+    function renderDisclaimerSection(lang) {
+      const container = document.getElementById('disclaimer-content-container');
+      if (!container) return;
+
+      container.innerHTML = `
+        <div class="space-y-5 text-left text-xs text-slate-700 leading-relaxed">
+
+          <!-- Intro Message -->
+          <div class="space-y-2 border-b border-slate-100 pb-3">
+            <p class="font-bold text-slate-900 text-sm">Dear Guests,</p>
+            <p>
+              We are delighted to welcome you to our flat with terrace and hope you enjoy your stay. To ensure a safe and pleasant experience, we would like to draw your attention to the following important information:
+            </p>
+          </div>
+
+          <!-- 1. Special rules for safety in the terrace -->
+          <div class="p-4 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-2.5">
+            <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wide flex items-center gap-2">
+              <i class="fa-solid fa-shield-cat text-amber-600"></i>
+              <span>1. Special rules for safety in the terrace:</span>
+            </h3>
+            <ul class="space-y-2 list-disc list-outside pl-4 text-slate-600">
+              <li>For your own safety, it is strictly forbidden to sit, climb, or lean over the parapet or railings. Please maintain safe behavior at all times while using the outdoor spaces.</li>
+              <li>Children must be supervised by an adult at all times and must never be left unattended on the terrace.</li>
+              <li>Do not leave any item on the parapet. Please exercise caution to prevent items from falling down the street, as this could result in third party’s injuries or property damages. Guests are solely responsible for any item placed or left on the terrace, including but not limited to objects left on the parapet.</li>
+              <li>Do not touch the plants, to prevent any risk of allergy or intoxication.</li>
+            </ul>
+          </div>
+
+          <!-- 2. Safety and Liability -->
+          <div class="p-4 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-2.5">
+            <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wide flex items-center gap-2">
+              <i class="fa-solid fa-scale-balanced text-slate-700"></i>
+              <span>2. Safety and Liability:</span>
+            </h3>
+            <ul class="space-y-2 list-disc list-outside pl-4 text-slate-600">
+              <li>By using the apartment, appliances and the terrace, guests acknowledge that they have been informed of all potential risks associated with their use.</li>
+              <li>The property owner shall not be held liable for any accidents, injuries, or damages resulting from the improper use of the apartment, appliances and the terrace or failure to follow safety guidelines.</li>
+            </ul>
+          </div>
+
+          <!-- 3. Compliance with Property Rules -->
+          <div class="p-4 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-2.5">
+            <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wide flex items-center gap-2">
+              <i class="fa-solid fa-list-check text-blue-600"></i>
+              <span>3. Compliance with Property Rules</span>
+            </h3>
+            <p class="text-slate-600">
+              In accordance with the rental agreement, Guests agree to strictly comply with all property regulations, specifically including but not limited to:
+            </p>
+            <ul class="space-y-1.5 list-disc list-outside pl-4 text-slate-600">
+              <li><strong>The check-out procedures</strong> as outlined on the “Before You Go” page.</li>
+              <li><strong>The house rules</strong> as outlined on the “House Rules” page.</li>
+            </ul>
+          </div>
+
+          <!-- Closing Statement & Sign-off -->
+          <div class="pt-2 space-y-3">
+            <p class="font-bold text-slate-900 bg-amber-50/80 p-3 rounded-xl border border-amber-200/60 leading-snug">
+              By staying at the property and using its facilities, guests confirm their understanding, responsibility, and acceptance of the terms outlined in this disclaimer.
+            </p>
+            
+            <div class="text-slate-600 space-y-1 pt-1">
+              <p>Thank you for your cooperation.</p>
+              <p>We hope you have a wonderful and safe stay.</p>
+            </div>
+
+            <div class="pt-3 text-right">
+              <p class="italic text-slate-500">Sincerely,</p>
+              <p class="font-bold text-slate-800 font-serif">the Property Management</p>
+            </div>
+          </div>
+
+        </div>
+      `;
+    }
 
     function renderEmergencySection(lang) {
       const container = document.getElementById('emergency-content-container');
@@ -2370,7 +2443,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
       renderContactSection(lang);
 
       document.getElementById('txt-disclaimer-title').innerText = t.disclaimerTitle;
-      document.getElementById('txt-disclaimer-body').innerText = t.disclaimerBody;
+      renderDisclaimerSection(lang);
 
       document.getElementById('txt-wifi-title').innerText = t.wifiTitle;
       renderWifiSection(lang);
@@ -2444,4 +2517,3 @@ Should you need any help, contact us: we will be delighted to support you!`,
   </script>
 </body>
 </html>
-
