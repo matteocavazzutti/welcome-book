@@ -62,7 +62,7 @@
   <div id="language-screen" class="min-h-screen flex flex-col justify-center items-center p-6 text-center bg-slate-50">
     
     <div class="mb-6 w-64 h-32 rounded-2xl overflow-hidden shadow-md border-4 border-white">
-      <img src="1.t00gemR.png" alt="Terrazza di Maria" class="w-full h-full object-cover">
+      <img src="Gemini_Generated_Image_1.png" alt="Terrazza di Maria" class="w-full h-full object-cover">
     </div>
 
     <!-- Titolo fisso in Italiano -->
@@ -115,22 +115,53 @@
       </div>
     </header>
 
-    <!-- Contenuto Principale delle Sezioni (Nuovo Ordine) -->
+    <!-- Contenuto Principale delle Sezioni -->
     <main class="max-w-md mx-auto p-4 space-y-4">
 
-      <!-- 1. HOME -->
-      <section id="welcome" class="tab-content active bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-        <div class="text-center py-2 space-y-4">
-          <i class="fa-solid fa-hand-wave text-4xl text-amber-500 mb-2"></i>
+      <!-- 1. HOME (WELCOME) -->
+      <section id="welcome" class="tab-content active bg-white p-5 pt-4 rounded-2xl shadow-sm border border-slate-100">
+        <div class="text-center space-y-3">
           
-          <h2 id="txt-welcome-title" class="text-3xl font-bold text-amber-600 italic tracking-wide font-serif"></h2>
+          <h2 id="txt-welcome-title" class="text-2xl font-bold text-amber-600 italic tracking-wide font-serif leading-tight"></h2>
           
-          <p id="txt-welcome-subtitle" class="text-slate-900 font-bold text-base leading-snug px-2"></p>
+          <p id="txt-welcome-subtitle" class="text-slate-900 font-bold text-sm leading-snug px-1"></p>
           
-          <div id="txt-welcome-body" class="text-slate-600 text-sm leading-relaxed whitespace-pre-line text-left pt-2 space-y-3"></div>
+          <div id="txt-welcome-body" class="text-slate-600 text-xs leading-relaxed whitespace-pre-line text-left pt-1 space-y-2"></div>
 
-          <div class="pt-4 text-center">
-            <button onclick="showLanguageScreen()" class="inline-flex items-center gap-2 text-xs text-amber-600 font-semibold bg-amber-50 px-4 py-2 rounded-xl border border-amber-200">
+          <!-- Airbnb Style Photo Mosaic Puzzle (5 Foto Reali) -->
+          <div class="pt-3 pb-1">
+            <div class="grid grid-cols-4 grid-rows-2 gap-1.5 h-52 rounded-2xl overflow-hidden shadow-sm border border-slate-200/80 bg-slate-100 p-1">
+              
+              <!-- 1. Foto Principale Grande (Tavolo e terrazzo esterno - Sinistra 2x2) -->
+              <div class="col-span-2 row-span-2 overflow-hidden rounded-xl bg-slate-200 relative group">
+                <img src="Gemini_Generated_Image_1.png" alt="Tavolo Terrazzo al tramonto" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+
+              <!-- 2. Solarium e lettini (Alto destra 1) -->
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group">
+                <img src="Gemini_Generated_Image_7.jpeg" alt="Solarium e sdraio" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+
+              <!-- 3. Camera da letto (Alto destra 2) -->
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group">
+                <img src="Gemini_Generated_Image_ 3.jpeg" alt="Camera da letto matrimoniale" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+
+              <!-- 4. Vista Terrazzo (Basso destra 1 - Raddrizzato via CSS) -->
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group flex items-center justify-center">
+                <img src="Gemini_Generated_Image_ 2.jpeg" alt="Panoramica Terrazzo" class="w-full h-full object-cover object-center rotate-90 scale-125 group-hover:scale-135 transition-transform duration-300">
+              </div>
+
+              <!-- 5. Sala da pranzo interna (Basso destra 2) -->
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group">
+                <img src="Gemini_Generated_Image_ 4.png" alt="Sala da pranzo e soggiorno" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+
+            </div>
+          </div>
+
+          <div class="pt-2 text-center">
+            <button onclick="showLanguageScreen()" class="inline-flex items-center gap-2 text-xs text-amber-600 font-semibold bg-amber-50 hover:bg-amber-100 px-4 py-2 rounded-xl border border-amber-200 transition-colors">
               <i class="fa-solid fa-language"></i>
               <span id="txt-btn-change-lang"></span>
             </button>
@@ -210,7 +241,7 @@
         <div id="transports-content-container"></div>
       </section>
 
-      <!-- 8. LOCAL TIPS (FOOD & DRINK) -->
+      <!-- 8. LOCAL TIPS -->
       <section id="tips" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-orange-100 text-orange-600 rounded-xl">
@@ -280,7 +311,7 @@
 
     </main>
 
-    <!-- Navigazione Fissa in Basso: Swiper Dock Apple Circolare nel Nuovo Ordine -->
+    <!-- Navigazione Fissa in Basso: Swiper Dock Apple Circolare -->
     <nav class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-slate-200/80 shadow-2xl z-50 py-1">
       <div class="max-w-md mx-auto">
         <div class="swiper mySwiper">
@@ -385,7 +416,14 @@
     const translations = {
       it: {
         welcomeTitle: "Benvenuti!",
-        welcomeBody: "Siamo felici di ospitarvi alla Terrazza di Maria. Abbiamo preparato questa guida per rendervi il soggiorno confortevole e piacevole.",
+        welcomeSubtitle: "Grazie mille per aver scelto il nostro appartamento per il vostro soggiorno a Roma!",
+        welcomeBody: `Siamo una famiglia italo-francese appassionata di viaggi. Abbiamo arredato e attrezzato questo appartamento per rendere la vostra esperienza indimenticabile!
+
+In questa guida troverete tutte le informazioni essenziali sull'appartamento, sulla sicurezza e sulle regole della casa.
+
+Troverete inoltre utili indicazioni turistiche e consigli sui migliori servizi, negozi e ristoranti della zona.
+
+Per qualsiasi necessità, non esitate a contattarci: saremo felici di aiutarvi!`,
         changeLangBtn: "Cambia Lingua / Change Language",
         
         contactTitle: "Punto di Contatto",
@@ -485,8 +523,15 @@ Should you need any help, contact us: we will be delighted to support you!`,
         navDisclaimer: "Disclaimer"
       },
       fr: {
-        welcomeTitle: "Bienvenue !",
-        welcomeBody: "Nous sommes ravis de vous accueillir à la Terrazza di Maria. Ce guide est fait pour vous offrir un séjour agréable.",
+        welcomeTitle: "Bienvenue à la Terrazza di Maria !",
+        welcomeSubtitle: "Merci beaucoup d'avoir choisi notre appartement pour votre séjour à Rome !",
+        welcomeBody: `Nous sommes une famille franco-italienne passionnée de voyages. Nous avons décoré et équipé cet appartement pour rendre votre séjour inoubliable !
+
+Dans ce guide, vous trouverez toutes les informations importantes concernant le logement, la sécurité et les règles.
+
+Nous y avons également inclus des conseils touristiques ainsi que nos meilleures adresses dans le quartier.
+
+Si vous avez besoin d'aide, contactez-nous : nous serons ravis de vous aider !`,
         changeLangBtn: "Changer de langue",
         
         contactTitle: "Point de Contact",
@@ -534,8 +579,15 @@ Should you need any help, contact us: we will be delighted to support you!`,
         navDisclaimer: "Disclaimer"
       },
       de: {
-        welcomeTitle: "Willkommen!",
-        welcomeBody: "Wir freuen uns, Sie in der Terrazza di Maria zu begrüßen. Dieser Reiseführer soll Ihren Aufenthalt angenehm gestalten.",
+        welcomeTitle: "Willkommen auf Maria’s Terrasse!",
+        welcomeSubtitle: "Vielen Dank, dass Sie sich für unsere Wohnung in Rom entschieden haben!",
+        welcomeBody: `Wir sind eine italienisch-französische Familie, die das Reisen liebt. Wir haben dieses Apartment so eingerichtet, dass Ihr Aufenthalt unvergesslich wird!
+
+In diesem Guide finden Sie wichtige Informationen zur Wohnung, Sicherheit und Hausordnung.
+
+Zudem haben wir nützliche Reisetipps und Empfehlungen für Restaurants und Geschäfte in der Nähe zusammengestellt.
+
+Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
         changeLangBtn: "Sprache ändern",
         
         contactTitle: "Ansprechpartner",
@@ -674,23 +726,25 @@ Should you need any help, contact us: we will be delighted to support you!`,
                 </div>
               </div>
 
-              <!-- Nuova Tappa Airbnb in evidenza -->
+              <!-- Tappa Airbnb in evidenza con testo aggiornato -->
               <div class="relative pt-1">
                 <span class="absolute -left-[23px] top-3 w-3 h-3 bg-rose-500 rounded-full ring-4 ring-white animate-pulse"></span>
                 <a href="https://www.airbnb.fr/rooms/1655819661396931146" target="_blank" rel="noopener noreferrer" class="block bg-gradient-to-r from-rose-50 to-amber-50 hover:from-rose-100 hover:to-amber-100 p-3.5 rounded-2xl border-2 border-rose-300/80 shadow-sm transition-all group active:scale-[0.98]">
-                  <div class="flex items-center justify-between gap-3">
-                    <div class="flex items-center gap-3">
-                      <div class="p-2.5 bg-rose-500 text-white rounded-xl shadow-sm">
+                  <div class="flex items-start justify-between gap-3">
+                    <div class="flex items-start gap-3">
+                      <div class="p-2.5 bg-rose-500 text-white rounded-xl shadow-sm flex-shrink-0 mt-0.5">
                         <i class="fa-solid fa-star text-sm"></i>
                       </div>
-                      <div>
+                      <div class="space-y-1">
                         <p class="text-xs font-extrabold text-slate-900 leading-snug group-hover:text-rose-600 transition-colors">
                           Rate your "La Terrazza di Maria" experience
                         </p>
-                        <p class="text-[10px] text-slate-500 mt-0.5">Leave your review on Airbnb. Your feedback helps use to improve our job!</p>
+                        <p class="text-[11px] text-slate-600 font-medium leading-tight">
+                          Leave your review on Airbnb. Your feedback helps us to improve our job and keep the best experience for guests.
+                        </p>
                       </div>
                     </div>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-rose-500 group-hover:translate-x-0.5 transition-transform"></i>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-rose-500 flex-shrink-0 mt-1 group-hover:translate-x-0.5 transition-transform"></i>
                   </div>
                 </a>
               </div>
@@ -705,16 +759,21 @@ Should you need any help, contact us: we will be delighted to support you!`,
             <p class="text-sm text-slate-600 leading-relaxed">${t.checkoutBody}</p>
             <div class="pt-2">
               <a href="https://www.airbnb.fr/rooms/1655819661396931146" target="_blank" rel="noopener noreferrer" class="block bg-gradient-to-r from-rose-50 to-amber-50 hover:from-rose-100 hover:to-amber-100 p-3.5 rounded-2xl border-2 border-rose-300/80 shadow-sm transition-all group">
-                <div class="flex items-center justify-between gap-3">
-                  <div class="flex items-center gap-3">
-                    <div class="p-2.5 bg-rose-500 text-white rounded-xl shadow-sm">
+                <div class="flex items-start justify-between gap-3">
+                  <div class="flex items-start gap-3">
+                    <div class="p-2.5 bg-rose-500 text-white rounded-xl shadow-sm flex-shrink-0 mt-0.5">
                       <i class="fa-solid fa-star text-sm"></i>
                     </div>
-                    <p class="text-xs font-extrabold text-slate-900 leading-snug group-hover:text-rose-600 transition-colors">
-                      Rate your "La Terrazza di Maria" experience
-                    </p>
+                    <div class="space-y-1">
+                      <p class="text-xs font-extrabold text-slate-900 leading-snug group-hover:text-rose-600 transition-colors">
+                        Rate your "La Terrazza di Maria" experience
+                      </p>
+                      <p class="text-[11px] text-slate-600 font-medium leading-tight">
+                        Leave your review on Airbnb. Your feedback helps us to improve our job and keep the best experience for guests.
+                      </p>
+                    </div>
                   </div>
-                  <i class="fa-solid fa-arrow-up-right-from-square text-xs text-rose-500"></i>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-xs text-rose-500 flex-shrink-0 mt-1"></i>
                 </div>
               </a>
             </div>
