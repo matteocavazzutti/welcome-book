@@ -61,12 +61,11 @@
   <!-- ========================================== -->
   <div id="language-screen" class="min-h-screen flex flex-col justify-center items-center p-6 text-center bg-slate-50">
     
-    <!-- Skyline Roma (non cliccabile) sopra la foto principale -->
+    <!-- Skyline Roma non cliccabile sopra la foto principale -->
     <div class="mb-3 w-64 max-h-16 overflow-hidden pointer-events-none select-none">
       <img src="skyline-roma.png" alt="Roma Skyline" class="w-full h-auto object-contain mx-auto">
     </div>
 
-    <!-- Foto Principale Landing -->
     <div class="mb-5 w-64 h-32 rounded-2xl overflow-hidden shadow-md border-4 border-white cursor-zoom-in" onclick="openImageModal('Gemini_Generated_Image_1.png')">
       <img src="Gemini_Generated_Image_1.png" alt="Terrazza di Maria" class="w-full h-full object-cover">
     </div>
@@ -114,7 +113,7 @@
         </div>
         
         <!-- Pulsante Torna a Scelta Lingua -->
-        <button type="button" onclick="showLanguageScreen()" class="bg-slate-800 hover:bg-slate-700 text-xs px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-2">
+        <button type="button" onclick="showLanguageScreen()" class="bg-slate-800 hover:bg-slate-700 text-xs px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-2 cursor-pointer">
           <i class="fa-solid fa-globe text-amber-400"></i>
           <span id="current-lang-code" class="uppercase font-semibold">IT</span>
         </button>
@@ -128,7 +127,7 @@
       <section id="welcome" class="tab-content active bg-white p-5 pt-3 rounded-2xl shadow-sm border border-slate-100">
         <div class="text-center space-y-3">
           
-          <!-- Skyline Roma (non cliccabile) -->
+          <!-- Skyline Roma non cliccabile -->
           <div class="w-full overflow-hidden rounded-xl pointer-events-none select-none">
             <img src="skyline-roma.png" alt="Roma Skyline" class="w-full h-auto object-contain mx-auto max-h-20">
           </div>
@@ -143,7 +142,7 @@
           
           <div id="txt-welcome-body" class="text-slate-600 text-xs leading-relaxed whitespace-pre-line text-left pt-1 space-y-2"></div>
 
-          <!-- Airbnb Style Photo Mosaic Puzzle (Cliccabili con Lightbox) -->
+          <!-- Mosaico Fotografico Airbnb Cliccabile -->
           <div class="pt-3 pb-1">
             <div class="grid grid-cols-4 grid-rows-2 gap-1.5 h-52 rounded-2xl overflow-hidden shadow-sm border border-slate-200/80 bg-slate-100 p-1">
               
@@ -446,30 +445,21 @@ Per qualsiasi necessità, non esitate a contattarci: saremo felici di aiutarvi!`
         contactBody: "Sonia è la nostra Property Manager. Contattala al +39 340 339 5237 dalle 08:00 alle 20:00.",
 
         disclaimerTitle: "Disclaimer",
-        
         wifiTitle: "Connessione Wi-Fi",
-        
         arrivalTitle: "Il tuo Arrivo",
         arrivalBody: "Indirizzo: Via Sebastiano Ziani, 47, Roma. Se arrivi in auto trovi parcheggio lungo la via o al garage convenzionato a 100m.",
-        
         checkinTitle: "Check-in",
         checkinBody: "Orario Check-in: Dalle 15:00 alle 20:00. Per il Self Check-in inserisci il codice sulla tastiera all'ingresso principale.",
-        
         checkoutTitle: "Check-out Procedure",
         checkoutBody: "Orario massimo: Entro le ore 10:00. Lascia le chiavi nella keybox e assicurati di chiudere tutte le finestre.",
-        
         rulesTitle: "House Rules",
         rulesBody: "1. Vietato fumare all'interno.\n2. Ore di silenzio dalle 22:00 alle 07:00.\n3. Feste ed eventi non sono consentiti.",
-        
         guideTitle: "House Guide",
         guideBody: "Seleziona un ambiente per visualizzare le istruzioni trasversali sugli elettrodomestici e sui servizi.",
-        
         transportsTitle: "Transports & Tours",
         transportsBody: "Fermata Autobus linea 12 a soli 50 metri. La stazione ferroviaria centrale dista 10 minuti a piedi.",
-        
         tipsTitle: "Local Tips",
         tipsBody: "Ristorante consigliato: 'Osteria del Mare' (a 200m).\nCaffè & Colazione: Bar Central.\nSupermercato aperto fino alle 20:30 a 150m.",
-        
         localServicesTitle: "Local Services",
         emergencyTitle: "Emergency",
 
@@ -501,27 +491,17 @@ Should you need any help, contact us: we will be delighted to support you!`,
         changeLangBtn: "Change Language",
         
         contactTitle: "Your point of contact",
-        
         disclaimerTitle: "Disclaimer",
-        
         wifiTitle: "Wifi internet connection",
-        
         arrivalTitle: "How to Reach Us",
-        
         checkinTitle: "Check-in",
-        
         checkoutTitle: "Check-out procedure",
-        
         rulesTitle: "House Rules",
-        
         guideTitle: "House Guide",
-        
         transportsTitle: "Transports & Tours",
         transportsBody: "Bus stop line 12 is just 50 meters away. Central train station is a 10-minute walk.",
-        
         tipsTitle: "Local Tips",
         tipsBody: "Recommended Restaurant: 'Osteria del Mare' (200m).\nCoffee & Breakfast: Bar Central.\nSupermarket 150m away, open until 8:30 PM.",
-        
         localServicesTitle: "Local Services",
         emergencyTitle: "Emergency",
 
@@ -556,29 +536,20 @@ Si vous avez besoin d'aide, contactez-nous : nous serons ravis de vous aider !`,
         contactBody: "Sonia est notre Property Manager. Contactez-la au +39 340 339 5237 de 08h00 à 20h00.",
 
         disclaimerTitle: "Disclaimer",
-        
         wifiTitle: "Connexion Wi-Fi",
-        
         arrivalTitle: "Votre Arrivée",
         arrivalBody: "Adresse: Via Sebastiano Ziani, 47, Roma. Stationnement disponible dans la rue ou dans le garage partenaire.",
-        
         checkinTitle: "Check-in",
         checkinBody: "Arrivée : de 15h00 à 20h00. Pour le Self Check-in, entrez votre code sur le clavier de la porte principale.",
-        
         checkoutTitle: "Check-out",
         checkoutBody: "Départ : avant 10h00. Laissez les clés dans la keybox et fermez bien la porte.",
-        
         rulesTitle: "House Rules",
         rulesBody: "1. Interdiction de fumer à l'intérieur.\n2. Heures de silence : 22h00 - 07h00.\n3. Fêtes non autorisées.",
-        
         guideTitle: "House Guide",
-        
         transportsTitle: "Transports & Tours",
         transportsBody: "Arrêt de bus ligne 12 à 50 mètres. Gare centrale à 10 minutes à pied.",
-        
         tipsTitle: "Local Tips",
         tipsBody: "Restaurant recommandé : 'Osteria del Mare'.\nCafé : Bar Central.\nSupermarché à 150m.",
-        
         localServicesTitle: "Local Services",
         emergencyTitle: "Emergency",
 
@@ -613,29 +584,20 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
         contactBody: "Sonia ist unsere Property Managerin. Kontaktieren Sie sie unter +39 340 339 5237 von 08:00 bis 20:00 Uhr.",
 
         disclaimerTitle: "Disclaimer",
-        
         wifiTitle: "WLAN-Verbindung",
-        
         arrivalTitle: "Ihre Anreise",
         arrivalBody: "Adresse: Via Sebastiano Ziani, 47, Roma. Parkplätze finden Sie in der Straße oder in der Garage in 100m Entfernung.",
-        
         checkinTitle: "Check-in",
         checkinBody: "Check-in Zeit: 15:00 bis 20:00 Uhr. Für den Self Check-in geben Sie den Code am Eingang ein.",
-        
         checkoutTitle: "Check-out",
         checkoutBody: "Check-out: Bis 10:00 Uhr. Bitte Schlüssel in die Keybox legen und Tür schließen.",
-        
         rulesTitle: "House Rules",
         rulesBody: "1. Nichtrauchen in allen Räumen.\n2. Ruhezeiten: 22:00 - 07:00 Uhr.\n3. Keine Partys gestattet.",
-        
         guideTitle: "House Guide",
-        
         transportsTitle: "Transports & Tours",
         transportsBody: "Bushaltestelle Linie 12 in 50m. Hauptbahnhof 10 Gehminuten entfernt.",
-        
         tipsTitle: "Local Tips",
         tipsBody: "Empfohlenes Restaurant: 'Osteria del Mare'.\nCafé: Bar Central.\nSupermarkt 150m entfernt.",
-        
         localServicesTitle: "Local Services",
         emergencyTitle: "Emergency",
 
@@ -654,6 +616,60 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
         navDisclaimer: "Disclaimer"
       }
     };
+
+    function renderContactSection(lang) {
+      const container = document.getElementById('contact-content-container');
+      if (!container) return;
+
+      if (lang === 'en') {
+        container.innerHTML = `
+          <div class="space-y-5 text-left">
+            <div class="bg-amber-50/70 border border-amber-200/60 rounded-2xl p-5 space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="p-3 bg-amber-100 text-amber-600 rounded-xl">
+                  <i class="fa-solid fa-hand-holding-heart text-2xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-base font-bold text-slate-900">Sonia</h3>
+                  <p class="text-xs text-slate-500 font-medium">Property Manager</p>
+                </div>
+              </div>
+
+              <p class="text-xs text-slate-700 leading-relaxed">
+                <strong>Sonia is our talented and caring property manager.</strong><br>
+                Please contact her from <strong>8 am to 8 pm</strong>.
+              </p>
+
+              <div class="grid grid-cols-2 gap-2 pt-2">
+                <a href="tel:+393403395237" class="flex items-center justify-center gap-2 bg-slate-900 text-white py-2.5 px-3 rounded-xl text-xs font-semibold shadow-sm active:scale-95 transition-all">
+                  <i class="fa-solid fa-phone text-amber-400"></i>
+                  <span>Call Sonia</span>
+                </a>
+
+                <a href="https://wa.me/393403395237" target="_blank" class="flex items-center justify-center gap-2 bg-emerald-600 text-white py-2.5 px-3 rounded-xl text-xs font-semibold shadow-sm active:scale-95 transition-all">
+                  <i class="fa-brands fa-whatsapp text-lg"></i>
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 flex items-center justify-between gap-3">
+              <div class="space-y-1">
+                <span class="text-[10px] font-bold tracking-wider text-slate-400 uppercase">Direct Chat</span>
+                <p class="text-xs font-bold text-slate-800">Scan QR Code to chat on WhatsApp</p>
+                <p class="text-[11px] font-mono text-slate-500">+39 340 339 5237</p>
+              </div>
+              <div class="bg-white p-2 rounded-xl border border-slate-200 shadow-sm flex-shrink-0">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://wa.me/393403395237" alt="WhatsApp QR Code" class="w-16 h-16">
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        const t = translations[lang] || translations['it'];
+        container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed">${t.contactBody}</p>`;
+      }
+    }
 
     function renderArrivalSection(lang) {
       const container = document.getElementById('arrival-content-container');
@@ -870,6 +886,165 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
           </div>
         </div>
       `;
+    }
+
+    function renderCheckinSection(lang) {
+      const container = document.getElementById('checkin-content-container');
+      if (!container) return;
+
+      if (lang === 'en') {
+        container.innerHTML = `
+          <div class="space-y-4 text-left">
+            <div class="p-4 bg-slate-50/80 border border-slate-100 rounded-xl space-y-1">
+              <div class="flex items-center gap-2 text-slate-900 font-bold text-sm">
+                <i class="fa-solid fa-clock text-emerald-600"></i>
+                <span>Check-in 3 pm - 8 pm</span>
+              </div>
+              <p class="text-xs text-slate-700 pt-1 leading-relaxed">
+                <strong>Check-in is available from 3 pm to 8 pm.</strong><br>
+                Should you need specific arrangement, please contact us.<br>
+                You will be assigned your personalised code for the keybox.
+              </p>
+            </div>
+
+            <div class="p-4 bg-slate-50/80 border border-slate-100 rounded-xl space-y-1">
+              <div class="flex items-center gap-2 text-slate-900 font-bold text-sm">
+                <i class="fa-solid fa-id-card text-emerald-600"></i>
+                <span>Bring your ID</span>
+              </div>
+              <p class="text-xs text-slate-700 pt-1 leading-relaxed">
+                <strong>You are requested to provide a valid identification for each guest included in the reservation.</strong><br>
+                This is a police authority requirement.
+              </p>
+            </div>
+
+            <div class="p-4 bg-slate-50/80 border border-slate-100 rounded-xl space-y-1">
+              <div class="flex items-center gap-2 text-slate-900 font-bold text-sm">
+                <i class="fa-solid fa-magnifying-glass text-emerald-600"></i>
+                <span>Check apartment conditions</span>
+              </div>
+              <p class="text-xs text-slate-700 pt-1 leading-relaxed">
+                <strong>Please notify us of any broken object / furniture</strong> quickly after your arrival. Failing to do so, may result in charges for those damages.
+              </p>
+            </div>
+          </div>
+        `;
+      } else {
+        const t = translations[lang] || translations['it'];
+        container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed">${t.checkinBody}</p>`;
+      }
+    }
+
+    function renderRulesSection(lang) {
+      const container = document.getElementById('rules-content-container');
+      if (!container) return;
+
+      if (lang === 'en') {
+        container.innerHTML = `
+          <div class="space-y-4 text-left">
+            <p class="text-xs text-slate-500 font-medium">
+              We appreciate your cooperation in keeping our home safe and pleasant.
+            </p>
+
+            <div class="bg-rose-50 border-2 border-rose-300 rounded-2xl p-4 space-y-3">
+              <div class="flex items-center gap-3 text-rose-700 font-bold text-sm border-b border-rose-200 pb-2">
+                <i class="fa-solid fa-triangle-exclamation text-xl text-rose-600"></i>
+                <span>Safety rules on the terrace</span>
+              </div>
+              <p class="text-xs font-semibold text-rose-900 leading-snug">
+                For your safety and the safety of others, we kindly ask you to be extremely mindful of the following rules at all times:
+              </p>
+              <ul class="text-xs text-rose-800 space-y-1.5 list-disc list-inside">
+                <li>Do not sit, climb, or lean over the parapet.</li>
+                <li>Children must be supervised by an adult at all times.</li>
+                <li>Do not place or leave any objects on the parapet of the terrace.</li>
+                <li>Please exercise caution to prevent items from falling down the street.</li>
+                <li>Do not touch the plants, to prevent any risk of allergy or intoxication.</li>
+              </ul>
+            </div>
+
+            <div class="space-y-3 pt-1">
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-rose-100 text-rose-600 rounded-lg flex-shrink-0">
+                  <i class="fa-solid fa-ban-smoking text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">No Smoking</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">The whole property, terrace included, is a strictly non-smoking area.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-purple-100 text-purple-600 rounded-lg flex-shrink-0">
+                  <i class="fa-solid fa-moon text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Quiet hours</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">Quiet hours inside and outside: <strong>from 10 pm to 7 am</strong>. Remember that also the terrace is right above the neighbour's ceiling.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-amber-100 text-amber-600 rounded-lg flex-shrink-0">
+                  <i class="fa-solid fa-user-slash text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">No visitors / No parties</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">Outside visitors are not allowed. Only checked-in guests. Parties, gatherings, or events of any kind are prohibited.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-blue-100 text-blue-600 rounded-lg flex-shrink-0">
+                  <i class="fa-solid fa-couch text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Furniture</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">Do not move furniture. This may cause noise, and they can get broken.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-lg flex-shrink-0">
+                <div class="p-2.5 bg-emerald-100 text-emerald-600 rounded-lg">
+                  <i class="fa-solid fa-dog text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Pets</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">Pets are not allowed in the property.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-indigo-100 text-indigo-600 rounded-lg flex-shrink-0">
+                  <i class="fa-solid fa-lock text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Security of your belongings</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">Every time you leave the apartment, please:</p>
+                  <ul class="text-xs text-slate-600 list-disc list-inside mt-1 space-y-0.5">
+                    <li>Close windows bars, windows and shutters</li>
+                    <li>Switch off the AC, heater fan, and lights</li>
+                    <li>Lock the front door (double-lock)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-orange-100 text-orange-600 rounded-lg flex-shrink-0">
+                  <i class="fa-solid fa-wine-glass-crack text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Broken / lost items policy</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">Please inform us promptly of any damage or missing items. Failure to do so may result in charges for those damages.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        const t = translations[lang] || translations['it'];
+        container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed whitespace-pre-line">${t.rulesBody}</p>`;
+      }
     }
 
     function renderFoodDrinkSection(lang) {
@@ -1220,6 +1395,1048 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       `;
     }
 
+    function renderGuideSection(lang) {
+      const container = document.getElementById('guide-content-container');
+      if (!container) return;
+
+      if (lang === 'en') {
+        container.innerHTML = `
+          <div class="space-y-4 text-left">
+            <p class="text-xs text-slate-500 font-medium">Select a room below to view detailed equipment instructions:</p>
+
+            <div class="space-y-3">
+
+              <!-- 1. KITCHEN BLOCK -->
+              <div class="guide-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button type="button" onclick="toggleGuideSubSection('guide-kitchen', this)" class="w-full hover:bg-teal-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-teal-100 text-teal-700 rounded-xl">
+                      <i class="fa-solid fa-utensils text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Kitchen</h3>
+                      <p class="text-[11px] text-slate-500">Appliances, Coffee Machines, Tools</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down guide-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="guide-kitchen" class="guide-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
+                  <h3 class="text-sm font-bold text-teal-700 border-b border-slate-100 pb-2">Kitchen Appliances</h3>
+                  <p class="text-xs text-slate-600">Appliances at your disposal include: washing machine, dishwasher, toaster, water boiler, espresso machine.</p>
+
+                  <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-slate-700">
+                    <strong>Pro Tip:</strong> Please note that inside the first drawer near the oven, there is a second 'hidden' drawer stocked with plenty of kitchen tools. Be sure to check this out!
+                  </div>
+
+                  <div class="space-y-3 pt-2">
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <i class="fa-solid fa-soap text-lg text-teal-600 mt-1"></i>
+                      <div class="text-xs">
+                        <strong>Washing machine:</strong> Detergent pods are available in the base cabinet to the right of the machine.
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <i class="fa-solid fa-sink text-lg text-teal-600 mt-1"></i>
+                      <div class="text-xs">
+                        <strong>Dish-washer:</strong> Detergent pods are at your disposal in the base cabinet, on the right side of the washing machine.
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <i class="fa-solid fa-mug-hot text-lg text-teal-600 mt-1"></i>
+                      <div class="text-xs">
+                        <strong>Espresso coffee machine:</strong> Works with Lavazza's <em>« A Modo Mio »</em> capsules. Complimentary set for you to enjoy during your stay!
+                      </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 space-y-2">
+                      <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-coffee text-lg text-teal-600 mt-1"></i>
+                        <div class="text-xs">
+                          <strong>"Moka" coffee maker:</strong> This is the iconic Italian home-made coffee machine.
+                        </div>
+                      </div>
+                      <a href="https://youtube.com/shorts/JA2dBog-8Dg" target="_blank" class="inline-flex items-center gap-2 text-xs text-rose-600 font-bold bg-rose-50 hover:bg-rose-100 px-3 py-1.5 rounded-lg border border-rose-200 transition-all">
+                        <i class="fa-brands fa-youtube text-base"></i>
+                        <span>Watch the 60" video tutorial</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. BATHROOM / TOILET BLOCK -->
+              <div class="guide-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button type="button" onclick="toggleGuideSubSection('guide-toilet', this)" class="w-full hover:bg-teal-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-teal-100 text-teal-700 rounded-xl">
+                      <i class="fa-solid fa-bath text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Bathroom / Toilet</h3>
+                      <p class="text-[11px] text-slate-500">Water Supply, Utilities & Heater</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down guide-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="guide-toilet" class="guide-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
+                  <h3 class="text-sm font-bold text-teal-700 border-b border-slate-100 pb-2">Bathroom / Toilet</h3>
+                  
+                  <div class="bg-rose-50 border border-rose-200 p-3 rounded-xl text-xs text-rose-800 font-medium">
+                    Please flush only toilet paper. For all other waste, please use the bin provided.
+                  </div>
+
+                  <div class="space-y-3">
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                      <strong>Water supply:</strong>
+                      <p class="text-slate-600">There is a water pump to ensure consistent water pressure. Please allow 5-10 seconds for the water flow to stabilize.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                      <strong>Utilities:</strong>
+                      <p class="text-slate-600">For your convenience, in the cabinet (left hand), you will find: drying rack, iron, ironing board, vacuum, tools, and first aid kit.</p>
+                      <p class="text-slate-600 pt-1">Inside the right-hand compartment, you will find four empty baskets for your personal use.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-2">
+                      <strong>Electric heater (bathroom):</strong>
+                      <p class="text-slate-600">Plug it only when needed.</p>
+                      <ul class="list-disc list-inside text-slate-600 space-y-0.5">
+                        <li>On: push ⏻</li>
+                        <li>Set the temperature: +/-</li>
+                        <li>Off: push ⏻ twice</li>
+                      </ul>
+                      <div class="bg-amber-50 p-2.5 rounded-lg border border-amber-200 text-[11px] text-amber-900 mt-2">
+                        As a safety precaution, please ensure <strong>all electrical appliances are unplugged</strong> once you have finished using them.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. LIVING ROOM & BEDROOM BLOCK -->
+              <div class="guide-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button type="button" onclick="toggleGuideSubSection('guide-living', this)" class="w-full hover:bg-teal-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-teal-100 text-teal-700 rounded-xl">
+                      <i class="fa-solid fa-bed text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Living room & Bedroom</h3>
+                      <p class="text-[11px] text-slate-500">Air-conditioning, Smart TV & Lights</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down guide-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="guide-living" class="guide-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
+                  <h3 class="text-sm font-bold text-teal-700 border-b border-slate-100 pb-2">Living room & Bedroom</h3>
+
+                  <div class="space-y-3">
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <i class="fa-solid fa-temperature-arrow-up text-lg text-teal-600 mt-1"></i>
+                      <div class="text-xs space-y-1">
+                        <strong>Air-conditioning:</strong>
+                        <p class="text-slate-600">There are two AC units: one in the living area and one in the bedroom, providing both cooling and heating.</p>
+                        <p class="text-slate-800 font-semibold">Please switch them off when you leave the rooms.</p>
+                        <p class="text-slate-500 text-[11px]">Remotes are located right by the doors. Please put them back after use.</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <i class="fa-solid fa-tv text-lg text-teal-600 mt-1"></i>
+                      <div class="text-xs space-y-1">
+                        <strong>Smart TV:</strong>
+                        <p class="text-slate-600">Feel free to connect with your account to your preferred streaming platform if you want to watch your own movies and series.</p>
+                        <p class="text-rose-700 font-medium">Before leaving, don't forget to log out from your accounts.</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <i class="fa-solid fa-lightbulb text-lg text-teal-600 mt-1"></i>
+                      <div class="text-xs space-y-1">
+                        <strong>Lights in the bedroom:</strong>
+                        <p class="text-slate-600">Floor Lamp: operated by switches (1 at the door, 2 next to each bed side).</p>
+                        <p class="text-slate-600">Bedside Lamps: operated via the built-in switches, on the right side of each fixture.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. TERRACE BLOCK -->
+              <div class="guide-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button type="button" onclick="toggleGuideSubSection('guide-terrace', this)" class="w-full hover:bg-teal-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-teal-100 text-teal-700 rounded-xl">
+                      <i class="fa-solid fa-sun text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Terrace</h3>
+                      <p class="text-[11px] text-slate-500">Awnings, Cushions & Safety</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down guide-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="guide-terrace" class="guide-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
+                  <h3 class="text-sm font-bold text-teal-700 border-b border-slate-100 pb-2">Terrace</h3>
+                  
+                  <p class="text-xs text-slate-600">While the terrace is the most enjoyable and rare place in the property, please follow important rules regarding safety and equipment security.</p>
+
+                  <div class="bg-rose-50 border border-rose-200 p-3 rounded-xl space-y-1 text-xs text-rose-900">
+                    <strong>Safety:</strong>
+                    <ul class="list-disc list-inside space-y-0.5 text-rose-800">
+                      <li>Do not sit, climb, nor lean over the parapet.</li>
+                      <li>Supervise children at all times.</li>
+                      <li>Do not place any objects on the parapet of the terrace.</li>
+                      <li>Exercise caution to prevent items from falling down the street.</li>
+                      <li>Do not touch the plants, to prevent any risk of allergy or intoxication.</li>
+                    </ul>
+                  </div>
+
+                  <div class="space-y-3">
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 space-y-2 text-xs">
+                      <strong>Awnings – Risk of injuries:</strong>
+                      <p class="text-slate-600">When opening/closing the awnings, do not let the rope slide through your hands. Follow the procedure carefully.</p>
+                      
+                      <a href="https://vimeo.com/manage/videos/1061295566/d45e8078c2" target="_blank" class="inline-flex items-center gap-2 text-xs text-blue-600 font-bold bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg border border-blue-200 transition-all">
+                        <i class="fa-brands fa-vimeo-v text-base"></i>
+                        <span>Watch video tutorial on Vimeo →</span>
+                      </a>
+
+                      <p class="text-rose-700 font-semibold pt-1">In case of rainy or windy conditions, do not open awnings.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs">
+                      <strong>Cushion box:</strong>
+                      <p class="text-slate-600 mt-1">Feel free to use amenities like: cushions, plaids, garden lights, extension cable.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs">
+                      <strong>Table – Risk of damage:</strong>
+                      <p class="text-slate-600 mt-1">Do not move the table. Legs may get broken while sliding.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                      <strong>When leaving the terrace:</strong>
+                      <ul class="list-disc list-inside text-slate-600 space-y-0.5">
+                        <li>Close the awnings</li>
+                        <li>Put back cushions and any other object in the box</li>
+                        <li>Remove any object which may fall because of wind</li>
+                        <li>Close windows bars, windows and shutters</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        `;
+      } else {
+        const t = translations[lang] || translations['it'];
+        container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed">${t.guideBody}</p>`;
+      }
+    }
+
+    function renderTransportsSection(lang) {
+      const container = document.getElementById('transports-content-container');
+      if (!container) return;
+
+      if (lang === 'en') {
+        container.innerHTML = `
+          <div class="space-y-4 text-left">
+            <p class="text-xs text-slate-500 font-medium">Select a category below to view transport information and tips:</p>
+
+            <div class="space-y-3">
+
+              <!-- 0. TOURISTIC INFO -->
+              <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button type="button" onclick="toggleTransportSubSection('transport-touristic-info', this)" class="w-full hover:bg-indigo-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-indigo-100 text-indigo-700 rounded-xl">
+                      <i class="fa-solid fa-circle-info text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Touristic Info</h3>
+                      <p class="text-[11px] text-slate-500">Official tourism portals, events & transit websites</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="transport-touristic-info" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                  <h3 class="text-sm font-bold text-indigo-700 border-b border-slate-100 pb-2">Touristic Info & Links</h3>
+                  
+                  <div class="space-y-2">
+                    <div class="p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2.5">
+                          <i class="fa-solid fa-globe text-indigo-600 text-sm"></i>
+                          <span class="text-xs font-semibold text-slate-800">Tourism:</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                          <a href="https://turismoroma.it" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-indigo-600 hover:underline flex items-center gap-1">
+                            turismoroma.it
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                          </a>
+                          <span class="text-slate-300">|</span>
+                          <a href="tel:+39060608" class="text-xs font-mono font-bold text-slate-700 hover:text-indigo-600 flex items-center gap-1">
+                            <i class="fa-solid fa-phone text-[10px]"></i>
+                            +39 06.06.08
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <a href="https://culture.roma.it" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
+                      <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-masks-theater text-indigo-600 text-sm"></i>
+                        <span class="text-xs font-semibold text-slate-800">Cultural events:</span>
+                      </div>
+                      <span class="text-xs font-bold text-indigo-600 group-hover:underline flex items-center gap-1">
+                        culture.roma.it
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px] group-hover:translate-x-0.5 transition-transform"></i>
+                      </span>
+                    </a>
+
+                    <a href="https://metropolitanadiroma.it" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
+                      <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-subway text-indigo-600 text-sm"></i>
+                        <span class="text-xs font-semibold text-slate-800">Metro:</span>
+                      </div>
+                      <span class="text-xs font-bold text-indigo-600 group-hover:underline flex items-center gap-1">
+                        metropolitanadiroma.it
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px] group-hover:translate-x-0.5 transition-transform"></i>
+                      </span>
+                    </a>
+
+                    <a href="https://www.atac.roma.it" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
+                      <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-bus text-indigo-600 text-sm"></i>
+                        <span class="text-xs font-semibold text-slate-800">Bus:</span>
+                      </div>
+                      <span class="text-xs font-bold text-indigo-600 group-hover:underline flex items-center gap-1">
+                        atac.roma.it
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px] group-hover:translate-x-0.5 transition-transform"></i>
+                      </span>
+                    </a>
+
+                    <a href="https://trenitalia.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
+                      <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-train text-indigo-600 text-sm"></i>
+                        <div>
+                          <span class="text-xs font-semibold text-slate-800">Train:</span>
+                          <p class="text-[10px] text-slate-400">(for connection to Fiumicino Airport)</p>
+                        </div>
+                      </div>
+                      <span class="text-xs font-bold text-indigo-600 group-hover:underline flex items-center gap-1">
+                        trenitalia.com
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px] group-hover:translate-x-0.5 transition-transform"></i>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 1. MAPS -->
+              <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button type="button" onclick="toggleTransportSubSection('transport-maps', this)" class="w-full hover:bg-indigo-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-indigo-100 text-indigo-700 rounded-xl">
+                      <i class="fa-solid fa-map-location-dot text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Maps</h3>
+                      <p class="text-[11px] text-slate-500">Official maps and transit diagrams</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="transport-maps" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                  <h3 class="text-sm font-bold text-indigo-700 border-b border-slate-100 pb-2">City & Transport Maps</h3>
+                  
+                  <div class="space-y-2">
+                    <a href="https://drive.google.com/file/d/1h_WdOZJz15EyDYQQuO-6nZCG-3J9_jpD" target="_blank" class="flex items-center justify-between p-3 bg-amber-50 hover:bg-amber-100/80 border-2 border-amber-400/80 rounded-xl transition-all group">
+                      <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-map text-amber-600 text-base"></i>
+                        <span class="text-xs font-bold text-slate-900">Touristic Map</span>
+                      </div>
+                      <span class="text-[10px] font-bold uppercase tracking-wider bg-amber-200/80 text-amber-900 px-2 py-0.5 rounded-full flex items-center gap-1">
+                        ★ Top
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[9px] group-hover:translate-x-0.5 transition-transform"></i>
+                      </span>
+                    </a>
+
+                    <a href="https://drive.google.com/file/d/17Mws7jLBa0dyM_GXjGys4GtOcraT1enH/" target="_blank" class="flex items-center justify-between p-3 bg-amber-50 hover:bg-amber-100/80 border-2 border-amber-400/80 rounded-xl transition-all group">
+                      <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-bus-simple text-amber-600 text-base"></i>
+                        <span class="text-xs font-bold text-slate-900">Transports city center</span>
+                      </div>
+                      <span class="text-[10px] font-bold uppercase tracking-wider bg-amber-200/80 text-amber-900 px-2 py-0.5 rounded-full flex items-center gap-1">
+                        ★ Top
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[9px] group-hover:translate-x-0.5 transition-transform"></i>
+                      </span>
+                    </a>
+
+                    <a href="https://drive.google.com/file/d/1TO7BXO-syCY6RSHS2u2P3iE-D5RQ_QY" target="_blank" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
+                      <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-train text-indigo-600 text-sm"></i>
+                        <span class="text-xs font-semibold text-slate-800">Metro and train</span>
+                      </div>
+                      <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-slate-600 group-hover:translate-x-0.5 transition-all"></i>
+                    </a>
+
+                    <a href="https://drive.google.com/file/d/1aSt6SHDM3NyOLGMssy7v7miUc3eDwy0S/" target="_blank" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
+                      <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-subway text-indigo-600 text-sm"></i>
+                        <span class="text-xs font-semibold text-slate-800">Metro Stripes</span>
+                      </div>
+                      <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-slate-600 group-hover:translate-x-0.5 transition-all"></i>
+                    </a>
+
+                    <a href="https://drive.google.com/file/d/15apnXHI1Mh8VdMMQKOA-v2g28tVSG0zE_/" target="_blank" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
+                      <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-route text-indigo-600 text-sm"></i>
+                        <span class="text-xs font-semibold text-slate-800">Transports all city</span>
+                      </div>
+                      <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-slate-600 group-hover:translate-x-0.5 transition-all"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. OUR TIPS -->
+              <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button type="button" onclick="toggleTransportSubSection('transport-tips', this)" class="w-full hover:bg-amber-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-amber-100 text-amber-700 rounded-xl">
+                      <i class="fa-regular fa-lightbulb text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Our Tips</h3>
+                      <p class="text-[11px] text-slate-500">Useful advice for moving around Rome</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="transport-tips" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                  <ul class="text-xs text-slate-700 space-y-2 list-disc list-inside pl-1 leading-relaxed">
+                    <li>Use the <strong>Metro</strong> station to reach all main sights efficiently.</li>
+                    <li>Enjoy <strong>walking</strong> in Rome — it is often the best way to explore!</li>
+                    <li>Use <strong>buses</strong> in locations where the metro is not directly available.</li>
+                    <li><strong>Use Apps</strong> for transit itineraries: we recommend <a href="https://citymapper.com" target="_blank" class="text-amber-600 font-semibold underline">citymapper.com</a></li>
+                    <li class="text-rose-800">In touristic spots and on public transport, <strong>look carefully after your belongings at all times</strong>. Pickpockets operate frequently in crowded areas.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- 3. GET TO MAIN SIGHTS -->
+              <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button type="button" onclick="toggleTransportSubSection('transport-sights', this)" class="w-full hover:bg-amber-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-amber-100 text-amber-700 rounded-xl">
+                      <i class="fa-solid fa-monument text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Get to main sights</h3>
+                      <p class="text-[11px] text-slate-500">Routes and transit times to key attractions</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="transport-sights" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                  <h3 class="text-sm font-bold text-amber-700 border-b border-slate-100 pb-2">How to reach Rome's top sights</h3>
+                  <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs border-collapse">
+                      <thead>
+                        <tr class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                          <th class="p-2.5">Destination</th>
+                          <th class="p-2.5">Line / Route</th>
+                          <th class="p-2.5 whitespace-nowrap">Travel Time</th>
+                        </tr>
+                      </thead>
+                      <tbody class="divide-y divide-slate-100 text-slate-700">
+                        <tr>
+                          <td class="p-2.5 font-semibold">Colosseum, Roman Forum, Palatine Hill</td>
+                          <td class="p-2.5">Metro A (Cipro → Termini) + Metro B (Termini → Colosseo)</td>
+                          <td class="p-2.5 whitespace-nowrap font-medium text-amber-700">~25 min</td>
+                        </tr>
+                        <tr>
+                          <td class="p-2.5 font-semibold">Piazza Venezia, Capitoline Hill (Campidoglio)</td>
+                          <td class="p-2.5">Bus 492 (Cipro → Venezia)</td>
+                          <td class="p-2.5 whitespace-nowrap font-medium text-amber-700">~30 min</td>
+                        </tr>
+                        <tr>
+                          <td class="p-2.5 font-semibold">Piazza di Spagna, Trevi Fountain</td>
+                          <td class="p-2.5">Metro A (Cipro → Spagna)</td>
+                          <td class="p-2.5 whitespace-nowrap font-medium text-amber-700">~15 min</td>
+                        </tr>
+                        <tr>
+                          <td class="p-2.5 font-semibold">Piazza Navona, Campo de' Fiori, Pantheon</td>
+                          <td class="p-2.5">Bus 492 (Cipro → Rinascimento)</td>
+                          <td class="p-2.5 whitespace-nowrap font-medium text-amber-700">~25 min</td>
+                        </tr>
+                        <tr>
+                          <td class="p-2.5 font-semibold">Piazza del Popolo / Villa Borghese / Pincio</td>
+                          <td class="p-2.5">Metro A (Cipro → Flaminio)</td>
+                          <td class="p-2.5 whitespace-nowrap font-medium text-amber-700">~20 min</td>
+                        </tr>
+                        <tr>
+                          <td class="p-2.5 font-semibold">Vatican (St. Peter's Basilica), Castel Sant'Angelo</td>
+                          <td class="p-2.5">Metro A (Cipro → Ottaviano)</td>
+                          <td class="p-2.5 whitespace-nowrap font-medium text-amber-700">~20 min</td>
+                        </tr>
+                        <tr>
+                          <td class="p-2.5 font-semibold">Vatican Museums</td>
+                          <td class="p-2.5">On foot</td>
+                          <td class="p-2.5 whitespace-nowrap font-medium text-amber-700">~15 min</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. METRO / BUS -->
+              <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button type="button" onclick="toggleTransportSubSection('transport-metrobus', this)" class="w-full hover:bg-indigo-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-indigo-100 text-indigo-700 rounded-xl">
+                      <i class="fa-solid fa-bus text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Metro / Bus</h3>
+                      <p class="text-[11px] text-slate-500">Lines, Stations & Suggestions</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="transport-metrobus" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                  <h3 class="text-sm font-bold text-indigo-700 border-b border-slate-100 pb-2">Public Transit Options</h3>
+                  <div class="space-y-3">
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                      <strong class="text-slate-900">Metro Line A:</strong>
+                      <p class="text-slate-600 leading-relaxed"><strong>Cipro Station</strong> (500m from the apartment). This is the fastest, most convenient option to reach key locations (Ottaviano/Vatican, Spagna, Trevi, Termini).</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                      <strong class="text-slate-900">Bus Network:</strong>
+                      <p class="text-slate-600 leading-relaxed">Buses offer extensive coverage throughout Rome, though traffic may slow them down.</p>
+                      <div class="bg-amber-50 p-2 rounded-lg border border-amber-200 text-amber-900 text-[11px] mt-1">
+                        <strong>Recommended Line:</strong> Bus <strong>492</strong> travels across the entire historical city center, starting directly from Cipro!
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 5. TICKETING -->
+              <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button type="button" onclick="toggleTransportSubSection('transport-tickets', this)" class="w-full hover:bg-indigo-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-slate-200 text-slate-700 rounded-xl">
+                      <i class="fa-solid fa-ticket text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Ticketing</h3>
+                      <p class="text-[11px] text-slate-500">Tap & Go and Paper Tickets</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="transport-tickets" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                  <h3 class="text-sm font-bold text-slate-800 border-b border-slate-100 pb-2">How to Pay for Transport</h3>
+                  <div class="space-y-3">
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                      <strong class="text-slate-900">“Tap & Go” Service:</strong>
+                      <p class="text-slate-600 leading-relaxed">Pay instantly at turnstiles or on board with your contactless credit/debit card. No extra fees apply.</p>
+                      <p class="text-amber-700 font-semibold text-[11px] pt-1">Note: Each traveler must tap using a separate card.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                      <strong class="text-slate-900">Paper Tickets:</strong>
+                      <p class="text-slate-600 leading-relaxed">Available at self-service ticket machines located in any Metro station, as well as in newsstands (Edicola) and tobacco shops (Tabacchi).</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 6. TAXI -->
+              <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button type="button" onclick="toggleTransportSubSection('transport-taxi', this)" class="w-full hover:bg-yellow-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-yellow-100 text-yellow-700 rounded-xl">
+                      <i class="fa-solid fa-taxi text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Taxi</h3>
+                      <p class="text-[11px] text-slate-500">Phone numbers & Uber info</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="transport-taxi" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                  <h3 class="text-sm font-bold text-yellow-800 border-b border-slate-100 pb-2">Taxi Services & Ordering</h3>
+                  
+                  <div class="space-y-2 text-xs">
+                    <div class="flex items-center justify-between bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <div>
+                        <strong>General Dispatch:</strong>
+                        <p class="text-slate-500 text-[11px]">Connects to all local taxi companies</p>
+                      </div>
+                      <a href="tel:+39060609" class="font-mono font-bold text-slate-900 bg-white px-2.5 py-1 rounded-lg border border-slate-200 text-xs">06.06.09</a>
+                    </div>
+
+                    <div class="flex items-center justify-between bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <div>
+                        <strong>Recommended Line (Samarcanda / Radio Taxi):</strong>
+                        <p class="text-slate-500 text-[11px]">Known for high service standards</p>
+                      </div>
+                      <a href="tel:+39063570" class="font-mono font-bold text-slate-900 bg-white px-2.5 py-1 rounded-lg border border-slate-200 text-xs">06.35.70</a>
+                    </div>
+                  </div>
+
+                  <div class="space-y-1.5 text-xs text-slate-600 pt-1">
+                    <p><strong>Uber & Ride-hailing:</strong> Uber operates mainly with luxury NCC ("limousine") vehicles in Rome and is often more expensive than standard taxis.</p>
+                    <p><strong>Fares:</strong> Always confirm estimated fares with the driver prior to departure.</p>
+                    <p class="text-amber-700"><strong>Availability:</strong> During peak hours or rainy days, taxi wait times for telephone bookings can be high.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 7. CAR PARKING -->
+              <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button type="button" onclick="toggleTransportSubSection('transport-parking', this)" class="w-full hover:bg-blue-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-blue-100 text-blue-700 rounded-xl">
+                      <i class="fa-solid fa-square-parking text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Car Parking</h3>
+                      <p class="text-[11px] text-slate-500">Street parking & Nearby streets</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="transport-parking" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                  <h3 class="text-sm font-bold text-blue-800 border-b border-slate-100 pb-2">Parking Options Nearby</h3>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Street parking in Rome is paid (blue lines), and finding an available spot can be challenging.
+                  </p>
+                  <p class="text-xs text-slate-700 font-semibold">
+                    Recommended streets near the apartment where parking is easier:
+                  </p>
+                  <ul class="text-xs text-slate-700 font-medium list-disc list-inside pl-1 space-y-1">
+                    <li><strong>Via Simone Simoni</strong></li>
+                    <li><strong>Via Angelo Emo, 4</strong> (located right behind the Cipro Metro Station)</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        `;
+      } else {
+        const t = translations[lang] || translations['it'];
+        container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed">${t.transportsBody}</p>`;
+      }
+    }
+
+    function renderCheckoutSection(lang) {
+      const container = document.getElementById('checkout-content-container');
+      if (!container) return;
+
+      if (lang === 'en') {
+        container.innerHTML = `
+          <div class="space-y-4 text-left">
+            <p class="text-xs text-slate-500 font-medium pb-1">
+              Before leaving the property, guests are expected to follow the following steps:
+            </p>
+
+            <div class="relative border-l-2 border-amber-200 ml-3 pl-4 space-y-4">
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800 font-bold">Check-out before 10 am.</p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Let us know about</strong> any accidental damage, maintenance concerns, or items in need of repair so we can address them promptly.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Keys:</strong> Lock the front door and leave the keys inside the key box.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Terrace:</strong> Close awnings. Put back cushions and towels in the box. Close windows, window bars, shutters.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Trash & Recycling:</strong> Dispose of all trash in the designated bins located outside the building, in Via degli Ammiragli 112 (20m).
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Kitchen:</strong> Wash dirty dishes or place them in the dishwasher and start the cycle. Empty the fridge.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Appliances:</strong> Switch off the air conditioning and ensure all small electrical appliances (hair dryer, iron, etc.) are unplugged.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Remotes:</strong> Return the 3 remote controls (TV and AC) to their original places.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
+                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <p class="text-xs text-slate-800">
+                    <strong>Privacy:</strong> Log out of any personal accounts in the TV (such as Netflix or similar).
+                  </p>
+                </div>
+              </div>
+
+              <!-- Tappa Airbnb in evidenza con testo aggiornato -->
+              <div class="relative pt-1">
+                <span class="absolute -left-[23px] top-3 w-3 h-3 bg-rose-500 rounded-full ring-4 ring-white animate-pulse"></span>
+                <a href="https://www.airbnb.fr/rooms/1655819661396931146" target="_blank" rel="noopener noreferrer" class="block bg-gradient-to-r from-rose-50 to-amber-50 hover:from-rose-100 hover:to-amber-100 p-3.5 rounded-2xl border-2 border-rose-300/80 shadow-sm transition-all group active:scale-[0.98]">
+                  <div class="flex items-start justify-between gap-3">
+                    <div class="flex items-start gap-3">
+                      <div class="p-2.5 bg-rose-500 text-white rounded-xl shadow-sm flex-shrink-0 mt-0.5">
+                        <i class="fa-solid fa-star text-sm"></i>
+                      </div>
+                      <div class="space-y-1">
+                        <p class="text-xs font-extrabold text-slate-900 leading-snug group-hover:text-rose-600 transition-colors">
+                          Rate your "La Terrazza di Maria" experience
+                        </p>
+                        <p class="text-[11px] text-slate-600 font-medium leading-tight">
+                          Leave your review on Airbnb. Your feedback helps us to improve our job and keep the best experience for guests.
+                        </p>
+                      </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-rose-500 flex-shrink-0 mt-1 group-hover:translate-x-0.5 transition-transform"></i>
+                  </div>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        `;
+      } else {
+        const t = translations[lang] || translations['it'];
+        container.innerHTML = `
+          <div class="space-y-4 text-left">
+            <p class="text-sm text-slate-600 leading-relaxed">${t.checkoutBody}</p>
+            <div class="pt-2">
+              <a href="https://www.airbnb.fr/rooms/1655819661396931146" target="_blank" rel="noopener noreferrer" class="block bg-gradient-to-r from-rose-50 to-amber-50 hover:from-rose-100 hover:to-amber-100 p-3.5 rounded-2xl border-2 border-rose-300/80 shadow-sm transition-all group">
+                <div class="flex items-start justify-between gap-3">
+                  <div class="flex items-start gap-3">
+                    <div class="p-2.5 bg-rose-500 text-white rounded-xl shadow-sm flex-shrink-0 mt-0.5">
+                      <i class="fa-solid fa-star text-sm"></i>
+                    </div>
+                    <div class="space-y-1">
+                      <p class="text-xs font-extrabold text-slate-900 leading-snug group-hover:text-rose-600 transition-colors">
+                        Rate your "La Terrazza di Maria" experience
+                      </p>
+                      <p class="text-[11px] text-slate-600 font-medium leading-tight">
+                        Leave your review on Airbnb. Your feedback helps us to improve our job and keep the best experience for guests.
+                      </p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-xs text-rose-500 flex-shrink-0 mt-1"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function renderDisclaimerSection(lang) {
+      const container = document.getElementById('disclaimer-content-container');
+      if (!container) return;
+
+      container.innerHTML = `
+        <div class="space-y-5 text-left text-xs text-slate-700 leading-relaxed">
+
+          <!-- Intro Message -->
+          <div class="space-y-2 border-b border-slate-100 pb-3">
+            <p class="font-bold text-slate-900 text-sm">Dear Guests,</p>
+            <p>
+              We are delighted to welcome you to our flat with terrace and hope you enjoy your stay. To ensure a safe and pleasant experience, we would like to draw your attention to the following important information:
+            </p>
+          </div>
+
+          <!-- 1. Special rules for safety in the terrace -->
+          <div class="p-4 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-2.5">
+            <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wide flex items-center gap-2">
+              <i class="fa-solid fa-shield-cat text-amber-600"></i>
+              <span>1. Special rules for safety in the terrace:</span>
+            </h3>
+            <ul class="space-y-2 list-disc list-outside pl-4 text-slate-600">
+              <li>For your own safety, it is strictly forbidden to sit, climb, or lean over the parapet or railings. Please maintain safe behavior at all times while using the outdoor spaces.</li>
+              <li>Children must be supervised by an adult at all times and must never be left unattended on the terrace.</li>
+              <li>Do not leave any item on the parapet. Please exercise caution to prevent items from falling down the street, as this could result in third party’s injuries or property damages. Guests are solely responsible for any item placed or left on the terrace, including but not limited to objects left on the parapet.</li>
+              <li>Do not touch the plants, to prevent any risk of allergy or intoxication.</li>
+            </ul>
+          </div>
+
+          <!-- 2. Safety and Liability -->
+          <div class="p-4 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-2.5">
+            <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wide flex items-center gap-2">
+              <i class="fa-solid fa-scale-balanced text-slate-700"></i>
+              <span>2. Safety and Liability:</span>
+            </h3>
+            <ul class="space-y-2 list-disc list-outside pl-4 text-slate-600">
+              <li>By using the apartment, appliances and the terrace, guests acknowledge that they have been informed of all potential risks associated with their use.</li>
+              <li>The property owner shall not be held liable for any accidents, injuries, or damages resulting from the improper use of the apartment, appliances and the terrace or failure to follow safety guidelines.</li>
+            </ul>
+          </div>
+
+          <!-- 3. Compliance with Property Rules -->
+          <div class="p-4 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-2.5">
+            <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wide flex items-center gap-2">
+              <i class="fa-solid fa-list-check text-blue-600"></i>
+              <span>3. Compliance with Property Rules</span>
+            </h3>
+            <p class="text-slate-600">
+              In accordance with the rental agreement, Guests agree to strictly comply with all property regulations, specifically including but not limited to:
+            </p>
+            <ul class="space-y-1.5 list-disc list-outside pl-4 text-slate-600">
+              <li><strong>The check-out procedures</strong> as outlined on the “Before You Go” page.</li>
+              <li><strong>The house rules</strong> as outlined on the “House Rules” page.</li>
+            </ul>
+          </div>
+
+          <!-- Closing Statement & Sign-off -->
+          <div class="pt-2 space-y-3">
+            <p class="font-bold text-slate-900 bg-amber-50/80 p-3 rounded-xl border border-amber-200/60 leading-snug">
+              By staying at the property and using its facilities, guests confirm their understanding, responsibility, and acceptance of the terms outlined in this disclaimer.
+            </p>
+            
+            <div class="text-slate-600 space-y-1 pt-1">
+              <p>Thank you for your cooperation.</p>
+              <p>We hope you have a wonderful and safe stay.</p>
+            </div>
+
+            <div class="pt-3 text-right">
+              <p class="italic text-slate-500">Sincerely,</p>
+              <p class="font-bold text-slate-800 font-serif">the Property Management</p>
+            </div>
+          </div>
+
+        </div>
+      `;
+    }
+
+    function renderEmergencySection(lang) {
+      const container = document.getElementById('emergency-content-container');
+      if (!container) return;
+
+      const doctorsDocUrl = "https://drive.google.com/file/d/1-uHzF09L0Hp5cMO1ijZxiTVD8vog5HZp";
+      const qrCodeUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(doctorsDocUrl);
+
+      container.innerHTML = `
+        <div class="space-y-4 text-left">
+
+          <!-- 1. GENERIC EMERGENCY (Red box) -->
+          <div class="border-2 border-rose-600 rounded-2xl p-4 bg-rose-50/40">
+            <div class="flex items-start gap-4">
+              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
+                <span class="text-xs font-bold text-rose-700 uppercase tracking-tight mb-2 leading-tight">Generic Emergency</span>
+                <div class="p-2.5 bg-rose-100 text-rose-600 rounded-2xl">
+                  <i class="fa-solid fa-tower-broadcast text-2xl"></i>
+                </div>
+              </div>
+              <div class="text-xs space-y-1.5 flex-1">
+                <a href="tel:112" class="inline-flex items-center gap-1.5 text-rose-700 font-extrabold text-sm hover:underline">
+                  <i class="fa-solid fa-phone"></i>
+                  <span>Dial 112 from any phone</span>
+                </a>
+                <p class="text-slate-700 font-medium leading-snug">This service will connect you with the appropriate support:</p>
+                <ul class="text-slate-700 list-disc list-inside space-y-0.5 pl-0.5">
+                  <li>police, ambulance, fire brigade,</li>
+                  <li>English speaking service available.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. HOSPITAL -->
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
+            <div class="flex items-start gap-4">
+              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
+                <span class="text-xs font-bold text-slate-800 uppercase mb-2">Hospital</span>
+                <div class="p-2.5 bg-red-100 text-red-600 rounded-2xl">
+                  <i class="fa-solid fa-hospital text-2xl"></i>
+                </div>
+              </div>
+              <div class="text-xs space-y-1 flex-1">
+                <p class="text-slate-600 font-medium">The closest hospital with 24/7 emergency room is :</p>
+                <div class="pt-1 text-center sm:text-left">
+                  <p class="font-extrabold text-slate-900 text-sm tracking-wide">OSPEDALE SAN CARLO DI NANCY</p>
+                  <p class="text-slate-700">Via Aurelia 275</p>
+                  <p class="text-slate-500 font-semibold">( 2Km )</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. POLICE DEPARTMENT -->
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
+            <div class="flex items-start gap-4">
+              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
+                <span class="text-xs font-bold text-slate-800 uppercase mb-2 leading-tight">Police department</span>
+                <div class="p-2.5 bg-blue-100 text-blue-600 rounded-2xl">
+                  <i class="fa-solid fa-user-shield text-2xl"></i>
+                </div>
+              </div>
+              <div class="text-xs space-y-1 flex-1">
+                <p class="text-slate-600 font-medium">The nearest police department is located in :</p>
+                <div class="pt-1">
+                  <p class="font-bold text-slate-900">Viale Giulio Cesare, 58</p>
+                  <p class="text-slate-500 font-semibold">(1,5Km)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. PHARMACY -->
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
+            <div class="flex items-start gap-4">
+              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
+                <span class="text-xs font-bold text-slate-800 uppercase mb-2">Pharmacy</span>
+                <div class="p-2.5 bg-emerald-100 text-emerald-600 rounded-2xl">
+                  <i class="fa-solid fa-square-plus text-2xl"></i>
+                </div>
+              </div>
+              <div class="text-xs space-y-1 flex-1">
+                <p class="text-slate-600 font-medium">The nearest pharmacy:</p>
+                <div class="pt-1">
+                  <p class="font-extrabold text-slate-900">Farmacia Cipro</p>
+                  <p class="text-slate-700">Viale degli Ammiragli, 33</p>
+                  <p class="text-slate-500 font-semibold">(200m)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. FIRST-AID KIT -->
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
+            <div class="flex items-start gap-4">
+              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
+                <span class="text-xs font-bold text-slate-800 uppercase mb-2 leading-tight">First-aid kit</span>
+                <div class="p-2.5 bg-amber-100 text-amber-600 rounded-2xl">
+                  <i class="fa-solid fa-kit-medical text-2xl"></i>
+                </div>
+              </div>
+              <div class="text-xs space-y-1 flex-1 flex items-center">
+                <p class="text-slate-700 leading-relaxed font-medium">
+                  The first-aid kit is an orange plastic box and is located in the bathroom cabinet.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. FIRE EXTINGUISHER -->
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
+            <div class="flex items-start gap-4">
+              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
+                <span class="text-xs font-bold text-slate-800 uppercase mb-2 leading-tight">Fire extinguisher</span>
+                <div class="p-2.5 bg-rose-100 text-rose-600 rounded-2xl">
+                  <i class="fa-solid fa-fire-extinguisher text-2xl"></i>
+                </div>
+              </div>
+              <div class="text-xs space-y-1 flex-1 flex items-center">
+                <p class="text-slate-700 leading-relaxed font-medium">
+                  The fire-extinguisher in the apartment is located in the corridor.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. ENGLISH SPEAKING DOCTORS -->
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
+            <div class="flex items-start gap-4">
+              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
+                <span class="text-[11px] font-bold text-slate-800 uppercase mb-2 leading-tight">English-speaking doctors and medical facilities in Rome</span>
+                <div class="p-2.5 bg-teal-100 text-teal-600 rounded-2xl">
+                  <i class="fa-solid fa-user-doctor text-2xl"></i>
+                </div>
+              </div>
+              <div class="text-xs space-y-2 flex-1">
+                <div>
+                  <a href="${doctorsDocUrl}" target="_blank" rel="noopener noreferrer" class="font-bold text-blue-600 hover:text-blue-700 underline flex items-center gap-1">
+                    <span>Download the list or scan the code</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                  </a>
+                </div>
+                <div class="text-slate-500 text-[11px] space-y-0.5">
+                  <p>Source: US Consulate in Italy.</p>
+                  <p>Last update: May 2026</p>
+                </div>
+                <div class="pt-1">
+                  <div class="inline-block bg-white p-2 rounded-xl border border-slate-200 shadow-sm">
+                    <img src="${qrCodeUrl}" alt="English Speaking Doctors List QR" class="w-24 h-24">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      `;
+    }
+
     function toggleLocalServicesSubSection(sectionId, btnElement) {
       const targetContent = document.getElementById(sectionId);
       if (!targetContent) return;
@@ -1346,7 +2563,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       
       const t = translations[lang] || translations['it'];
 
-      // Mappatura testi Welcome
+      // Mappatura testi Welcome su 2 linee
       const line1 = document.getElementById('txt-welcome-line1');
       if (line1) line1.innerText = t.welcomeLine1 || '';
       
@@ -1362,7 +2579,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       const btnChange = document.getElementById('txt-btn-change-lang');
       if (btnChange) btnChange.innerText = t.changeLangBtn || '';
 
-      // Rendering delle sezioni dinamiche
+      // Rendering di tutte le sezioni dinamiche complete
       const arrTitle = document.getElementById('txt-arrival-title');
       if (arrTitle) arrTitle.innerText = t.arrivalTitle || '';
       renderArrivalSection(lang);
@@ -1438,7 +2655,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       if (langScreen) langScreen.classList.add('hidden-screen');
       if (appScreen) appScreen.classList.remove('hidden-screen');
       
-      // Inizializza Swiper dopo il cambio schermata
+      // Inizializzazione navigatore Swiper
       setTimeout(() => {
         initSwiperNav();
         switchTabContent('welcome');
