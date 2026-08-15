@@ -77,22 +77,22 @@
 
     <!-- Selettori lingua con testo + bandiera -->
     <div class="w-full max-w-xs space-y-2.5">
-      <button onclick="selectLanguage('it')" class="w-full bg-white border border-slate-200 p-3.5 rounded-2xl shadow-sm flex items-center justify-between active:bg-slate-100 transition-all">
+      <button onclick="selectLanguage('it')" class="w-full bg-white border border-slate-200 p-3.5 rounded-2xl shadow-sm flex items-center justify-between active:bg-slate-100 hover:border-amber-400 transition-all cursor-pointer">
         <span class="font-semibold text-sm text-slate-700">Italiano</span>
         <span class="fi fi-it text-2xl rounded"></span>
       </button>
 
-      <button onclick="selectLanguage('en')" class="w-full bg-white border border-slate-200 p-3.5 rounded-2xl shadow-sm flex items-center justify-between active:bg-slate-100 transition-all">
+      <button onclick="selectLanguage('en')" class="w-full bg-white border border-slate-200 p-3.5 rounded-2xl shadow-sm flex items-center justify-between active:bg-slate-100 hover:border-amber-400 transition-all cursor-pointer">
         <span class="font-semibold text-sm text-slate-700">English</span>
         <span class="fi fi-gb text-2xl rounded"></span>
       </button>
 
-      <button onclick="selectLanguage('fr')" class="w-full bg-white border border-slate-200 p-3.5 rounded-2xl shadow-sm flex items-center justify-between active:bg-slate-100 transition-all">
+      <button onclick="selectLanguage('fr')" class="w-full bg-white border border-slate-200 p-3.5 rounded-2xl shadow-sm flex items-center justify-between active:bg-slate-100 hover:border-amber-400 transition-all cursor-pointer">
         <span class="font-semibold text-sm text-slate-700">Français</span>
         <span class="fi fi-fr text-2xl rounded"></span>
       </button>
 
-      <button onclick="selectLanguage('de')" class="w-full bg-white border border-slate-200 p-3.5 rounded-2xl shadow-sm flex items-center justify-between active:bg-slate-100 transition-all">
+      <button onclick="selectLanguage('de')" class="w-full bg-white border border-slate-200 p-3.5 rounded-2xl shadow-sm flex items-center justify-between active:bg-slate-100 hover:border-amber-400 transition-all cursor-pointer">
         <span class="font-semibold text-sm text-slate-700">Deutsch</span>
         <span class="fi fi-de text-2xl rounded"></span>
       </button>
@@ -657,6 +657,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
 
     function renderArrivalSection(lang) {
       const container = document.getElementById('arrival-content-container');
+      if (!container) return;
       
       const mapsNavigationUrl = "https://www.google.com/maps/dir/?api=1&destination=Via+Sebastiano+Ziani+47+Roma";
 
@@ -665,7 +666,6 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
           <div class="space-y-5 text-left">
             <div class="bg-amber-50/70 border border-amber-200/70 rounded-2xl p-4 space-y-3">
               
-              <!-- Indirizzo cliccabile che apre l'app di navigazione -->
               <a href="${mapsNavigationUrl}" target="_blank" rel="noopener noreferrer" class="flex items-start justify-between gap-3 p-2.5 bg-white rounded-xl border border-amber-200/80 hover:bg-amber-100/50 transition-all group shadow-sm">
                 <div class="flex items-start gap-2.5">
                   <div class="p-2 bg-amber-100 text-amber-600 rounded-lg mt-0.5">
@@ -795,13 +795,14 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
 
     function renderWifiSection(lang) {
       const container = document.getElementById('wifi-content-container');
+      if (!container) return;
+
       const wifi5GString = encodeURIComponent("WIFI:S:C-5G;T:WPA;P:33902210;;");
       const wifi2GString = encodeURIComponent("WIFI:S:C-2G;T:WPA;P:33902210;;");
 
       container.innerHTML = `
         <div class="space-y-3.5 text-left">
           
-          <!-- Box Principale Wi-Fi 5G (compatto, senza recommended) -->
           <div class="bg-amber-50/70 border border-amber-200/70 rounded-2xl p-3.5 space-y-2.5">
             <div class="flex items-center justify-between">
               <div>
@@ -836,7 +837,6 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
             <p id="feedback-5g" class="text-[11px] text-emerald-600 text-center font-medium hidden">✓ Password copied!</p>
           </div>
 
-          <!-- Box Wi-Fi 2G (In case of trouble) Immediatamente visibile -->
           <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-3.5 space-y-2.5">
             <div>
               <h3 class="text-xs font-bold text-slate-800">In case of trouble, please try the low speed connection:</h3>
@@ -874,6 +874,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
 
     function renderCheckinSection(lang) {
       const container = document.getElementById('checkin-content-container');
+      if (!container) return;
 
       if (lang === 'en') {
         container.innerHTML = `
@@ -920,6 +921,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
 
     function renderRulesSection(lang) {
       const container = document.getElementById('rules-content-container');
+      if (!container) return;
 
       if (lang === 'en') {
         container.innerHTML = `
@@ -986,8 +988,8 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
                 </div>
               </div>
 
-              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
-                <div class="p-2.5 bg-emerald-100 text-emerald-600 rounded-lg flex-shrink-0">
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-lg flex-shrink-0">
+                <div class="p-2.5 bg-emerald-100 text-emerald-600 rounded-lg">
                   <i class="fa-solid fa-dog text-lg"></i>
                 </div>
                 <div>
@@ -1029,356 +1031,9 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       }
     }
 
-    function renderFoodDrinkSection(lang) {
-      const container = document.getElementById('tips-content-container');
-      if (!container) return;
-
-      container.innerHTML = `
-        <div class="space-y-4 text-left">
-          <p class="text-xs text-slate-500 font-medium">
-            Our selection of places <strong>at walking distance</strong> to enjoy food, drinks, local products
-          </p>
-
-          <div class="space-y-3">
-
-            <!-- RESTAURANTS -->
-            <div class="food-drink-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-              <button onclick="toggleFoodDrinkSubSection('food-restaurants', this)" class="w-full hover:bg-orange-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
-                <div class="flex items-center gap-3">
-                  <div class="p-3 bg-orange-100 text-orange-700 rounded-xl">
-                    <i class="fa-solid fa-utensils text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-slate-900 text-sm">Restaurants</h3>
-                    <p class="text-[11px] text-slate-500">Roman, Italian & international dining</p>
-                  </div>
-                </div>
-                <i class="fa-solid fa-chevron-down food-drink-icon text-slate-400 text-xs transition-transform duration-200"></i>
-              </button>
-
-              <div id="food-restaurants" class="food-drink-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
-                <div>
-                  <h3 class="text-sm font-bold text-orange-700 border-b border-slate-100 pb-2">Restaurants</h3>
-                </div>
-
-                <div class="space-y-3">
-                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900"><em>Romanè</em> – Via Cipro, 106 <span class="font-medium text-slate-500">(100m)</span></p>
-                    <p class="text-xs text-slate-600 mt-1 leading-relaxed">Good place for Roman and Italian tasty dishes. Reservation required.</p>
-                  </div>
-
-                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900"><em>Secondo Tradizione</em> – Via Rialto, 39 <span class="font-medium text-slate-500">(200m)</span></p>
-                    <p class="text-xs text-slate-600 mt-1 leading-relaxed">With a cozy terrace offering a more elegant setting. Reservation required.</p>
-                  </div>
-
-                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900"><em>Mama Shelter</em> (Hotel / Restaurant) – Via Luigi Rizzo, 20 <span class="font-medium text-slate-500">(300m)</span></p>
-                    <p class="text-xs text-slate-600 mt-1 leading-relaxed">Large Roof-top under stars. International dishes. Reservation recommended.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- WINE BAR -->
-            <div class="food-drink-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-              <button onclick="toggleFoodDrinkSubSection('food-wine-bar', this)" class="w-full hover:bg-orange-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
-                <div class="flex items-center gap-3">
-                  <div class="p-3 bg-orange-100 text-orange-700 rounded-xl">
-                    <i class="fa-solid fa-wine-glass text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-slate-900 text-sm">Wine Bar</h3>
-                    <p class="text-[11px] text-slate-500">Wine, home-made dishes & suggestions</p>
-                  </div>
-                </div>
-                <i class="fa-solid fa-chevron-down food-drink-icon text-slate-400 text-xs transition-transform duration-200"></i>
-              </button>
-
-              <div id="food-wine-bar" class="food-drink-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
-                <div>
-                  <h3 class="text-sm font-bold text-orange-700 border-b border-slate-100 pb-2">Wine Bar</h3>
-                </div>
-                <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                  <p class="text-xs font-bold text-slate-900"><em>Solovino</em> – Via Rialto, 25 <span class="font-medium text-slate-500">(200m)</span></p>
-                  <p class="text-xs text-slate-600 mt-1 leading-relaxed">Wine bar providing also home-made dishes. Large choice of wines, staff well trained to provide suggestions and explanations.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- DELICATESSEN / GOURMET -->
-            <div class="food-drink-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-              <button onclick="toggleFoodDrinkSubSection('food-delicatessen', this)" class="w-full hover:bg-orange-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
-                <div class="flex items-center gap-3">
-                  <div class="p-3 bg-orange-100 text-orange-700 rounded-xl">
-                    <i class="fa-solid fa-cheese text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-slate-900 text-sm">Delicatessen / Gourmet</h3>
-                    <p class="text-[11px] text-slate-500">Deli, cured meats, cheeses, wines & delicacies</p>
-                  </div>
-                </div>
-                <i class="fa-solid fa-chevron-down food-drink-icon text-slate-400 text-xs transition-transform duration-200"></i>
-              </button>
-
-              <div id="food-delicatessen" class="food-drink-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
-                <div>
-                  <h3 class="text-sm font-bold text-orange-700 border-b border-slate-100 pb-2">Delicatessen / Gourmet</h3>
-                </div>
-                <div class="space-y-3">
-                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900"><em>La Tradizione</em> – Via Cipro 8/C <span class="font-medium text-slate-500">(200m)</span></p>
-                    <p class="text-xs text-slate-600 mt-1 leading-relaxed">Deli, cured meats, cheeses, wines, and delicacies. Huge selection.</p>
-                  </div>
-
-                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900"><em>Salumeria Paciotti</em> – Via Marcantonio Bragadin, 51 <span class="font-medium text-slate-500">(150m)</span></p>
-                    <p class="text-xs text-slate-600 mt-1 leading-relaxed">Specialists in cured meats and cheeses. The experience begins as soon as you enter.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- BAKERY -->
-            <div class="food-drink-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-              <button onclick="toggleFoodDrinkSubSection('food-bakery', this)" class="w-full hover:bg-orange-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
-                <div class="flex items-center gap-3">
-                  <div class="p-3 bg-orange-100 text-orange-700 rounded-xl">
-                    <i class="fa-solid fa-bread-slice text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-slate-900 text-sm">Bakery</h3>
-                    <p class="text-[11px] text-slate-500">Pizza al taglio & bakery specialties</p>
-                  </div>
-                </div>
-                <i class="fa-solid fa-chevron-down food-drink-icon text-slate-400 text-xs transition-transform duration-200"></i>
-              </button>
-
-              <div id="food-bakery" class="food-drink-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
-                <div>
-                  <h3 class="text-sm font-bold text-orange-700 border-b border-slate-100 pb-2">Bakery</h3>
-                </div>
-                <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                  <p class="text-xs font-bold text-slate-900"><em>Voglia di pane</em> – Via Marcantonio Bragadin, 81 <span class="font-medium text-slate-500">(100m)</span></p>
-                  <p class="text-xs text-slate-600 mt-1 leading-relaxed">Tasty «pizza al taglio» (takeaway) and some dishes you may eat there. With terrace.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- STREET MARKET -->
-            <div class="food-drink-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-              <button onclick="toggleFoodDrinkSubSection('food-street-market', this)" class="w-full hover:bg-orange-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
-                <div class="flex items-center gap-3">
-                  <div class="p-3 bg-orange-100 text-orange-700 rounded-xl">
-                    <i class="fa-solid fa-store text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-slate-900 text-sm">Street Market</h3>
-                    <p class="text-[11px] text-slate-500">Fresh local products & authentic Roman market</p>
-                  </div>
-                </div>
-                <i class="fa-solid fa-chevron-down food-drink-icon text-slate-400 text-xs transition-transform duration-200"></i>
-              </button>
-
-              <div id="food-street-market" class="food-drink-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
-                <div>
-                  <h3 class="text-sm font-bold text-orange-700 border-b border-slate-100 pb-2">Street Market</h3>
-                </div>
-                <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                  <p class="text-xs font-bold text-slate-900"><em>Mercato Trionfale</em> – Via Andrea Doria 41 <span class="font-medium text-slate-500">(~13 minutes walk)</span></p>
-                  <p class="text-xs text-slate-600 mt-1 leading-relaxed">One of the most beautiful and authentic street market in Rome. Vegetables, meat, fish, bakery, cheese, cured meat..</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- CAFÉ -->
-            <div class="food-drink-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-              <button onclick="toggleFoodDrinkSubSection('food-cafe', this)" class="w-full hover:bg-orange-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
-                <div class="flex items-center gap-3">
-                  <div class="p-3 bg-orange-100 text-orange-700 rounded-xl">
-                    <i class="fa-solid fa-mug-hot text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-slate-900 text-sm">Café</h3>
-                    <p class="text-[11px] text-slate-500">A Roman-style breakfast experience</p>
-                  </div>
-                </div>
-                <i class="fa-solid fa-chevron-down food-drink-icon text-slate-400 text-xs transition-transform duration-200"></i>
-              </button>
-
-              <div id="food-cafe" class="food-drink-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
-                <div>
-                  <h3 class="text-sm font-bold text-orange-700 border-b border-slate-100 pb-2">Café</h3>
-                </div>
-                <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                  <p class="text-xs text-slate-700 leading-relaxed">
-                    A tip for experiencing breakfast as Romans. Go to one of the 2 “Bar” just down the building in viale degli Ammiragli. Sit outside and enjoy the buzz of the city over a classic “cappuccino and cornetto”!
-                  </p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      `;
-    }
-
-    function renderLocalServicesSection(lang) {
-      const container = document.getElementById('local-services-content-container');
-      if (!container) return;
-
-      container.innerHTML = `
-        <div class="space-y-4 text-left">
-          <p class="text-xs text-slate-500 font-medium">Select a category below to view local services:</p>
-
-          <div class="space-y-3">
-
-            <!-- SUPERMARKET -->
-            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-              <button onclick="toggleLocalServicesSubSection('local-supermarket', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
-                <div class="flex items-center gap-3">
-                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
-                    <i class="fa-solid fa-cart-shopping text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-slate-900 text-sm">Supermarket</h3>
-                    <p class="text-[11px] text-slate-500">Groceries and everyday shopping</p>
-                  </div>
-                </div>
-                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
-              </button>
-
-              <div id="local-supermarket" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
-                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Supermarket</h3>
-                <div class="space-y-2">
-                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900"><em>Effepiù</em> – Via degli Ammiragli, 101 <span class="font-medium text-slate-500">(50m)</span></p>
-                  </div>
-                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900"><em>Tigre</em> – Via Anastasio II, 387 <span class="font-medium text-slate-500">(200m)</span></p>
-                  </div>
-                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900"><em>Carrefour Market</em> – Via Giulio Venticinque, 9 <span class="font-medium text-slate-500">(400m)</span></p>
-                    <p class="text-xs text-emerald-700 font-semibold mt-1">Open 24h/24h</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- ATM / BANK -->
-            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-              <button onclick="toggleLocalServicesSubSection('local-atm-bank', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
-                <div class="flex items-center gap-3">
-                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
-                    <i class="fa-solid fa-building-columns text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-slate-900 text-sm">ATM / Bank</h3>
-                    <p class="text-[11px] text-slate-500">Banks and cash withdrawal</p>
-                  </div>
-                </div>
-                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
-              </button>
-
-              <div id="local-atm-bank" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
-                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">ATM / Bank</h3>
-                <div class="space-y-2">
-                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900">Intesa Sanpaolo Bank – Via Anastasio II, 409 <span class="font-medium text-slate-500">(150m)</span></p>
-                  </div>
-                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900">Unicredit Bank – Vle degli Ammiragli, 13 <span class="font-medium text-slate-500">(200m)</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- PHARMACY -->
-            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-              <button onclick="toggleLocalServicesSubSection('local-pharmacy', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
-                <div class="flex items-center gap-3">
-                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
-                    <i class="fa-solid fa-prescription-bottle-medical text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-slate-900 text-sm">Pharmacy</h3>
-                    <p class="text-[11px] text-slate-500">Nearby pharmacy</p>
-                  </div>
-                </div>
-                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
-              </button>
-
-              <div id="local-pharmacy" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
-                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Pharmacy</h3>
-                <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                  <p class="text-xs font-bold text-slate-900">Farmacia Cipro – Viale degli Ammiragli, 33 <span class="font-medium text-slate-500">(200m)</span></p>
-                  <p class="text-xs text-emerald-700 font-semibold mt-1">Open 24h/24h</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- POSTAL SERVICES -->
-            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-              <button onclick="toggleLocalServicesSubSection('local-postal-services', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
-                <div class="flex items-center gap-3">
-                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
-                    <i class="fa-solid fa-envelope text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-slate-900 text-sm">Postal Services</h3>
-                    <p class="text-[11px] text-slate-500">Post office, parcels and pick-up</p>
-                  </div>
-                </div>
-                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
-              </button>
-
-              <div id="local-postal-services" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
-                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Postal Services</h3>
-                <div class="space-y-2">
-                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900">Public Post Office – Via Anastasio II, 374 <span class="font-medium text-slate-500">(300m)</span></p>
-                  </div>
-                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900">Parcel services / pick-up / Amazon counter: <em>Spartaco Express</em> – Via degli Ammiragli, 108 <span class="font-medium text-slate-500">(30m)</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- MALL / SHOPPING CENTRE -->
-            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-              <button onclick="toggleLocalServicesSubSection('local-mall', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99]">
-                <div class="flex items-center gap-3">
-                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
-                    <i class="fa-solid fa-store text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-slate-900 text-sm">Mall / Shopping centre</h3>
-                    <p class="text-[11px] text-slate-500">Shopping, branded shops and food</p>
-                  </div>
-                </div>
-                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
-              </button>
-
-              <div id="local-mall" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
-                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Mall / Shopping centre</h3>
-                <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl space-y-2">
-                  <p class="text-xs font-bold text-slate-900"><em>Centro Commerciale Aura</em> – Metro Valle Aurelia <span class="font-medium text-slate-500">(10 minutes walking)</span></p>
-                  <ul class="text-xs text-slate-700 list-disc list-inside space-y-1">
-                    <li>40+ shops / branded-shops</li>
-                    <li>10+ quality & fast-food</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      `;
-    }
-
     function renderGuideSection(lang) {
       const container = document.getElementById('guide-content-container');
+      if (!container) return;
 
       if (lang === 'en') {
         container.innerHTML = `
@@ -2156,70 +1811,102 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
     }
 
     function selectLanguage(lang) {
-      document.getElementById('current-lang-code').innerText = lang;
+      const codeEl = document.getElementById('current-lang-code');
+      if (codeEl) codeEl.innerText = lang;
+      
       const t = translations[lang] || translations['it'];
 
-      // Mappatura testi Welcome con titolo a 2 linee
-      document.getElementById('txt-welcome-line1').innerText = t.welcomeLine1;
-      document.getElementById('txt-welcome-line2').innerText = t.welcomeLine2;
-      document.getElementById('txt-welcome-subtitle').innerText = t.welcomeSubtitle || '';
-      document.getElementById('txt-welcome-body').innerText = t.welcomeBody;
-      document.getElementById('txt-btn-change-lang').innerText = t.changeLangBtn;
+      // Mappatura testi Welcome con titolo a 2 linee (con controlli sicuri)
+      const line1 = document.getElementById('txt-welcome-line1');
+      if (line1) line1.innerText = t.welcomeLine1 || '';
+      
+      const line2 = document.getElementById('txt-welcome-line2');
+      if (line2) line2.innerText = t.welcomeLine2 || '';
 
-      document.getElementById('txt-arrival-title').innerText = t.arrivalTitle;
+      const subTitle = document.getElementById('txt-welcome-subtitle');
+      if (subTitle) subTitle.innerText = t.welcomeSubtitle || '';
+
+      const body = document.getElementById('txt-welcome-body');
+      if (body) body.innerText = t.welcomeBody || '';
+
+      const btnChange = document.getElementById('txt-btn-change-lang');
+      if (btnChange) btnChange.innerText = t.changeLangBtn || '';
+
+      // Rendering delle sezioni dinamiche
+      const arrTitle = document.getElementById('txt-arrival-title');
+      if (arrTitle) arrTitle.innerText = t.arrivalTitle || '';
       renderArrivalSection(lang);
 
-      document.getElementById('txt-checkin-title').innerText = t.checkinTitle;
+      const chkTitle = document.getElementById('txt-checkin-title');
+      if (chkTitle) chkTitle.innerText = t.checkinTitle || '';
       renderCheckinSection(lang);
 
-      document.getElementById('txt-wifi-title').innerText = t.wifiTitle;
+      const wifiTitle = document.getElementById('txt-wifi-title');
+      if (wifiTitle) wifiTitle.innerText = t.wifiTitle || '';
       renderWifiSection(lang);
 
-      document.getElementById('txt-rules-title').innerText = t.rulesTitle;
+      const rulesTitle = document.getElementById('txt-rules-title');
+      if (rulesTitle) rulesTitle.innerText = t.rulesTitle || '';
       renderRulesSection(lang);
 
-      document.getElementById('txt-guide-title').innerText = t.guideTitle;
+      const guideTitle = document.getElementById('txt-guide-title');
+      if (guideTitle) guideTitle.innerText = t.guideTitle || '';
       renderGuideSection(lang);
 
-      document.getElementById('txt-transports-title').innerText = t.transportsTitle;
+      const transTitle = document.getElementById('txt-transports-title');
+      if (transTitle) transTitle.innerText = t.transportsTitle || '';
       renderTransportsSection(lang);
 
-      document.getElementById('txt-tips-title').innerText = t.tipsTitle;
+      const tipsTitle = document.getElementById('txt-tips-title');
+      if (tipsTitle) tipsTitle.innerText = t.tipsTitle || '';
       renderFoodDrinkSection(lang);
 
-      document.getElementById('txt-local-services-title').innerText = t.localServicesTitle;
+      const localTitle = document.getElementById('txt-local-services-title');
+      if (localTitle) localTitle.innerText = t.localServicesTitle || '';
       renderLocalServicesSection(lang);
 
-      document.getElementById('txt-checkout-title').innerText = t.checkoutTitle;
+      const outTitle = document.getElementById('txt-checkout-title');
+      if (outTitle) outTitle.innerText = t.checkoutTitle || '';
       renderCheckoutSection(lang);
 
-      document.getElementById('txt-contact-title').innerText = t.contactTitle;
+      const contactTitle = document.getElementById('txt-contact-title');
+      if (contactTitle) contactTitle.innerText = t.contactTitle || '';
       renderContactSection(lang);
 
-      document.getElementById('txt-emergency-title').innerText = t.emergencyTitle;
+      const emergTitle = document.getElementById('txt-emergency-title');
+      if (emergTitle) emergTitle.innerText = t.emergencyTitle || '';
       renderEmergencySection(lang);
 
-      document.getElementById('txt-disclaimer-title').innerText = t.disclaimerTitle;
+      const discTitle = document.getElementById('txt-disclaimer-title');
+      if (discTitle) discTitle.innerText = t.disclaimerTitle || '';
       renderDisclaimerSection(lang);
 
       // Etichette dock
-      document.getElementById('nav-welcome').innerText = t.navWelcome;
-      document.getElementById('nav-arrival').innerText = t.navArrival;
-      document.getElementById('nav-checkin').innerText = t.navCheckin;
-      document.getElementById('nav-wifi').innerText = t.navWifi;
-      document.getElementById('nav-rules').innerText = t.navRules;
-      document.getElementById('nav-guide').innerText = t.navGuide;
-      document.getElementById('nav-transports').innerText = t.navTransports;
-      document.getElementById('nav-tips').innerText = t.navTips;
-      document.getElementById('nav-local-services').innerText = t.navLocalServices;
-      document.getElementById('nav-checkout').innerText = t.navCheckout;
-      document.getElementById('nav-contact').innerText = t.navContact;
-      document.getElementById('nav-emergency').innerText = t.navEmergency;
-      document.getElementById('nav-disclaimer').innerText = t.navDisclaimer;
+      const setNavText = (id, text) => {
+        const el = document.getElementById(id);
+        if (el) el.innerText = text || '';
+      };
 
-      // Transizione schermata
-      document.getElementById('language-screen').classList.add('hidden-screen');
-      document.getElementById('app-screen').classList.remove('hidden-screen');
+      setNavText('nav-welcome', t.navWelcome);
+      setNavText('nav-arrival', t.navArrival);
+      setNavText('nav-checkin', t.navCheckin);
+      setNavText('nav-wifi', t.navWifi);
+      setNavText('nav-rules', t.navRules);
+      setNavText('nav-guide', t.navGuide);
+      setNavText('nav-transports', t.navTransports);
+      setNavText('nav-tips', t.navTips);
+      setNavText('nav-local-services', t.navLocalServices);
+      setNavText('nav-checkout', t.navCheckout);
+      setNavText('nav-contact', t.navContact);
+      setNavText('nav-emergency', t.navEmergency);
+      setNavText('nav-disclaimer', t.navDisclaimer);
+
+      // Transizione schermata (Landing Page -> Applicazione)
+      const langScreen = document.getElementById('language-screen');
+      const appScreen = document.getElementById('app-screen');
+      
+      if (langScreen) langScreen.classList.add('hidden-screen');
+      if (appScreen) appScreen.classList.remove('hidden-screen');
       
       // Inizializza Swiper dopo il cambio schermata
       setTimeout(() => {
@@ -2229,16 +1916,21 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
     }
 
     function showLanguageScreen() {
-      document.getElementById('app-screen').classList.add('hidden-screen');
-      document.getElementById('language-screen').classList.remove('hidden-screen');
+      const appScreen = document.getElementById('app-screen');
+      const langScreen = document.getElementById('language-screen');
+      
+      if (appScreen) appScreen.classList.add('hidden-screen');
+      if (langScreen) langScreen.classList.remove('hidden-screen');
       window.scrollTo(0, 0);
     }
 
     function copyWifiPassword(password, feedbackId) {
       navigator.clipboard.writeText(password).then(() => {
         const feedback = document.getElementById(feedbackId);
-        feedback.classList.remove('hidden');
-        setTimeout(() => feedback.classList.add('hidden'), 3000);
+        if (feedback) {
+          feedback.classList.remove('hidden');
+          setTimeout(() => feedback.classList.add('hidden'), 3000);
+        }
       });
     }
 
@@ -2246,6 +1938,8 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
     function openImageModal(imgSrc, isRotated = false) {
       const modal = document.getElementById('image-modal');
       const modalImg = document.getElementById('modal-img');
+      if (!modal || !modalImg) return;
+
       modalImg.src = imgSrc;
       
       if (isRotated) {
@@ -2260,8 +1954,10 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
 
     function closeImageModal() {
       const modal = document.getElementById('image-modal');
-      modal.classList.add('hidden');
-      document.body.style.overflow = '';
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
     }
 
     document.addEventListener('keydown', function(event) {
