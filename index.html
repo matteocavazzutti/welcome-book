@@ -68,7 +68,7 @@
 
       <div>
         <h2 class="text-xl font-bold text-slate-100">Accesso Riservato</h2>
-        <p class="text-xs text-slate-400 mt-1">Inserisci il PIN a 4 cifre fornito per accedere al Welcome Book</p>
+        <p class="text-xs text-slate-400 mt-1">Inserisci il PIN a 4 cifre per accedere al Welcome Book</p>
       </div>
 
       <!-- 4 Caselle Input PIN -->
@@ -129,9 +129,9 @@
       </button>
     </div>
 
-    <!-- Pulsante opzionale di Logout/Blocco -->
+    <!-- Pulsante di Logout/Blocco -->
     <div class="mt-8 text-center">
-      <button type="button" onclick="logoutPin()" class="text-[11px] text-slate-400 hover:text-slate-600 flex items-center justify-center gap-1.5 mx-auto">
+      <button type="button" onclick="logoutPin()" class="text-[11px] text-slate-400 hover:text-slate-600 flex items-center justify-center gap-1.5 mx-auto cursor-pointer">
         <i class="fa-solid fa-lock text-xs"></i>
         <span>Blocca accesso</span>
       </button>
@@ -465,8 +465,7 @@
   <!-- ========================================== -->
   <script>
     // -------------------------------------------------------------
-    // GESTIONE SICUREZZA & BLOCCO PIN
-    // Default PIN: "1234" (Hash SHA-256)
+    // GESTIONE SICUREZZA & BLOCCO PIN (Default: 1234)
     // -------------------------------------------------------------
     const CORRECT_PIN_HASH = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4";
     const AUTH_KEY = "terrazza_auth_hash";
@@ -492,7 +491,6 @@
         return true;
       }
 
-      // Blocco terminato
       localStorage.removeItem('pin_lock_until');
       localStorage.removeItem('pin_error_count');
       pinInputs.forEach(input => input.disabled = false);
@@ -538,7 +536,6 @@
         const hashed = await computeHash(enteredPin);
 
         if (hashed === CORRECT_PIN_HASH) {
-          // Accesso riuscito: Salva autorizzazione per 90 giorni (~3 mesi)
           const expireAt = Date.now() + (90 * 24 * 60 * 60 * 1000);
           localStorage.setItem(AUTH_KEY, JSON.stringify({ hash: hashed, expire: expireAt }));
           localStorage.removeItem('pin_error_count');
@@ -546,7 +543,6 @@
           
           showScreen('language-screen');
         } else {
-          // Errore: incremento tentativi falliti
           let errors = parseInt(localStorage.getItem('pin_error_count') || '0', 10) + 1;
           localStorage.setItem('pin_error_count', errors);
 
@@ -564,7 +560,6 @@
       }
     }
 
-    // Configurazione eventi tastiera PIN
     pinInputs.forEach((input, idx) => {
       input.addEventListener('input', (e) => {
         if (pinErrorEl && !localStorage.getItem('pin_lock_until')) pinErrorEl.textContent = "";
@@ -614,14 +609,12 @@
     }
 
     // Controllo iniziale all'avvio
-    document.addEventListener("DOMContentLoaded", () => {
-      if (isUserAuthenticated()) {
-        showScreen('language-screen');
-      } else {
-        showScreen('auth-screen');
-        checkLockoutState();
-      }
-    });
+    if (isUserAuthenticated()) {
+      showScreen('language-screen');
+    } else {
+      showScreen('auth-screen');
+      checkLockoutState();
+    }
 
     // -------------------------------------------------------------
     // GESTIONE DIZIONARI, TRADUZIONI & CONTENUTI DELL'APP
@@ -1206,7 +1199,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
                 </div>
               </div>
 
-              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-lg">
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-lg flex-shrink-0">
                 <i class="fa-solid fa-dog text-lg"></i>
                 <div>
                   <h4 class="text-xs font-bold text-slate-900">Pets</h4>
@@ -2375,12 +2368,16 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
     }
 
     function selectLanguage(lang) {
+      // 1. Cambio schermata immediato
+      showScreen('app-screen');
+
+      // 2. Aggiornamento codice lingua
       const codeEl = document.getElementById('current-lang-code');
       if (codeEl) codeEl.innerText = lang;
       
       const t = translations[lang] || translations['it'];
 
-      // Mappatura testi Welcome
+      // 3. Mappatura testi Welcome
       const line1 = document.getElementById('txt-welcome-line1');
       if (line1) line1.innerText = t.welcomeLine1 || '';
       
@@ -2396,56 +2393,21 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       const btnChange = document.getElementById('txt-btn-change-lang');
       if (btnChange) btnChange.innerText = t.changeLangBtn || '';
 
-      // Rendering delle sezioni dinamiche
-      const arrTitle = document.getElementById('txt-arrival-title');
-      if (arrTitle) arrTitle.innerText = t.arrivalTitle || '';
+      // 4. Rendering sezioni
       renderArrivalSection(lang);
-
-      const chkTitle = document.getElementById('txt-checkin-title');
-      if (chkTitle) chkTitle.innerText = t.checkinTitle || '';
       renderCheckinSection(lang);
-
-      const wifiTitle = document.getElementById('txt-wifi-title');
-      if (wifiTitle) wifiTitle.innerText = t.wifiTitle || '';
       renderWifiSection(lang);
-
-      const rulesTitle = document.getElementById('txt-rules-title');
-      if (rulesTitle) rulesTitle.innerText = t.rulesTitle || '';
       renderRulesSection(lang);
-
-      const guideTitle = document.getElementById('txt-guide-title');
-      if (guideTitle) guideTitle.innerText = t.guideTitle || '';
       renderGuideSection(lang);
-
-      const transTitle = document.getElementById('txt-transports-title');
-      if (transTitle) transTitle.innerText = t.transportsTitle || '';
       renderTransportsSection(lang);
-
-      const tipsTitle = document.getElementById('txt-tips-title');
-      if (tipsTitle) tipsTitle.innerText = t.tipsTitle || '';
       renderFoodDrinkSection(lang);
-
-      const localTitle = document.getElementById('txt-local-services-title');
-      if (localTitle) localTitle.innerText = t.localServicesTitle || '';
       renderLocalServicesSection(lang);
-
-      const outTitle = document.getElementById('txt-checkout-title');
-      if (outTitle) outTitle.innerText = t.checkoutTitle || '';
       renderCheckoutSection(lang);
-
-      const contactTitle = document.getElementById('txt-contact-title');
-      if (contactTitle) contactTitle.innerText = t.contactTitle || '';
       renderContactSection(lang);
-
-      const emergTitle = document.getElementById('txt-emergency-title');
-      if (emergTitle) emergTitle.innerText = t.emergencyTitle || '';
       renderEmergencySection(lang);
-
-      const discTitle = document.getElementById('txt-disclaimer-title');
-      if (discTitle) discTitle.innerText = t.disclaimerTitle || '';
       renderDisclaimerSection(lang);
 
-      // Etichette dock
+      // 5. Etichette dock
       const setNavText = (id, text) => {
         const el = document.getElementById(id);
         if (el) el.innerText = text || '';
@@ -2465,10 +2427,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       setNavText('nav-emergency', t.navEmergency);
       setNavText('nav-disclaimer', t.navDisclaimer);
 
-      // Transizione schermata (Landing Page -> Applicazione)
-      showScreen('app-screen');
-      
-      // Inizializza Swiper dopo il cambio schermata
+      // 6. Inizializzazione navigatore Swiper
       setTimeout(() => {
         initSwiperNav();
         switchTabContent('welcome');
