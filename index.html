@@ -1228,10 +1228,6 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
 
       container.innerHTML = `
         <div class="space-y-4 text-left">
-          <p class="text-xs text-slate-500 font-medium">
-            Our selection of places <strong>at walking distance</strong> to enjoy food, drinks, local products
-          </p>
-
           <div class="space-y-3">
 
             <!-- RESTAURANTS -->
@@ -1859,23 +1855,23 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
           <div class="space-y-4 text-left">
             <div class="space-y-3">
 
-              <!-- 0. TOURISTIC INFO -->
+              <!-- 0. OFFICIAL RESSOURCES -->
               <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-                <button type="button" onclick="toggleTransportSubSection('transport-touristic-info', this)" class="w-full hover:bg-indigo-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                <button type="button" onclick="toggleTransportSubSection('transport-official-resources', this)" class="w-full hover:bg-indigo-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
                   <div class="flex items-center gap-3">
                     <div class="p-3 bg-indigo-100 text-indigo-700 rounded-xl">
                       <i class="fa-solid fa-circle-info text-lg"></i>
                     </div>
                     <div>
-                      <h3 class="font-bold text-slate-900 text-sm">Touristic Info</h3>
+                      <h3 class="font-bold text-slate-900 text-sm">Official Ressources</h3>
                       <p class="text-[11px] text-slate-500">Official tourism portals, events & transit websites</p>
                     </div>
                   </div>
                   <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
                 </button>
 
-                <div id="transport-touristic-info" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
-                  <h3 class="text-sm font-bold text-indigo-700 border-b border-slate-100 pb-2">Touristic Info & Links</h3>
+                <div id="transport-official-resources" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                  <h3 class="text-sm font-bold text-indigo-700 border-b border-slate-100 pb-2">Official Ressources & Links</h3>
                   
                   <div class="space-y-2">
                     <div class="p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all">
@@ -2016,101 +2012,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
                 </div>
               </div>
 
-              <!-- 2. OUR TIPS -->
-              <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-                <button type="button" onclick="toggleTransportSubSection('transport-tips', this)" class="w-full hover:bg-amber-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
-                  <div class="flex items-center gap-3">
-                    <div class="p-3 bg-amber-100 text-amber-700 rounded-xl">
-                      <i class="fa-regular fa-lightbulb text-lg"></i>
-                    </div>
-                    <div>
-                      <h3 class="font-bold text-slate-900 text-sm">Our Tips</h3>
-                      <p class="text-[11px] text-slate-500">Useful advice for moving around Rome</p>
-                    </div>
-                  </div>
-                  <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
-                </button>
-
-                <div id="transport-tips" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
-                  <ul class="text-xs text-slate-700 space-y-2 list-disc list-inside pl-1 leading-relaxed">
-                    <li>Use the <strong>Metro</strong> station to reach all main sights efficiently.</li>
-                    <li>Enjoy <strong>walking</strong> in Rome — it is often the best way to explore!</li>
-                    <li>Use <strong>buses</strong> in locations where the metro is not directly available.</li>
-                    <li><strong>Use Apps</strong> for transit itineraries: we recommend <a href="https://citymapper.com" target="_blank" class="text-amber-600 font-semibold underline">citymapper.com</a></li>
-                    <li class="text-rose-800">In touristic spots and on public transport, <strong>look carefully after your belongings at all times</strong>. Pickpockets operate frequently in crowded areas.</li>
-                  </ul>
-                </div>
-              </div>
-
-              <!-- 3. GET TO MAIN SIGHTS -->
-              <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-                <button type="button" onclick="toggleTransportSubSection('transport-sights', this)" class="w-full hover:bg-amber-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
-                  <div class="flex items-center gap-3">
-                    <div class="p-3 bg-amber-100 text-amber-700 rounded-xl">
-                      <i class="fa-solid fa-monument text-lg"></i>
-                    </div>
-                    <div>
-                      <h3 class="font-bold text-slate-900 text-sm">Get to main sights</h3>
-                      <p class="text-[11px] text-slate-500">Routes and transit times to key attractions</p>
-                    </div>
-                  </div>
-                  <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
-                </button>
-
-                <div id="transport-sights" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
-                  <h3 class="text-sm font-bold text-amber-700 border-b border-slate-100 pb-2">How to reach Rome's top sights</h3>
-                  <div class="overflow-x-auto">
-                    <table class="w-full text-left text-xs border-collapse">
-                      <thead>
-                        <tr class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
-                          <th class="p-2.5">Destination</th>
-                          <th class="p-2.5">Line / Route</th>
-                          <th class="p-2.5 whitespace-nowrap">Travel Time</th>
-                        </tr>
-                      </thead>
-                      <tbody class="divide-y divide-slate-100 text-slate-700">
-                        <tr>
-                          <td class="p-2.5 font-semibold">Colosseum, Roman Forum, Palatine Hill</td>
-                          <td class="p-2.5">Metro A (Cipro → Termini) + Metro B (Termini → Colosseo)</td>
-                          <td class="p-2.5 whitespace-nowrap font-medium text-amber-700">~25 min</td>
-                        </tr>
-                        <tr>
-                          <td class="p-2.5 font-semibold">Piazza Venezia, Capitoline Hill (Campidoglio)</td>
-                          <td class="p-2.5">Bus 492 (Cipro → Venezia)</td>
-                          <td class="p-2.5 whitespace-nowrap font-medium text-amber-700">~30 min</td>
-                        </tr>
-                        <tr>
-                          <td class="p-2.5 font-semibold">Piazza di Spagna, Trevi Fountain</td>
-                          <td class="p-2.5">Metro A (Cipro → Spagna)</td>
-                          <td class="p-2.5 whitespace-nowrap font-medium text-amber-700">~15 min</td>
-                        </tr>
-                        <tr>
-                          <td class="p-2.5 font-semibold">Piazza Navona, Campo de' Fiori, Pantheon</td>
-                          <td class="p-2.5">Bus 492 (Cipro → Rinascimento)</td>
-                          <td class="p-2.5 whitespace-nowrap font-medium text-amber-700">~25 min</td>
-                        </tr>
-                        <tr>
-                          <td class="p-2.5 font-semibold">Piazza del Popolo / Villa Borghese / Pincio</td>
-                          <td class="p-2.5">Metro A (Cipro → Flaminio)</td>
-                          <td class="p-2.5 whitespace-nowrap font-medium text-amber-700">~20 min</td>
-                        </tr>
-                        <tr>
-                          <td class="p-2.5 font-semibold">Vatican (St. Peter's Basilica), Castel Sant'Angelo</td>
-                          <td class="p-2.5">Metro A (Cipro → Ottaviano)</td>
-                          <td class="p-2.5 whitespace-nowrap font-medium text-amber-700">~20 min</td>
-                        </tr>
-                        <tr>
-                          <td class="p-2.5 font-semibold">Vatican Museums</td>
-                          <td class="p-2.5">On foot</td>
-                          <td class="p-2.5 whitespace-nowrap font-medium text-amber-700">~15 min</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 4. METRO / BUS -->
+              <!-- 2. METRO / BUS -->
               <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
                 <button type="button" onclick="toggleTransportSubSection('transport-metrobus', this)" class="w-full hover:bg-indigo-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
                   <div class="flex items-center gap-3">
@@ -2144,39 +2046,131 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
                 </div>
               </div>
 
-              <!-- 5. TICKETING -->
+              <!-- 3. PREPARE YOUR TOUR (NESTED) -->
               <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-                <button type="button" onclick="toggleTransportSubSection('transport-tickets', this)" class="w-full hover:bg-indigo-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                <button type="button" onclick="toggleTransportSubSection('transport-prepare-tour', this)" class="w-full hover:bg-amber-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
                   <div class="flex items-center gap-3">
-                    <div class="p-3 bg-slate-200 text-slate-700 rounded-xl">
-                      <i class="fa-solid fa-ticket text-lg"></i>
+                    <div class="p-3 bg-amber-100 text-amber-700 rounded-xl">
+                      <i class="fa-solid fa-map-signs text-lg"></i>
                     </div>
                     <div>
-                      <h3 class="font-bold text-slate-900 text-sm">Ticketing</h3>
-                      <p class="text-[11px] text-slate-500">Tap & Go and Paper Tickets</p>
+                      <h3 class="font-bold text-slate-900 text-sm">Prepare your tour</h3>
+                      <p class="text-[11px] text-slate-500">Tips, Sights & Tickets</p>
                     </div>
                   </div>
                   <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
                 </button>
 
-                <div id="transport-tickets" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
-                  <h3 class="text-sm font-bold text-slate-800 border-b border-slate-100 pb-2">How to Pay for Transport</h3>
-                  <div class="space-y-3">
-                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
-                      <strong class="text-slate-900">“Tap & Go” Service:</strong>
-                      <p class="text-slate-600 leading-relaxed">Pay instantly at turnstiles or on board with your contactless credit/debit card. No extra fees apply.</p>
-                      <p class="text-amber-700 font-semibold text-[11px] pt-1">Note: Each traveler must tap using a separate card.</p>
-                    </div>
-
-                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
-                      <strong class="text-slate-900">Paper Tickets:</strong>
-                      <p class="text-slate-600 leading-relaxed">Available at self-service ticket machines located in any Metro station, as well as in newsstands (Edicola) and tobacco shops (Tabacchi).</p>
+                <div id="transport-prepare-tour" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                  
+                  <!-- NESTED 1: OUR TIPS -->
+                  <div class="border border-slate-100 rounded-xl overflow-hidden bg-slate-50 transition-all">
+                    <button type="button" onclick="toggleNestedTransportSubSection('nested-tips', this)" class="w-full hover:bg-slate-100 p-3 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                      <div class="flex items-center gap-2">
+                        <i class="fa-regular fa-lightbulb text-amber-600 text-sm"></i>
+                        <span class="font-bold text-slate-800 text-xs">Our Tips</span>
+                      </div>
+                      <i class="fa-solid fa-chevron-down nested-transport-icon text-slate-400 text-[10px] transition-transform duration-200"></i>
+                    </button>
+                    <div id="nested-tips" class="nested-transport-subsection hidden p-3 border-t border-slate-100 bg-white space-y-3">
+                      <ul class="text-xs text-slate-700 space-y-2 list-disc list-inside pl-1 leading-relaxed">
+                        <li>Use the <strong>Metro</strong> station to reach all main sights efficiently.</li>
+                        <li>Enjoy <strong>walking</strong> in Rome — it is often the best way to explore!</li>
+                        <li>Use <strong>buses</strong> in locations where the metro is not directly available.</li>
+                        <li><strong>Use Apps</strong> for transit itineraries: we recommend <a href="https://citymapper.com" target="_blank" class="text-amber-600 font-semibold underline">citymapper.com</a></li>
+                        <li class="text-rose-800">In touristic spots and on public transport, <strong>look carefully after your belongings at all times</strong>. Pickpockets operate frequently in crowded areas.</li>
+                      </ul>
                     </div>
                   </div>
+
+                  <!-- NESTED 2: GET TO MAIN SIGHTS -->
+                  <div class="border border-slate-100 rounded-xl overflow-hidden bg-slate-50 transition-all">
+                    <button type="button" onclick="toggleNestedTransportSubSection('nested-sights', this)" class="w-full hover:bg-slate-100 p-3 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                      <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-monument text-amber-600 text-sm"></i>
+                        <span class="font-bold text-slate-800 text-xs">Get to main sights</span>
+                      </div>
+                      <i class="fa-solid fa-chevron-down nested-transport-icon text-slate-400 text-[10px] transition-transform duration-200"></i>
+                    </button>
+                    <div id="nested-sights" class="nested-transport-subsection hidden p-3 border-t border-slate-100 bg-white space-y-3">
+                      <h3 class="text-[11px] font-bold text-amber-700 border-b border-slate-100 pb-1">How to reach Rome's top sights</h3>
+                      <div class="overflow-x-auto">
+                        <table class="w-full text-left text-[10px] border-collapse">
+                          <thead>
+                            <tr class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                              <th class="p-2">Destination</th>
+                              <th class="p-2">Line / Route</th>
+                              <th class="p-2 whitespace-nowrap">Time</th>
+                            </tr>
+                          </thead>
+                          <tbody class="divide-y divide-slate-100 text-slate-700">
+                            <tr>
+                              <td class="p-2 font-semibold">Colosseum, Roman Forum, Palatine Hill</td>
+                              <td class="p-2">Metro A (Cipro → Termini) + Metro B (Termini → Colosseo)</td>
+                              <td class="p-2 whitespace-nowrap font-medium text-amber-700">~25 min</td>
+                            </tr>
+                            <tr>
+                              <td class="p-2 font-semibold">Piazza Venezia, Capitoline Hill</td>
+                              <td class="p-2">Bus 492 (Cipro → Venezia)</td>
+                              <td class="p-2 whitespace-nowrap font-medium text-amber-700">~30 min</td>
+                            </tr>
+                            <tr>
+                              <td class="p-2 font-semibold">Piazza di Spagna, Trevi Fountain</td>
+                              <td class="p-2">Metro A (Cipro → Spagna)</td>
+                              <td class="p-2 whitespace-nowrap font-medium text-amber-700">~15 min</td>
+                            </tr>
+                            <tr>
+                              <td class="p-2 font-semibold">Piazza Navona, Campo de' Fiori, Pantheon</td>
+                              <td class="p-2">Bus 492 (Cipro → Rinascimento)</td>
+                              <td class="p-2 whitespace-nowrap font-medium text-amber-700">~25 min</td>
+                            </tr>
+                            <tr>
+                              <td class="p-2 font-semibold">Piazza del Popolo / Villa Borghese</td>
+                              <td class="p-2">Metro A (Cipro → Flaminio)</td>
+                              <td class="p-2 whitespace-nowrap font-medium text-amber-700">~20 min</td>
+                            </tr>
+                            <tr>
+                              <td class="p-2 font-semibold">Vatican, Castel Sant'Angelo</td>
+                              <td class="p-2">Metro A (Cipro → Ottaviano)</td>
+                              <td class="p-2 whitespace-nowrap font-medium text-amber-700">~20 min</td>
+                            </tr>
+                            <tr>
+                              <td class="p-2 font-semibold">Vatican Museums</td>
+                              <td class="p-2">On foot</td>
+                              <td class="p-2 whitespace-nowrap font-medium text-amber-700">~15 min</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- NESTED 3: TICKETING -->
+                  <div class="border border-slate-100 rounded-xl overflow-hidden bg-slate-50 transition-all">
+                    <button type="button" onclick="toggleNestedTransportSubSection('nested-tickets', this)" class="w-full hover:bg-slate-100 p-3 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                      <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-ticket text-slate-500 text-sm"></i>
+                        <span class="font-bold text-slate-800 text-xs">Ticketing</span>
+                      </div>
+                      <i class="fa-solid fa-chevron-down nested-transport-icon text-slate-400 text-[10px] transition-transform duration-200"></i>
+                    </button>
+                    <div id="nested-tickets" class="nested-transport-subsection hidden p-3 border-t border-slate-100 bg-white space-y-3">
+                      <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                        <strong class="text-slate-900">“Tap & Go” Service:</strong>
+                        <p class="text-slate-600 leading-relaxed">Pay instantly at turnstiles or on board with your contactless credit/debit card. No extra fees apply.</p>
+                        <p class="text-amber-700 font-semibold text-[11px] pt-1">Note: Each traveler must tap using a separate card.</p>
+                      </div>
+                      <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                        <strong class="text-slate-900">Paper Tickets:</strong>
+                        <p class="text-slate-600 leading-relaxed">Available at self-service ticket machines located in any Metro station, as well as in newsstands (Edicola) and tobacco shops (Tabacchi).</p>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
 
-              <!-- 6. TAXI -->
+              <!-- 4. TAXI -->
               <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
                 <button type="button" onclick="toggleTransportSubSection('transport-taxi', this)" class="w-full hover:bg-yellow-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
                   <div class="flex items-center gap-3">
@@ -2220,7 +2214,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
                 </div>
               </div>
 
-              <!-- 7. CAR PARKING -->
+              <!-- 5. CAR PARKING -->
               <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
                 <button type="button" onclick="toggleTransportSubSection('transport-parking', this)" class="w-full hover:bg-blue-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
                   <div class="flex items-center gap-3">
@@ -2692,6 +2686,25 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
         targetContent.classList.remove('hidden');
         if (btnElement) {
           const icon = btnElement.querySelector('.transport-icon');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+      }
+    }
+
+    // Nuova funzione per i menu annidati (dentro a Prepare your tour)
+    function toggleNestedTransportSubSection(sectionId, btnElement) {
+      const targetContent = document.getElementById(sectionId);
+      if (!targetContent) return;
+
+      const isHidden = targetContent.classList.contains('hidden');
+
+      document.querySelectorAll('.nested-transport-subsection').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.nested-transport-icon').forEach(icon => icon.style.transform = 'rotate(0deg)');
+
+      if (isHidden) {
+        targetContent.classList.remove('hidden');
+        if (btnElement) {
+          const icon = btnElement.querySelector('.nested-transport-icon');
           if (icon) icon.style.transform = 'rotate(180deg)';
         }
       }
