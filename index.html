@@ -412,6 +412,7 @@
     </nav>
   </div>
 
+
   <!-- ========================================== -->
   <!-- 3. MODAL FULLSCREEN PER VISUALIZZAZIONE FOTO-->
   <!-- ========================================== -->
@@ -646,6 +647,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         arrivalTitle: "How to Reach Us",
         checkinContact: "Sonia is your point of contact",
         checkinTitle: "Check-in",
+        enjoyTitle: "Enjoy!",
         checkoutTitle: "Check-out procedure",
         rulesTitle: "House Rules",
         guideTitle: "House Guide",
@@ -2380,192 +2382,6 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       `;
     }
 
-    function renderLocalServicesSection(lang) {
-      const container = document.getElementById('local-services-content-container');
-      if (!container) return;
-
-      container.innerHTML = `
-        <div class="space-y-4 text-left">
-          <div class="space-y-3">
-
-            <!-- SUPERMARKET -->
-            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-              <button type="button" onclick="toggleLocalServicesSubSection('local-supermarket', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
-                <div class="flex items-center gap-3">
-                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
-                    <i class="fa-solid fa-cart-shopping text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-slate-900 text-sm">Supermarket</h3>
-                    <p class="text-[11px] text-slate-500">Groceries and everyday shopping</p>
-                  </div>
-                </div>
-                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
-              </button>
-
-              <div id="local-supermarket" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
-                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Supermarket</h3>
-                <div class="space-y-2">
-                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900"><em>Effepiù</em> – Via degli Ammiragli, 101 <span class="font-medium text-slate-500">(50m)</span></p>
-                  </div>
-                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900"><em>Tigre</em> – Via Anastasio II, 387 <span class="font-medium text-slate-500">(200m)</span></p>
-                  </div>
-                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900"><em>Carrefour Market</em> – Via Giulio Venticinque, 9 <span class="font-medium text-slate-500">(400m)</span></p>
-                    <p class="text-xs text-emerald-700 font-semibold mt-1">Open 24h/24h</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- ATM / BANK -->
-            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-              <button type="button" onclick="toggleLocalServicesSubSection('local-atm-bank', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
-                <div class="flex items-center gap-3">
-                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
-                    <i class="fa-solid fa-building-columns text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-slate-900 text-sm">ATM / Bank</h3>
-                    <p class="text-[11px] text-slate-500">Banks and cash withdrawal</p>
-                  </div>
-                </div>
-                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
-              </button>
-
-              <div id="local-atm-bank" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
-                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">ATM / Bank</h3>
-                <div class="space-y-2">
-                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900">Intesa Sanpaolo Bank – Via Anastasio II, 409 <span class="font-medium text-slate-500">(150m)</span></p>
-                  </div>
-                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900">Unicredit Bank – Vle degli Ammiragli, 13 <span class="font-medium text-slate-500">(200m)</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- PHARMACY -->
-            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-              <button type="button" onclick="toggleLocalServicesSubSection('local-pharmacy', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
-                <div class="flex items-center gap-3">
-                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
-                    <i class="fa-solid fa-prescription-bottle-medical text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-slate-900 text-sm">Pharmacy</h3>
-                    <p class="text-[11px] text-slate-500">Nearby pharmacy</p>
-                  </div>
-                </div>
-                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
-              </button>
-
-              <div id="local-pharmacy" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
-                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Pharmacy</h3>
-                <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                  <p class="text-xs font-bold text-slate-900">Farmacia Cipro – Viale degli Ammiragli, 33 <span class="font-medium text-slate-500">(200m)</span></p>
-                  <p class="text-xs text-emerald-700 font-semibold mt-1">Open 24h/24h</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- POSTAL SERVICES -->
-            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-              <button type="button" onclick="toggleLocalServicesSubSection('local-postal-services', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
-                <div class="flex items-center gap-3">
-                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
-                    <i class="fa-solid fa-envelope text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-slate-900 text-sm">Postal Services</h3>
-                    <p class="text-[11px] text-slate-500">Post office, parcels and pick-up</p>
-                  </div>
-                </div>
-                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
-              </button>
-
-              <div id="local-postal-services" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
-                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Postal Services</h3>
-                <div class="space-y-2">
-                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900">Public Post Office – Via Anastasio II, 374 <span class="font-medium text-slate-500">(300m)</span></p>
-                  </div>
-                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900">Parcel services / pick-up / Amazon counter: <em>Spartaco Express</em> – Via degli Ammiragli, 108 <span class="font-medium text-slate-500">(30m)</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- MALL / SHOPPING CENTRE -->
-            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-              <button type="button" onclick="toggleLocalServicesSubSection('local-mall', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
-                <div class="flex items-center gap-3">
-                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
-                    <i class="fa-solid fa-store text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-slate-900 text-sm">Mall / Shopping centre</h3>
-                    <p class="text-[11px] text-slate-500">Shopping, branded shops and food</p>
-                  </div>
-                </div>
-                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
-              </button>
-
-              <div id="local-mall" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
-                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Mall / Shopping centre</h3>
-                <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl space-y-2">
-                  <p class="text-xs font-bold text-slate-900"><em>Centro Commerciale Aura</em> – Metro Valle Aurelia <span class="font-medium text-slate-500">(10 minutes walking)</span></p>
-                  <ul class="text-xs text-slate-700 list-disc list-inside space-y-1">
-                    <li>40+ shops / branded-shops</li>
-                    <li>10+ quality & fast-food</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- LUGGAGE STORAGE -->
-            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-              <button type="button" onclick="toggleLocalServicesSubSection('local-luggage', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
-                <div class="flex items-center gap-3">
-                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
-                    <i class="fa-solid fa-suitcase-rolling text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-slate-900 text-sm">Luggage Storage</h3>
-                    <p class="text-[11px] text-slate-500">Drop off your bags nearby</p>
-                  </div>
-                </div>
-                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
-              </button>
-
-              <div id="local-luggage" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
-                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Bounce Network</h3>
-                <ul class="text-xs text-slate-700 space-y-2.5 list-disc list-outside pl-4">
-                  <li>
-                    There are 3 locations in the immediate vicinity where you can leave your luggage using Bounce. Online booking is mandatory.
-                    <div class="pt-1.5 pb-0.5">
-                      <a href="https://usebounce.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold py-1.5 px-3 rounded-lg border border-emerald-200 transition-all active:scale-95 shadow-sm">
-                        <span>Visit bounce.com</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                      </a>
-                    </div>
-                  </li>
-                  <li>
-                    <strong>EXCLUSIVE: Contact Sonia</strong> to get a special discount code negotiated specifically for our guests.
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      `;
-    }
-
     function toggleLocalServicesSubSection(sectionId, btnElement) {
       const targetContent = document.getElementById(sectionId);
       if (!targetContent) return;
@@ -2620,6 +2436,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       }
     }
 
+    // Nuova funzione per i menu annidati (dentro a Prepare your tour)
     function toggleNestedTransportSubSection(sectionId, btnElement) {
       const targetContent = document.getElementById(sectionId);
       if (!targetContent) return;
@@ -2692,15 +2509,19 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
     function showTab(tabId) {
       switchTabContent(tabId);
       if (navSwiper) {
+        // Ordine esatto dei tab in basso (assicurati che sia identico all'HTML)
         const tabsOrder = [
           'welcome', 'arrival', 'checkin', 'wifi', 'rules', 'guide',
           'transports', 'tips', 'local-services', 'enjoy', 'checkout', 'contact',
           'emergency', 'disclaimer'
         ];
         
+        // Trova la posizione (indice) del tab di destinazione
         const realIndex = tabsOrder.indexOf(tabId);
+        
         if (realIndex !== -1) {
           isProgrammaticSlide = true;
+          // Muove il menu Swiper alla posizione esatta sfruttando l'indice corretto
           navSwiper.slideToLoop(realIndex, 300);
           setTimeout(() => { isProgrammaticSlide = false; }, 350);
         }
@@ -2713,6 +2534,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       
       const t = translations[lang] || translations['it'];
 
+      // Mappatura testi Welcome su 2 linee
       const elLine1 = document.getElementById('txt-welcome-line1');
       if (elLine1) elLine1.innerText = t.welcomeLine1 || '';
       
