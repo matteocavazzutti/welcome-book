@@ -71,8 +71,9 @@
   <!-- ========================================== -->
   <div id="auth-screen" class="min-h-screen flex flex-col justify-center items-center p-6 text-center bg-slate-50">
     
-    <div class="mb-6 w-64 max-h-16 overflow-hidden pointer-events-none select-none">
-      <img src="skyline-roma.png" alt="Roma Skyline" class="w-full h-auto object-contain mx-auto">
+    <!-- Modifica 2: Skyline larghezza piena -->
+    <div class="mb-6 w-full max-h-20 overflow-hidden pointer-events-none select-none">
+      <img src="skyline-roma.png" alt="Roma Skyline" class="w-full h-auto object-contain mx-auto max-h-20">
     </div>
 
     <h1 class="text-xl font-bold text-slate-900 mb-2">Area Riservata / Restricted Area</h1>
@@ -97,8 +98,9 @@
   <!-- ========================================== -->
   <div id="language-screen" class="hidden-screen min-h-screen flex flex-col justify-center items-center p-6 text-center bg-slate-50">
     
-    <div class="mb-3 w-64 max-h-16 overflow-hidden pointer-events-none select-none">
-      <img src="skyline-roma.png" alt="Roma Skyline" class="w-full h-auto object-contain mx-auto">
+    <!-- Modifica 2: Skyline larghezza piena -->
+    <div class="mb-3 w-full max-h-20 overflow-hidden pointer-events-none select-none">
+      <img src="skyline-roma.png" alt="Roma Skyline" class="w-full h-auto object-contain mx-auto max-h-20">
     </div>
 
     <div class="mb-5 w-64 h-32 rounded-2xl overflow-hidden shadow-md border-4 border-white cursor-zoom-in" onclick="openImageModal('Gemini_Generated_Image_1.png')">
@@ -561,7 +563,7 @@
 
     const translations = {
       it: {
-        welcomeLine1: "Benvenuti alla",
+        welcomeLine1: "Benvenuti a Roma, alla",
         welcomeLine2: "Terrazza di Maria !",
         welcomeSubtitle: "Grazie mille per aver scelto il nostro appartamento per il vostro soggiorno a Roma!",
         welcomeBody: `Siamo una famiglia italo-francese appassionata di viaggi. Abbiamo arredato e attrezzato questo appartamento per rendere la vostra esperienza indimenticabile!
@@ -580,6 +582,7 @@ Per qualsiasi necessità, non esitate a contattarci: saremo felici di aiutarvi!`
         wifiTitle: "Connessione Wi-Fi",
         arrivalTitle: "Il tuo Arrivo",
         arrivalBody: "Indirizzo: Via Sebastiano Ziani, 47, Roma. Se arrivi in auto trovi parcheggio lungo la via o al garage convenzionato a 100m.",
+        checkinContact: "Sonia è il tuo punto di contatto",
         checkinTitle: "Check-in",
         checkinBody: "Orario Check-in: Dalle 15:00 alle 20:00. Per il Self Check-in inserisci il codice sulla tastiera all'ingresso principale.",
         checkoutTitle: "Check-out Procedure",
@@ -610,8 +613,8 @@ Per qualsiasi necessità, non esitate a contattarci: saremo felici di aiutarvi!`
         navDisclaimer: "Disclaimer"
       },
       en: {
-        welcomeLine1: "Welcome to",
-        welcomeLine2: "Maria’s Terrace !",
+        welcomeLine1: "Welcome to Rome, to",
+        welcomeLine2: "Maria's Terrace !",
         welcomeSubtitle: "Thank you very much for choosing our apartment for your stay in Rome!",
         welcomeBody: `We are an Italian/French family who loves travelling. We furnished, decorated and equipped this apartment with the purpose of making your stay experience unforgettable!
 
@@ -626,6 +629,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         disclaimerTitle: "Disclaimer",
         wifiTitle: "Wifi internet connection",
         arrivalTitle: "How to Reach Us",
+        checkinContact: "Sonia is your point of contact",
         checkinTitle: "Check-in",
         checkoutTitle: "Check-out procedure",
         rulesTitle: "House Rules",
@@ -652,7 +656,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         navDisclaimer: "Disclaimer"
       },
       fr: {
-        welcomeLine1: "Bienvenue à la",
+        welcomeLine1: "Bienvenue à Rome, à la",
         welcomeLine2: "Terrazza di Maria !",
         welcomeSubtitle: "Merci beaucoup d'avoir choisi notre appartement pour votre séjour à Rome !",
         welcomeBody: `Nous sommes une famille franco-italienne passionnée de voyages. Nous avons décoré et équipé cet appartement pour rendre votre séjour inoubliable !
@@ -671,6 +675,7 @@ Si vous avez besoin d'aide, contactez-nous : nous serons ravis de vous aider !`,
         wifiTitle: "Connexion Wi-Fi",
         arrivalTitle: "Votre Arrivée",
         arrivalBody: "Adresse: Via Sebastiano Ziani, 47, Roma. Stationnement disponible dans la rue ou dans le garage partenaire.",
+        checkinContact: "Sonia est votre point de contact",
         checkinTitle: "Check-in",
         checkinBody: "Arrivée : de 15h00 à 20h00. Pour le Self Check-in, entrez votre code sur le clavier de la porte principale.",
         checkoutTitle: "Check-out",
@@ -700,8 +705,8 @@ Si vous avez besoin d'aide, contactez-nous : nous serons ravis de vous aider !`,
         navDisclaimer: "Disclaimer"
       },
       de: {
-        welcomeLine1: "Willkommen auf",
-        welcomeLine2: "Maria’s Terrasse!",
+        welcomeLine1: "Willkommen in Rom, auf",
+        welcomeLine2: "Maria's Terrasse !",
         welcomeSubtitle: "Vielen Dank, dass Sie sich für unsere Wohnung in Rom entschieden haben!",
         welcomeBody: `Wir sind eine italienisch-französische Familie, die das Reisen liebt. Wir haben dieses Apartment so eingerichtet, dass Ihr Aufenthalt unvergesslich wird!
 
@@ -719,6 +724,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
         wifiTitle: "WLAN-Verbindung",
         arrivalTitle: "Ihre Anreise",
         arrivalBody: "Adresse: Via Sebastiano Ziani, 47, Roma. Parkplätze finden Sie in der Straße oder in der Garage in 100m Entfernung.",
+        checkinContact: "Sonia ist Ihr Ansprechpartner",
         checkinTitle: "Check-in",
         checkinBody: "Check-in Zeit: 15:00 bis 20:00 Uhr. Für den Self Check-in geben Sie den Code am Eingang ein.",
         checkoutTitle: "Check-out",
@@ -1024,8 +1030,23 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       const container = document.getElementById('checkin-content-container');
       if (!container) return;
 
+      const t = translations[lang] || translations['it'];
+      
+      // Modifica 3: Pulsante di reindirizzamento al contatto
+      const contactBtn = `
+        <div class="mb-4">
+          <button type="button" onclick="showTab('contact')" class="w-full flex items-center justify-between p-3.5 bg-indigo-50 border border-indigo-200 rounded-xl hover:bg-indigo-100 transition-all active:scale-[0.98] shadow-sm">
+            <div class="flex items-center gap-3 text-indigo-700">
+              <i class="fa-solid fa-address-card text-lg"></i>
+              <span class="font-bold text-sm text-left leading-tight">${t.checkinContact}</span>
+            </div>
+            <i class="fa-solid fa-arrow-right text-indigo-500"></i>
+          </button>
+        </div>
+      `;
+
       if (lang === 'en') {
-        container.innerHTML = `
+        container.innerHTML = contactBtn + `
           <div class="space-y-4 text-left">
             <div class="p-4 bg-slate-50/80 border border-slate-100 rounded-xl space-y-1">
               <div class="flex items-center gap-2 text-slate-900 font-bold text-sm">
@@ -1062,8 +1083,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
           </div>
         `;
       } else {
-        const t = translations[lang] || translations['it'];
-        container.innerHTML = `<p class="text-sm text-slate-600 leading-relaxed">${t.checkinBody}</p>`;
+        container.innerHTML = contactBtn + `<p class="text-sm text-slate-600 leading-relaxed">${t.checkinBody}</p>`;
       }
     }
 
