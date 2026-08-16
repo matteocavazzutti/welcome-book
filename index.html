@@ -141,7 +141,7 @@
       <div class="max-w-md mx-auto flex justify-between items-center">
         <div>
           <h1 class="text-lg font-bold tracking-wide">Terrazza di Maria</h1>
-          <p class="text-xs text-slate-400">Welcome Book</p>
+          <p class="text-xs text-slate-400">Welcome Book v3</p>
         </div>
         
         <button type="button" onclick="showLanguageScreen()" class="bg-slate-800 hover:bg-slate-700 text-xs px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-2 cursor-pointer">
@@ -276,7 +276,18 @@
         <div id="tips-content-container"></div>
       </section>
 
-      <!-- 9. LOCAL SERVICES -->
+      <!-- 9. ENJOY -->
+      <section id="enjoy" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-3 bg-pink-100 text-pink-600 rounded-xl">
+            <i class="fa-solid fa-camera-retro text-xl"></i>
+          </div>
+          <h2 id="txt-enjoy-title" class="text-xl font-bold text-slate-900"></h2>
+        </div>
+        <div id="enjoy-content-container"></div>
+      </section>
+
+      <!-- 10. LOCAL SERVICES -->
       <section id="local-services" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-emerald-100 text-emerald-600 rounded-xl">
@@ -287,7 +298,7 @@
         <div id="local-services-content-container"></div>
       </section>
 
-      <!-- 10. CHECK-OUT -->
+      <!-- 11. CHECK-OUT -->
       <section id="checkout" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-red-100 text-red-600 rounded-xl">
@@ -298,7 +309,7 @@
         <div id="checkout-content-container"></div>
       </section>
 
-      <!-- 11. CONTACT POINT -->
+      <!-- 12. CONTACT POINT -->
       <section id="contact" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-amber-100 text-amber-600 rounded-xl">
@@ -309,7 +320,7 @@
         <div id="contact-content-container"></div>
       </section>
 
-      <!-- 12. EMERGENCY INFO -->
+      <!-- 13. EMERGENCY INFO -->
       <section id="emergency" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-rose-100 text-rose-600 rounded-xl">
@@ -320,7 +331,7 @@
         <div id="emergency-content-container"></div>
       </section>
 
-      <!-- 13. DISCLAIMER -->
+      <!-- 14. DISCLAIMER -->
       <section id="disclaimer" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
         <div class="flex items-center space-x-3 mb-4">
           <div class="p-3 bg-slate-100 text-slate-600 rounded-xl">
@@ -369,6 +380,11 @@
             <div class="swiper-slide" data-tab="tips">
               <i class="fa-solid fa-utensils text-lg text-slate-600"></i>
               <span id="nav-tips" class="text-[9px] text-slate-500 mt-1 text-center leading-tight"></span>
+            </div>
+            <!-- NUOVO MENU ENJOY -->
+            <div class="swiper-slide" data-tab="enjoy">
+              <i class="fa-solid fa-camera-retro text-lg text-slate-600"></i>
+              <span id="nav-enjoy" class="text-[9px] text-slate-500 mt-1 text-center leading-tight"></span>
             </div>
             <div class="swiper-slide" data-tab="local-services">
               <i class="fa-solid fa-location-dot text-lg text-slate-600"></i>
@@ -595,6 +611,8 @@ Per qualsiasi necessità, non esitate a contattarci: saremo felici di aiutarvi!`
         tipsBody: "Ristorante consigliato: 'Osteria del Mare' (a 200m).\nCaffè & Colazione: Bar Central.\nSupermercato aperto fino alle 20:30 a 150m.",
         localServicesTitle: "Local Services",
         emergencyTitle: "Emergency",
+        
+        enjoyTitle: "Enjoy!",
 
         navWelcome: "Home",
         navArrival: "Arrivo",
@@ -604,6 +622,7 @@ Per qualsiasi necessità, non esitate a contattarci: saremo felici di aiutarvi!`
         navGuide: "House Guide",
         navTransports: "Trasporti & Tour",
         navTips: "Local Tips",
+        navEnjoy: "Enjoy!",
         navLocalServices: "Local Services",
         navCheckout: "Check-out",
         navContact: "Contatti",
@@ -638,6 +657,8 @@ Should you need any help, contact us: we will be delighted to support you!`,
         tipsBody: "Recommended Restaurant: 'Osteria del Mare' (200m).\nCoffee & Breakfast: Bar Central.\nSupermarket 150m away, open until 8:30 PM.",
         localServicesTitle: "Local Services",
         emergencyTitle: "Emergency",
+        
+        enjoyTitle: "Enjoy!",
 
         navWelcome: "Home",
         navArrival: "Arrival",
@@ -647,6 +668,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         navGuide: "House Guide",
         navTransports: "Transports & Tours",
         navTips: "Local Tips",
+        navEnjoy: "Enjoy!",
         navLocalServices: "Local Services",
         navCheckout: "Check-out",
         navContact: "Contact",
@@ -687,6 +709,8 @@ Si vous avez besoin d'aide, contactez-nous : nous serons ravis de vous aider !`,
         tipsBody: "Restaurant recommandé : 'Osteria del Mare'.\nCafé : Bar Central.\nSupermarché à 150m.",
         localServicesTitle: "Local Services",
         emergencyTitle: "Emergency",
+        
+        enjoyTitle: "Enjoy!",
 
         navWelcome: "Accueil",
         navArrival: "Arrivée",
@@ -696,6 +720,7 @@ Si vous avez besoin d'aide, contactez-nous : nous serons ravis de vous aider !`,
         navGuide: "House Guide",
         navTransports: "Transports & Tours",
         navTips: "Local Tips",
+        navEnjoy: "Enjoy!",
         navLocalServices: "Local Services",
         navCheckout: "Check-out",
         navContact: "Contact",
@@ -736,6 +761,8 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
         tipsBody: "Empfohlenes Restaurant: 'Osteria del Mare'.\nCafé: Bar Central.\nSupermarkt 150m entfernt.",
         localServicesTitle: "Local Services",
         emergencyTitle: "Emergency",
+        
+        enjoyTitle: "Enjoy!",
 
         navWelcome: "Start",
         navArrival: "Anreise",
@@ -745,6 +772,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
         navGuide: "House Guide",
         navTransports: "Transport & Touren",
         navTips: "Local Tips",
+        navEnjoy: "Enjoy!",
         navLocalServices: "Local Services",
         navCheckout: "Check-out",
         navContact: "Kontakt",
@@ -1410,6 +1438,31 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
               </div>
             </div>
 
+          </div>
+        </div>
+      `;
+    }
+
+    // Rendering per la nuova sezione Enjoy!
+    function renderEnjoySection(lang) {
+      const container = document.getElementById('enjoy-content-container');
+      if (!container) return;
+
+      container.innerHTML = `
+        <div class="space-y-4 text-left">
+          <p class="text-xs text-slate-500 font-medium">Discover Rome's best kept secrets and enjoy your stay to the fullest.</p>
+
+          <div class="mb-3 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in shadow-sm border border-slate-200/80" onclick="openImageModal('segreto_di_maria.png')">
+            <img src="segreto_di_maria.png" alt="Il Segreto di Maria" class="w-full h-auto object-cover object-center group-hover:scale-105 transition-transform duration-300">
+          </div>
+
+          <div class="p-4 bg-pink-50/80 border border-pink-100 rounded-xl space-y-2">
+            <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <i class="fa-solid fa-key text-pink-600"></i> The Aventine Keyhole
+            </h3>
+            <p class="text-xs text-slate-700 leading-relaxed">
+              Through this unassuming keyhole in Piazza dei Cavalieri di Malta, you can experience a perfectly framed view of the St. Peter's Basilica dome. A magical and secret view of Rome waiting for you.
+            </p>
           </div>
         </div>
       `;
@@ -2854,7 +2907,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
         // Ordine esatto dei tab in basso (assicurati che sia identico all'HTML)
         const tabsOrder = [
           'welcome', 'arrival', 'checkin', 'wifi', 'rules', 'guide',
-          'transports', 'tips', 'local-services', 'checkout', 'contact',
+          'transports', 'tips', 'enjoy', 'local-services', 'checkout', 'contact',
           'emergency', 'disclaimer'
         ];
         
@@ -2920,6 +2973,11 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       const tipsTitle = document.getElementById('txt-tips-title');
       if (tipsTitle) tipsTitle.innerText = t.tipsTitle || '';
       renderFoodDrinkSection(lang);
+      
+      // Rendering nuova sezione Enjoy
+      const enjoyTitle = document.getElementById('txt-enjoy-title');
+      if (enjoyTitle) enjoyTitle.innerText = t.enjoyTitle || 'Enjoy!';
+      renderEnjoySection(lang);
 
       const localTitle = document.getElementById('txt-local-services-title');
       if (localTitle) localTitle.innerText = t.localServicesTitle || '';
@@ -2955,6 +3013,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       setNavText('nav-guide', t.navGuide);
       setNavText('nav-transports', t.navTransports);
       setNavText('nav-tips', t.navTips);
+      setNavText('nav-enjoy', t.navEnjoy);
       setNavText('nav-local-services', t.navLocalServices);
       setNavText('nav-checkout', t.navCheckout);
       setNavText('nav-contact', t.navContact);
