@@ -1168,7 +1168,6 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
                 </div>
               </div>
 
-              <!-- MODIFICA 3: Spostato 'Security of your belongings' qui -->
               <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
                 <div class="p-2.5 bg-indigo-100 text-indigo-600 rounded-lg flex-shrink-0">
                   <i class="fa-solid fa-lock text-lg"></i>
@@ -1194,8 +1193,8 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
                 </div>
               </div>
 
-              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-lg flex-shrink-0">
-                <div class="p-2.5 bg-emerald-100 text-emerald-600 rounded-lg">
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-emerald-100 text-emerald-600 rounded-lg flex-shrink-0">
                   <i class="fa-solid fa-dog text-lg"></i>
                 </div>
                 <div>
@@ -1206,14 +1205,13 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
 
               <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
                 <div class="p-2.5 bg-orange-100 text-orange-600 rounded-lg flex-shrink-0">
-                  <i class="fa-solid fa-wine-glass-crack text-lg"></i>
+                  <i class="fa-solid fa-house-crack text-lg"></i>
                 </div>
                 <div>
                   <h4 class="text-xs font-bold text-slate-900">Broken / lost items policy</h4>
                   <p class="text-xs text-slate-600 mt-0.5">Please inform us promptly of any damage or missing items. Failure to do so may result in charges for those damages.</p>
                 </div>
               </div>
-
             </div>
           </div>
         `;
@@ -1423,8 +1421,6 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
 
       container.innerHTML = `
         <div class="space-y-4 text-left">
-          <p class="text-xs text-slate-500 font-medium">Select a category below to view local services:</p>
-
           <div class="space-y-3">
 
             <!-- SUPERMARKET -->
@@ -1826,8 +1822,6 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       if (lang === 'en') {
         container.innerHTML = `
           <div class="space-y-4 text-left">
-            <p class="text-xs text-slate-500 font-medium">Select a category below to view transport information and tips:</p>
-
             <div class="space-y-3">
 
               <!-- 0. TOURISTIC INFO -->
@@ -1944,7 +1938,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
                         <span class="text-xs font-bold text-slate-900">Touristic Map</span>
                       </div>
                       <span class="text-[10px] font-bold uppercase tracking-wider bg-amber-200/80 text-amber-900 px-2 py-0.5 rounded-full flex items-center gap-1">
-                        ★ Top
+                        ★
                         <i class="fa-solid fa-arrow-up-right-from-square text-[9px] group-hover:translate-x-0.5 transition-transform"></i>
                       </span>
                     </a>
@@ -1955,7 +1949,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
                         <span class="text-xs font-bold text-slate-900">Transports city center</span>
                       </div>
                       <span class="text-[10px] font-bold uppercase tracking-wider bg-amber-200/80 text-amber-900 px-2 py-0.5 rounded-full flex items-center gap-1">
-                        ★ Top
+                        ★
                         <i class="fa-solid fa-arrow-up-right-from-square text-[9px] group-hover:translate-x-0.5 transition-transform"></i>
                       </span>
                     </a>
@@ -2487,7 +2481,37 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
             </div>
           </div>
 
-          <!-- 2. HOSPITAL -->
+          <!-- 2. ENGLISH SPEAKING DOCTORS -->
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
+            <div class="flex items-start gap-4">
+              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
+                <span class="text-[11px] font-bold text-slate-800 uppercase mb-2 leading-tight">English speaking doctors and facilities</span>
+                <div class="relative p-2.5 bg-teal-100 text-teal-600 rounded-2xl">
+                  <i class="fa-solid fa-user-doctor text-2xl"></i>
+                  <span class="fi fi-gb absolute -bottom-1 -right-1 text-xs border border-white rounded-sm"></span>
+                </div>
+              </div>
+              <div class="text-xs space-y-2 flex-1">
+                <div>
+                  <a href="${doctorsDocUrl}" target="_blank" rel="noopener noreferrer" class="font-bold text-blue-600 hover:text-blue-700 underline flex items-center gap-1">
+                    <span>Download the list or scan the code</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                  </a>
+                </div>
+                <div class="text-slate-500 text-[11px] space-y-0.5">
+                  <p>Source: US Consulate in Italy.</p>
+                  <p>Last update: May 2026</p>
+                </div>
+                <div class="pt-1">
+                  <div class="inline-block bg-white p-2 rounded-xl border border-slate-200 shadow-sm">
+                    <img src="${qrCodeUrl}" alt="English Speaking Doctors List QR" class="w-24 h-24">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. HOSPITAL -->
           <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
             <div class="flex items-start gap-4">
               <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
@@ -2507,7 +2531,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
             </div>
           </div>
 
-          <!-- 3. POLICE DEPARTMENT -->
+          <!-- 4. POLICE DEPARTMENT -->
           <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
             <div class="flex items-start gap-4">
               <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
@@ -2526,7 +2550,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
             </div>
           </div>
 
-          <!-- 4. PHARMACY -->
+          <!-- 5. PHARMACY -->
           <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
             <div class="flex items-start gap-4">
               <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
@@ -2546,7 +2570,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
             </div>
           </div>
 
-          <!-- 5. FIRST-AID KIT -->
+          <!-- 6. FIRST-AID KIT -->
           <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
             <div class="flex items-start gap-4">
               <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
@@ -2563,7 +2587,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
             </div>
           </div>
 
-          <!-- 6. FIRE EXTINGUISHER -->
+          <!-- 7. FIRE EXTINGUISHER -->
           <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
             <div class="flex items-start gap-4">
               <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
@@ -2576,35 +2600,6 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
                 <p class="text-slate-700 leading-relaxed font-medium">
                   The fire-extinguisher in the apartment is located in the corridor.
                 </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 7. ENGLISH SPEAKING DOCTORS -->
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
-            <div class="flex items-start gap-4">
-              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
-                <span class="text-[11px] font-bold text-slate-800 uppercase mb-2 leading-tight">English-speaking doctors and medical facilities in Rome</span>
-                <div class="p-2.5 bg-teal-100 text-teal-600 rounded-2xl">
-                  <i class="fa-solid fa-user-doctor text-2xl"></i>
-                </div>
-              </div>
-              <div class="text-xs space-y-2 flex-1">
-                <div>
-                  <a href="${doctorsDocUrl}" target="_blank" rel="noopener noreferrer" class="font-bold text-blue-600 hover:text-blue-700 underline flex items-center gap-1">
-                    <span>Download the list or scan the code</span>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                  </a>
-                </div>
-                <div class="text-slate-500 text-[11px] space-y-0.5">
-                  <p>Source: US Consulate in Italy.</p>
-                  <p>Last update: May 2026</p>
-                </div>
-                <div class="pt-1">
-                  <div class="inline-block bg-white p-2 rounded-xl border border-slate-200 shadow-sm">
-                    <img src="${qrCodeUrl}" alt="English Speaking Doctors List QR" class="w-24 h-24">
-                  </div>
-                </div>
               </div>
             </div>
           </div>
