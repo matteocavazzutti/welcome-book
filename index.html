@@ -1168,6 +1168,22 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
                 </div>
               </div>
 
+              <!-- MODIFICA 3: Spostato 'Security of your belongings' qui -->
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                <div class="p-2.5 bg-indigo-100 text-indigo-600 rounded-lg flex-shrink-0">
+                  <i class="fa-solid fa-lock text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Security of your belongings</h4>
+                  <p class="text-xs text-slate-600 mt-0.5">Every time you leave the apartment, please:</p>
+                  <ul class="text-xs text-slate-600 list-disc list-inside mt-1 space-y-0.5">
+                    <li>Close windows bars, windows and shutters</li>
+                    <li>Switch off the AC, heater fan, and lights</li>
+                    <li>Lock the front door (double-lock)</li>
+                  </ul>
+                </div>
+              </div>
+
               <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
                 <div class="p-2.5 bg-blue-100 text-blue-600 rounded-lg flex-shrink-0">
                   <i class="fa-solid fa-couch text-lg"></i>
@@ -1189,21 +1205,6 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
               </div>
 
               <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
-                <div class="p-2.5 bg-indigo-100 text-indigo-600 rounded-lg flex-shrink-0">
-                  <i class="fa-solid fa-lock text-lg"></i>
-                </div>
-                <div>
-                  <h4 class="text-xs font-bold text-slate-900">Security of your belongings</h4>
-                  <p class="text-xs text-slate-600 mt-0.5">Every time you leave the apartment, please:</p>
-                  <ul class="text-xs text-slate-600 list-disc list-inside mt-1 space-y-0.5">
-                    <li>Close windows bars, windows and shutters</li>
-                    <li>Switch off the AC, heater fan, and lights</li>
-                    <li>Lock the front door (double-lock)</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
                 <div class="p-2.5 bg-orange-100 text-orange-600 rounded-lg flex-shrink-0">
                   <i class="fa-solid fa-wine-glass-crack text-lg"></i>
                 </div>
@@ -1212,6 +1213,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
                   <p class="text-xs text-slate-600 mt-0.5">Please inform us promptly of any damage or missing items. Failure to do so may result in charges for those damages.</p>
                 </div>
               </div>
+
             </div>
           </div>
         `;
@@ -1580,168 +1582,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
 
             <div class="space-y-3">
 
-              <!-- 1. KITCHEN BLOCK -->
-              <div class="guide-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-                <button type="button" onclick="toggleGuideSubSection('guide-kitchen', this)" class="w-full hover:bg-teal-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
-                  <div class="flex items-center gap-3">
-                    <div class="p-3 bg-teal-100 text-teal-700 rounded-xl">
-                      <i class="fa-solid fa-utensils text-lg"></i>
-                    </div>
-                    <div>
-                      <h3 class="font-bold text-slate-900 text-sm">Kitchen</h3>
-                      <p class="text-[11px] text-slate-500">Appliances, Coffee Machines, Tools</p>
-                    </div>
-                  </div>
-                  <i class="fa-solid fa-chevron-down guide-icon text-slate-400 text-xs transition-transform duration-200"></i>
-                </button>
-
-                <div id="guide-kitchen" class="guide-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
-                  <h3 class="text-sm font-bold text-teal-700 border-b border-slate-100 pb-2">Kitchen Appliances</h3>
-                  <p class="text-xs text-slate-600">Appliances at your disposal include: washing machine, dishwasher, toaster, water boiler, espresso machine.</p>
-
-                  <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-slate-700">
-                    <strong>Pro Tip:</strong> Please note that inside the first drawer near the oven, there is a second 'hidden' drawer stocked with plenty of kitchen tools. Be sure to check this out!
-                  </div>
-
-                  <div class="space-y-3 pt-2">
-                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
-                      <i class="fa-solid fa-soap text-lg text-teal-600 mt-1"></i>
-                      <div class="text-xs">
-                        <strong>Washing machine:</strong> Detergent pods are available in the base cabinet to the right of the machine.
-                      </div>
-                    </div>
-
-                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
-                      <i class="fa-solid fa-sink text-lg text-teal-600 mt-1"></i>
-                      <div class="text-xs">
-                        <strong>Dish-washer:</strong> Detergent pods are at your disposal in the base cabinet, on the right side of the washing machine.
-                      </div>
-                    </div>
-
-                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
-                      <i class="fa-solid fa-mug-hot text-lg text-teal-600 mt-1"></i>
-                      <div class="text-xs">
-                        <strong>Espresso coffee machine:</strong> Works with Lavazza's <em>« A Modo Mio »</em> capsules. Complimentary set for you to enjoy during your stay!
-                      </div>
-                    </div>
-
-                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 space-y-2">
-                      <div class="flex items-start gap-3">
-                        <i class="fa-solid fa-coffee text-lg text-teal-600 mt-1"></i>
-                        <div class="text-xs">
-                          <strong>"Moka" coffee maker:</strong> This is the iconic Italian home-made coffee machine.
-                        </div>
-                      </div>
-                      <a href="https://youtube.com/shorts/JA2dBog-8Dg" target="_blank" class="inline-flex items-center gap-2 text-xs text-rose-600 font-bold bg-rose-50 hover:bg-rose-100 px-3 py-1.5 rounded-lg border border-rose-200 transition-all">
-                        <i class="fa-brands fa-youtube text-base"></i>
-                        <span>Watch the 60" video tutorial</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 2. BATHROOM / TOILET BLOCK -->
-              <div class="guide-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-                <button type="button" onclick="toggleGuideSubSection('guide-toilet', this)" class="w-full hover:bg-teal-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
-                  <div class="flex items-center gap-3">
-                    <div class="p-3 bg-teal-100 text-teal-700 rounded-xl">
-                      <i class="fa-solid fa-bath text-lg"></i>
-                    </div>
-                    <div>
-                      <h3 class="font-bold text-slate-900 text-sm">Bathroom / Toilet</h3>
-                      <p class="text-[11px] text-slate-500">Water Supply, Utilities & Heater</p>
-                    </div>
-                  </div>
-                  <i class="fa-solid fa-chevron-down guide-icon text-slate-400 text-xs transition-transform duration-200"></i>
-                </button>
-
-                <div id="guide-toilet" class="guide-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
-                  <h3 class="text-sm font-bold text-teal-700 border-b border-slate-100 pb-2">Bathroom / Toilet</h3>
-                  
-                  <div class="bg-rose-50 border border-rose-200 p-3 rounded-xl text-xs text-rose-800 font-medium">
-                    Please flush only toilet paper. For all other waste, please use the bin provided.
-                  </div>
-
-                  <div class="space-y-3">
-                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
-                      <strong>Water supply:</strong>
-                      <p class="text-slate-600">There is a water pump to ensure consistent water pressure. Please allow 5-10 seconds for the water flow to stabilize.</p>
-                    </div>
-
-                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
-                      <strong>Utilities:</strong>
-                      <p class="text-slate-600">For your convenience, in the cabinet (left hand), you will find: drying rack, iron, ironing board, vacuum, tools, and first aid kit.</p>
-                      <p class="text-slate-600 pt-1">Inside the right-hand compartment, you will find four empty baskets for your personal use.</p>
-                    </div>
-
-                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-2">
-                      <strong>Electric heater (bathroom):</strong>
-                      <p class="text-slate-600">Plug it only when needed.</p>
-                      <ul class="list-disc list-inside text-slate-600 space-y-0.5">
-                        <li>On: push ⏻</li>
-                        <li>Set the temperature: +/-</li>
-                        <li>Off: push ⏻ twice</li>
-                      </ul>
-                      <div class="bg-amber-50 p-2.5 rounded-lg border border-amber-200 text-[11px] text-amber-900 mt-2">
-                        As a safety precaution, please ensure <strong>all electrical appliances are unplugged</strong> once you have finished using them.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 3. LIVING ROOM & BEDROOM BLOCK -->
-              <div class="guide-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-                <button type="button" onclick="toggleGuideSubSection('guide-living', this)" class="w-full hover:bg-teal-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
-                  <div class="flex items-center gap-3">
-                    <div class="p-3 bg-teal-100 text-teal-700 rounded-xl">
-                      <i class="fa-solid fa-bed text-lg"></i>
-                    </div>
-                    <div>
-                      <h3 class="font-bold text-slate-900 text-sm">Living room & Bedroom</h3>
-                      <p class="text-[11px] text-slate-500">Air-conditioning, Smart TV & Lights</p>
-                    </div>
-                  </div>
-                  <i class="fa-solid fa-chevron-down guide-icon text-slate-400 text-xs transition-transform duration-200"></i>
-                </button>
-
-                <div id="guide-living" class="guide-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
-                  <h3 class="text-sm font-bold text-teal-700 border-b border-slate-100 pb-2">Living room & Bedroom</h3>
-
-                  <div class="space-y-3">
-                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
-                      <i class="fa-solid fa-temperature-arrow-up text-lg text-teal-600 mt-1"></i>
-                      <div class="text-xs space-y-1">
-                        <strong>Air-conditioning:</strong>
-                        <p class="text-slate-600">There are two AC units: one in the living area and one in the bedroom, providing both cooling and heating.</p>
-                        <p class="text-slate-800 font-semibold">Please switch them off when you leave the rooms.</p>
-                        <p class="text-slate-500 text-[11px]">Remotes are located right by the doors. Please put them back after use.</p>
-                      </div>
-                    </div>
-
-                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
-                      <i class="fa-solid fa-tv text-lg text-teal-600 mt-1"></i>
-                      <div class="text-xs space-y-1">
-                        <strong>Smart TV:</strong>
-                        <p class="text-slate-600">Feel free to connect with your account to your preferred streaming platform if you want to watch your own movies and series.</p>
-                        <p class="text-rose-700 font-medium">Before leaving, don't forget to log out from your accounts.</p>
-                      </div>
-                    </div>
-
-                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
-                      <i class="fa-solid fa-lightbulb text-lg text-teal-600 mt-1"></i>
-                      <div class="text-xs space-y-1">
-                        <strong>Lights in the bedroom:</strong>
-                        <p class="text-slate-600">Floor Lamp: operated by switches (1 at the door, 2 next to each bed side).</p>
-                        <p class="text-slate-600">Bedside Lamps: operated via the built-in switches, on the right side of each fixture.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 4. TERRACE BLOCK -->
+              <!-- 1. TERRACE BLOCK -->
               <div class="guide-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
                 <button type="button" onclick="toggleGuideSubSection('guide-terrace', this)" class="w-full hover:bg-teal-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
                   <div class="flex items-center gap-3">
@@ -1803,6 +1644,167 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
                         <li>Remove any object which may fall because of wind</li>
                         <li>Close windows bars, windows and shutters</li>
                       </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. LIVING ROOM & BEDROOM BLOCK -->
+              <div class="guide-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button type="button" onclick="toggleGuideSubSection('guide-living', this)" class="w-full hover:bg-teal-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-teal-100 text-teal-700 rounded-xl">
+                      <i class="fa-solid fa-bed text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Living room & Bedroom</h3>
+                      <p class="text-[11px] text-slate-500">Air-conditioning, Smart TV & Lights</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down guide-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="guide-living" class="guide-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
+                  <h3 class="text-sm font-bold text-teal-700 border-b border-slate-100 pb-2">Living room & Bedroom</h3>
+
+                  <div class="space-y-3">
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <i class="fa-solid fa-temperature-arrow-up text-lg text-teal-600 mt-1"></i>
+                      <div class="text-xs space-y-1">
+                        <strong>Air-conditioning:</strong>
+                        <p class="text-slate-600">There are two AC units: one in the living area and one in the bedroom, providing both cooling and heating.</p>
+                        <p class="text-slate-800 font-semibold">Please switch them off when you leave the rooms.</p>
+                        <p class="text-slate-500 text-[11px]">Remotes are located right by the doors. Please put them back after use.</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <i class="fa-solid fa-tv text-lg text-teal-600 mt-1"></i>
+                      <div class="text-xs space-y-1">
+                        <strong>Smart TV:</strong>
+                        <p class="text-slate-600">Feel free to connect with your account to your preferred streaming platform if you want to watch your own movies and series.</p>
+                        <p class="text-rose-700 font-medium">Before leaving, don't forget to log out from your accounts.</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <i class="fa-solid fa-lightbulb text-lg text-teal-600 mt-1"></i>
+                      <div class="text-xs space-y-1">
+                        <strong>Lights in the bedroom:</strong>
+                        <p class="text-slate-600">Floor Lamp: operated by switches (1 at the door, 2 next to each bed side).</p>
+                        <p class="text-slate-600">Bedside Lamps: operated via the built-in switches, on the right side of each fixture.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. KITCHEN BLOCK -->
+              <div class="guide-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button type="button" onclick="toggleGuideSubSection('guide-kitchen', this)" class="w-full hover:bg-teal-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-teal-100 text-teal-700 rounded-xl">
+                      <i class="fa-solid fa-utensils text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Kitchen</h3>
+                      <p class="text-[11px] text-slate-500">Appliances, Coffee Machines, Tools</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down guide-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="guide-kitchen" class="guide-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
+                  <h3 class="text-sm font-bold text-teal-700 border-b border-slate-100 pb-2">Kitchen Appliances</h3>
+                  <p class="text-xs text-slate-600">Appliances at your disposal include: washing machine, dishwasher, toaster, water boiler, espresso machine.</p>
+
+                  <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-slate-700">
+                    <strong>Pro Tip:</strong> Please note that inside the first drawer near the oven, there is a second 'hidden' drawer stocked with plenty of kitchen tools. Be sure to check this out!
+                  </div>
+
+                  <div class="space-y-3 pt-2">
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <i class="fa-solid fa-soap text-lg text-teal-600 mt-1"></i>
+                      <div class="text-xs">
+                        <strong>Washing machine:</strong> Detergent pods are available in the base cabinet to the right of the machine.
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <i class="fa-solid fa-sink text-lg text-teal-600 mt-1"></i>
+                      <div class="text-xs">
+                        <strong>Dish-washer:</strong> Detergent pods are at your disposal in the base cabinet, on the right side of the washing machine.
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                      <i class="fa-solid fa-mug-hot text-lg text-teal-600 mt-1"></i>
+                      <div class="text-xs">
+                        <strong>Espresso coffee machine:</strong> Works with Lavazza's <em>« A Modo Mio »</em> capsules. Complimentary set for you to enjoy during your stay!
+                      </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 space-y-2">
+                      <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-coffee text-lg text-teal-600 mt-1"></i>
+                        <div class="text-xs">
+                          <strong>"Moka" coffee maker:</strong> This is the iconic Italian home-made coffee machine.
+                        </div>
+                      </div>
+                      <a href="https://youtube.com/shorts/JA2dBog-8Dg" target="_blank" class="inline-flex items-center gap-2 text-xs text-rose-600 font-bold bg-rose-50 hover:bg-rose-100 px-3 py-1.5 rounded-lg border border-rose-200 transition-all">
+                        <i class="fa-brands fa-youtube text-base"></i>
+                        <span>Watch the 60" video tutorial</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. BATHROOM / TOILET BLOCK -->
+              <div class="guide-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+                <button type="button" onclick="toggleGuideSubSection('guide-toilet', this)" class="w-full hover:bg-teal-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 bg-teal-100 text-teal-700 rounded-xl">
+                      <i class="fa-solid fa-bath text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-slate-900 text-sm">Bathroom / Toilet</h3>
+                      <p class="text-[11px] text-slate-500">Water Supply, Utilities & Heater</p>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-chevron-down guide-icon text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+
+                <div id="guide-toilet" class="guide-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
+                  <h3 class="text-sm font-bold text-teal-700 border-b border-slate-100 pb-2">Bathroom / Toilet</h3>
+                  
+                  <div class="bg-rose-50 border border-rose-200 p-3 rounded-xl text-xs text-rose-800 font-medium">
+                    Please flush only toilet paper. For all other waste, please use the bin provided.
+                  </div>
+
+                  <div class="space-y-3">
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                      <strong>Water supply:</strong>
+                      <p class="text-slate-600">There is a water pump to ensure consistent water pressure. Please allow 5-10 seconds for the water flow to stabilize.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                      <strong>Utilities:</strong>
+                      <p class="text-slate-600">For your convenience, in the cabinet (left hand), you will find: drying rack, iron, ironing board, vacuum, tools, and first aid kit.</p>
+                      <p class="text-slate-600 pt-1">Inside the right-hand compartment, you will find four empty baskets for your personal use.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-2">
+                      <strong>Electric heater (bathroom):</strong>
+                      <p class="text-slate-600">Plug it only when needed.</p>
+                      <ul class="list-disc list-inside text-slate-600 space-y-0.5">
+                        <li>On: push ⏻</li>
+                        <li>Set the temperature: +/-</li>
+                        <li>Off: push ⏻ twice</li>
+                      </ul>
+                      <div class="bg-amber-50 p-2.5 rounded-lg border border-amber-200 text-[11px] text-amber-900 mt-2">
+                        As a safety precaution, please ensure <strong>all electrical appliances are unplugged</strong> once you have finished using them.
+                      </div>
                     </div>
                   </div>
                 </div>
