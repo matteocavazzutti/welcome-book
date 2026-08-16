@@ -56,16 +56,48 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans">
 
+  <!-- ======================================================= -->
+  <!-- 0. SCHERMATA DI AUTENTICAZIONE CON PIN (ACCESSO PROTETTO) -->
+  <!-- ======================================================= -->
+  <div id="auth-screen" class="min-h-screen flex flex-col justify-center items-center p-6 text-center bg-slate-900 text-white">
+    <div class="bg-slate-800/90 border border-slate-700 p-7 sm:p-8 rounded-3xl shadow-2xl max-w-xs w-full space-y-5">
+      
+      <div class="w-14 h-14 bg-amber-500/20 text-amber-400 rounded-2xl mx-auto flex items-center justify-center text-2xl border border-amber-500/30">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold text-slate-100">Accesso Riservato</h2>
+        <p class="text-xs text-slate-400 mt-1">Inserisci il PIN a 4 cifre fornito per accedere al Welcome Book</p>
+      </div>
+
+      <!-- 4 Caselle Input PIN -->
+      <div class="flex justify-center gap-2.5 pt-1">
+        <input type="password" maxlength="1" inputmode="numeric" class="pin-box w-12 h-14 text-center text-2xl font-bold rounded-xl bg-slate-900 border-2 border-slate-700 text-white focus:border-amber-500 focus:outline-none transition-colors" autofocus>
+        <input type="password" maxlength="1" inputmode="numeric" class="pin-box w-12 h-14 text-center text-2xl font-bold rounded-xl bg-slate-900 border-2 border-slate-700 text-white focus:border-amber-500 focus:outline-none transition-colors">
+        <input type="password" maxlength="1" inputmode="numeric" class="pin-box w-12 h-14 text-center text-2xl font-bold rounded-xl bg-slate-900 border-2 border-slate-700 text-white focus:border-amber-500 focus:outline-none transition-colors">
+        <input type="password" maxlength="1" inputmode="numeric" class="pin-box w-12 h-14 text-center text-2xl font-bold rounded-xl bg-slate-900 border-2 border-slate-700 text-white focus:border-amber-500 focus:outline-none transition-colors">
+      </div>
+
+      <!-- Messaggio errore o timer blocco -->
+      <p id="pin-error-msg" class="text-xs font-semibold text-rose-400 min-h-[1.25rem]"></p>
+
+      <p class="text-[10px] text-slate-500 pt-1">L'accesso rimarrà memorizzato su questo dispositivo per 3 mesi.</p>
+    </div>
+  </div>
+
+
   <!-- ========================================== -->
   <!-- 1. LANDING PAGE: SELEZIONE LINGUA          -->
   <!-- ========================================== -->
-  <div id="language-screen" class="min-h-screen flex flex-col justify-center items-center p-6 text-center bg-slate-50">
+  <div id="language-screen" class="hidden-screen min-h-screen flex flex-col justify-center items-center p-6 text-center bg-slate-50">
     
     <!-- Skyline Roma non cliccabile sopra la foto principale -->
     <div class="mb-3 w-64 max-h-16 overflow-hidden pointer-events-none select-none">
       <img src="skyline-roma.png" alt="Roma Skyline" class="w-full h-auto object-contain mx-auto">
     </div>
 
+    <!-- Foto Principale Landing -->
     <div class="mb-5 w-64 h-32 rounded-2xl overflow-hidden shadow-md border-4 border-white cursor-zoom-in" onclick="openImageModal('Gemini_Generated_Image_1.png')">
       <img src="Gemini_Generated_Image_1.png" alt="Terrazza di Maria" class="w-full h-full object-cover">
     </div>
@@ -94,6 +126,14 @@
       <button type="button" onclick="selectLanguage('de')" class="w-full bg-white border border-slate-200 p-3.5 rounded-2xl shadow-sm flex items-center justify-between active:bg-slate-100 hover:border-amber-400 transition-all cursor-pointer">
         <span class="font-semibold text-sm text-slate-700">Deutsch</span>
         <span class="fi fi-de text-2xl rounded"></span>
+      </button>
+    </div>
+
+    <!-- Pulsante opzionale di Logout/Blocco -->
+    <div class="mt-8 text-center">
+      <button type="button" onclick="logoutPin()" class="text-[11px] text-slate-400 hover:text-slate-600 flex items-center justify-center gap-1.5 mx-auto">
+        <i class="fa-solid fa-lock text-xs"></i>
+        <span>Blocca accesso</span>
       </button>
     </div>
   </div>
@@ -421,9 +461,171 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <!-- ========================================== -->
-  <!-- 4. GESTIONE DIZIONARIO & SCRIPT            -->
+  <!-- 4. GESTIONE AUTENTICAZIONE & LOGICA APP   -->
   <!-- ========================================== -->
   <script>
+    // -------------------------------------------------------------
+    // GESTIONE SICUREZZA & BLOCCO PIN
+    // Default PIN: "1234" (Hash SHA-256)
+    // -------------------------------------------------------------
+    const CORRECT_PIN_HASH = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4";
+    const AUTH_KEY = "terrazza_auth_hash";
+    const MAX_ATTEMPTS = 3;
+    const LOCKOUT_MINUTES = 5;
+
+    const pinInputs = document.querySelectorAll('.pin-box');
+    const pinErrorEl = document.getElementById('pin-error-msg');
+    let lockoutTimer = null;
+
+    async function computeHash(text) {
+      const buffer = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+      return Array.from(new Uint8Array(buffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    function checkLockoutState() {
+      const lockUntil = localStorage.getItem('pin_lock_until');
+      if (!lockUntil) return false;
+
+      const diff = parseInt(lockUntil, 10) - Date.now();
+      if (diff > 0) {
+        setLockoutUI(diff);
+        return true;
+      }
+
+      // Blocco terminato
+      localStorage.removeItem('pin_lock_until');
+      localStorage.removeItem('pin_error_count');
+      pinInputs.forEach(input => input.disabled = false);
+      if (pinErrorEl) pinErrorEl.textContent = "";
+      if (pinInputs[0]) pinInputs[0].focus();
+      return false;
+    }
+
+    function setLockoutUI(remainingMs) {
+      pinInputs.forEach(input => {
+        input.value = "";
+        input.disabled = true;
+      });
+
+      clearInterval(lockoutTimer);
+      displayCountdown(remainingMs);
+
+      lockoutTimer = setInterval(() => {
+        const currentDiff = parseInt(localStorage.getItem('pin_lock_until') || '0', 10) - Date.now();
+        if (currentDiff <= 0) {
+          clearInterval(lockoutTimer);
+          checkLockoutState();
+        } else {
+          displayCountdown(currentDiff);
+        }
+      }, 1000);
+    }
+
+    function displayCountdown(ms) {
+      const sec = Math.ceil(ms / 1000);
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      if (pinErrorEl) {
+        pinErrorEl.textContent = `Troppi tentativi errati. Riprova tra ${m}:${s < 10 ? '0' : ''}${s}`;
+      }
+    }
+
+    async function onPinDigit() {
+      if (checkLockoutState()) return;
+
+      const enteredPin = Array.from(pinInputs).map(i => i.value).join('');
+      if (enteredPin.length === 4) {
+        const hashed = await computeHash(enteredPin);
+
+        if (hashed === CORRECT_PIN_HASH) {
+          // Accesso riuscito: Salva autorizzazione per 90 giorni (~3 mesi)
+          const expireAt = Date.now() + (90 * 24 * 60 * 60 * 1000);
+          localStorage.setItem(AUTH_KEY, JSON.stringify({ hash: hashed, expire: expireAt }));
+          localStorage.removeItem('pin_error_count');
+          localStorage.removeItem('pin_lock_until');
+          
+          showScreen('language-screen');
+        } else {
+          // Errore: incremento tentativi falliti
+          let errors = parseInt(localStorage.getItem('pin_error_count') || '0', 10) + 1;
+          localStorage.setItem('pin_error_count', errors);
+
+          if (errors >= MAX_ATTEMPTS) {
+            const lockTime = Date.now() + (LOCKOUT_MINUTES * 60 * 1000);
+            localStorage.setItem('pin_lock_until', lockTime);
+            checkLockoutState();
+          } else {
+            const left = MAX_ATTEMPTS - errors;
+            if (pinErrorEl) pinErrorEl.textContent = `PIN errato. Tentativi rimasti: ${left}`;
+            pinInputs.forEach(i => i.value = "");
+            if (pinInputs[0]) pinInputs[0].focus();
+          }
+        }
+      }
+    }
+
+    // Configurazione eventi tastiera PIN
+    pinInputs.forEach((input, idx) => {
+      input.addEventListener('input', (e) => {
+        if (pinErrorEl && !localStorage.getItem('pin_lock_until')) pinErrorEl.textContent = "";
+        if (e.target.value && idx < pinInputs.length - 1) {
+          pinInputs[idx + 1].focus();
+        }
+        onPinDigit();
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && !input.value && idx > 0) {
+          pinInputs[idx - 1].focus();
+        }
+      });
+    });
+
+    function isUserAuthenticated() {
+      try {
+        const saved = localStorage.getItem(AUTH_KEY);
+        if (!saved) return false;
+        const authData = JSON.parse(saved);
+        if (authData.hash === CORRECT_PIN_HASH && authData.expire > Date.now()) {
+          return true;
+        }
+      } catch (err) {
+        return false;
+      }
+      return false;
+    }
+
+    function logoutPin() {
+      localStorage.removeItem(AUTH_KEY);
+      pinInputs.forEach(i => i.value = "");
+      if (pinErrorEl) pinErrorEl.textContent = "";
+      showScreen('auth-screen');
+      setTimeout(() => { if (pinInputs[0]) pinInputs[0].focus(); }, 100);
+    }
+
+    function showScreen(screenId) {
+      document.getElementById('auth-screen').classList.add('hidden-screen');
+      document.getElementById('language-screen').classList.add('hidden-screen');
+      document.getElementById('app-screen').classList.add('hidden-screen');
+
+      const target = document.getElementById(screenId);
+      if (target) target.classList.remove('hidden-screen');
+      window.scrollTo(0, 0);
+    }
+
+    // Controllo iniziale all'avvio
+    document.addEventListener("DOMContentLoaded", () => {
+      if (isUserAuthenticated()) {
+        showScreen('language-screen');
+      } else {
+        showScreen('auth-screen');
+        checkLockoutState();
+      }
+    });
+
+    // -------------------------------------------------------------
+    // GESTIONE DIZIONARI, TRADUZIONI & CONTENUTI DELL'APP
+    // -------------------------------------------------------------
     let navSwiper = null;
     let isProgrammaticSlide = false;
 
@@ -1004,10 +1206,8 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
                 </div>
               </div>
 
-              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-lg flex-shrink-0">
-                <div class="p-2.5 bg-emerald-100 text-emerald-600 rounded-lg">
-                  <i class="fa-solid fa-dog text-lg"></i>
-                </div>
+              <div class="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-lg">
+                <i class="fa-solid fa-dog text-lg"></i>
                 <div>
                   <h4 class="text-xs font-bold text-slate-900">Pets</h4>
                   <p class="text-xs text-slate-600 mt-0.5">Pets are not allowed in the property.</p>
@@ -2054,389 +2254,6 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       }
     }
 
-    function renderCheckoutSection(lang) {
-      const container = document.getElementById('checkout-content-container');
-      if (!container) return;
-
-      if (lang === 'en') {
-        container.innerHTML = `
-          <div class="space-y-4 text-left">
-            <p class="text-xs text-slate-500 font-medium pb-1">
-              Before leaving the property, guests are expected to follow the following steps:
-            </p>
-
-            <div class="relative border-l-2 border-amber-200 ml-3 pl-4 space-y-4">
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800 font-bold">Check-out before 10 am.</p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Let us know about</strong> any accidental damage, maintenance concerns, or items in need of repair so we can address them promptly.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Keys:</strong> Lock the front door and leave the keys inside the key box.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Terrace:</strong> Close awnings. Put back cushions and towels in the box. Close windows, window bars, shutters.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Trash & Recycling:</strong> Dispose of all trash in the designated bins located outside the building, in Via degli Ammiragli 112 (20m).
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Kitchen:</strong> Wash dirty dishes or place them in the dishwasher and start the cycle. Empty the fridge.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Appliances:</strong> Switch off the air conditioning and ensure all small electrical appliances (hair dryer, iron, etc.) are unplugged.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Remotes:</strong> Return the 3 remote controls (TV and AC) to their original places.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Privacy:</strong> Log out of any personal accounts in the TV (such as Netflix or similar).
-                  </p>
-                </div>
-              </div>
-
-              <!-- Tappa Airbnb in evidenza con testo aggiornato -->
-              <div class="relative pt-1">
-                <span class="absolute -left-[23px] top-3 w-3 h-3 bg-rose-500 rounded-full ring-4 ring-white animate-pulse"></span>
-                <a href="https://www.airbnb.fr/rooms/1655819661396931146" target="_blank" rel="noopener noreferrer" class="block bg-gradient-to-r from-rose-50 to-amber-50 hover:from-rose-100 hover:to-amber-100 p-3.5 rounded-2xl border-2 border-rose-300/80 shadow-sm transition-all group active:scale-[0.98]">
-                  <div class="flex items-start justify-between gap-3">
-                    <div class="flex items-start gap-3">
-                      <div class="p-2.5 bg-rose-500 text-white rounded-xl shadow-sm flex-shrink-0 mt-0.5">
-                        <i class="fa-solid fa-star text-sm"></i>
-                      </div>
-                      <div class="space-y-1">
-                        <p class="text-xs font-extrabold text-slate-900 leading-snug group-hover:text-rose-600 transition-colors">
-                          Rate your "La Terrazza di Maria" experience
-                        </p>
-                        <p class="text-[11px] text-slate-600 font-medium leading-tight">
-                          Leave your review on Airbnb. Your feedback helps us to improve our job and keep the best experience for guests.
-                        </p>
-                      </div>
-                    </div>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-rose-500 flex-shrink-0 mt-1 group-hover:translate-x-0.5 transition-transform"></i>
-                  </div>
-                </a>
-              </div>
-
-            </div>
-          </div>
-        `;
-      } else {
-        const t = translations[lang] || translations['it'];
-        container.innerHTML = `
-          <div class="space-y-4 text-left">
-            <p class="text-sm text-slate-600 leading-relaxed">${t.checkoutBody}</p>
-            <div class="pt-2">
-              <a href="https://www.airbnb.fr/rooms/1655819661396931146" target="_blank" rel="noopener noreferrer" class="block bg-gradient-to-r from-rose-50 to-amber-50 hover:from-rose-100 hover:to-amber-100 p-3.5 rounded-2xl border-2 border-rose-300/80 shadow-sm transition-all group">
-                <div class="flex items-start justify-between gap-3">
-                  <div class="flex items-start gap-3">
-                    <div class="p-2.5 bg-rose-500 text-white rounded-xl shadow-sm flex-shrink-0 mt-0.5">
-                      <i class="fa-solid fa-star text-sm"></i>
-                    </div>
-                    <div class="space-y-1">
-                      <p class="text-xs font-extrabold text-slate-900 leading-snug group-hover:text-rose-600 transition-colors">
-                        Rate your "La Terrazza di Maria" experience
-                      </p>
-                      <p class="text-[11px] text-slate-600 font-medium leading-tight">
-                        Leave your review on Airbnb. Your feedback helps us to improve our job and keep the best experience for guests.
-                      </p>
-                    </div>
-                  </div>
-                  <i class="fa-solid fa-arrow-up-right-from-square text-xs text-rose-500 flex-shrink-0 mt-1"></i>
-                </div>
-              </a>
-            </div>
-          </div>
-        `;
-      }
-    }
-
-    function renderDisclaimerSection(lang) {
-      const container = document.getElementById('disclaimer-content-container');
-      if (!container) return;
-
-      container.innerHTML = `
-        <div class="space-y-5 text-left text-xs text-slate-700 leading-relaxed">
-
-          <!-- Intro Message -->
-          <div class="space-y-2 border-b border-slate-100 pb-3">
-            <p class="font-bold text-slate-900 text-sm">Dear Guests,</p>
-            <p>
-              We are delighted to welcome you to our flat with terrace and hope you enjoy your stay. To ensure a safe and pleasant experience, we would like to draw your attention to the following important information:
-            </p>
-          </div>
-
-          <!-- 1. Special rules for safety in the terrace -->
-          <div class="p-4 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-2.5">
-            <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wide flex items-center gap-2">
-              <i class="fa-solid fa-shield-cat text-amber-600"></i>
-              <span>1. Special rules for safety in the terrace:</span>
-            </h3>
-            <ul class="space-y-2 list-disc list-outside pl-4 text-slate-600">
-              <li>For your own safety, it is strictly forbidden to sit, climb, or lean over the parapet or railings. Please maintain safe behavior at all times while using the outdoor spaces.</li>
-              <li>Children must be supervised by an adult at all times and must never be left unattended on the terrace.</li>
-              <li>Do not leave any item on the parapet. Please exercise caution to prevent items from falling down the street, as this could result in third party’s injuries or property damages. Guests are solely responsible for any item placed or left on the terrace, including but not limited to objects left on the parapet.</li>
-              <li>Do not touch the plants, to prevent any risk of allergy or intoxication.</li>
-            </ul>
-          </div>
-
-          <!-- 2. Safety and Liability -->
-          <div class="p-4 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-2.5">
-            <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wide flex items-center gap-2">
-              <i class="fa-solid fa-scale-balanced text-slate-700"></i>
-              <span>2. Safety and Liability:</span>
-            </h3>
-            <ul class="space-y-2 list-disc list-outside pl-4 text-slate-600">
-              <li>By using the apartment, appliances and the terrace, guests acknowledge that they have been informed of all potential risks associated with their use.</li>
-              <li>The property owner shall not be held liable for any accidents, injuries, or damages resulting from the improper use of the apartment, appliances and the terrace or failure to follow safety guidelines.</li>
-            </ul>
-          </div>
-
-          <!-- 3. Compliance with Property Rules -->
-          <div class="p-4 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-2.5">
-            <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wide flex items-center gap-2">
-              <i class="fa-solid fa-list-check text-blue-600"></i>
-              <span>3. Compliance with Property Rules</span>
-            </h3>
-            <p class="text-slate-600">
-              In accordance with the rental agreement, Guests agree to strictly comply with all property regulations, specifically including but not limited to:
-            </p>
-            <ul class="space-y-1.5 list-disc list-outside pl-4 text-slate-600">
-              <li><strong>The check-out procedures</strong> as outlined on the “Before You Go” page.</li>
-              <li><strong>The house rules</strong> as outlined on the “House Rules” page.</li>
-            </ul>
-          </div>
-
-          <!-- Closing Statement & Sign-off -->
-          <div class="pt-2 space-y-3">
-            <p class="font-bold text-slate-900 bg-amber-50/80 p-3 rounded-xl border border-amber-200/60 leading-snug">
-              By staying at the property and using its facilities, guests confirm their understanding, responsibility, and acceptance of the terms outlined in this disclaimer.
-            </p>
-            
-            <div class="text-slate-600 space-y-1 pt-1">
-              <p>Thank you for your cooperation.</p>
-              <p>We hope you have a wonderful and safe stay.</p>
-            </div>
-
-            <div class="pt-3 text-right">
-              <p class="italic text-slate-500">Sincerely,</p>
-              <p class="font-bold text-slate-800 font-serif">the Property Management</p>
-            </div>
-          </div>
-
-        </div>
-      `;
-    }
-
-    function renderEmergencySection(lang) {
-      const container = document.getElementById('emergency-content-container');
-      if (!container) return;
-
-      const doctorsDocUrl = "https://drive.google.com/file/d/1-uHzF09L0Hp5cMO1ijZxiTVD8vog5HZp";
-      const qrCodeUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(doctorsDocUrl);
-
-      container.innerHTML = `
-        <div class="space-y-4 text-left">
-
-          <!-- 1. GENERIC EMERGENCY (Red box) -->
-          <div class="border-2 border-rose-600 rounded-2xl p-4 bg-rose-50/40">
-            <div class="flex items-start gap-4">
-              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
-                <span class="text-xs font-bold text-rose-700 uppercase tracking-tight mb-2 leading-tight">Generic Emergency</span>
-                <div class="p-2.5 bg-rose-100 text-rose-600 rounded-2xl">
-                  <i class="fa-solid fa-tower-broadcast text-2xl"></i>
-                </div>
-              </div>
-              <div class="text-xs space-y-1.5 flex-1">
-                <a href="tel:112" class="inline-flex items-center gap-1.5 text-rose-700 font-extrabold text-sm hover:underline">
-                  <i class="fa-solid fa-phone"></i>
-                  <span>Dial 112 from any phone</span>
-                </a>
-                <p class="text-slate-700 font-medium leading-snug">This service will connect you with the appropriate support:</p>
-                <ul class="text-slate-700 list-disc list-inside space-y-0.5 pl-0.5">
-                  <li>police, ambulance, fire brigade,</li>
-                  <li>English speaking service available.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2. HOSPITAL -->
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
-            <div class="flex items-start gap-4">
-              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
-                <span class="text-xs font-bold text-slate-800 uppercase mb-2">Hospital</span>
-                <div class="p-2.5 bg-red-100 text-red-600 rounded-2xl">
-                  <i class="fa-solid fa-hospital text-2xl"></i>
-                </div>
-              </div>
-              <div class="text-xs space-y-1 flex-1">
-                <p class="text-slate-600 font-medium">The closest hospital with 24/7 emergency room is :</p>
-                <div class="pt-1 text-center sm:text-left">
-                  <p class="font-extrabold text-slate-900 text-sm tracking-wide">OSPEDALE SAN CARLO DI NANCY</p>
-                  <p class="text-slate-700">Via Aurelia 275</p>
-                  <p class="text-slate-500 font-semibold">( 2Km )</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 3. POLICE DEPARTMENT -->
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
-            <div class="flex items-start gap-4">
-              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
-                <span class="text-xs font-bold text-slate-800 uppercase mb-2 leading-tight">Police department</span>
-                <div class="p-2.5 bg-blue-100 text-blue-600 rounded-2xl">
-                  <i class="fa-solid fa-user-shield text-2xl"></i>
-                </div>
-              </div>
-              <div class="text-xs space-y-1 flex-1">
-                <p class="text-slate-600 font-medium">The nearest police department is located in :</p>
-                <div class="pt-1">
-                  <p class="font-bold text-slate-900">Viale Giulio Cesare, 58</p>
-                  <p class="text-slate-500 font-semibold">(1,5Km)</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 4. PHARMACY -->
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
-            <div class="flex items-start gap-4">
-              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
-                <span class="text-xs font-bold text-slate-800 uppercase mb-2">Pharmacy</span>
-                <div class="p-2.5 bg-emerald-100 text-emerald-600 rounded-2xl">
-                  <i class="fa-solid fa-square-plus text-2xl"></i>
-                </div>
-              </div>
-              <div class="text-xs space-y-1 flex-1">
-                <p class="text-slate-600 font-medium">The nearest pharmacy:</p>
-                <div class="pt-1">
-                  <p class="font-extrabold text-slate-900">Farmacia Cipro</p>
-                  <p class="text-slate-700">Viale degli Ammiragli, 33</p>
-                  <p class="text-slate-500 font-semibold">(200m)</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 5. FIRST-AID KIT -->
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
-            <div class="flex items-start gap-4">
-              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
-                <span class="text-xs font-bold text-slate-800 uppercase mb-2 leading-tight">First-aid kit</span>
-                <div class="p-2.5 bg-amber-100 text-amber-600 rounded-2xl">
-                  <i class="fa-solid fa-kit-medical text-2xl"></i>
-                </div>
-              </div>
-              <div class="text-xs space-y-1 flex-1 flex items-center">
-                <p class="text-slate-700 leading-relaxed font-medium">
-                  The first-aid kit is an orange plastic box and is located in the bathroom cabinet.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 6. FIRE EXTINGUISHER -->
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
-            <div class="flex items-start gap-4">
-              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
-                <span class="text-xs font-bold text-slate-800 uppercase mb-2 leading-tight">Fire extinguisher</span>
-                <div class="p-2.5 bg-rose-100 text-rose-600 rounded-2xl">
-                  <i class="fa-solid fa-fire-extinguisher text-2xl"></i>
-                </div>
-              </div>
-              <div class="text-xs space-y-1 flex-1 flex items-center">
-                <p class="text-slate-700 leading-relaxed font-medium">
-                  The fire-extinguisher in the apartment is located in the corridor.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 7. ENGLISH SPEAKING DOCTORS -->
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
-            <div class="flex items-start gap-4">
-              <div class="flex flex-col items-center justify-center text-center w-24 flex-shrink-0">
-                <span class="text-[11px] font-bold text-slate-800 uppercase mb-2 leading-tight">English-speaking doctors and medical facilities in Rome</span>
-                <div class="p-2.5 bg-teal-100 text-teal-600 rounded-2xl">
-                  <i class="fa-solid fa-user-doctor text-2xl"></i>
-                </div>
-              </div>
-              <div class="text-xs space-y-2 flex-1">
-                <div>
-                  <a href="${doctorsDocUrl}" target="_blank" rel="noopener noreferrer" class="font-bold text-blue-600 hover:text-blue-700 underline flex items-center gap-1">
-                    <span>Download the list or scan the code</span>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                  </a>
-                </div>
-                <div class="text-slate-500 text-[11px] space-y-0.5">
-                  <p>Source: US Consulate in Italy.</p>
-                  <p>Last update: May 2026</p>
-                </div>
-                <div class="pt-1">
-                  <div class="inline-block bg-white p-2 rounded-xl border border-slate-200 shadow-sm">
-                    <img src="${qrCodeUrl}" alt="English Speaking Doctors List QR" class="w-24 h-24">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      `;
-    }
-
     function toggleLocalServicesSubSection(sectionId, btnElement) {
       const targetContent = document.getElementById(sectionId);
       if (!targetContent) return;
@@ -2563,7 +2380,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       
       const t = translations[lang] || translations['it'];
 
-      // Mappatura testi Welcome su 2 linee
+      // Mappatura testi Welcome
       const line1 = document.getElementById('txt-welcome-line1');
       if (line1) line1.innerText = t.welcomeLine1 || '';
       
@@ -2579,7 +2396,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       const btnChange = document.getElementById('txt-btn-change-lang');
       if (btnChange) btnChange.innerText = t.changeLangBtn || '';
 
-      // Rendering di tutte le sezioni dinamiche complete
+      // Rendering delle sezioni dinamiche
       const arrTitle = document.getElementById('txt-arrival-title');
       if (arrTitle) arrTitle.innerText = t.arrivalTitle || '';
       renderArrivalSection(lang);
@@ -2649,13 +2466,9 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       setNavText('nav-disclaimer', t.navDisclaimer);
 
       // Transizione schermata (Landing Page -> Applicazione)
-      const langScreen = document.getElementById('language-screen');
-      const appScreen = document.getElementById('app-screen');
+      showScreen('app-screen');
       
-      if (langScreen) langScreen.classList.add('hidden-screen');
-      if (appScreen) appScreen.classList.remove('hidden-screen');
-      
-      // Inizializzazione navigatore Swiper
+      // Inizializza Swiper dopo il cambio schermata
       setTimeout(() => {
         initSwiperNav();
         switchTabContent('welcome');
@@ -2663,12 +2476,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
     }
 
     function showLanguageScreen() {
-      const appScreen = document.getElementById('app-screen');
-      const langScreen = document.getElementById('language-screen');
-      
-      if (appScreen) appScreen.classList.add('hidden-screen');
-      if (langScreen) langScreen.classList.remove('hidden-screen');
-      window.scrollTo(0, 0);
+      showScreen('language-screen');
     }
 
     function copyWifiPassword(password, feedbackId) {
