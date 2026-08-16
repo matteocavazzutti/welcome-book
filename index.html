@@ -813,8 +813,15 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       
       const mapsNavigationUrl = "https://www.google.com/maps/dir/?api=1&destination=Via+Sebastiano+Ziani+47+Roma";
 
+      // Mappa Iniziale aggiunta per tutte le lingue
+      const mapImageHTML = `
+        <div class="mb-5 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in shadow-sm border border-slate-200/80" onclick="openImageModal('carta_roma_aeroporti.jpeg')">
+          <img src="carta_roma_aeroporti.jpeg" alt="Mappa Aeroporti Roma" class="w-full h-auto object-cover object-center group-hover:scale-105 transition-transform duration-300">
+        </div>
+      `;
+
       if (lang === 'en') {
-        container.innerHTML = `
+        container.innerHTML = mapImageHTML + `
           <div class="space-y-5 text-left">
             <div class="bg-amber-50/70 border border-amber-200/70 rounded-2xl p-4 space-y-3">
               
@@ -855,15 +862,20 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
               </div>
 
               <div class="bg-white p-3 rounded-xl border border-slate-100 space-y-1 text-xs">
-                <div class="flex justify-between items-center">
+                <div class="flex justify-between items-center pb-1">
                   <span class="font-bold text-slate-800">⚡ Fastest & Comfortable</span>
                   <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono text-[11px]">30-45 min</span>
                 </div>
-                <p class="text-slate-600"><strong>Taxi (Official only):</strong> €50 - €60 <span class="text-slate-400">(Max €80 by regulation)</span></p>
-                <div class="pt-1">
-                  <p class="text-slate-600"><strong>Private Shuttle:</strong> Car €65 | Van €70</p>
-                  <p class="text-[11px] text-amber-800 font-medium italic mt-0.5">These are negotiated fares. Ask Sonia for reservations.</p>
-                </div>
+                <ul class="text-slate-600 space-y-2 list-disc list-outside pl-4">
+                  <li>
+                    <strong>Taxi:</strong> €50 - €60 <span class="text-slate-400">(Max €80 by regulation)</span>
+                    <div class="text-[11px] text-rose-600 font-semibold mt-0.5 leading-tight">Take only official taxis</div>
+                  </li>
+                  <li>
+                    <strong>Private Shuttle:</strong> Car €65 | Van €70
+                    <div class="text-[11px] text-amber-800 font-medium italic mt-0.5 leading-tight">These are negotiated fares. Ask Sonia for reservations.</div>
+                  </li>
+                </ul>
               </div>
 
               <div class="bg-white p-3 rounded-xl border border-slate-100 space-y-1 text-xs">
@@ -883,26 +895,31 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
               </div>
 
               <div class="bg-white p-3 rounded-xl border border-slate-100 space-y-1 text-xs">
-                <div class="flex justify-between items-center">
+                <div class="flex justify-between items-center pb-1">
                   <span class="font-bold text-slate-800">⚡ Fastest & Comfortable</span>
-                  <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono text-[11px]">30-45 min</span>
+                  <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono text-[11px]">40-50 min</span>
                 </div>
-                <p class="text-slate-600"><strong>Taxi (Official only):</strong> €50 - €60 <span class="text-slate-400">(Max €80 by regulation)</span></p>
-                <div class="pt-1">
-                  <p class="text-slate-600"><strong>Private Shuttle:</strong> Car €65 | Van €70</p>
-                  <p class="text-[11px] text-amber-800 font-medium italic mt-0.5">These are negotiated fares. Ask Sonia for reservations.</p>
-                </div>
+                <ul class="text-slate-600 space-y-2 list-disc list-outside pl-4">
+                  <li>
+                    <strong>Taxi:</strong> €60 - €70 <span class="text-slate-400">(Max €80 by regulation)</span>
+                    <div class="text-[11px] text-rose-600 font-semibold mt-0.5 leading-tight">Take only official taxis</div>
+                  </li>
+                  <li>
+                    <strong>Private Shuttle:</strong> Car €65 | Van €70
+                    <div class="text-[11px] text-amber-800 font-medium italic mt-0.5 leading-tight">These are negotiated fares. Ask Sonia for reservations.</div>
+                  </li>
+                </ul>
               </div>
 
               <div class="bg-white p-3 rounded-xl border border-slate-100 space-y-1 text-xs">
-                <div class="flex justify-between items-center">
+                <div class="flex justify-between items-center pb-1">
                   <span class="font-bold text-slate-800">💡 Cheapest</span>
-                  <span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold font-mono text-[11px]">60-70 min | €16</span>
+                  <span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold font-mono text-[11px]">60-70 min | From €2</span>
                 </div>
-                <ol class="text-slate-600 space-y-1 list-decimal list-inside">
-                  <li>Train "Leonardo" to <strong>Stazione Termini</strong></li>
-                  <li>Metro line "A" (direction "Battistini"), stop at <strong>"Cipro"</strong></li>
-                </ol>
+                <ul class="text-slate-600 space-y-1.5 list-disc list-outside pl-4">
+                  <li>Terravision bus to Termini Station + Metro A (dir: Battistini) to Cipro <span class="font-medium text-slate-500">(~10 eur)</span></li>
+                  <li>Bus 520 to Anagnina + Metro A to Cipro <span class="font-medium text-slate-500">(~2€)</span></li>
+                </ul>
               </div>
             </div>
 
@@ -924,7 +941,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
               <div class="bg-white p-3 rounded-xl border border-slate-100 space-y-1 text-xs">
                 <div class="flex justify-between items-center">
                   <span class="font-bold text-slate-800">🚕 Comfortable</span>
-                  <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono text-[11px]">15-30 min</span>
+                  <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono text-[11px]">15-25 min</span>
                 </div>
                 <p class="text-slate-600"><strong>Taxi (Official only):</strong> €15 - €20 <span class="text-slate-400">(Max €80 by regulation)</span></p>
               </div>
@@ -933,7 +950,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
         `;
       } else {
         const t = translations[lang] || translations['it'];
-        container.innerHTML = `
+        container.innerHTML = mapImageHTML + `
           <div class="space-y-4 text-left">
             <a href="${mapsNavigationUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 bg-amber-50 rounded-xl border border-amber-200 font-bold text-xs text-slate-900 hover:bg-amber-100 transition-colors">
               <span>Via Sebastiano Ziani, 47, Roma</span>
