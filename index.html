@@ -71,7 +71,6 @@
   <!-- ========================================== -->
   <div id="auth-screen" class="min-h-screen flex flex-col justify-center items-center p-6 text-center bg-slate-50">
     
-    <!-- Modifica 2: Skyline larghezza piena -->
     <div class="mb-6 w-full max-h-20 overflow-hidden pointer-events-none select-none">
       <img src="skyline-roma.png" alt="Roma Skyline" class="w-full h-auto object-contain mx-auto max-h-20">
     </div>
@@ -98,7 +97,6 @@
   <!-- ========================================== -->
   <div id="language-screen" class="hidden-screen min-h-screen flex flex-col justify-center items-center p-6 text-center bg-slate-50">
     
-    <!-- Modifica 2: Skyline larghezza piena -->
     <div class="mb-3 w-full max-h-20 overflow-hidden pointer-events-none select-none">
       <img src="skyline-roma.png" alt="Roma Skyline" class="w-full h-auto object-contain mx-auto max-h-20">
     </div>
@@ -1032,7 +1030,6 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
 
       const t = translations[lang] || translations['it'];
       
-      // Modifica 3: Pulsante di reindirizzamento al contatto
       const contactBtn = `
         <div class="mb-4">
           <button type="button" onclick="showTab('contact')" class="w-full flex items-center justify-between p-3.5 bg-indigo-50 border border-indigo-200 rounded-xl hover:bg-indigo-100 transition-all active:scale-[0.98] shadow-sm">
@@ -2697,14 +2694,21 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
     function showTab(tabId) {
       switchTabContent(tabId);
       if (navSwiper) {
-        const slides = navSwiper.slides;
-        for (let i = 0; i < slides.length; i++) {
-          if (slides[i].getAttribute('data-tab') === tabId) {
-            isProgrammaticSlide = true;
-            navSwiper.slideToLoop(navSwiper.realIndex, 300);
-            setTimeout(() => { isProgrammaticSlide = false; }, 350);
-            break;
-          }
+        // Ordine esatto dei tab in basso (assicurati che sia identico all'HTML)
+        const tabsOrder = [
+          'welcome', 'arrival', 'checkin', 'wifi', 'rules', 'guide',
+          'transports', 'tips', 'local-services', 'checkout', 'contact',
+          'emergency', 'disclaimer'
+        ];
+        
+        // Trova la posizione (indice) del tab di destinazione
+        const realIndex = tabsOrder.indexOf(tabId);
+        
+        if (realIndex !== -1) {
+          isProgrammaticSlide = true;
+          // Muove il menu Swiper alla posizione esatta sfruttando l'indice corretto
+          navSwiper.slideToLoop(realIndex, 300);
+          setTimeout(() => { isProgrammaticSlide = false; }, 350);
         }
       }
     }
