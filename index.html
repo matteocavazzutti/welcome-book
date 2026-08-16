@@ -412,7 +412,6 @@
     </nav>
   </div>
 
-
   <!-- ========================================== -->
   <!-- 3. MODAL FULLSCREEN PER VISUALIZZAZIONE FOTO-->
   <!-- ========================================== -->
@@ -647,7 +646,6 @@ Should you need any help, contact us: we will be delighted to support you!`,
         arrivalTitle: "How to Reach Us",
         checkinContact: "Sonia is your point of contact",
         checkinTitle: "Check-in",
-        enjoyTitle: "Enjoy!",
         checkoutTitle: "Check-out procedure",
         rulesTitle: "House Rules",
         guideTitle: "House Guide",
@@ -1625,24 +1623,6 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       `;
     }
 
-    function renderEnjoySection(lang) {
-      const container = document.getElementById('enjoy-content-container');
-      if (!container) return;
-
-      container.innerHTML = `
-        <div class="space-y-4 text-center">
-          <div class="overflow-hidden rounded-2xl shadow-sm border border-slate-200/80 bg-slate-100 relative group cursor-zoom-in" onclick="openImageModal('segreto_di_maria.png')">
-            <img src="segreto_di_maria.png" alt="Il Segreto di Maria" class="w-full h-auto object-cover object-center group-hover:scale-105 transition-transform duration-300">
-          </div>
-          
-          <!-- Placeholder per il puzzle di foto futuro -->
-          <div class="pt-4 border-t border-slate-100 border-dashed">
-            <p class="text-xs text-slate-400 italic">Photo puzzle coming soon...</p>
-          </div>
-        </div>
-      `;
-    }
-
     function renderGuideSection(lang) {
       const container = document.getElementById('guide-content-container');
       if (!container) return;
@@ -2382,230 +2362,6 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       }
     }
 
-    function renderCheckoutSection(lang) {
-      const container = document.getElementById('checkout-content-container');
-      if (!container) return;
-
-      if (lang === 'en') {
-        container.innerHTML = `
-          <div class="space-y-4 text-left">
-            <p class="text-xs text-slate-500 font-medium pb-1">
-              Before leaving the property, guests are expected to follow the following steps:
-            </p>
-
-            <div class="relative border-l-2 border-amber-200 ml-3 pl-4 space-y-4">
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800 font-bold">Check-out before 10 am.</p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Let us know about</strong> any accidental damage, maintenance concerns, or items in need of repair so we can address them promptly.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Keys:</strong> Lock the front door and leave the keys inside the key box.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Terrace:</strong> Close awnings. Put back cushions and towels in the box. Close windows, window bars, shutters.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Trash & Recycling:</strong> Dispose of all trash in the designated bins located outside the building, in Via degli Ammiragli 112 (20m).
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Kitchen:</strong> Wash dirty dishes or place them in the dishwasher and start the cycle. Empty the fridge.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Appliances:</strong> Switch off the air conditioning and ensure all small electrical appliances (hair dryer, iron, etc.) are unplugged.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Remotes:</strong> Return the 3 remote controls (TV and AC) to their original places.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <span class="absolute -left-[23px] top-1.5 w-3 h-3 bg-amber-500 rounded-full ring-4 ring-white"></span>
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                  <p class="text-xs text-slate-800">
-                    <strong>Privacy:</strong> Log out of any personal accounts in the TV (such as Netflix or similar).
-                  </p>
-                </div>
-              </div>
-
-              <!-- Tappa Airbnb in evidenza con testo aggiornato -->
-              <div class="relative pt-1">
-                <span class="absolute -left-[23px] top-3 w-3 h-3 bg-emerald-500 rounded-full ring-4 ring-white animate-pulse"></span>
-                <a href="https://www.airbnb.fr/rooms/1655819661396931146" target="_blank" rel="noopener noreferrer" class="block bg-gradient-to-r from-emerald-50 to-amber-50 hover:from-emerald-100 hover:to-amber-100 p-3.5 rounded-2xl border-2 border-emerald-300/80 shadow-sm transition-all group active:scale-[0.98]">
-                  <div class="flex items-start justify-between gap-3">
-                    <div class="flex items-start gap-3">
-                      <div class="p-2.5 bg-emerald-500 text-white rounded-xl shadow-sm flex-shrink-0 mt-0.5">
-                        <i class="fa-solid fa-trophy text-sm"></i>
-                      </div>
-                      <div class="space-y-1">
-                        <p class="text-xs font-extrabold text-slate-900 leading-snug group-hover:text-emerald-600 transition-colors">
-                          Rate your "La Terrazza di Maria" experience
-                        </p>
-                        <p class="text-[11px] text-slate-600 font-medium leading-tight">
-                          Please take the time to leave your review on Airbnb. Your feedback helps us to improve our job and keep the best experience for guests. Thank you!
-                        </p>
-                      </div>
-                    </div>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-emerald-500 flex-shrink-0 mt-1 group-hover:translate-x-0.5 transition-transform"></i>
-                  </div>
-                </a>
-              </div>
-
-            </div>
-          </div>
-        `;
-      } else {
-        const t = translations[lang] || translations['it'];
-        container.innerHTML = `
-          <div class="space-y-4 text-left">
-            <p class="text-sm text-slate-600 leading-relaxed">${t.checkoutBody}</p>
-            <div class="pt-2">
-              <a href="https://www.airbnb.fr/rooms/1655819661396931146" target="_blank" rel="noopener noreferrer" class="block bg-gradient-to-r from-emerald-50 to-amber-50 hover:from-emerald-100 hover:to-amber-100 p-3.5 rounded-2xl border-2 border-emerald-300/80 shadow-sm transition-all group">
-                <div class="flex items-start justify-between gap-3">
-                  <div class="flex items-start gap-3">
-                    <div class="p-2.5 bg-emerald-500 text-white rounded-xl shadow-sm flex-shrink-0 mt-0.5">
-                      <i class="fa-solid fa-trophy text-sm"></i>
-                    </div>
-                    <div class="space-y-1">
-                      <p class="text-xs font-extrabold text-slate-900 leading-snug group-hover:text-emerald-600 transition-colors">
-                        Rate your "La Terrazza di Maria" experience
-                      </p>
-                      <p class="text-[11px] text-slate-600 font-medium leading-tight">
-                        Leave your review on Airbnb. Your feedback helps us to improve our job and keep the best experience for guests.
-                      </p>
-                    </div>
-                  </div>
-                  <i class="fa-solid fa-arrow-up-right-from-square text-xs text-emerald-500 flex-shrink-0 mt-1"></i>
-                </div>
-              </a>
-            </div>
-          </div>
-        `;
-      }
-    }
-
-    function renderDisclaimerSection(lang) {
-      const container = document.getElementById('disclaimer-content-container');
-      if (!container) return;
-
-      container.innerHTML = `
-        <div class="space-y-5 text-left text-xs text-slate-700 leading-relaxed">
-
-          <!-- Intro Message -->
-          <div class="space-y-2 border-b border-slate-100 pb-3">
-            <p class="font-bold text-slate-900 text-sm">Dear Guests,</p>
-            <p>
-              We are delighted to welcome you to our flat with terrace and hope you enjoy your stay. To ensure a safe and pleasant experience, we would like to draw your attention to the following important information:
-            </p>
-          </div>
-
-          <!-- 1. Special rules for safety in the terrace -->
-          <div class="p-4 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-2.5">
-            <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wide flex items-center gap-2">
-              <i class="fa-solid fa-shield-cat text-amber-600"></i>
-              <span>1. Special rules for safety in the terrace:</span>
-            </h3>
-            <ul class="space-y-2 list-disc list-outside pl-4 text-slate-600">
-              <li>For your own safety, it is strictly forbidden to sit, climb, or lean over the parapet or railings. Please maintain safe behavior at all times while using the outdoor spaces.</li>
-              <li>Children must be supervised by an adult at all times and must never be left unattended on the terrace.</li>
-              <li>Do not leave any item on the parapet. Please exercise caution to prevent items from falling down the street, as this could result in third party’s injuries or property damages. Guests are solely responsible for any item placed or left on the terrace, including but not limited to objects left on the parapet.</li>
-              <li>Do not touch the plants, to prevent any risk of allergy or intoxication.</li>
-            </ul>
-          </div>
-
-          <!-- 2. Safety and Liability -->
-          <div class="p-4 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-2.5">
-            <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wide flex items-center gap-2">
-              <i class="fa-solid fa-scale-balanced text-slate-700"></i>
-              <span>2. Safety and Liability:</span>
-            </h3>
-            <ul class="space-y-2 list-disc list-outside pl-4 text-slate-600">
-              <li>By using the apartment, appliances and the terrace, guests acknowledge that they have been informed of all potential risks associated with their use.</li>
-              <li>The property owner shall not be held liable for any accidents, injuries, or damages resulting from the improper use of the apartment, appliances and the terrace or failure to follow safety guidelines.</li>
-            </ul>
-          </div>
-
-          <!-- 3. Compliance with Property Rules -->
-          <div class="p-4 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-2.5">
-            <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wide flex items-center gap-2">
-              <i class="fa-solid fa-list-check text-blue-600"></i>
-              <span>3. Compliance with Property Rules</span>
-            </h3>
-            <p class="text-slate-600">
-              In accordance with the rental agreement, Guests agree to strictly comply with all property regulations, specifically including but not limited to:
-            </p>
-            <ul class="space-y-1.5 list-disc list-outside pl-4 text-slate-600">
-              <li><strong>The check-out procedures</strong> as outlined on the “Before You Go” page.</li>
-              <li><strong>The house rules</strong> as outlined on the “House Rules” page.</li>
-            </ul>
-          </div>
-
-          <!-- Closing Statement & Sign-off -->
-          <div class="pt-2 space-y-3">
-            <p class="font-bold text-slate-900 bg-amber-50/80 p-3 rounded-xl border border-amber-200/60 leading-snug">
-              By staying at the property and using its facilities, guests confirm their understanding, responsibility, and acceptance of the terms outlined in this disclaimer.
-            </p>
-            
-            <div class="text-slate-600 space-y-1 pt-1">
-              <p>Thank you for your cooperation.</p>
-              <p>We hope you have a wonderful and safe stay.</p>
-            </div>
-
-            <div class="pt-3 text-right">
-              <p class="italic text-slate-500">Sincerely,</p>
-              <p class="font-bold text-slate-800 font-serif">the Property Management</p>
-            </div>
-          </div>
-
-        </div>
-      `;
-    }
-
     function renderEnjoySection(lang) {
       const container = document.getElementById('enjoy-content-container');
       if (!container) return;
@@ -2619,6 +2375,192 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
           <!-- Placeholder per il puzzle di foto futuro -->
           <div class="pt-4 border-t border-slate-100 border-dashed">
             <p class="text-xs text-slate-400 italic">Photo puzzle coming soon...</p>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderLocalServicesSection(lang) {
+      const container = document.getElementById('local-services-content-container');
+      if (!container) return;
+
+      container.innerHTML = `
+        <div class="space-y-4 text-left">
+          <div class="space-y-3">
+
+            <!-- SUPERMARKET -->
+            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+              <button type="button" onclick="toggleLocalServicesSubSection('local-supermarket', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
+                    <i class="fa-solid fa-cart-shopping text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Supermarket</h3>
+                    <p class="text-[11px] text-slate-500">Groceries and everyday shopping</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
+              </button>
+
+              <div id="local-supermarket" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Supermarket</h3>
+                <div class="space-y-2">
+                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                    <p class="text-xs font-bold text-slate-900"><em>Effepiù</em> – Via degli Ammiragli, 101 <span class="font-medium text-slate-500">(50m)</span></p>
+                  </div>
+                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                    <p class="text-xs font-bold text-slate-900"><em>Tigre</em> – Via Anastasio II, 387 <span class="font-medium text-slate-500">(200m)</span></p>
+                  </div>
+                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                    <p class="text-xs font-bold text-slate-900"><em>Carrefour Market</em> – Via Giulio Venticinque, 9 <span class="font-medium text-slate-500">(400m)</span></p>
+                    <p class="text-xs text-emerald-700 font-semibold mt-1">Open 24h/24h</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ATM / BANK -->
+            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+              <button type="button" onclick="toggleLocalServicesSubSection('local-atm-bank', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
+                    <i class="fa-solid fa-building-columns text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm">ATM / Bank</h3>
+                    <p class="text-[11px] text-slate-500">Banks and cash withdrawal</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
+              </button>
+
+              <div id="local-atm-bank" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">ATM / Bank</h3>
+                <div class="space-y-2">
+                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                    <p class="text-xs font-bold text-slate-900">Intesa Sanpaolo Bank – Via Anastasio II, 409 <span class="font-medium text-slate-500">(150m)</span></p>
+                  </div>
+                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                    <p class="text-xs font-bold text-slate-900">Unicredit Bank – Vle degli Ammiragli, 13 <span class="font-medium text-slate-500">(200m)</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PHARMACY -->
+            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+              <button type="button" onclick="toggleLocalServicesSubSection('local-pharmacy', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
+                    <i class="fa-solid fa-prescription-bottle-medical text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Pharmacy</h3>
+                    <p class="text-[11px] text-slate-500">Nearby pharmacy</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
+              </button>
+
+              <div id="local-pharmacy" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Pharmacy</h3>
+                <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                  <p class="text-xs font-bold text-slate-900">Farmacia Cipro – Viale degli Ammiragli, 33 <span class="font-medium text-slate-500">(200m)</span></p>
+                  <p class="text-xs text-emerald-700 font-semibold mt-1">Open 24h/24h</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- POSTAL SERVICES -->
+            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+              <button type="button" onclick="toggleLocalServicesSubSection('local-postal-services', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
+                    <i class="fa-solid fa-envelope text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Postal Services</h3>
+                    <p class="text-[11px] text-slate-500">Post office, parcels and pick-up</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
+              </button>
+
+              <div id="local-postal-services" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Postal Services</h3>
+                <div class="space-y-2">
+                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                    <p class="text-xs font-bold text-slate-900">Public Post Office – Via Anastasio II, 374 <span class="font-medium text-slate-500">(300m)</span></p>
+                  </div>
+                  <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
+                    <p class="text-xs font-bold text-slate-900">Parcel services / pick-up / Amazon counter: <em>Spartaco Express</em> – Via degli Ammiragli, 108 <span class="font-medium text-slate-500">(30m)</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- MALL / SHOPPING CENTRE -->
+            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+              <button type="button" onclick="toggleLocalServicesSubSection('local-mall', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
+                    <i class="fa-solid fa-store text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Mall / Shopping centre</h3>
+                    <p class="text-[11px] text-slate-500">Shopping, branded shops and food</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
+              </button>
+
+              <div id="local-mall" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Mall / Shopping centre</h3>
+                <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl space-y-2">
+                  <p class="text-xs font-bold text-slate-900"><em>Centro Commerciale Aura</em> – Metro Valle Aurelia <span class="font-medium text-slate-500">(10 minutes walking)</span></p>
+                  <ul class="text-xs text-slate-700 list-disc list-inside space-y-1">
+                    <li>40+ shops / branded-shops</li>
+                    <li>10+ quality & fast-food</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- LUGGAGE STORAGE -->
+            <div class="local-services-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
+              <button type="button" onclick="toggleLocalServicesSubSection('local-luggage', this)" class="w-full hover:bg-emerald-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
+                <div class="flex items-center gap-3">
+                  <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
+                    <i class="fa-solid fa-suitcase-rolling text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Luggage Storage</h3>
+                    <p class="text-[11px] text-slate-500">Drop off your bags nearby</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-down local-services-icon text-slate-400 text-xs transition-transform duration-200"></i>
+              </button>
+
+              <div id="local-luggage" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
+                <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Bounce Network</h3>
+                <ul class="text-xs text-slate-700 space-y-2.5 list-disc list-outside pl-4">
+                  <li>
+                    There are 3 locations in the immediate vicinity where you can leave your luggage using Bounce. Online booking is mandatory.
+                    <div class="pt-1.5 pb-0.5">
+                      <a href="https://usebounce.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold py-1.5 px-3 rounded-lg border border-emerald-200 transition-all active:scale-95 shadow-sm">
+                        <span>Visit bounce.com</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <strong>EXCLUSIVE: Contact Sonia</strong> to get a special discount code negotiated specifically for our guests.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
           </div>
         </div>
       `;
@@ -2678,7 +2620,6 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       }
     }
 
-    // Nuova funzione per i menu annidati (dentro a Prepare your tour)
     function toggleNestedTransportSubSection(sectionId, btnElement) {
       const targetContent = document.getElementById(sectionId);
       if (!targetContent) return;
@@ -2751,19 +2692,15 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
     function showTab(tabId) {
       switchTabContent(tabId);
       if (navSwiper) {
-        // Ordine esatto dei tab in basso (assicurati che sia identico all'HTML)
         const tabsOrder = [
           'welcome', 'arrival', 'checkin', 'wifi', 'rules', 'guide',
           'transports', 'tips', 'local-services', 'enjoy', 'checkout', 'contact',
           'emergency', 'disclaimer'
         ];
         
-        // Trova la posizione (indice) del tab di destinazione
         const realIndex = tabsOrder.indexOf(tabId);
-        
         if (realIndex !== -1) {
           isProgrammaticSlide = true;
-          // Muove il menu Swiper alla posizione esatta sfruttando l'indice corretto
           navSwiper.slideToLoop(realIndex, 300);
           setTimeout(() => { isProgrammaticSlide = false; }, 350);
         }
@@ -2776,18 +2713,17 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       
       const t = translations[lang] || translations['it'];
 
-      // Mappatura testi Welcome su 2 linee
-      const line1 = document.getElementById('txt-welcome-line1');
-      if (line1) line1.innerText = t.welcomeLine1 || '';
+      const elLine1 = document.getElementById('txt-welcome-line1');
+      if (elLine1) elLine1.innerText = t.welcomeLine1 || '';
       
-      const line2 = document.getElementById('txt-welcome-line2');
-      if (line2) line2.innerText = t.welcomeLine2 || '';
+      const elLine2 = document.getElementById('txt-welcome-line2');
+      if (elLine2) elLine2.innerText = t.welcomeLine2 || '';
 
-      const subTitle = document.getElementById('txt-welcome-subtitle');
-      if (subTitle) subTitle.innerText = t.welcomeSubtitle || '';
+      const elSubTitle = document.getElementById('txt-welcome-subtitle');
+      if (elSubTitle) elSubTitle.innerText = t.welcomeSubtitle || '';
 
-      const body = document.getElementById('txt-welcome-body');
-      if (body) body.innerText = t.welcomeBody || '';
+      const elBody = document.getElementById('txt-welcome-body');
+      if (elBody) elBody.innerText = t.welcomeBody || '';
 
       const btnChange = document.getElementById('txt-btn-change-lang');
       if (btnChange) btnChange.innerText = t.changeLangBtn || '';
@@ -2795,58 +2731,32 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       const enjoyTitle = document.getElementById('txt-enjoy-title');
       if (enjoyTitle) enjoyTitle.innerText = t.enjoyTitle || '';
 
-      // Rendering di tutte le sezioni dinamiche complete
-      const arrTitle = document.getElementById('txt-arrival-title');
-      if (arrTitle) arrTitle.innerText = t.arrivalTitle || '';
-      renderArrivalSection(lang);
+      // Rendering di tutte le sezioni dinamiche
+      const sectionsToRender = [
+        { id: 'arrival', renderFn: renderArrivalSection, titleKey: 'arrivalTitle' },
+        { id: 'checkin', renderFn: renderCheckinSection, titleKey: 'checkinTitle' },
+        { id: 'wifi', renderFn: renderWifiSection, titleKey: 'wifiTitle' },
+        { id: 'rules', renderFn: renderRulesSection, titleKey: 'rulesTitle' },
+        { id: 'guide', renderFn: renderGuideSection, titleKey: 'guideTitle' },
+        { id: 'transports', renderFn: renderTransportsSection, titleKey: 'transportsTitle' },
+        { id: 'tips', renderFn: renderFoodDrinkSection, titleKey: 'tipsTitle' },
+        { id: 'local-services', renderFn: renderLocalServicesSection, titleKey: 'localServicesTitle' },
+        { id: 'checkout', renderFn: renderCheckoutSection, titleKey: 'checkoutTitle' },
+        { id: 'contact', renderFn: renderContactSection, titleKey: 'contactTitle' },
+        { id: 'emergency', renderFn: renderEmergencySection, titleKey: 'emergencyTitle' },
+        { id: 'disclaimer', renderFn: renderDisclaimerSection, titleKey: 'disclaimerTitle' }
+      ];
 
-      const chkTitle = document.getElementById('txt-checkin-title');
-      if (chkTitle) chkTitle.innerText = t.checkinTitle || '';
-      renderCheckinSection(lang);
-
-      const wifiTitle = document.getElementById('txt-wifi-title');
-      if (wifiTitle) wifiTitle.innerText = t.wifiTitle || '';
-      renderWifiSection(lang);
-
-      const rulesTitle = document.getElementById('txt-rules-title');
-      if (rulesTitle) rulesTitle.innerText = t.rulesTitle || '';
-      renderRulesSection(lang);
-
-      const guideTitle = document.getElementById('txt-guide-title');
-      if (guideTitle) guideTitle.innerText = t.guideTitle || '';
-      renderGuideSection(lang);
-
-      const transTitle = document.getElementById('txt-transports-title');
-      if (transTitle) transTitle.innerText = t.transportsTitle || '';
-      renderTransportsSection(lang);
-
-      const tipsTitle = document.getElementById('txt-tips-title');
-      if (tipsTitle) tipsTitle.innerText = t.tipsTitle || '';
-      renderFoodDrinkSection(lang);
-
-      const localTitle = document.getElementById('txt-local-services-title');
-      if (localTitle) localTitle.innerText = t.localServicesTitle || '';
-      renderLocalServicesSection(lang);
-
+      sectionsToRender.forEach(sec => {
+        const titleEl = document.getElementById(`txt-${sec.id}-title`);
+        if (titleEl) titleEl.innerText = t[sec.titleKey] || '';
+        if (sec.renderFn) sec.renderFn(lang);
+      });
+      
+      // render Enjoy non ha un titleKey dinamico a parte enjoyTitle già gestito
       renderEnjoySection(lang);
 
-      const outTitle = document.getElementById('txt-checkout-title');
-      if (outTitle) outTitle.innerText = t.checkoutTitle || '';
-      renderCheckoutSection(lang);
-
-      const contactTitle = document.getElementById('txt-contact-title');
-      if (contactTitle) contactTitle.innerText = t.contactTitle || '';
-      renderContactSection(lang);
-
-      const emergTitle = document.getElementById('txt-emergency-title');
-      if (emergTitle) emergTitle.innerText = t.emergencyTitle || '';
-      renderEmergencySection(lang);
-
-      const discTitle = document.getElementById('txt-disclaimer-title');
-      if (discTitle) discTitle.innerText = t.disclaimerTitle || '';
-      renderDisclaimerSection(lang);
-
-      // Etichette dock
+      // Etichette dock - assegnazione precisa ed esplicita
       const setNavText = (id, text) => {
         const el = document.getElementById(id);
         if (el) el.innerText = text || '';
