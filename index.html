@@ -141,7 +141,7 @@
       <div class="max-w-md mx-auto flex justify-between items-center">
         <div>
           <h1 class="text-lg font-bold tracking-wide">Terrazza di Maria</h1>
-          <p class="text-xs text-slate-400">Welcome Book v4</p>
+          <p class="text-xs text-slate-400">Welcome Book v6</p>
         </div>
         
         <button type="button" onclick="showLanguageScreen()" class="bg-slate-800 hover:bg-slate-700 text-xs px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-2 cursor-pointer">
@@ -1443,7 +1443,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       `;
     }
 
-    // Rendering per la nuova sezione Enjoy!
+    // Rendering per la nuova sezione Enjoy! (AGGIORNATO)
     function renderEnjoySection(lang) {
       const container = document.getElementById('enjoy-content-container');
       if (!container) return;
@@ -1451,17 +1451,10 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       container.innerHTML = `
         <div class="space-y-6 text-left">
           
-          <!-- Greeting Card -->
-          <div class="bg-slate-100 py-10 px-4 rounded shadow-sm border-[12px] border-white text-center flex items-center justify-center">
-            <p class="text-[22px] font-bold text-amber-500 italic font-serif leading-snug">
-              We wish you<br>a wonderful and safe<br>stay in Rome.<br>Enjoy!
-            </p>
-          </div>
-
           <!-- Keyhole Section -->
           <div class="pt-2 space-y-3">
             <h3 class="font-extrabold text-slate-900 text-sm">
-              Aventine keyhole? This is Maria's Secret !
+              Aventine keyhole? No,, this is the secret of Maria's Terrace !
             </h3>
             
             <div class="flex items-center gap-4">
@@ -1469,10 +1462,52 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
                 <img src="segreto_di_maria.png" alt="Maria's Secret Keyhole" class="w-full h-auto drop-shadow-md hover:scale-105 transition-transform duration-300">
               </div>
               <div class="flex-1 text-xs text-slate-800 font-semibold italic leading-relaxed space-y-0.5">
-                <p>Must do!</p>
                 <p>Have you found out the secret sightseen of the terrace?</p>
                 <p>Look for the keyhole and peek through it!</p>
               </div>
+            </div>
+          </div>
+
+          <!-- Collage Section (9 Immagini incastrate) -->
+          <div class="pt-3 pb-1">
+            <div class="grid grid-cols-4 grid-rows-4 gap-1.5 h-96 rounded-2xl overflow-hidden shadow-sm border border-slate-200/80 bg-slate-100 p-1">
+              
+              <div class="col-span-2 row-span-2 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('colosseo_2.webp')">
+                <img src="colosseo_2.webp" alt="Colosseo" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('fori_2.png')">
+                <img src="fori_2.png" alt="Fori Imperiali" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('piazza di spagna webp_2.webp')">
+                <img src="piazza di spagna webp_2.webp" alt="Piazza di Spagna" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('vatican_2.png')">
+                <img src="vatican_2.png" alt="Vaticano" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('BRAMANTE-1536x1024.jpeg_2.webp')">
+                <img src="BRAMANTE-1536x1024.jpeg_2.webp" alt="Scala del Bramante" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              
+              <div class="col-span-2 row-span-2 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('de-Chirico-Giorgio-Le-Muse-inquietanti-inv.-8651-H272-scaled_2.webp')">
+                <img src="de-Chirico-Giorgio-Le-Muse-inquietanti-inv.-8651-H272-scaled_2.webp" alt="Le Muse Inquietanti" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('meier_2.jpg')">
+                <img src="meier_2.jpg" alt="Meier" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('Paolina_Borghese_(Canova)_2.jpg')">
+                <img src="Paolina_Borghese_(Canova)_2.jpg" alt="Paolina Borghese" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              
+              <div class="col-span-2 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('scostanza.png')">
+                <img src="scostanza.png" alt="Santa Costanza" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              
             </div>
           </div>
 
