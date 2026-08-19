@@ -141,7 +141,7 @@
       <div class="max-w-md mx-auto flex justify-between items-center">
         <div>
           <h1 class="text-lg font-bold tracking-wide">Terrazza di Maria</h1>
-          <p class="text-xs text-slate-400">Welcome Book v36</p>
+          <p class="text-xs text-slate-400">Welcome Book v37</p>
         </div>
         
         <button type="button" onclick="showLanguageScreen()" class="bg-slate-800 hover:bg-slate-700 text-xs px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-2 cursor-pointer">
@@ -381,7 +381,6 @@
               <i class="fa-solid fa-utensils text-lg text-slate-600"></i>
               <span id="nav-tips" class="text-[9px] text-slate-500 mt-1 text-center leading-tight"></span>
             </div>
-            <!-- NUOVO MENU ENJOY -->
             <div class="swiper-slide" data-tab="enjoy">
               <i class="fa-solid fa-camera-retro text-lg text-slate-600"></i>
               <span id="nav-enjoy" class="text-[9px] text-slate-500 mt-1 text-center leading-tight"></span>
@@ -1443,7 +1442,6 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       `;
     }
 
-    // Rendering per la nuova sezione Enjoy! (AGGIORNATO)
     function renderEnjoySection(lang) {
       const container = document.getElementById('enjoy-content-container');
       if (!container) return;
@@ -1567,13 +1565,31 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
                 <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Supermarket</h3>
                 <div class="space-y-2">
                   <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900"><em>Effepiù</em> – Via degli Ammiragli, 101 <span class="font-medium text-slate-500">(50m)</span></p>
+                    <p class="text-xs font-bold text-slate-900 flex items-center flex-wrap gap-1">
+                      <em>Effepiù</em> – 
+                      <a href="https://www.google.com/maps/dir/?api=1&destination=Via+degli+Ammiragli+101,+Roma" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 hover:underline inline-flex items-center gap-1">
+                        Via degli Ammiragli, 101 <i class="fa-solid fa-diamond-turn-right text-[10px]"></i>
+                      </a> 
+                      <span class="font-medium text-slate-500">(50m)</span>
+                    </p>
                   </div>
                   <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900"><em>Tigre</em> – Via Anastasio II, 387 <span class="font-medium text-slate-500">(200m)</span></p>
+                    <p class="text-xs font-bold text-slate-900 flex items-center flex-wrap gap-1">
+                      <em>Tigre</em> – 
+                      <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Anastasio+II+387,+Roma" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 hover:underline inline-flex items-center gap-1">
+                        Via Anastasio II, 387 <i class="fa-solid fa-diamond-turn-right text-[10px]"></i>
+                      </a> 
+                      <span class="font-medium text-slate-500">(200m)</span>
+                    </p>
                   </div>
                   <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900"><em>Carrefour Market</em> – Via Giulio Venticinque, 9 <span class="font-medium text-slate-500">(400m)</span></p>
+                    <p class="text-xs font-bold text-slate-900 flex items-center flex-wrap gap-1">
+                      <em>Carrefour Market</em> – 
+                      <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Giulio+Venticinque+9,+Roma" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 hover:underline inline-flex items-center gap-1">
+                        Via Giulio Venticinque, 9 <i class="fa-solid fa-diamond-turn-right text-[10px]"></i>
+                      </a> 
+                      <span class="font-medium text-slate-500">(400m)</span>
+                    </p>
                     <p class="text-xs text-emerald-700 font-semibold mt-1">Open 24h/24h</p>
                   </div>
                 </div>
@@ -1599,10 +1615,22 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
                 <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">ATM / Bank</h3>
                 <div class="space-y-2">
                   <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900">Intesa Sanpaolo Bank – Via Anastasio II, 409 <span class="font-medium text-slate-500">(150m)</span></p>
+                    <p class="text-xs font-bold text-slate-900 flex items-center flex-wrap gap-1">
+                      Intesa Sanpaolo Bank – 
+                      <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Anastasio+II+409,+Roma" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 hover:underline inline-flex items-center gap-1">
+                        Via Anastasio II, 409 <i class="fa-solid fa-diamond-turn-right text-[10px]"></i>
+                      </a> 
+                      <span class="font-medium text-slate-500">(150m)</span>
+                    </p>
                   </div>
                   <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900">Unicredit Bank – Vle degli Ammiragli, 13 <span class="font-medium text-slate-500">(200m)</span></p>
+                    <p class="text-xs font-bold text-slate-900 flex items-center flex-wrap gap-1">
+                      Unicredit Bank – 
+                      <a href="https://www.google.com/maps/dir/?api=1&destination=Viale+degli+Ammiragli+13,+Roma" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 hover:underline inline-flex items-center gap-1">
+                        Vle degli Ammiragli, 13 <i class="fa-solid fa-diamond-turn-right text-[10px]"></i>
+                      </a> 
+                      <span class="font-medium text-slate-500">(200m)</span>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -1626,7 +1654,13 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
               <div id="local-pharmacy" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
                 <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Pharmacy</h3>
                 <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                  <p class="text-xs font-bold text-slate-900">Farmacia Cipro – Viale degli Ammiragli, 33 <span class="font-medium text-slate-500">(200m)</span></p>
+                  <p class="text-xs font-bold text-slate-900 flex items-center flex-wrap gap-1">
+                    Farmacia Cipro – 
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Viale+degli+Ammiragli+33,+Roma" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 hover:underline inline-flex items-center gap-1">
+                      Viale degli Ammiragli, 33 <i class="fa-solid fa-diamond-turn-right text-[10px]"></i>
+                    </a> 
+                    <span class="font-medium text-slate-500">(200m)</span>
+                  </p>
                   <p class="text-xs text-emerald-700 font-semibold mt-1">Open 24h/24h</p>
                 </div>
               </div>
@@ -1651,10 +1685,22 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
                 <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Postal Services</h3>
                 <div class="space-y-2">
                   <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900">Public Post Office – Via Anastasio II, 374 <span class="font-medium text-slate-500">(300m)</span></p>
+                    <p class="text-xs font-bold text-slate-900 flex items-center flex-wrap gap-1">
+                      Public Post Office – 
+                      <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Anastasio+II+374,+Roma" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 hover:underline inline-flex items-center gap-1">
+                        Via Anastasio II, 374 <i class="fa-solid fa-diamond-turn-right text-[10px]"></i>
+                      </a> 
+                      <span class="font-medium text-slate-500">(300m)</span>
+                    </p>
                   </div>
                   <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl">
-                    <p class="text-xs font-bold text-slate-900">Parcel services / pick-up / Amazon counter: <em>Spartaco Express</em> – Via degli Ammiragli, 108 <span class="font-medium text-slate-500">(30m)</span></p>
+                    <p class="text-xs font-bold text-slate-900 flex items-center flex-wrap gap-1">
+                      Parcel services / pick-up / Amazon counter: <em>Spartaco Express</em> – 
+                      <a href="https://www.google.com/maps/dir/?api=1&destination=Via+degli+Ammiragli+108,+Roma" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 hover:underline inline-flex items-center gap-1">
+                        Via degli Ammiragli, 108 <i class="fa-solid fa-diamond-turn-right text-[10px]"></i>
+                      </a> 
+                      <span class="font-medium text-slate-500">(30m)</span>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -1678,7 +1724,13 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
               <div id="local-mall" class="local-services-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
                 <h3 class="text-sm font-bold text-emerald-700 border-b border-slate-100 pb-2">Mall / Shopping centre</h3>
                 <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl space-y-2">
-                  <p class="text-xs font-bold text-slate-900"><em>Centro Commerciale Aura</em> – Metro Valle Aurelia <span class="font-medium text-slate-500">(10 minutes walking)</span></p>
+                  <p class="text-xs font-bold text-slate-900 flex items-center flex-wrap gap-1">
+                    <em>Centro Commerciale Aura</em> – 
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Centro+Commerciale+Aura,+Roma" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 hover:underline inline-flex items-center gap-1">
+                      Metro Valle Aurelia <i class="fa-solid fa-diamond-turn-right text-[10px]"></i>
+                    </a> 
+                    <span class="font-medium text-slate-500">(10 minutes walking)</span>
+                  </p>
                   <ul class="text-xs text-slate-700 list-disc list-inside space-y-1">
                     <li>40+ shops / branded-shops</li>
                     <li>10+ quality & fast-food</li>
