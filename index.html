@@ -141,7 +141,7 @@
       <div class="max-w-md mx-auto flex justify-between items-center">
         <div>
           <h1 class="text-lg font-bold tracking-wide">Terrazza di Maria</h1>
-          <p class="text-xs text-slate-400">Welcome Book v5</p>
+          <p class="text-xs text-slate-400">Welcome Book v36</p>
         </div>
         
         <button type="button" onclick="showLanguageScreen()" class="bg-slate-800 hover:bg-slate-700 text-xs px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-2 cursor-pointer">
@@ -1468,9 +1468,10 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
             </div>
           </div>
 
-          <!-- Collage Section -->
+          <!-- Collage Section (Aggiornato con le 10 Foto) -->
           <div class="pt-3 pb-1">
-            <div class="grid grid-cols-4 grid-rows-2 gap-1.5 h-52 rounded-2xl overflow-hidden shadow-sm border border-slate-200/80 bg-slate-100 p-1">
+            <div class="grid grid-cols-4 grid-rows-4 gap-1.5 h-[420px] rounded-2xl overflow-hidden shadow-sm border border-slate-200/80 bg-slate-100 p-1">
+              <!-- Riga 1 & 2: Immagine Grande (Colosseo) + 4 Piccole -->
               <div class="col-span-2 row-span-2 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('colosseo.webp')">
                 <img src="colosseo.webp" alt="Colosseo" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
               </div>
@@ -1486,10 +1487,49 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
               <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('BRAMANTE-1536x1024.jpeg.webp')">
                 <img src="BRAMANTE-1536x1024.jpeg.webp" alt="Scala del Bramante" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
               </div>
+
+              <!-- Riga 3 & 4: Immagine Grande (Paolina) + 4 Piccole (Nuove) -->
+              <div class="col-span-2 row-span-2 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('Paolina_Borghese_(Canova).jpg')">
+                <img src="Paolina_Borghese_(Canova).jpg" alt="Paolina Borghese" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('scostanza.png')">
+                <img src="scostanza.png" alt="Santa Costanza" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('art4_MGbig.jpg')">
+                <img src="art4_MGbig.jpg" alt="Street Art" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('de-Chirico-Giorgio-Le-Muse-inquietanti-inv.-8651-H272-scaled.webp')">
+                <img src="de-Chirico-Giorgio-Le-Muse-inquietanti-inv.-8651-H272-scaled.webp" alt="De Chirico" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('meier.jpg')">
+                <img src="meier.jpg" alt="Chiesa di Meier" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
             </div>
           </div>
 
- <!-- Greeting Card -->
+          <!-- Rate Your Experience Card -->
+          <div class="pt-1 pb-4">
+            <a href="https://www.airbnb.fr/rooms/1655819661396931146" target="_blank" rel="noopener noreferrer" class="block bg-gradient-to-r from-emerald-50 to-emerald-100/50 hover:from-emerald-100 hover:to-emerald-50 p-3.5 rounded-2xl border-2 border-emerald-300/80 shadow-sm transition-all group active:scale-[0.98]">
+              <div class="flex items-start justify-between gap-3">
+                <div class="flex items-start gap-3">
+                  <div class="p-2.5 bg-emerald-500 text-white rounded-xl shadow-sm flex-shrink-0 mt-0.5">
+                    <i class="fa-solid fa-trophy text-sm"></i>
+                  </div>
+                  <div class="space-y-1">
+                    <p class="text-xs font-extrabold text-slate-900 leading-snug group-hover:text-emerald-600 transition-colors">
+                      At the end of your stay, rate your experience at La Terrazza di Maria
+                    </p>
+                    <p class="text-[11px] text-slate-600 font-medium leading-tight">
+                      Please take the time to leave your review on Airbnb. Your feedback helps us to improve our job and keep the best experience for guests. Thank you!
+                    </p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-emerald-500 flex-shrink-0 mt-1 group-hover:translate-x-0.5 transition-transform"></i>
+              </div>
+            </a>
+          </div>
+
+          <!-- Greeting Card -->
           <div class="bg-slate-100 py-10 px-4 rounded shadow-sm border-[12px] border-white text-center flex items-center justify-center">
             <p class="text-sm font-bold text-amber-500 italic font-serif leading-snug">
               We wish you<br>a wonderful and safe stay in Rome.<br>Enjoy!
