@@ -26,11 +26,11 @@
     .swiper {
       width: 100%;
       padding-top: 10px;
-      padding-bottom: 12px; /* Aumentato padding per evitare tagli del testo */
+      padding-bottom: 10px;
     }
     .swiper-slide {
       width: 68px !important;
-      height: 64px; /* Aumentato per fare spazio al testo */
+      height: 60px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -141,7 +141,7 @@
       <div class="max-w-md mx-auto flex justify-between items-center">
         <div>
           <h1 class="text-lg font-bold tracking-wide">Terrazza di Maria</h1>
-          <p class="text-xs text-slate-400">Welcome Book v7</p>
+          <p class="text-xs text-slate-400">Welcome Book v5</p>
         </div>
         
         <button type="button" onclick="showLanguageScreen()" class="bg-slate-800 hover:bg-slate-700 text-xs px-3 py-1.5 rounded-full border border-slate-700 flex items-center gap-2 cursor-pointer">
@@ -278,6 +278,12 @@
 
       <!-- 9. ENJOY -->
       <section id="enjoy" class="tab-content bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-3 bg-pink-100 text-pink-600 rounded-xl">
+            <i class="fa-solid fa-camera-retro text-xl"></i>
+          </div>
+          <h2 id="txt-enjoy-title" class="text-xl font-bold text-slate-900"></h2>
+        </div>
         <div id="enjoy-content-container"></div>
       </section>
 
@@ -1437,9 +1443,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       `;
     }
 
-    // ==========================================
-    // RENDER DELLA SEZIONE ENJOY RICREATA PERFETTA
-    // ==========================================
+    // Rendering per la nuova sezione Enjoy! (AGGIORNATO)
     function renderEnjoySection(lang) {
       const container = document.getElementById('enjoy-content-container');
       if (!container) return;
@@ -1448,26 +1452,46 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
         <div class="space-y-6 text-left">
           
           <!-- Greeting Card -->
-          <div class="bg-slate-100 py-10 px-4 shadow-sm border-[12px] border-white text-center flex items-center justify-center">
-            <p class="text-[26px] font-bold text-orange-500 italic font-serif leading-snug">
+          <div class="bg-slate-100 py-10 px-4 rounded shadow-sm border-[12px] border-white text-center flex items-center justify-center">
+            <p class="text-sm font-bold text-amber-500 italic font-serif leading-snug">
               We wish you<br>a wonderful and safe<br>stay in Rome.<br>Enjoy!
             </p>
           </div>
 
           <!-- Keyhole Section -->
-          <div class="pt-2 space-y-4">
+          <div class="pt-2 space-y-3">
             <h3 class="font-extrabold text-slate-900 text-sm">
-              Aventine keyhole? This is Maria's Secret !
+              Aventine keyhole? No,, this is the secret of Maria's Terrace !
             </h3>
             
             <div class="flex items-center gap-4">
-              <div class="w-24 flex-shrink-0 cursor-zoom-in" onclick="openImageModal('segreto_di_maria.png')">
+              <div class="w-20 flex-shrink-0 cursor-zoom-in" onclick="openImageModal('segreto_di_maria.png')">
                 <img src="segreto_di_maria.png" alt="Maria's Secret Keyhole" class="w-full h-auto drop-shadow-md hover:scale-105 transition-transform duration-300">
               </div>
-              <div class="flex-1 text-xs text-slate-800 font-bold italic leading-relaxed space-y-1">
-                <p>Must do!</p>
+              <div class="flex-1 text-xs text-slate-800 font-semibold italic leading-relaxed space-y-0.5">
                 <p>Have you found out the secret sightseen of the terrace?</p>
                 <p>Look for the keyhole and peek through it!</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Collage Section -->
+          <div class="pt-3 pb-1">
+            <div class="grid grid-cols-4 grid-rows-2 gap-1.5 h-52 rounded-2xl overflow-hidden shadow-sm border border-slate-200/80 bg-slate-100 p-1">
+              <div class="col-span-2 row-span-2 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('colosseo.webp')">
+                <img src="colosseo.webp" alt="Colosseo" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('fori.png')">
+                <img src="fori.png" alt="Fori Imperiali" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('piazza di spagna webp.webp')">
+                <img src="piazza di spagna webp.webp" alt="Piazza di Spagna" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('vatican.png')">
+                <img src="vatican.png" alt="Vaticano" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('BRAMANTE-1536x1024.jpeg.webp')">
+                <img src="BRAMANTE-1536x1024.jpeg.webp" alt="Scala del Bramante" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
               </div>
             </div>
           </div>
@@ -3095,3 +3119,4 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
   </script>
 </body>
 </html>
+
