@@ -302,21 +302,11 @@
               <div id="checkout-content-container"></div>
             </section>
           </div>
-          <div class="swiper-slide h-full overflow-y-auto px-4 py-4 pb-8 no-scrollbar" data-tab="disclaimer">
-            <section id="disclaimer" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-              <div class="flex items-center space-x-3 mb-4">
-                <div class="p-3 bg-slate-100 text-slate-600 rounded-xl">
-                  <i class="fa-solid fa-shield-halved text-xl"></i>
-                </div>
-                <h2 id="txt-disclaimer-title" class="text-xl font-bold text-slate-900"></h2>
-              </div>
-              <div id="disclaimer-content-container"></div>
-            </section>
-          </div>
+
         </div>
       </div>
 
-      <!-- MACRO 4: SUPPORT -->
+<!-- MACRO 4: SUPPORT -->
       <div id="swiper-support" class="swiper w-full h-full macro-swiper hidden">
         <div class="swiper-wrapper">
           <div class="swiper-slide h-full overflow-y-auto px-4 py-4 pb-8 no-scrollbar" data-tab="contact">
@@ -341,6 +331,21 @@
               <div id="emergency-content-container"></div>
             </section>
           </div>
+          
+          <!-- Disclaimer Spostato Qui -->
+          <div class="swiper-slide h-full overflow-y-auto px-4 py-4 pb-8 no-scrollbar" data-tab="disclaimer">
+            <section id="disclaimer" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="p-3 bg-slate-100 text-slate-600 rounded-xl">
+                  <i class="fa-solid fa-shield-halved text-xl"></i>
+                </div>
+                <h2 id="txt-disclaimer-title" class="text-xl font-bold text-slate-900"></h2>
+              </div>
+              <div id="disclaimer-content-container"></div>
+            </section>
+          </div>
+          <!-- Fine Disclaimer -->
+
         </div>
       </div>
     </main>
@@ -354,14 +359,14 @@
           <span class="text-[10px] font-bold" id="txt-macro-welcome">Welcome</span>
         </button>
 
-        <button onclick="activateMacro('explore')" id="btn-macro-explore" class="macro-btn flex flex-col items-center justify-center text-slate-400">
-          <i class="fa-solid fa-map-location-dot text-[22px] mb-1"></i>
-          <span class="text-[10px] font-bold" id="txt-macro-explore">Explore Rome</span>
-        </button>
-
         <button onclick="activateMacro('house')" id="btn-macro-house" class="macro-btn flex flex-col items-center justify-center text-slate-400">
           <i class="fa-solid fa-house text-[22px] mb-1"></i>
           <span class="text-[10px] font-bold" id="txt-macro-house">The House</span>
+        </button>
+
+        <button onclick="activateMacro('explore')" id="btn-macro-explore" class="macro-btn flex flex-col items-center justify-center text-slate-400">
+          <i class="fa-solid fa-map-location-dot text-[22px] mb-1"></i>
+          <span class="text-[10px] font-bold" id="txt-macro-explore">Explore Rome</span>
         </button>
 
         <button onclick="activateMacro('support')" id="btn-macro-support" class="macro-btn flex flex-col items-center justify-center text-slate-400">
@@ -2986,9 +2991,9 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
     // ==========================================
     const appStructure = {
       'welcome': ['welcome', 'arrival', 'enjoy'],
+      'house':   ['checkin', 'wifi', 'rules', 'guide', 'checkout'],
       'explore': ['transports', 'tips', 'local-services'],
-      'house':   ['checkin', 'wifi', 'rules', 'guide', 'checkout', 'disclaimer'],
-      'support': ['contact', 'emergency']
+      'support': ['contact', 'emergency', 'disclaimer']
     };
 
     const tabConfig = {
