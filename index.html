@@ -3353,6 +3353,38 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
         closeImageModal();
       }
     });
+ 
+  // ==========================================
+    // GESTIONE TASTO "INDIETRO" SU ANDROID
+    // ==========================================
+    
+    // Inseriamo uno "stato fittizio" nella cronologia del browser all'avvio
+    history.pushState({ page: 'app-started' }, '', '');
+
+    window.addEventListener('popstate', function(event) {
+      const modal = document.getElementById('image-modal');
+      
+      // 1. Se è aperta una foto a schermo intero, la chiude e ferma l'azione
+      if (modal && !modal.classList.contains('hidden')) {
+        closeImageModal();
+        history.pushState({ page: 'app-started' }, '', ''); // Ricrea il blocco
+        return;
+      }
+
+      // 2. Se NON siamo sul capitolo Welcome, torna a Welcome
+      if (currentMacro !== 'welcome') {
+        activateMacro('welcome');
+        
+        // Assicurati che lo swiper torni alla primissima scheda
+        if (swiperInstances['welcome']) {
+          swiperInstances['welcome'].slideTo(0); 
+        }
+        
+        history.pushState({ page: 'app-started' }, '', ''); // Ricrea il blocco
+      } 
+      // 3. Se siamo GIA' su Welcome, non ricrea il blocco: l'app si chiuderà normalmente
+    });
+  
   </script>
 </body>
 </html>
