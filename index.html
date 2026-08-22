@@ -174,6 +174,20 @@
               </div>
             </section>
           </div>
+
+          <div class="swiper-slide h-full overflow-y-auto px-4 py-4 pb-8 no-scrollbar" data-tab="arrival">
+            <section id="arrival" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="p-3 bg-blue-100 text-blue-600 rounded-xl">
+                  <i class="fa-solid fa-map-location-dot text-xl"></i>
+                </div>
+                <h2 id="txt-arrival-title" class="text-xl font-bold text-slate-900"></h2>
+              </div>
+              <div id="arrival-content-container"></div>
+            </section>
+          </div>
+
+          
           <div class="swiper-slide h-full overflow-y-auto px-4 py-4 pb-8 no-scrollbar" data-tab="enjoy">
             <section id="enjoy" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
               <div class="flex items-center space-x-3 mb-4">
@@ -188,20 +202,22 @@
         </div>
       </div>
 
+      <div class="swiper-slide h-full overflow-y-auto px-4 py-4 pb-8 no-scrollbar" data-tab="disclaimer">
+            <section id="disclaimer" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="p-3 bg-slate-100 text-slate-600 rounded-xl">
+                  <i class="fa-solid fa-shield-halved text-xl"></i>
+                </div>
+                <h2 id="txt-disclaimer-title" class="text-xl font-bold text-slate-900"></h2>
+              </div>
+              <div id="disclaimer-content-container"></div>
+            </section>
+          </div>
+      
       <!-- MACRO 2: EXPLORE ROME -->
       <div id="swiper-explore" class="swiper w-full h-full macro-swiper hidden">
         <div class="swiper-wrapper">
-          <div class="swiper-slide h-full overflow-y-auto px-4 py-4 pb-8 no-scrollbar" data-tab="arrival">
-            <section id="arrival" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-              <div class="flex items-center space-x-3 mb-4">
-                <div class="p-3 bg-blue-100 text-blue-600 rounded-xl">
-                  <i class="fa-solid fa-map-location-dot text-xl"></i>
-                </div>
-                <h2 id="txt-arrival-title" class="text-xl font-bold text-slate-900"></h2>
-              </div>
-              <div id="arrival-content-container"></div>
-            </section>
-          </div>
+         
           <div class="swiper-slide h-full overflow-y-auto px-4 py-4 pb-8 no-scrollbar" data-tab="transports">
             <section id="transports" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
               <div class="flex items-center space-x-3 mb-4">
@@ -296,17 +312,7 @@
               <div id="checkout-content-container"></div>
             </section>
           </div>
-          <div class="swiper-slide h-full overflow-y-auto px-4 py-4 pb-8 no-scrollbar" data-tab="disclaimer">
-            <section id="disclaimer" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-              <div class="flex items-center space-x-3 mb-4">
-                <div class="p-3 bg-slate-100 text-slate-600 rounded-xl">
-                  <i class="fa-solid fa-shield-halved text-xl"></i>
-                </div>
-                <h2 id="txt-disclaimer-title" class="text-xl font-bold text-slate-900"></h2>
-              </div>
-              <div id="disclaimer-content-container"></div>
-            </section>
-          </div>
+          
         </div>
       </div>
 
@@ -2971,9 +2977,9 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
     // LOGICA DI NAVIGAZIONE A 2 LIVELLI (V45)
     // ==========================================
     const appStructure = {
-      'welcome': ['welcome', 'enjoy'],
-      'explore': ['arrival', 'transports', 'tips', 'local-services'],
-      'house':   ['checkin', 'wifi', 'rules', 'guide', 'checkout', 'disclaimer'],
+      'welcome': ['welcome', 'arrival', 'enjoy', 'disclaimer'],
+      'explore': ['transports', 'tips', 'local-services'],
+      'house':   ['checkin', 'wifi', 'rules', 'guide', 'checkout'],
       'support': ['contact', 'emergency']
     };
 
