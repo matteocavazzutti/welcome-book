@@ -148,21 +148,23 @@
                 <div id="txt-welcome-body" class="text-slate-600 text-xs leading-relaxed whitespace-pre-line text-left pt-1 space-y-2"></div>
                 <div class="pt-3 pb-1">
                   <div class="grid grid-cols-4 grid-rows-2 gap-1.5 h-52 rounded-2xl overflow-hidden shadow-sm border border-slate-200/80 bg-slate-100 p-1">
-                    <div class="col-span-2 row-span-2 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('Gemini_Generated_Image_1.png')">
+                   
+                    <div class="col-span-2 row-span-2 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openGalleryModal(galleryWelcome, 0)">
                       <img src="Gemini_Generated_Image_1.png" alt="Tavolo Terrazzo al tramonto" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('Gemini_Generated_Image_7.jpeg')">
+                    <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openGalleryModal(galleryWelcome, 1)">
                       <img src="Gemini_Generated_Image_7.jpeg" alt="Solarium e sdraio" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('Gemini_Generated_Image_ 3.jpeg')">
+                    <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openGalleryModal(galleryWelcome, 2)">
                       <img src="Gemini_Generated_Image_ 3.jpeg" alt="Camera da letto matrimoniale" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group flex items-center justify-center cursor-zoom-in" onclick="openImageModal('Gemini_Generated_Image_ 2.jpeg', true)">
+                    <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group flex items-center justify-center cursor-zoom-in" onclick="openGalleryModal(galleryWelcome, 3)">
                       <img src="Gemini_Generated_Image_ 2.jpeg" alt="Panoramica Terrazzo" class="w-full h-full object-cover object-center rotate-90 scale-125 group-hover:scale-135 transition-transform duration-300">
                     </div>
-                    <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('Gemini_Generated_Image_ 4.png')">
+                    <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openGalleryModal(galleryWelcome, 4)">
                       <img src="Gemini_Generated_Image_ 4.png" alt="Sala da pranzo e soggiorno" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
                     </div>
+                    
                   </div>
                 </div>
                 <div class="pt-2 text-center">
@@ -372,18 +374,24 @@
   </div>
  
 
-  <!-- ========================================== -->
+<!-- ========================================== -->
   <!-- 3. MODAL FULLSCREEN PER VISUALIZZAZIONE FOTO-->
   <!-- ========================================== -->
-  <div id="image-modal" class="fixed inset-0 z-[100] bg-slate-950/90 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeImageModal()">
+  <div id="image-modal" class="fixed inset-0 z-[100] bg-slate-950/90 backdrop-blur-md hidden flex items-center justify-center" onclick="closeImageModal()">
+    
     <button type="button" onclick="closeImageModal()" class="absolute top-4 right-4 text-white hover:text-amber-400 text-3xl font-bold p-2 transition-colors z-[101]">
       <i class="fa-solid fa-xmark"></i>
     </button>
-    <div class="max-w-3xl max-h-[85vh] flex items-center justify-center" onclick="event.stopPropagation()">
-      <img id="modal-img" src="" alt="Anteprima Ingrandita" class="max-w-full max-h-[85vh] object-contain rounded-2xl shadow-2xl transition-all duration-300">
+
+    <div class="swiper modal-swiper w-full max-w-4xl h-[100dvh]" onclick="event.stopPropagation()">
+      <div class="swiper-wrapper" id="modal-swiper-wrapper">
+        <!-- Generato via JS -->
+      </div>
+      <div class="swiper-button-next !text-white hover:!text-amber-400 hidden sm:flex"></div>
+      <div class="swiper-button-prev !text-white hover:!text-amber-400 hidden sm:flex"></div>
+      <div class="swiper-pagination !bottom-4"></div>
     </div>
   </div>
-
 
   <!-- Swiper JS Script per la barra di navigazione -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -1448,39 +1456,41 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
           <!-- Collage Section (Aggiornato con le 10 Foto) -->
           <div class="pt-3 pb-1">
             <div class="grid grid-cols-4 grid-rows-4 gap-1.5 h-[420px] rounded-2xl overflow-hidden shadow-sm border border-slate-200/80 bg-slate-100 p-1">
+              
               <!-- Riga 1 & 2: Immagine Grande (Colosseo) + 4 Piccole -->
-              <div class="col-span-2 row-span-2 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('colosseo.webp')">
+              <div class="col-span-2 row-span-2 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openGalleryModal(galleryEnjoy, 0)">
                 <img src="colosseo.webp" alt="Colosseo" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
               </div>
-              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('fori.png')">
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openGalleryModal(galleryEnjoy, 1)">
                 <img src="fori.png" alt="Fori Imperiali" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
               </div>
-              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('piazza di spagna webp.webp')">
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openGalleryModal(galleryEnjoy, 2)">
                 <img src="piazza di spagna webp.webp" alt="Piazza di Spagna" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
               </div>
-              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('vatican.png')">
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openGalleryModal(galleryEnjoy, 3)">
                 <img src="vatican.png" alt="Vaticano" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
               </div>
-              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('BRAMANTE-1536x1024.jpeg.webp')">
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openGalleryModal(galleryEnjoy, 4)">
                 <img src="BRAMANTE-1536x1024.jpeg.webp" alt="Scala del Bramante" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
               </div>
 
               <!-- Riga 3 & 4: Immagine Grande (Paolina) + 4 Piccole (Nuove) -->
-              <div class="col-span-2 row-span-2 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('Paolina_Borghese_(Canova).jpg')">
+              <div class="col-span-2 row-span-2 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openGalleryModal(galleryEnjoy, 5)">
                 <img src="Paolina_Borghese_(Canova).jpg" alt="Paolina Borghese" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
               </div>
-              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('scostanza.png')">
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openGalleryModal(galleryEnjoy, 6)">
                 <img src="scostanza.png" alt="Santa Costanza" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
               </div>
-              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('art4_MGbig.jpg')">
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openGalleryModal(galleryEnjoy, 7)">
                 <img src="art4_MGbig.jpg" alt="Street Art" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
               </div>
-              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('de-Chirico-Giorgio-Le-Muse-inquietanti-inv.-8651-H272-scaled.webp')">
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openGalleryModal(galleryEnjoy, 8)">
                 <img src="de-Chirico-Giorgio-Le-Muse-inquietanti-inv.-8651-H272-scaled.webp" alt="De Chirico" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
               </div>
-              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('meier.jpg')">
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openGalleryModal(galleryEnjoy, 9)">
                 <img src="meier.jpg" alt="Chiesa di Meier" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
               </div>
+              
             </div>
           </div>
 
@@ -3270,22 +3280,64 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       });
     }
 
-    // Modal Fullscreen per Apertura Foto
-    function openImageModal(imgSrc, isRotated = false) {
-      const modal = document.getElementById('image-modal');
-      const modalImg = document.getElementById('modal-img');
-      if (!modal || !modalImg) return;
+// Definiamo le gallerie
+    const galleryWelcome = [
+      { src: 'Gemini_Generated_Image_1.png' },
+      { src: 'Gemini_Generated_Image_7.jpeg' },
+      { src: 'Gemini_Generated_Image_ 3.jpeg' },
+      { src: 'Gemini_Generated_Image_ 2.jpeg', rotate: true },
+      { src: 'Gemini_Generated_Image_ 4.png' }
+    ];
 
-      modalImg.src = imgSrc;
-      
-      if (isRotated) {
-        modalImg.classList.add('rotate-90');
-      } else {
-        modalImg.classList.remove('rotate-90');
-      }
+    const galleryEnjoy = [
+      { src: 'colosseo.webp' },
+      { src: 'fori.png' },
+      { src: 'piazza di spagna webp.webp' },
+      { src: 'vatican.png' },
+      { src: 'BRAMANTE-1536x1024.jpeg.webp' },
+      { src: 'Paolina_Borghese_(Canova).jpg' },
+      { src: 'scostanza.png' },
+      { src: 'art4_MGbig.jpg' },
+      { src: 'de-Chirico-Giorgio-Le-Muse-inquietanti-inv.-8651-H272-scaled.webp' },
+      { src: 'meier.jpg' }
+    ];
+
+    let modalSwiperInstance = null;
+
+    // Modal Fullscreen per Apertura Foto
+    function openGalleryModal(gallery, startIndex = 0) {
+      const modal = document.getElementById('image-modal');
+      const wrapper = document.getElementById('modal-swiper-wrapper');
+      if (!modal || !wrapper) return;
+
+      wrapper.innerHTML = '';
+      gallery.forEach(img => {
+        const rotateClass = img.rotate ? 'rotate-90 scale-125' : '';
+        wrapper.innerHTML += `
+          <div class="swiper-slide flex items-center justify-center p-4">
+            <img src="${img.src}" class="max-w-[95%] max-h-[85vh] object-contain rounded-2xl shadow-2xl transition-all duration-300 ${rotateClass}">
+          </div>
+        `;
+      });
 
       modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
+
+      if (modalSwiperInstance) modalSwiperInstance.destroy(true, true);
+
+      modalSwiperInstance = new Swiper('.modal-swiper', {
+        initialSlide: startIndex,
+        loop: true,
+        grabCursor: true,
+        spaceBetween: 20,
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        pagination: { el: '.swiper-pagination', clickable: true }
+      });
+    }
+
+    function openImageModal(imgSrc, isRotated = false) {
+      // Funzione fallback per le foto singole che non hanno galleria (es. landing page)
+      openGalleryModal([{ src: imgSrc, rotate: isRotated }], 0);
     }
 
     function closeImageModal() {
