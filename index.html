@@ -14,25 +14,42 @@
   <!-- Icone Bandiere Flag Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
 
-  <!-- Swiper CSS per Navigazione -->
+  <!-- Swiper CSS per Navigazione Circolare -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <style>
     .hidden-screen { display: none !important; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
     
-    /* Nascondi scrollbar per il menu top pur mantenendo lo scroll */
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    
-    /* Area sicura per iPhone (Notch/Home Indicator) */
-    .pb-safe { padding-bottom: calc(10px + env(safe-area-inset-bottom)); }
-
-    /* Personalizzazione Macro Bottoni Bottom */
-    .macro-btn {
-      transition: all 0.3s ease;
+    /* Personalizzazione Swiper Dock Apple */
+    .swiper {
+      width: 100%;
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
-    .macro-btn.active-macro {
-      transform: scale(1.1) translateY(-2px);
+    .swiper-slide {
+      width: 68px !important;
+      height: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      opacity: 0.4;
+      transform: scale(0.85);
+      cursor: pointer;
+    }
+    .swiper-slide-active {
+      opacity: 1 !important;
+      transform: scale(1.25) translateY(-2px) !important;
+    }
+    .swiper-slide-active i {
+      color: #f59e0b !important;
+    }
+    .swiper-slide-active span {
+      color: #0f172a !important;
+      font-weight: 700 !important;
     }
 
     /* Animazione Scuotimento per Errore PIN */
@@ -47,12 +64,12 @@
     }
   </style>
 </head>
-<body class="bg-slate-900 text-slate-800 font-sans">
+<body class="bg-slate-50 text-slate-800 font-sans">
 
   <!-- ========================================== -->
   <!-- 0. AUTHENTICATION SCREEN                   -->
   <!-- ========================================== -->
-  <div id="auth-screen" class="min-h-screen max-w-md mx-auto flex flex-col justify-center items-center p-6 text-center bg-slate-50 shadow-2xl relative">
+  <div id="auth-screen" class="min-h-screen flex flex-col justify-center items-center p-6 text-center bg-slate-50">
     
     <div class="mb-6 w-full max-h-20 overflow-hidden pointer-events-none select-none">
       <img src="skyline-roma.png" alt="Roma Skyline" class="w-full h-auto object-contain mx-auto max-h-20">
@@ -78,7 +95,7 @@
   <!-- ========================================== -->
   <!-- 1. LANDING PAGE: SELEZIONE LINGUA          -->
   <!-- ========================================== -->
-  <div id="language-screen" class="hidden-screen min-h-screen max-w-md mx-auto flex flex-col justify-center items-center p-6 text-center bg-slate-50 shadow-2xl relative">
+  <div id="language-screen" class="hidden-screen min-h-screen flex flex-col justify-center items-center p-6 text-center bg-slate-50">
     
     <div class="mb-3 w-full max-h-20 overflow-hidden pointer-events-none select-none">
       <img src="skyline-roma.png" alt="Roma Skyline" class="w-full h-auto object-contain mx-auto max-h-20">
@@ -114,8 +131,7 @@
     </div>
   </div>
 
-
-  <!-- ========================================== -->
+<!-- ========================================== -->
   <!-- 2. APPLICAZIONE WELCOME BOOK (LAYOUT NATIVO 2 LIVELLI) -->
   <!-- ========================================== -->
   <div id="app-screen" class="hidden-screen h-[100dvh] w-full max-w-md mx-auto bg-slate-50 flex flex-col overflow-hidden shadow-2xl relative">
@@ -380,7 +396,7 @@
       </div>
     </nav>
   </div>
-
+ 
 
   <!-- ========================================== -->
   <!-- 3. MODAL FULLSCREEN PER VISUALIZZAZIONE FOTO-->
@@ -406,8 +422,8 @@
     // LOGICA DI AUTENTICAZIONE E PROTEZIONE BOT
     // ==========================================
     const PIN_CODE = "1011";
-    const AUTH_DURATION = 60 * 24 * 60 * 60 * 1000;
-    const LOCKOUT_DURATION = 30 * 1000;
+    const AUTH_DURATION = 60 * 24 * 60 * 60 * 1000; // 60 giorni in millisecondi
+    const LOCKOUT_DURATION = 30 * 1000; // 30 secondi di blocco
     const MAX_ATTEMPTS = 3;
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -420,9 +436,11 @@
       const expiry = localStorage.getItem('terrazza_auth_expiry');
 
       if (expiry && parseInt(expiry) > Date.now()) {
-        if(authScreen) authScreen.classList.add('hidden-screen');
-        if(langScreen) langScreen.classList.remove('hidden-screen');
+        // Utente già autenticato
+        authScreen.classList.add('hidden-screen');
+        langScreen.classList.remove('hidden-screen');
       } else {
+        // Utente non autenticato: gestisci input PIN
         setupPinInputs();
         checkLockoutStatus();
       }
@@ -430,14 +448,23 @@
 
     function setupPinInputs() {
       const inputs = document.querySelectorAll('.pin-input');
+      
       inputs.forEach((input, index) => {
         input.addEventListener('input', (e) => {
+          // Permetti solo numeri
           e.target.value = e.target.value.replace(/[^0-9]/g, '');
+          
           if (e.target.value !== '') {
-            if (index < inputs.length - 1) inputs[index + 1].focus();
-            else validatePin();
+            if (index < inputs.length - 1) {
+              inputs[index + 1].focus();
+            } else {
+              // Ultima casella riempita, verifica il PIN
+              validatePin();
+            }
           }
         });
+
+        // Gestione tasto Cancella per tornare indietro
         input.addEventListener('keydown', (e) => {
           if (e.key === 'Backspace' && e.target.value === '' && index > 0) {
             inputs[index - 1].focus();
@@ -454,29 +481,41 @@
       const pinContainer = document.getElementById('pin-container');
       
       if (enteredCode === PIN_CODE) {
+        // Successo
         localStorage.setItem('terrazza_auth_expiry', Date.now() + AUTH_DURATION);
-        localStorage.removeItem('terrazza_auth_attempts');
+        localStorage.removeItem('terrazza_auth_attempts'); // reset tentativi
+        
         document.getElementById('auth-screen').classList.add('hidden-screen');
         document.getElementById('language-screen').classList.remove('hidden-screen');
       } else {
+        // Errore
         let attempts = parseInt(localStorage.getItem('terrazza_auth_attempts') || '0');
         attempts++;
         localStorage.setItem('terrazza_auth_attempts', attempts);
-        if(errorMsg) errorMsg.classList.remove('opacity-0');
-        if(pinContainer) pinContainer.classList.add('shake-animation');
-        setTimeout(() => { if(pinContainer) pinContainer.classList.remove('shake-animation'); }, 400);
+
+        errorMsg.classList.remove('opacity-0');
+        pinContainer.classList.add('shake-animation');
+        
         setTimeout(() => {
-          if(errorMsg) errorMsg.classList.add('opacity-0');
+          pinContainer.classList.remove('shake-animation');
+        }, 400);
+
+        setTimeout(() => {
+          errorMsg.classList.add('opacity-0');
           inputs.forEach(i => i.value = '');
-          if (attempts >= MAX_ATTEMPTS) triggerLockout();
-          else inputs[0].focus();
+          
+          if (attempts >= MAX_ATTEMPTS) {
+            triggerLockout();
+          } else {
+            inputs[0].focus();
+          }
         }, 1000);
       }
     }
 
     function triggerLockout() {
       localStorage.setItem('terrazza_auth_lockout', Date.now() + LOCKOUT_DURATION);
-      localStorage.setItem('terrazza_auth_attempts', '0');
+      localStorage.setItem('terrazza_auth_attempts', '0'); // reset per il prossimo ciclo
       checkLockoutStatus();
     }
 
@@ -487,13 +526,15 @@
       const lockoutMsg = document.getElementById('auth-lockout-msg');
 
       if (lockoutExpiry > now) {
+        // UI bloccata
         inputs.forEach(i => { i.disabled = true; i.classList.add('bg-slate-100', 'text-slate-400'); });
-        if(lockoutMsg) lockoutMsg.classList.remove('opacity-0');
+        lockoutMsg.classList.remove('opacity-0');
+        
         const updateTimer = setInterval(() => {
           const remaining = Math.ceil((lockoutExpiry - Date.now()) / 1000);
           if (remaining <= 0) {
             clearInterval(updateTimer);
-            if(lockoutMsg) lockoutMsg.classList.add('opacity-0');
+            lockoutMsg.classList.add('opacity-0');
             inputs.forEach(i => { 
               i.disabled = false; 
               i.classList.remove('bg-slate-100', 'text-slate-400'); 
@@ -501,27 +542,30 @@
             });
             inputs[0].focus();
           } else {
-            if(lockoutMsg) lockoutMsg.innerText = `Too many attempts. Wait ${remaining}s`;
+            lockoutMsg.innerText = `Too many attempts. Wait ${remaining}s`;
           }
         }, 1000);
       } else {
         inputs.forEach(i => { i.disabled = false; });
-        const authScreen = document.getElementById('auth-screen');
-        if(authScreen && !authScreen.classList.contains('hidden-screen')) {
-           if(inputs.length > 0) inputs[0].focus();
+        if(document.getElementById('auth-screen').classList.contains('hidden-screen') === false) {
+           inputs[0].focus();
         }
       }
     }
 
+
     // ==========================================
-    // DIZIONARIO E LINGUE
+    // LOGICA APPLICAZIONE (Esistente)
     // ==========================================
+    
+
     const translations = {
       it: {
         macroWelcome: "Welcome",
         macroExplore: "Esplora Roma",
         macroHouse: "La Casa",
         macroSupport: "Supporto",
+        
         welcomeLine1: "Benvenuti a Roma, alla",
         welcomeLine2: "Terrazza di Maria !",
         welcomeSubtitle: "Grazie mille per aver scelto il nostro appartamento per il vostro soggiorno a Roma!",
@@ -533,8 +577,10 @@ Troverete inoltre utili indicazioni turistiche e consigli sui migliori servizi, 
 
 Per qualsiasi necessità, non esitate a contattarci: saremo felici di aiutarvi!`,
         changeLangBtn: "Cambia Lingua / Change Language",
+        
         contactTitle: "Punto di Contatto",
         contactBody: "Sonia è la nostra Property Manager. Contattala al +39 340 339 5237 dalle 08:00 alle 20:00.",
+
         disclaimerTitle: "Disclaimer",
         wifiTitle: "Connessione Wi-Fi",
         arrivalTitle: "Il tuo Arrivo",
@@ -554,7 +600,9 @@ Per qualsiasi necessità, non esitate a contattarci: saremo felici di aiutarvi!`
         tipsBody: "Ristorante consigliato: 'Osteria del Mare' (a 200m).\nCaffè & Colazione: Bar Central.\nSupermercato aperto fino alle 20:30 a 150m.",
         localServicesTitle: "Local Services",
         emergencyTitle: "Emergency",
+        
         enjoyTitle: "Enjoy!",
+
         navWelcome: "Home",
         navArrival: "Arrivo",
         navCheckin: "Check-in",
@@ -571,10 +619,11 @@ Per qualsiasi necessità, non esitate a contattarci: saremo felici di aiutarvi!`
         navDisclaimer: "Disclaimer"
       },
       en: {
-        macroWelcome: "Welcome",
+       macroWelcome: "Welcome",
         macroExplore: "Explore Rome",
         macroHouse: "The House",
         macroSupport: "Support",
+        
         welcomeLine1: "Welcome to Rome, to",
         welcomeLine2: "Maria's Terrace !",
         welcomeSubtitle: "Thank you very much for choosing our apartment for your stay in Rome!",
@@ -586,6 +635,7 @@ We also included useful touristic information, along with addresses for shopping
 
 Should you need any help, contact us: we will be delighted to support you!`,
         changeLangBtn: "Change Language",
+        
         contactTitle: "Your point of contact",
         disclaimerTitle: "Disclaimer",
         wifiTitle: "Wifi internet connection",
@@ -601,7 +651,9 @@ Should you need any help, contact us: we will be delighted to support you!`,
         tipsBody: "Recommended Restaurant: 'Osteria del Mare' (200m).\nCoffee & Breakfast: Bar Central.\nSupermarket 150m away, open until 8:30 PM.",
         localServicesTitle: "Local Services",
         emergencyTitle: "Emergency",
+        
         enjoyTitle: "Enjoy!",
+
         navWelcome: "Home",
         navArrival: "Arrival",
         navCheckin: "Check-in",
@@ -622,6 +674,7 @@ Should you need any help, contact us: we will be delighted to support you!`,
         macroExplore: "Explorer Rome",
         macroHouse: "La Maison",
         macroSupport: "Assistance",
+        
         welcomeLine1: "Bienvenue à Rome, à la",
         welcomeLine2: "Terrazza di Maria !",
         welcomeSubtitle: "Merci beaucoup d'avoir choisi notre appartement pour votre séjour à Rome !",
@@ -633,8 +686,10 @@ Nous y avons également inclus des conseils touristiques ainsi que nos meilleure
 
 Si vous avez besoin d'aide, contactez-nous : nous serons ravis de vous aider !`,
         changeLangBtn: "Changer de langue",
+        
         contactTitle: "Point de Contact",
         contactBody: "Sonia est notre Property Manager. Contactez-la au +39 340 339 5237 de 08h00 à 20h00.",
+
         disclaimerTitle: "Disclaimer",
         wifiTitle: "Connexion Wi-Fi",
         arrivalTitle: "Votre Arrivée",
@@ -653,7 +708,9 @@ Si vous avez besoin d'aide, contactez-nous : nous serons ravis de vous aider !`,
         tipsBody: "Restaurant recommandé : 'Osteria del Mare'.\nCafé : Bar Central.\nSupermarché à 150m.",
         localServicesTitle: "Local Services",
         emergencyTitle: "Emergency",
+        
         enjoyTitle: "Enjoy!",
+
         navWelcome: "Accueil",
         navArrival: "Arrivée",
         navCheckin: "Check-in",
@@ -674,6 +731,7 @@ Si vous avez besoin d'aide, contactez-nous : nous serons ravis de vous aider !`,
         macroExplore: "Rom Entdecken",
         macroHouse: "Das Haus",
         macroSupport: "Support",
+        
         welcomeLine1: "Willkommen in Rom, auf",
         welcomeLine2: "Maria's Terrasse !",
         welcomeSubtitle: "Vielen Dank, dass Sie sich für unsere Wohnung in Rom entschieden haben!",
@@ -685,8 +743,10 @@ Zudem haben wir nützliche Reisetipps und Empfehlungen für Restaurants und Gesc
 
 Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
         changeLangBtn: "Sprache ändern",
+        
         contactTitle: "Ansprechpartner",
         contactBody: "Sonia ist unsere Property Managerin. Kontaktieren Sie sie unter +39 340 339 5237 von 08:00 bis 20:00 Uhr.",
+
         disclaimerTitle: "Disclaimer",
         wifiTitle: "WLAN-Verbindung",
         arrivalTitle: "Ihre Anreise",
@@ -705,7 +765,9 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
         tipsBody: "Empfohlenes Restaurant: 'Osteria del Mare'.\nCafé: Bar Central.\nSupermarkt 150m entfernt.",
         localServicesTitle: "Local Services",
         emergencyTitle: "Emergency",
+        
         enjoyTitle: "Enjoy!",
+
         navWelcome: "Start",
         navArrival: "Anreise",
         navCheckin: "Check-in",
@@ -723,277 +785,6 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       }
     };
 
-    // ==========================================
-    // LOGICA DI NAVIGAZIONE A 2 LIVELLI
-    // ==========================================
-    const appStructure = {
-      'welcome': ['welcome', 'enjoy'],
-      'explore': ['arrival', 'transports', 'tips', 'local-services'],
-      'house':   ['checkin', 'wifi', 'rules', 'guide', 'checkout', 'disclaimer'],
-      'support': ['contact', 'emergency']
-    };
-
-    const tabConfig = {
-      'welcome': { icon: 'fa-house', key: 'navWelcome' },
-      'arrival': { icon: 'fa-map-location-dot', key: 'navArrival' },
-      'checkin': { icon: 'fa-key', key: 'navCheckin' },
-      'wifi': { icon: 'fa-wifi', key: 'navWifi' },
-      'rules': { icon: 'fa-clipboard-list', key: 'navRules' },
-      'guide': { icon: 'fa-book-open', key: 'navGuide' },
-      'transports': { icon: 'fa-bus', key: 'navTransports' },
-      'tips': { icon: 'fa-utensils', key: 'navTips' },
-      'enjoy': { icon: 'fa-camera-retro', key: 'navEnjoy' },
-      'local-services': { icon: 'fa-location-dot', key: 'navLocalServices' },
-      'checkout': { icon: 'fa-door-open', key: 'navCheckout' },
-      'contact': { icon: 'fa-address-card', key: 'navContact' },
-      'emergency': { icon: 'fa-phone-volume', key: 'navEmergency' },
-      'disclaimer': { icon: 'fa-shield-halved', key: 'navDisclaimer' }
-    };
-
-    let currentMacro = 'welcome';
-    let swiperInstances = {};
-
-    function initSwiperNav() {
-      if (Object.keys(swiperInstances).length > 0) return;
-
-      Object.keys(appStructure).forEach(macro => {
-        const swiperEl = document.getElementById(`swiper-${macro}`);
-        if (swiperEl) {
-          swiperInstances[macro] = new Swiper(swiperEl, {
-            slidesPerView: 1,
-            spaceBetween: 0,
-            loop: false, 
-            grabCursor: true,
-            on: {
-              slideChange: function () {
-                if (currentMacro === macro) {
-                  updateTopTabsState(this.activeIndex);
-                }
-              }
-            }
-          });
-        }
-      });
-      
-      activateMacro('welcome');
-    }
-
-    function activateMacro(macroId) {
-      currentMacro = macroId;
-      
-      // Bottom Menu Colors
-      document.querySelectorAll('.macro-btn').forEach(btn => {
-        if (btn.id === `btn-macro-${macroId}`) {
-          btn.classList.remove('text-slate-400');
-          btn.classList.add('text-amber-600', 'active-macro');
-        } else {
-          btn.classList.add('text-slate-400');
-          btn.classList.remove('text-amber-600', 'active-macro');
-        }
-      });
-
-      // Show specific Swiper
-      document.querySelectorAll('.macro-swiper').forEach(el => {
-        if (el.id === `swiper-${macroId}`) {
-          el.classList.remove('hidden');
-          el.classList.add('block');
-        } else {
-          el.classList.remove('block');
-          el.classList.add('hidden');
-        }
-      });
-
-      renderTopTabs();
-      
-      if (swiperInstances[macroId]) {
-        swiperInstances[macroId].update();
-        updateTopTabsState(swiperInstances[macroId].activeIndex);
-      }
-    }
-
-    function renderTopTabs() {
-      const container = document.getElementById('top-tabs-container');
-      if (!container) return;
-
-      const chapters = appStructure[currentMacro];
-      if (!chapters) return;
-      
-      const langCodeEl = document.getElementById('current-lang-code');
-      const langCode = langCodeEl ? langCodeEl.innerText.toLowerCase() : 'it';
-      const langData = translations[langCode] || translations['it'];
-
-      container.innerHTML = chapters.map((tabId, index) => {
-        const conf = tabConfig[tabId];
-        if (!conf) return '';
-
-        const isActive = swiperInstances[currentMacro] ? (swiperInstances[currentMacro].activeIndex === index) : (index === 0);
-        
-        return `
-          <button onclick="slideToTab(${index})" id="top-tab-${index}" class="flex items-center justify-center gap-2 px-4 py-2 rounded-full border transition-all flex-shrink-0 ${isActive ? 'bg-amber-100 border-amber-300 text-amber-800 font-bold shadow-sm' : 'bg-white border-slate-200 text-slate-500 hover:bg-slate-50'}">
-            <i class="fa-solid ${conf.icon}"></i>
-            <span class="text-[11px] whitespace-nowrap">${langData[conf.key] || conf.key}</span>
-          </button>
-        `;
-      }).join('');
-
-      if (swiperInstances[currentMacro]) {
-        scrollTabIntoView(swiperInstances[currentMacro].activeIndex);
-      }
-    }
-
-    function slideToTab(index) {
-      if (swiperInstances[currentMacro]) {
-        swiperInstances[currentMacro].slideTo(index);
-      }
-    }
-
-    function updateTopTabsState(activeIndex) {
-      const tabs = document.querySelectorAll('#top-tabs-container button');
-      tabs.forEach((tab, index) => {
-        if (index === activeIndex) {
-          tab.className = "flex items-center justify-center gap-2 px-4 py-2 rounded-full border transition-all flex-shrink-0 bg-amber-100 border-amber-300 text-amber-800 font-bold shadow-sm";
-        } else {
-          tab.className = "flex items-center justify-center gap-2 px-4 py-2 rounded-full border transition-all flex-shrink-0 bg-white border-slate-200 text-slate-500 hover:bg-slate-50";
-        }
-      });
-      scrollTabIntoView(activeIndex);
-    }
-
-    function scrollTabIntoView(index) {
-      const container = document.getElementById('top-tabs-container');
-      const tab = document.getElementById(`top-tab-${index}`);
-      if (tab && container) {
-        const scrollLeft = tab.offsetLeft - (container.offsetWidth / 2) + (tab.offsetWidth / 2);
-        container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
-      }
-    }
-
-    // Wrapper per i vecchi link interni (es. Bottone "Contact" dal Check-in)
-    function showTab(tabId) {
-      let targetMacro = null;
-      let targetIndex = 0;
-      
-      for (const [macro, tabs] of Object.entries(appStructure)) {
-          const idx = tabs.indexOf(tabId);
-          if (idx !== -1) {
-              targetMacro = macro;
-              targetIndex = idx;
-              break;
-          }
-      }
-      
-      if (targetMacro) {
-          activateMacro(targetMacro);
-          setTimeout(() => slideToTab(targetIndex), 50);
-      }
-    }
-
-    // ==========================================
-    // AGGIORNAMENTO LINGUA E RENDER CONTENUTI
-    // ==========================================
-    function selectLanguage(lang) {
-      const codeEl = document.getElementById('current-lang-code');
-      if (codeEl) codeEl.innerText = lang;
-      
-      const t = translations[lang] || translations['it'];
-
-      const line1 = document.getElementById('txt-welcome-line1');
-      if (line1) line1.innerText = t.welcomeLine1 || '';
-      
-      const line2 = document.getElementById('txt-welcome-line2');
-      if (line2) line2.innerText = t.welcomeLine2 || '';
-
-      const subTitle = document.getElementById('txt-welcome-subtitle');
-      if (subTitle) subTitle.innerText = t.welcomeSubtitle || '';
-
-      const body = document.getElementById('txt-welcome-body');
-      if (body) body.innerText = t.welcomeBody || '';
-
-      const btnChange = document.getElementById('txt-btn-change-lang');
-      if (btnChange) btnChange.innerText = t.changeLangBtn || '';
-
-      // Aggiorna testi bottoni macro in modo sicuro
-      const mWel = document.getElementById('txt-macro-welcome'); if(mWel) mWel.innerText = t.macroWelcome || 'Welcome';
-      const mExp = document.getElementById('txt-macro-explore'); if(mExp) mExp.innerText = t.macroExplore || 'Explore Rome';
-      const mHou = document.getElementById('txt-macro-house'); if(mHou) mHou.innerText = t.macroHouse || 'The House';
-      const mSup = document.getElementById('txt-macro-support'); if(mSup) mSup.innerText = t.macroSupport || 'Support';
-
-      // Dinamici
-      const arrTitle = document.getElementById('txt-arrival-title');
-      if (arrTitle) arrTitle.innerText = t.arrivalTitle || '';
-      renderArrivalSection(lang);
-
-      const chkTitle = document.getElementById('txt-checkin-title');
-      if (chkTitle) chkTitle.innerText = t.checkinTitle || '';
-      renderCheckinSection(lang);
-
-      const wifiTitle = document.getElementById('txt-wifi-title');
-      if (wifiTitle) wifiTitle.innerText = t.wifiTitle || '';
-      renderWifiSection(lang);
-
-      const rulesTitle = document.getElementById('txt-rules-title');
-      if (rulesTitle) rulesTitle.innerText = t.rulesTitle || '';
-      renderRulesSection(lang);
-
-      const guideTitle = document.getElementById('txt-guide-title');
-      if (guideTitle) guideTitle.innerText = t.guideTitle || '';
-      renderGuideSection(lang);
-
-      const transTitle = document.getElementById('txt-transports-title');
-      if (transTitle) transTitle.innerText = t.transportsTitle || '';
-      renderTransportsSection(lang);
-
-      const tipsTitle = document.getElementById('txt-tips-title');
-      if (tipsTitle) tipsTitle.innerText = t.tipsTitle || '';
-      renderFoodDrinkSection(lang);
-      
-      const enjoyTitle = document.getElementById('txt-enjoy-title');
-      if (enjoyTitle) enjoyTitle.innerText = t.enjoyTitle || 'Enjoy!';
-      renderEnjoySection(lang);
-
-      const localTitle = document.getElementById('txt-local-services-title');
-      if (localTitle) localTitle.innerText = t.localServicesTitle || '';
-      renderLocalServicesSection(lang);
-
-      const outTitle = document.getElementById('txt-checkout-title');
-      if (outTitle) outTitle.innerText = t.checkoutTitle || '';
-      renderCheckoutSection(lang);
-
-      const contactTitle = document.getElementById('txt-contact-title');
-      if (contactTitle) contactTitle.innerText = t.contactTitle || '';
-      renderContactSection(lang);
-
-      const emergTitle = document.getElementById('txt-emergency-title');
-      if (emergTitle) emergTitle.innerText = t.emergencyTitle || '';
-      renderEmergencySection(lang);
-
-      const discTitle = document.getElementById('txt-disclaimer-title');
-      if (discTitle) discTitle.innerText = t.disclaimerTitle || '';
-      renderDisclaimerSection(lang);
-
-      // Transizione schermo
-      const langScreen = document.getElementById('language-screen');
-      const appScreen = document.getElementById('app-screen');
-      
-      if (langScreen) langScreen.classList.add('hidden-screen');
-      if (appScreen) appScreen.classList.remove('hidden-screen');
-      
-      setTimeout(() => {
-        initSwiperNav();
-        renderTopTabs();
-      }, 50);
-    }
-
-    function showLanguageScreen() {
-      const appScreen = document.getElementById('app-screen');
-      const langScreen = document.getElementById('language-screen');
-      if (appScreen) appScreen.classList.add('hidden-screen');
-      if (langScreen) langScreen.classList.remove('hidden-screen');
-    }
-
-    // ==========================================
-    // RENDERING HTML SEZIONI DA V40 + V37 MAPS
-    // ==========================================
     function renderContactSection(lang) {
       const container = document.getElementById('contact-content-container');
       if (!container) return;
@@ -1094,6 +885,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
               </div>
             </div>
 
+            <!-- Fiumicino Airport -->
             <div class="border border-blue-100 rounded-2xl p-4 bg-blue-50/60 space-y-3">
               <div class="flex items-center gap-2 text-slate-800 font-bold border-b border-blue-200/60 pb-2 text-xs">
                 <i class="fa-solid fa-plane-departure text-blue-600"></i>
@@ -1129,6 +921,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
               </div>
             </div>
 
+            <!-- Ciampino Airport -->
             <div class="border border-teal-100 rounded-2xl p-4 bg-teal-50/60 space-y-3">
               <div class="flex items-center gap-2 text-slate-800 font-bold border-b border-teal-200/60 pb-2 text-xs">
                 <i class="fa-solid fa-plane-departure text-teal-600"></i>
@@ -1164,6 +957,7 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
               </div>
             </div>
 
+            <!-- Stazione Termini -->
             <div class="border border-orange-100 rounded-2xl p-4 bg-orange-50/60 space-y-3">
               <div class="flex items-center gap-2 text-slate-800 font-bold border-b border-orange-200/60 pb-2 text-xs">
                 <i class="fa-solid fa-train text-orange-600"></i>
@@ -1649,6 +1443,102 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
             </div>
 
           </div>
+        </div>
+      `;
+    }
+
+    function renderEnjoySection(lang) {
+      const container = document.getElementById('enjoy-content-container');
+      if (!container) return;
+
+      container.innerHTML = `
+        <div class="space-y-6 text-left">
+
+          <!-- Keyhole Section -->
+          <div class="pt-2 space-y-3">
+            <h3 class="font-extrabold text-slate-900 text-sm">
+              Aventine keyhole?<br>No, this is the secret of Maria's Terrace:
+            </h3>
+            
+            <div class="flex items-center gap-4">
+              <div class="w-20 flex-shrink-0 cursor-zoom-in" onclick="openImageModal('segreto_di_maria.png')">
+                <img src="segreto_di_maria.png" alt="Maria's Secret Keyhole" class="w-full h-auto drop-shadow-md hover:scale-105 transition-transform duration-300">
+              </div>
+              <div class="flex-1 text-xs text-slate-800 font-semibold italic leading-relaxed space-y-0.5">
+                <p>Have you found out the secret sightseen of the terrace?</p>
+                <p>Look for the keyhole and peek through it!</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Collage Section (Aggiornato con le 10 Foto) -->
+          <div class="pt-3 pb-1">
+            <div class="grid grid-cols-4 grid-rows-4 gap-1.5 h-[420px] rounded-2xl overflow-hidden shadow-sm border border-slate-200/80 bg-slate-100 p-1">
+              <!-- Riga 1 & 2: Immagine Grande (Colosseo) + 4 Piccole -->
+              <div class="col-span-2 row-span-2 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('colosseo.webp')">
+                <img src="colosseo.webp" alt="Colosseo" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('fori.png')">
+                <img src="fori.png" alt="Fori Imperiali" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('piazza di spagna webp.webp')">
+                <img src="piazza di spagna webp.webp" alt="Piazza di Spagna" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('vatican.png')">
+                <img src="vatican.png" alt="Vaticano" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('BRAMANTE-1536x1024.jpeg.webp')">
+                <img src="BRAMANTE-1536x1024.jpeg.webp" alt="Scala del Bramante" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+
+              <!-- Riga 3 & 4: Immagine Grande (Paolina) + 4 Piccole (Nuove) -->
+              <div class="col-span-2 row-span-2 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('Paolina_Borghese_(Canova).jpg')">
+                <img src="Paolina_Borghese_(Canova).jpg" alt="Paolina Borghese" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('scostanza.png')">
+                <img src="scostanza.png" alt="Santa Costanza" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('art4_MGbig.jpg')">
+                <img src="art4_MGbig.jpg" alt="Street Art" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('de-Chirico-Giorgio-Le-Muse-inquietanti-inv.-8651-H272-scaled.webp')">
+                <img src="de-Chirico-Giorgio-Le-Muse-inquietanti-inv.-8651-H272-scaled.webp" alt="De Chirico" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+              <div class="col-span-1 row-span-1 overflow-hidden rounded-xl bg-slate-200 relative group cursor-zoom-in" onclick="openImageModal('meier.jpg')">
+                <img src="meier.jpg" alt="Chiesa di Meier" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              </div>
+            </div>
+          </div>
+
+          <!-- Rate Your Experience Card -->
+          <div class="pt-1 pb-4">
+            <a href="https://www.airbnb.fr/rooms/1655819661396931146" target="_blank" rel="noopener noreferrer" class="block bg-gradient-to-r from-emerald-50 to-emerald-100/50 hover:from-emerald-100 hover:to-emerald-50 p-3.5 rounded-2xl border-2 border-emerald-300/80 shadow-sm transition-all group active:scale-[0.98]">
+              <div class="flex items-start justify-between gap-3">
+                <div class="flex items-start gap-3">
+                  <div class="p-2.5 bg-emerald-500 text-white rounded-xl shadow-sm flex-shrink-0 mt-0.5">
+                    <i class="fa-solid fa-trophy text-sm"></i>
+                  </div>
+                  <div class="space-y-1">
+                    <p class="text-xs font-extrabold text-slate-900 leading-snug group-hover:text-emerald-600 transition-colors">
+                      At the end of your stay, rate your experience at La Terrazza di Maria
+                    </p>
+                    <p class="text-[11px] text-slate-600 font-medium leading-tight">
+                      Please take the time to leave your review on Airbnb. Your feedback helps us to improve our job and keep the best experience for guests. Thank you!
+                    </p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-emerald-500 flex-shrink-0 mt-1 group-hover:translate-x-0.5 transition-transform"></i>
+              </div>
+            </a>
+          </div>
+
+          <!-- Greeting Card -->
+          <div class="bg-slate-100 py-10 px-4 rounded shadow-sm border-[12px] border-white text-center flex items-center justify-center">
+            <p class="text-sm font-bold text-amber-500 italic font-serif leading-snug">
+              We wish you<br>a wonderful and safe stay in Rome.<br>Enjoy!
+            </p>
+          </div>
+
         </div>
       `;
     }
@@ -3016,6 +2906,427 @@ Sollten Sie Fragen haben, kontaktieren Sie uns gerne!`,
       `;
     }
 
+    function toggleLocalServicesSubSection(sectionId, btnElement) {
+      const targetContent = document.getElementById(sectionId);
+      if (!targetContent) return;
+
+      const isHidden = targetContent.classList.contains('hidden');
+
+      document.querySelectorAll('.local-services-subsection').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.local-services-icon').forEach(icon => icon.style.transform = 'rotate(0deg)');
+
+      if (isHidden) {
+        targetContent.classList.remove('hidden');
+        if (btnElement) {
+          const icon = btnElement.querySelector('.local-services-icon');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+      }
+    }
+
+    function toggleGuideSubSection(sectionId, btnElement) {
+      const targetContent = document.getElementById(sectionId);
+      if (!targetContent) return;
+
+      const isHidden = targetContent.classList.contains('hidden');
+
+      document.querySelectorAll('.guide-subsection').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.guide-icon').forEach(icon => icon.style.transform = 'rotate(0deg)');
+
+      if (isHidden) {
+        targetContent.classList.remove('hidden');
+        if (btnElement) {
+          const icon = btnElement.querySelector('.guide-icon');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+      }
+    }
+
+    function toggleTransportSubSection(sectionId, btnElement) {
+      const targetContent = document.getElementById(sectionId);
+      if (!targetContent) return;
+
+      const isHidden = targetContent.classList.contains('hidden');
+
+      document.querySelectorAll('.transport-subsection').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.transport-icon').forEach(icon => icon.style.transform = 'rotate(0deg)');
+
+      if (isHidden) {
+        targetContent.classList.remove('hidden');
+        if (btnElement) {
+          const icon = btnElement.querySelector('.transport-icon');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+      }
+    }
+
+    // Nuova funzione per i menu annidati (dentro a Prepare your tour)
+    function toggleNestedTransportSubSection(sectionId, btnElement) {
+      const targetContent = document.getElementById(sectionId);
+      if (!targetContent) return;
+
+      const isHidden = targetContent.classList.contains('hidden');
+
+      document.querySelectorAll('.nested-transport-subsection').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.nested-transport-icon').forEach(icon => icon.style.transform = 'rotate(0deg)');
+
+      if (isHidden) {
+        targetContent.classList.remove('hidden');
+        if (btnElement) {
+          const icon = btnElement.querySelector('.nested-transport-icon');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+      }
+    }
+
+    function toggleFoodDrinkSubSection(sectionId, btnElement) {
+      const targetContent = document.getElementById(sectionId);
+      if (!targetContent) return;
+
+      const isHidden = targetContent.classList.contains('hidden');
+
+      document.querySelectorAll('.food-drink-subsection').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.food-drink-icon').forEach(icon => icon.style.transform = 'rotate(0deg)');
+
+      if (isHidden) {
+        targetContent.classList.remove('hidden');
+        if (btnElement) {
+          const icon = btnElement.querySelector('.food-drink-icon');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+      }
+    }
+
+    // ==========================================
+    // LOGICA DI NAVIGAZIONE A 2 LIVELLI (V45)
+    // ==========================================
+    const appStructure = {
+      'welcome': ['welcome', 'enjoy'],
+      'explore': ['arrival', 'transports', 'tips', 'local-services'],
+      'house':   ['checkin', 'wifi', 'rules', 'guide', 'checkout', 'disclaimer'],
+      'support': ['contact', 'emergency']
+    };
+
+    const tabConfig = {
+      'welcome': { icon: 'fa-house', key: 'navWelcome' },
+      'arrival': { icon: 'fa-map-location-dot', key: 'navArrival' },
+      'checkin': { icon: 'fa-key', key: 'navCheckin' },
+      'wifi': { icon: 'fa-wifi', key: 'navWifi' },
+      'rules': { icon: 'fa-clipboard-list', key: 'navRules' },
+      'guide': { icon: 'fa-book-open', key: 'navGuide' },
+      'transports': { icon: 'fa-bus', key: 'navTransports' },
+      'tips': { icon: 'fa-utensils', key: 'navTips' },
+      'enjoy': { icon: 'fa-camera-retro', key: 'navEnjoy' },
+      'local-services': { icon: 'fa-location-dot', key: 'navLocalServices' },
+      'checkout': { icon: 'fa-door-open', key: 'navCheckout' },
+      'contact': { icon: 'fa-address-card', key: 'navContact' },
+      'emergency': { icon: 'fa-phone-volume', key: 'navEmergency' },
+      'disclaimer': { icon: 'fa-shield-halved', key: 'navDisclaimer' }
+    };
+
+    let currentMacro = 'welcome';
+    let swiperInstances = {};
+
+    function initSwiperNav() {
+      if (Object.keys(swiperInstances).length > 0) return;
+
+      Object.keys(appStructure).forEach(macro => {
+        const swiperEl = document.getElementById(`swiper-${macro}`);
+        if (swiperEl) {
+          swiperInstances[macro] = new Swiper(swiperEl, {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: false, 
+            grabCursor: true,
+            on: {
+              slideChange: function () {
+                if (currentMacro === macro) {
+                  updateTopTabsState(this.activeIndex);
+                }
+              }
+            }
+          });
+        }
+      });
+      activateMacro('welcome');
+    }
+
+    function activateMacro(macroId) {
+      currentMacro = macroId;
+      
+      document.querySelectorAll('.macro-btn').forEach(btn => {
+        if (btn.id === `btn-macro-${macroId}`) {
+          btn.classList.remove('text-slate-400');
+          btn.classList.add('text-amber-600', 'active-macro');
+        } else {
+          btn.classList.add('text-slate-400');
+          btn.classList.remove('text-amber-600', 'active-macro');
+        }
+      });
+
+      document.querySelectorAll('.macro-swiper').forEach(el => {
+        if (el.id === `swiper-${macroId}`) {
+          el.classList.remove('hidden');
+          el.classList.add('block');
+        } else {
+          el.classList.remove('block');
+          el.classList.add('hidden');
+        }
+      });
+
+      renderTopTabs();
+      
+      if (swiperInstances[macroId]) {
+        swiperInstances[macroId].update();
+        updateTopTabsState(swiperInstances[macroId].activeIndex);
+      }
+    }
+
+    function renderTopTabs() {
+      const container = document.getElementById('top-tabs-container');
+      if (!container) return;
+      const chapters = appStructure[currentMacro];
+      if (!chapters) return;
+      
+      const langCodeEl = document.getElementById('current-lang-code');
+      const langCode = langCodeEl ? langCodeEl.innerText.toLowerCase() : 'it';
+      const langData = translations[langCode] || translations['it'];
+
+      container.innerHTML = chapters.map((tabId, index) => {
+        const conf = tabConfig[tabId];
+        if (!conf) return '';
+        const isActive = swiperInstances[currentMacro] ? (swiperInstances[currentMacro].activeIndex === index) : (index === 0);
+        
+        return `
+          <button onclick="slideToTab(${index})" id="top-tab-${index}" class="flex items-center justify-center gap-2 px-4 py-2 rounded-full border transition-all flex-shrink-0 ${isActive ? 'bg-amber-100 border-amber-300 text-amber-800 font-bold shadow-sm' : 'bg-white border-slate-200 text-slate-500 hover:bg-slate-50'}">
+            <i class="fa-solid ${conf.icon}"></i>
+            <span class="text-[11px] whitespace-nowrap">${langData[conf.key] || conf.key}</span>
+          </button>
+        `;
+      }).join('');
+
+      if (swiperInstances[currentMacro]) {
+        scrollTabIntoView(swiperInstances[currentMacro].activeIndex);
+      }
+    }
+
+    function slideToTab(index) {
+      if (swiperInstances[currentMacro]) {
+        swiperInstances[currentMacro].slideTo(index);
+      }
+    }
+
+    function updateTopTabsState(activeIndex) {
+      const tabs = document.querySelectorAll('#top-tabs-container button');
+      tabs.forEach((tab, index) => {
+        if (index === activeIndex) {
+          tab.className = "flex items-center justify-center gap-2 px-4 py-2 rounded-full border transition-all flex-shrink-0 bg-amber-100 border-amber-300 text-amber-800 font-bold shadow-sm";
+        } else {
+          tab.className = "flex items-center justify-center gap-2 px-4 py-2 rounded-full border transition-all flex-shrink-0 bg-white border-slate-200 text-slate-500 hover:bg-slate-50";
+        }
+      });
+      scrollTabIntoView(activeIndex);
+    }
+
+    function scrollTabIntoView(index) {
+      const container = document.getElementById('top-tabs-container');
+      const tab = document.getElementById(`top-tab-${index}`);
+      if (tab && container) {
+        const scrollLeft = tab.offsetLeft - (container.offsetWidth / 2) + (tab.offsetWidth / 2);
+        container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+      }
+    }
+
+    function showTab(tabId) {
+      let targetMacro = null;
+      let targetIndex = 0;
+      for (const [macro, tabs] of Object.entries(appStructure)) {
+          const idx = tabs.indexOf(tabId);
+          if (idx !== -1) {
+              targetMacro = macro;
+              targetIndex = idx;
+              break;
+          }
+      }
+      if (targetMacro) {
+          activateMacro(targetMacro);
+          setTimeout(() => slideToTab(targetIndex), 50);
+      }
+    }
+
+    function selectLanguage(lang) {
+      const codeEl = document.getElementById('current-lang-code');
+      if (codeEl) codeEl.innerText = lang;
+      
+      const t = translations[lang] || translations['it'];
+
+      // Mappatura testi Welcome su 2 linee
+      const line1 = document.getElementById('txt-welcome-line1');
+      if (line1) line1.innerText = t.welcomeLine1 || '';
+      
+      const line2 = document.getElementById('txt-welcome-line2');
+      if (line2) line2.innerText = t.welcomeLine2 || '';
+
+      const subTitle = document.getElementById('txt-welcome-subtitle');
+      if (subTitle) subTitle.innerText = t.welcomeSubtitle || '';
+
+      const body = document.getElementById('txt-welcome-body');
+      if (body) body.innerText = t.welcomeBody || '';
+
+      const btnChange = document.getElementById('txt-btn-change-lang');
+      if (btnChange) btnChange.innerText = t.changeLangBtn || '';
+
+      // Rendering di tutte le sezioni dinamiche complete
+      const mWel = document.getElementById('txt-macro-welcome'); if(mWel) mWel.innerText = t.macroWelcome || 'Welcome';
+      const mExp = document.getElementById('txt-macro-explore'); if(mExp) mExp.innerText = t.macroExplore || 'Explore Rome';
+      const mHou = document.getElementById('txt-macro-house'); if(mHou) mHou.innerText = t.macroHouse || 'The House';
+      const mSup = document.getElementById('txt-macro-support'); if(mSup) mSup.innerText = t.macroSupport || 'Support';
+      
+      const arrTitle = document.getElementById('txt-arrival-title');
+      if (arrTitle) arrTitle.innerText = t.arrivalTitle || '';
+      renderArrivalSection(lang);
+
+      const chkTitle = document.getElementById('txt-checkin-title');
+      if (chkTitle) chkTitle.innerText = t.checkinTitle || '';
+      renderCheckinSection(lang);
+
+      const wifiTitle = document.getElementById('txt-wifi-title');
+      if (wifiTitle) wifiTitle.innerText = t.wifiTitle || '';
+      renderWifiSection(lang);
+
+      const rulesTitle = document.getElementById('txt-rules-title');
+      if (rulesTitle) rulesTitle.innerText = t.rulesTitle || '';
+      renderRulesSection(lang);
+
+      const guideTitle = document.getElementById('txt-guide-title');
+      if (guideTitle) guideTitle.innerText = t.guideTitle || '';
+      renderGuideSection(lang);
+
+      const transTitle = document.getElementById('txt-transports-title');
+      if (transTitle) transTitle.innerText = t.transportsTitle || '';
+      renderTransportsSection(lang);
+
+      const tipsTitle = document.getElementById('txt-tips-title');
+      if (tipsTitle) tipsTitle.innerText = t.tipsTitle || '';
+      renderFoodDrinkSection(lang);
+      
+      // Rendering nuova sezione Enjoy
+      const enjoyTitle = document.getElementById('txt-enjoy-title');
+      if (enjoyTitle) enjoyTitle.innerText = t.enjoyTitle || 'Enjoy!';
+      renderEnjoySection(lang);
+
+      const localTitle = document.getElementById('txt-local-services-title');
+      if (localTitle) localTitle.innerText = t.localServicesTitle || '';
+      renderLocalServicesSection(lang);
+
+      const outTitle = document.getElementById('txt-checkout-title');
+      if (outTitle) outTitle.innerText = t.checkoutTitle || '';
+      renderCheckoutSection(lang);
+
+      const contactTitle = document.getElementById('txt-contact-title');
+      if (contactTitle) contactTitle.innerText = t.contactTitle || '';
+      renderContactSection(lang);
+
+      const emergTitle = document.getElementById('txt-emergency-title');
+      if (emergTitle) emergTitle.innerText = t.emergencyTitle || '';
+      renderEmergencySection(lang);
+
+      const discTitle = document.getElementById('txt-disclaimer-title');
+      if (discTitle) discTitle.innerText = t.disclaimerTitle || '';
+      renderDisclaimerSection(lang);
+
+      // Etichette dock
+      const setNavText = (id, text) => {
+        const el = document.getElementById(id);
+        if (el) el.innerText = text || '';
+      };
+
+      setNavText('nav-welcome', t.navWelcome);
+      setNavText('nav-arrival', t.navArrival);
+      setNavText('nav-checkin', t.navCheckin);
+      setNavText('nav-wifi', t.navWifi);
+      setNavText('nav-rules', t.navRules);
+      setNavText('nav-guide', t.navGuide);
+      setNavText('nav-transports', t.navTransports);
+      setNavText('nav-tips', t.navTips);
+      setNavText('nav-enjoy', t.navEnjoy);
+      setNavText('nav-local-services', t.navLocalServices);
+      setNavText('nav-checkout', t.navCheckout);
+      setNavText('nav-contact', t.navContact);
+      setNavText('nav-emergency', t.navEmergency);
+      setNavText('nav-disclaimer', t.navDisclaimer);
+
+      // Transizione schermata (Landing Page -> Applicazione)
+// Transizione schermo
+      const langScreen = document.getElementById('language-screen');
+      const appScreen = document.getElementById('app-screen');
+      
+      if (langScreen) langScreen.classList.add('hidden-screen');
+      if (appScreen) appScreen.classList.remove('hidden-screen');
+      
+      setTimeout(() => {
+        initSwiperNav();
+        renderTopTabs();
+      }, 50);
+      
+      
+      // Inizializzazione navigatore Swiper
+      setTimeout(() => {
+        initSwiperNav();
+        switchTabContent('welcome');
+      }, 50);
+    }
+
+    function showLanguageScreen() {
+      const appScreen = document.getElementById('app-screen');
+      const langScreen = document.getElementById('language-screen');
+      
+      if (appScreen) appScreen.classList.add('hidden-screen');
+      if (langScreen) langScreen.classList.remove('hidden-screen');
+      window.scrollTo(0, 0);
+    }
+
+    function copyWifiPassword(password, feedbackId) {
+      navigator.clipboard.writeText(password).then(() => {
+        const feedback = document.getElementById(feedbackId);
+        if (feedback) {
+          feedback.classList.remove('hidden');
+          setTimeout(() => feedback.classList.add('hidden'), 3000);
+        }
+      });
+    }
+
+    // Modal Fullscreen per Apertura Foto
+    function openImageModal(imgSrc, isRotated = false) {
+      const modal = document.getElementById('image-modal');
+      const modalImg = document.getElementById('modal-img');
+      if (!modal || !modalImg) return;
+
+      modalImg.src = imgSrc;
+      
+      if (isRotated) {
+        modalImg.classList.add('rotate-90');
+      } else {
+        modalImg.classList.remove('rotate-90');
+      }
+
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageModal() {
+      const modal = document.getElementById('image-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === "Escape") {
+        closeImageModal();
+      }
+    });
   </script>
 </body>
 </html>
