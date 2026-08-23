@@ -2480,17 +2480,28 @@ function renderGuideSection(lang) {
       if (!targetContent) return;
 
       const isHidden = targetContent.classList.contains('hidden');
+      
+      // 1. Memorizziamo la posizione e il contenitore prima dei cambiamenti
+      const scrollContainer = btnElement.closest('.overflow-y-auto');
+      const rectBefore = btnElement.getBoundingClientRect();
 
       document.querySelectorAll('.local-services-subsection').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('.local-services-icon').forEach(icon => icon.style.transform = 'rotate(0deg)');
 
       if (isHidden) {
         targetContent.classList.remove('hidden');
-        if (btnElement) {
-          const icon = btnElement.querySelector('.local-services-icon');
-          if (icon) icon.style.transform = 'rotate(180deg)';
-          // Scorre fluidamente fino al bottone cliccato
-          setTimeout(() => btnElement.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+        const icon = btnElement.querySelector('.local-services-icon');
+        if (icon) icon.style.transform = 'rotate(180deg)';
+
+        // 2. Compensiamo il salto istantaneamente mantenendo il bottone sotto il dito
+        if (scrollContainer) {
+          const rectAfter = btnElement.getBoundingClientRect();
+          scrollContainer.scrollTop += (rectAfter.top - rectBefore.top);
+          
+          // 3. Facciamo partire lo scivolamento morbido
+          setTimeout(() => {
+            btnElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 20);
         }
       }
     }
@@ -2500,17 +2511,21 @@ function renderGuideSection(lang) {
       if (!targetContent) return;
 
       const isHidden = targetContent.classList.contains('hidden');
+      const scrollContainer = btnElement.closest('.overflow-y-auto');
+      const rectBefore = btnElement.getBoundingClientRect();
 
       document.querySelectorAll('.guide-subsection').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('.guide-icon').forEach(icon => icon.style.transform = 'rotate(0deg)');
 
       if (isHidden) {
         targetContent.classList.remove('hidden');
-        if (btnElement) {
-          const icon = btnElement.querySelector('.guide-icon');
-          if (icon) icon.style.transform = 'rotate(180deg)';
-          // Scorre fluidamente fino al bottone cliccato
-          setTimeout(() => btnElement.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+        const icon = btnElement.querySelector('.guide-icon');
+        if (icon) icon.style.transform = 'rotate(180deg)';
+
+        if (scrollContainer) {
+          const rectAfter = btnElement.getBoundingClientRect();
+          scrollContainer.scrollTop += (rectAfter.top - rectBefore.top);
+          setTimeout(() => btnElement.scrollIntoView({ behavior: 'smooth', block: 'start' }), 20);
         }
       }
     }
@@ -2520,17 +2535,21 @@ function renderGuideSection(lang) {
       if (!targetContent) return;
 
       const isHidden = targetContent.classList.contains('hidden');
+      const scrollContainer = btnElement.closest('.overflow-y-auto');
+      const rectBefore = btnElement.getBoundingClientRect();
 
       document.querySelectorAll('.transport-subsection').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('.transport-icon').forEach(icon => icon.style.transform = 'rotate(0deg)');
 
       if (isHidden) {
         targetContent.classList.remove('hidden');
-        if (btnElement) {
-          const icon = btnElement.querySelector('.transport-icon');
-          if (icon) icon.style.transform = 'rotate(180deg)';
-          // Scorre fluidamente fino al bottone cliccato
-          setTimeout(() => btnElement.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+        const icon = btnElement.querySelector('.transport-icon');
+        if (icon) icon.style.transform = 'rotate(180deg)';
+
+        if (scrollContainer) {
+          const rectAfter = btnElement.getBoundingClientRect();
+          scrollContainer.scrollTop += (rectAfter.top - rectBefore.top);
+          setTimeout(() => btnElement.scrollIntoView({ behavior: 'smooth', block: 'start' }), 20);
         }
       }
     }
@@ -2541,17 +2560,21 @@ function renderGuideSection(lang) {
       if (!targetContent) return;
 
       const isHidden = targetContent.classList.contains('hidden');
+      const scrollContainer = btnElement.closest('.overflow-y-auto');
+      const rectBefore = btnElement.getBoundingClientRect();
 
       document.querySelectorAll('.nested-transport-subsection').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('.nested-transport-icon').forEach(icon => icon.style.transform = 'rotate(0deg)');
 
       if (isHidden) {
         targetContent.classList.remove('hidden');
-        if (btnElement) {
-          const icon = btnElement.querySelector('.nested-transport-icon');
-          if (icon) icon.style.transform = 'rotate(180deg)';
-          // Scorre fluidamente fino al bottone cliccato
-          setTimeout(() => btnElement.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+        const icon = btnElement.querySelector('.nested-transport-icon');
+        if (icon) icon.style.transform = 'rotate(180deg)';
+
+        if (scrollContainer) {
+          const rectAfter = btnElement.getBoundingClientRect();
+          scrollContainer.scrollTop += (rectAfter.top - rectBefore.top);
+          setTimeout(() => btnElement.scrollIntoView({ behavior: 'smooth', block: 'start' }), 20);
         }
       }
     }
@@ -2561,17 +2584,21 @@ function renderGuideSection(lang) {
       if (!targetContent) return;
 
       const isHidden = targetContent.classList.contains('hidden');
+      const scrollContainer = btnElement.closest('.overflow-y-auto');
+      const rectBefore = btnElement.getBoundingClientRect();
 
       document.querySelectorAll('.food-drink-subsection').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('.food-drink-icon').forEach(icon => icon.style.transform = 'rotate(0deg)');
 
       if (isHidden) {
         targetContent.classList.remove('hidden');
-        if (btnElement) {
-          const icon = btnElement.querySelector('.food-drink-icon');
-          if (icon) icon.style.transform = 'rotate(180deg)';
-          // Scorre fluidamente fino al bottone cliccato
-          setTimeout(() => btnElement.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+        const icon = btnElement.querySelector('.food-drink-icon');
+        if (icon) icon.style.transform = 'rotate(180deg)';
+
+        if (scrollContainer) {
+          const rectAfter = btnElement.getBoundingClientRect();
+          scrollContainer.scrollTop += (rectAfter.top - rectBefore.top);
+          setTimeout(() => btnElement.scrollIntoView({ behavior: 'smooth', block: 'start' }), 20);
         }
       }
     }
