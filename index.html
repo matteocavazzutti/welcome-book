@@ -2475,7 +2475,6 @@ function renderGuideSection(lang) {
       `;
     }
     
-
     function toggleLocalServicesSubSection(sectionId, btnElement) {
       const targetContent = document.getElementById(sectionId);
       if (!targetContent) return;
@@ -2490,6 +2489,8 @@ function renderGuideSection(lang) {
         if (btnElement) {
           const icon = btnElement.querySelector('.local-services-icon');
           if (icon) icon.style.transform = 'rotate(180deg)';
+          // Scorre fluidamente fino al bottone cliccato
+          setTimeout(() => btnElement.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
         }
       }
     }
@@ -2508,6 +2509,8 @@ function renderGuideSection(lang) {
         if (btnElement) {
           const icon = btnElement.querySelector('.guide-icon');
           if (icon) icon.style.transform = 'rotate(180deg)';
+          // Scorre fluidamente fino al bottone cliccato
+          setTimeout(() => btnElement.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
         }
       }
     }
@@ -2526,11 +2529,13 @@ function renderGuideSection(lang) {
         if (btnElement) {
           const icon = btnElement.querySelector('.transport-icon');
           if (icon) icon.style.transform = 'rotate(180deg)';
+          // Scorre fluidamente fino al bottone cliccato
+          setTimeout(() => btnElement.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
         }
       }
     }
 
-    // Nuova funzione per i menu annidati (dentro a Prepare your tour)
+    // Funzione per i menu annidati (dentro a Prepare your tour)
     function toggleNestedTransportSubSection(sectionId, btnElement) {
       const targetContent = document.getElementById(sectionId);
       if (!targetContent) return;
@@ -2545,6 +2550,8 @@ function renderGuideSection(lang) {
         if (btnElement) {
           const icon = btnElement.querySelector('.nested-transport-icon');
           if (icon) icon.style.transform = 'rotate(180deg)';
+          // Scorre fluidamente fino al bottone cliccato
+          setTimeout(() => btnElement.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
         }
       }
     }
@@ -2563,9 +2570,12 @@ function renderGuideSection(lang) {
         if (btnElement) {
           const icon = btnElement.querySelector('.food-drink-icon');
           if (icon) icon.style.transform = 'rotate(180deg)';
+          // Scorre fluidamente fino al bottone cliccato
+          setTimeout(() => btnElement.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
         }
       }
     }
+
 
     // ==========================================
     // LOGICA DI NAVIGAZIONE A 2 LIVELLI (V45)
