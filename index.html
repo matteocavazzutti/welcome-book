@@ -2896,7 +2896,9 @@ function renderGuideSection(lang) {
         const rotateClass = img.rotate ? 'rotate-90 scale-125' : '';
         wrapper.innerHTML += `
           <div class="swiper-slide flex items-center justify-center p-4">
-            <img src="${img.src}" class="max-w-[95%] max-h-[85vh] object-contain rounded-2xl shadow-2xl transition-all duration-300 ${rotateClass}">
+            <div class="swiper-zoom-container">
+              <img src="${img.src}" class="max-w-[95%] max-h-[85vh] object-contain rounded-2xl shadow-2xl transition-all duration-300 ${rotateClass}">
+            </div>
           </div>
         `;
       });
@@ -2911,6 +2913,7 @@ function renderGuideSection(lang) {
         loop: true,
         grabCursor: true,
         spaceBetween: 20,
+        zoom: true, // <-- ATTIVAZIONE ZOOM
         navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
         pagination: { el: '.swiper-pagination', clickable: true }
       });
