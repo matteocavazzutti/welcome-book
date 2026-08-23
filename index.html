@@ -39,7 +39,7 @@
   <!-- ========================================== -->
   <!-- 0. AUTHENTICATION SCREEN                   -->
   <!-- ========================================== -->
-  <div id="auth-screen" class="min-h-screen flex flex-col justify-center items-center p-6 text-center bg-slate-50">
+  <div id="auth-screen" class="min-h-screen flex flex-col justify-center items-center p-6 text-center bg-slate-50 relative">
     
     <div class="mb-6 w-full max-h-20 overflow-hidden pointer-events-none select-none">
       <img src="skyline-roma.png" alt="Roma Skyline" class="w-full h-auto object-contain mx-auto max-h-20">
@@ -59,6 +59,11 @@
     <!-- Messaggi di errore e blocco -->
     <p id="auth-error" class="text-rose-600 text-sm font-bold h-5 transition-opacity opacity-0 mt-2">Codice errato / Wrong code</p>
     <p id="auth-lockout-msg" class="text-amber-600 text-xs font-bold h-5 transition-opacity opacity-0 mt-1"></p>
+
+    <!-- Diritti Riservati (Ancorato in basso) -->
+    <div class="absolute bottom-6 w-full text-center px-4">
+      <p class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">© 2026 Tutti i diritti riservati / All rights reserved</p>
+    </div>
 
   </div>
 
