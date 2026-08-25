@@ -2964,7 +2964,7 @@ function renderGuideSection(lang) {
 
     let modalSwiperInstance = null;
 
-   // Modal Fullscreen per Apertura Foto (Con Zoom e Didascalie)
+    // Modal Fullscreen per Apertura Foto (Con Zoom e Didascalie)
     function openGalleryModal(gallery, startIndex = 0) {
       const modal = document.getElementById('image-modal');
       const wrapper = document.getElementById('modal-swiper-wrapper');
@@ -2996,9 +2996,20 @@ function renderGuideSection(lang) {
 
       if (modalSwiperInstance) modalSwiperInstance.destroy(true, true);
 
+      // Verifichiamo se c'è una sola foto
+      const isSingleImage = gallery.length === 1;
+
+      // Nascondiamo frecce e pallini se c'è una sola foto
+      const nextBtn = modal.querySelector('.swiper-button-next');
+      const prevBtn = modal.querySelector('.swiper-button-prev');
+      const pagination = modal.querySelector('.swiper-pagination');
+      if (nextBtn) nextBtn.style.display = isSingleImage ? 'none' : 'flex';
+      if (prevBtn) prevBtn.style.display = isSingleImage ? 'none' : 'flex';
+      if (pagination) pagination.style.display = isSingleImage ? 'none' : 'block';
+
       modalSwiperInstance = new Swiper('.modal-swiper', {
         initialSlide: startIndex,
-        loop: true,
+        loop: !isSingleImage, // Il loop si attiva SOLO se c'è più di una foto
         grabCursor: true,
         spaceBetween: 20,
         zoom: true,
