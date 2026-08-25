@@ -218,8 +218,22 @@
       <!-- MACRO 2: EXPLORE ROME -->
       <div id="swiper-explore" class="swiper w-full h-full macro-swiper hidden">
         <div class="swiper-wrapper">
-          
-          <div class="swiper-slide h-full overflow-y-auto px-4 py-4 pb-8 no-scrollbar" data-tab="transports">
+
+          <!-- NUOVO BLOCCO: OFFICIAL LINKS -->
+          <div class="swiper-slide h-full overflow-y-auto px-4 py-4 pb-8 no-scrollbar" data-tab="official-links">
+            <section id="official-links" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="p-3 bg-indigo-100 text-indigo-600 rounded-xl">
+                  <i class="fa-solid fa-globe text-xl"></i>
+                </div>
+                <h2 id="txt-official-links-title" class="text-xl font-bold text-slate-900"></h2>
+              </div>
+              <div id="official-links-content-container"></div>
+            </section>
+          </div>
+          <!-- FINE NUOVO BLOCCO -->
+
+                    <div class="swiper-slide h-full overflow-y-auto px-4 py-4 pb-8 no-scrollbar" data-tab="transports">
             <section id="transports" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
               <div class="flex items-center space-x-3 mb-4">
                 <div class="p-3 bg-indigo-100 text-indigo-600 rounded-xl">
@@ -566,7 +580,7 @@
         
         contactTitle: "Punto di Contatto",
         contactRole: "Property Manager",
-        contactDesc: "<strong>Sonia è la nostra eccellente property manager.</strong><br>Contattala dalle <strong>08:00 alle 20:00</strong>.",
+        contactDesc: "<strong>Sonia è la nostra premurosa ed efficiente property manager.</strong><br>Contattala dalle <strong>08:00 alle 20:00</strong>.",
         contactCall: "Chiama Sonia", contactWA: "WhatsApp", contactChatTitle: "Chat Diretta", contactChatDesc: "Inquadra il QR per chattare su WhatsApp",
 
         arrivalTitle: "Il tuo Arrivo",
@@ -604,7 +618,8 @@
 
         rulesTitle: "House Rules", guideTitle: "House Guide", transportsTitle: "Transports & Tours", tipsTitle: "Local Tips", localServicesTitle: "Local Services", emergencyTitle: "Emergency", enjoyTitle: "Enjoy!", disclaimerTitle: "Disclaimer",
         navWelcome: "Home", navArrival: "Arrivo", navCheckin: "Check-in", navWifi: "Wi-Fi", navRules: "House Rules", navGuide: "House Guide", navTransports: "Trasporti", navTips: "Local Tips", navEnjoy: "Enjoy!", navLocalServices: "Servizi", navCheckout: "Check-out", navContact: "Contatti", navEmergency: "Emergency", navDisclaimer: "Disclaimer",
-
+        officialLinksTitle: "Link Ufficiali", navOfficial: "Link Ufficiali",
+        
         ruleIntro: "Apprezziamo la tua collaborazione per mantenere la casa sicura e piacevole.",
         ruleTerraceTitle: "Regole di sicurezza sul terrazzo", ruleTerraceSub: "Per la tua sicurezza e quella degli altri, ti preghiamo di prestare la massima attenzione alle seguenti regole:", ruleT1: "Non sedersi, arrampicarsi o sporgersi dal parapetto.", ruleT2: "I bambini devono essere sempre supervisionati da un adulto.", ruleT3: "Non appoggiare o lasciare oggetti sul parapetto del terrazzo.", ruleT4: "Fai attenzione per evitare che gli oggetti cadano in strada.", ruleT5: "Non toccare le piante, per evitare rischi di allergie o intossicazioni.",
         ruleSmokeTitle: "Vietato Fumare", ruleSmokeDesc: "L'intera proprietà, terrazzo incluso, è un'area rigorosamente non fumatori.",
@@ -715,7 +730,8 @@
 
         rulesTitle: "House Rules", guideTitle: "House Guide", transportsTitle: "Transports & Tours", tipsTitle: "Local Tips", localServicesTitle: "Local Services", emergencyTitle: "Emergency", enjoyTitle: "Enjoy!", disclaimerTitle: "Disclaimer",
         navWelcome: "Home", navArrival: "Arrival", navCheckin: "Check-in", navWifi: "Wi-Fi", navRules: "House Rules", navGuide: "House Guide", navTransports: "Transports", navTips: "Local Tips", navEnjoy: "Enjoy!", navLocalServices: "Services", navCheckout: "Check-out", navContact: "Contact", navEmergency: "Emergency", navDisclaimer: "Disclaimer",
-
+        officialLinksTitle: "Official Links", navOfficial: "Official Links",
+        
         ruleIntro: "We appreciate your cooperation in keeping our home safe and pleasant.",
         ruleTerraceTitle: "Safety rules on the terrace", ruleTerraceSub: "For your safety and the safety of others, we kindly ask you to be extremely mindful of the following rules at all times:", ruleT1: "Do not sit, climb, or lean over the parapet.", ruleT2: "Children must be supervised by an adult at all times.", ruleT3: "Do not place or leave any objects on the parapet of the terrace.", ruleT4: "Please exercise caution to prevent items from falling down the street.", ruleT5: "Do not touch the plants, to prevent any risk of allergy or intoxication.",
         ruleSmokeTitle: "No Smoking", ruleSmokeDesc: "The whole property, terrace included, is a strictly non-smoking area.",
@@ -789,7 +805,7 @@
 
         contactTitle: "Point de Contact",
         contactRole: "Property Manager",
-        contactDesc: "<strong>Sonia est notre property manager.</strong><br>Veuillez la contacter de <strong>08h00 à 20h00</strong>.",
+        contactDesc: "<strong>Sonia est notre property manager, efficace et attentionnée.</strong><br>Veuillez la contacter de <strong>08h00 à 20h00</strong>.",
         contactCall: "Appeler Sonia", contactWA: "WhatsApp", contactChatTitle: "Chat Direct", contactChatDesc: "Scannez le QR Code pour WhatsApp",
 
         arrivalTitle: "Votre Arrivée",
@@ -827,7 +843,8 @@
 
         rulesTitle: "House Rules", guideTitle: "House Guide", transportsTitle: "Transports & Tours", tipsTitle: "Local Tips", localServicesTitle: "Local Services", emergencyTitle: "Emergency", enjoyTitle: "Enjoy!", disclaimerTitle: "Disclaimer",
         navWelcome: "Accueil", navArrival: "Arrivée", navCheckin: "Check-in", navWifi: "Wi-Fi", navRules: "House Rules", navGuide: "House Guide", navTransports: "Transports", navTips: "Local Tips", navEnjoy: "Enjoy!", navLocalServices: "Services", navCheckout: "Check-out", navContact: "Contact", navEmergency: "Emergency", navDisclaimer: "Disclaimer",
-   
+        officialLinksTitle: "Liens Officiels", navOfficial: "Liens Officiels",
+        
         ruleIntro: "Nous apprécions votre coopération pour garder notre maison sûre et agréable.",
         ruleTerraceTitle: "Règles de sécurité sur la terrasse", ruleTerraceSub: "Pour votre sécurité et celle des autres, veuillez respecter scrupuleusement ces règles :", ruleT1: "Ne pas s'asseoir, grimper ou se pencher sur le parapet.", ruleT2: "Les enfants doivent être sous la surveillance d'un adulte en permanence.", ruleT3: "Ne pas poser ou laisser d'objets sur le parapet.", ruleT4: "Faites attention à ce qu'aucun objet ne tombe dans la rue.", ruleT5: "Ne touchez pas aux plantes pour éviter tout risque d'allergie ou d'intoxication.",
         ruleSmokeTitle: "Interdiction de fumer", ruleSmokeDesc: "Toute la propriété, y compris la terrasse, est strictement non-fumeur.",
@@ -900,7 +917,7 @@
 
         contactTitle: "Ansprechpartner",
         contactRole: "Property Managerin",
-        contactDesc: "<strong>Sonia ist unsere Property Managerin.</strong><br>Sie erreichen sie von <strong>08:00 bis 20:00 Uhr</strong>.",
+        contactDesc: "<strong>Sonia ist unsere fürsorgliche und effiziente Property Managerin.</strong><br>Sie erreichen sie von <strong>08:00 bis 20:00 Uhr</strong>.",
         contactCall: "Sonia anrufen", contactWA: "WhatsApp", contactChatTitle: "Direkt-Chat", contactChatDesc: "QR-Code für WhatsApp scannen",
 
         arrivalTitle: "Ihre Anreise",
@@ -938,7 +955,8 @@
 
         rulesTitle: "House Rules", guideTitle: "House Guide", transportsTitle: "Transports & Tours", tipsTitle: "Local Tips", localServicesTitle: "Local Services", emergencyTitle: "Emergency", enjoyTitle: "Enjoy!", disclaimerTitle: "Disclaimer",
         navWelcome: "Start", navArrival: "Anreise", navCheckin: "Check-in", navWifi: "WLAN", navRules: "House Rules", navGuide: "House Guide", navTransports: "Transport", navTips: "Local Tips", navEnjoy: "Enjoy!", navLocalServices: "Services", navCheckout: "Check-out", navContact: "Kontakt", navEmergency: "Emergency", navDisclaimer: "Disclaimer",
-
+        officialLinksTitle: "Offizielle Links", navOfficial: "Offizielle Links",
+        
         ruleIntro: "Wir danken Ihnen für Ihre Mithilfe, unser Zuhause sicher und angenehm zu halten.",
         ruleTerraceTitle: "Sicherheitsregeln auf der Terrasse", ruleTerraceSub: "Zu Ihrer Sicherheit und der Sicherheit anderer beachten Sie bitte stets folgende Regeln:", ruleT1: "Nicht auf die Brüstung setzen, klettern oder sich darüber lehnen.", ruleT2: "Kinder müssen jederzeit von einem Erwachsenen beaufsichtigt werden.", ruleT3: "Keine Gegenstände auf der Brüstung ablegen oder liegen lassen.", ruleT4: "Bitte achten Sie darauf, dass keine Gegenstände auf die Straße fallen.", ruleT5: "Pflanzen nicht berühren, um Allergien oder Vergiftungen zu vermeiden.",
         ruleSmokeTitle: "Rauchen verboten", ruleSmokeDesc: "Die gesamte Unterkunft, einschließlich der Terrasse, ist ein strikter Nichtraucherbereich.",
@@ -1011,7 +1029,7 @@
 
         contactTitle: "Punto de Contacto",
         contactRole: "Property Manager",
-        contactDesc: "<strong>Sonia es nuestra excelente property manager.</strong><br>Por favor, contáctela de <strong>08:00 a 20:00</strong>.",
+        contactDesc: "<strong>Sonia es nuestra atenta y eficiente property manager.</strong><br>Por favor, contáctela de <strong>08:00 a 20:00</strong>.",
         contactCall: "Llamar a Sonia", contactWA: "WhatsApp", contactChatTitle: "Chat Directo", contactChatDesc: "Escanee el código QR para WhatsApp",
 
         arrivalTitle: "Su Llegada",
@@ -1049,7 +1067,8 @@
 
         rulesTitle: "House Rules", guideTitle: "House Guide", transportsTitle: "Transports & Tours", tipsTitle: "Local Tips", localServicesTitle: "Local Services", emergencyTitle: "Emergency", enjoyTitle: "Enjoy!", disclaimerTitle: "Disclaimer",
         navWelcome: "Inicio", navArrival: "Llegada", navCheckin: "Check-in", navWifi: "Wi-Fi", navRules: "House Rules", navGuide: "House Guide", navTransports: "Transporte", navTips: "Local Tips", navEnjoy: "Enjoy!", navLocalServices: "Servicios", navCheckout: "Check-out", navContact: "Contacto", navEmergency: "Emergency", navDisclaimer: "Disclaimer",
-
+        officialLinksTitle: "Enlaces Oficiales", navOfficial: "Enlaces Oficiales",
+        
        ruleIntro: "Agradecemos su colaboración para mantener nuestra casa segura y agradable.",
         ruleTerraceTitle: "Reglas de seguridad en la terraza", ruleTerraceSub: "Por su seguridad y la de los demás, le rogamos que respete estrictamente las siguientes reglas:", ruleT1: "No sentarse, trepar ni asomarse al parapeto.", ruleT2: "Los niños deben estar supervisados por un adulto en todo momento.", ruleT3: "No coloque ni deje ningún objeto en el parapeto de la terraza.", ruleT4: "Tenga cuidado para evitar que los objetos caigan a la calle.", ruleT5: "No toque las plantas, para evitar cualquier riesgo de alergia o intoxicación.",
         ruleSmokeTitle: "Prohibido fumar", ruleSmokeDesc: "Toda la propiedad, incluida la terraza, es estrictamente para no fumadores.",
@@ -1983,6 +2002,64 @@ function renderContactSection(lang) {
       `;
     }
 
+    function renderOfficialLinksSection(lang) {
+      const container = document.getElementById('official-links-content-container');
+      if (!container) return;
+      const t = translations[lang] || translations['it'];
+
+      container.innerHTML = `
+        <div class="space-y-2 text-left">
+          <p class="text-xs text-slate-500 font-medium pb-2">${t.trOffSub}</p>
+          
+          <div class="p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2.5"><i class="fa-solid fa-globe text-indigo-600 text-sm w-4 text-center"></i><span class="text-xs font-semibold text-slate-800">${t.trOffTour}</span></div>
+              <div class="flex items-center gap-2">
+                <a href="https://turismoroma.it" target="_blank" class="text-xs font-bold text-indigo-600 hover:underline flex items-center gap-1">turismoroma.it<i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a><span class="text-slate-300">|</span>
+                <a href="tel:+39060608" class="text-xs font-mono font-bold text-slate-700 hover:text-indigo-600 flex items-center gap-1"><i class="fa-solid fa-phone text-[10px]"></i>+39 06.06.08</a>
+              </div>
+            </div>
+          </div>
+          <a href="https://ticketing.colosseo.it" target="_blank" class="block p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
+            <div class="flex items-center justify-between mb-1"><div class="flex items-center gap-2.5"><i class="fa-solid fa-landmark text-indigo-600 text-sm w-4 text-center"></i><span class="text-xs font-semibold text-slate-800">Colosseum & Foro Romano</span></div><span class="text-[10px] font-bold text-indigo-600 group-hover:underline flex items-center gap-1">ticketing.colosseo.it<i class="fa-solid fa-arrow-up-right-from-square text-[9px] group-hover:translate-x-0.5 transition-transform"></i></span></div>
+            <p class="text-[10px] text-slate-500 pl-6 leading-tight">${t.trOffColDesc}</p>
+          </a>
+          <a href="https://tickets.museivaticani.va" target="_blank" class="block p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
+            <div class="flex items-center justify-between mb-1"><div class="flex items-center gap-2.5"><i class="fa-solid fa-building-columns text-indigo-600 text-sm w-4 text-center"></i><span class="text-xs font-semibold text-slate-800">Vatican Museums</span></div><span class="text-[10px] font-bold text-indigo-600 group-hover:underline flex items-center gap-1">tickets.museivaticani.va<i class="fa-solid fa-arrow-up-right-from-square text-[9px] group-hover:translate-x-0.5 transition-transform"></i></span></div>
+            <p class="text-[10px] text-slate-500 pl-6 leading-tight">${t.trOffVatDesc}</p>
+          </a>
+          <a href="https://portale.museiitaliani.it" target="_blank" class="block p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
+            <div class="flex items-center justify-between mb-1"><div class="flex items-center gap-2.5"><i class="fa-solid fa-building text-indigo-600 text-sm w-4 text-center"></i><span class="text-xs font-semibold text-slate-800">Pantheon</span></div><span class="text-[10px] font-bold text-indigo-600 group-hover:underline flex items-center gap-1">portale.museiitaliani.it<i class="fa-solid fa-arrow-up-right-from-square text-[9px] group-hover:translate-x-0.5 transition-transform"></i></span></div>
+            <p class="text-[10px] text-slate-500 pl-6 leading-tight">${t.trOffPanDesc}</p>
+          </a>
+          <a href="https://galleriaborghese.cultura.gov.it/" target="_blank" class="block p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
+            <div class="flex items-center justify-between mb-1"><div class="flex items-center gap-2.5"><i class="fa-solid fa-palette text-indigo-600 text-sm w-4 text-center"></i><span class="text-xs font-semibold text-slate-800">Galleria Borghese</span></div><span class="text-[10px] font-bold text-indigo-600 group-hover:underline flex items-center gap-1">galleriaborghese.cultura.gov.it<i class="fa-solid fa-arrow-up-right-from-square text-[9px] group-hover:translate-x-0.5 transition-transform"></i></span></div>
+            <p class="text-[10px] text-slate-500 pl-6 leading-tight">${t.trOffBorgDesc}</p>
+          </a>
+          <a href="https://ticketing.coopculture.it/catalog/BE90C17E-A60E-F8ED-3736-0198628DEE88" target="_blank" class="block p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
+            <div class="flex items-center justify-between mb-1"><div class="flex items-center gap-2.5"><i class="fa-brands fa-fort-awesome text-indigo-600 text-sm w-4 text-center"></i><span class="text-xs font-semibold text-slate-800">Castel Sant’Angelo</span></div><span class="text-[10px] font-bold text-indigo-600 group-hover:underline flex items-center gap-1">coopculture.it<i class="fa-solid fa-arrow-up-right-from-square text-[9px] group-hover:translate-x-0.5 transition-transform"></i></span></div>
+            <p class="text-[10px] text-slate-500 pl-6 leading-tight">${t.trOffCastDesc}</p>
+          </a>
+          <a href="https://culture.roma.it" target="_blank" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
+            <div class="flex items-center gap-2.5"><i class="fa-solid fa-masks-theater text-indigo-600 text-sm w-4 text-center"></i><span class="text-xs font-semibold text-slate-800">${t.trOffCult}</span></div>
+            <span class="text-xs font-bold text-indigo-600 group-hover:underline flex items-center gap-1">culture.roma.it<i class="fa-solid fa-arrow-up-right-from-square text-[10px] group-hover:translate-x-0.5 transition-transform"></i></span>
+          </a>
+          <a href="https://metropolitanadiroma.it" target="_blank" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
+            <div class="flex items-center gap-2.5"><i class="fa-solid fa-subway text-indigo-600 text-sm w-4 text-center"></i><span class="text-xs font-semibold text-slate-800">${t.trOffMetro}</span></div>
+            <span class="text-xs font-bold text-indigo-600 group-hover:underline flex items-center gap-1">metropolitanadiroma.it<i class="fa-solid fa-arrow-up-right-from-square text-[10px] group-hover:translate-x-0.5 transition-transform"></i></span>
+          </a>
+          <a href="https://www.atac.roma.it" target="_blank" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
+            <div class="flex items-center gap-2.5"><i class="fa-solid fa-bus text-indigo-600 text-sm w-4 text-center"></i><span class="text-xs font-semibold text-slate-800">${t.trOffBus}</span></div>
+            <span class="text-xs font-bold text-indigo-600 group-hover:underline flex items-center gap-1">atac.roma.it<i class="fa-solid fa-arrow-up-right-from-square text-[10px] group-hover:translate-x-0.5 transition-transform"></i></span>
+          </a>
+          <a href="https://trenitalia.com" target="_blank" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
+            <div class="flex items-center gap-2.5"><i class="fa-solid fa-train text-indigo-600 text-sm w-4 text-center"></i><div><span class="text-xs font-semibold text-slate-800">${t.trOffTrain}</span><p class="text-[10px] text-slate-400">${t.trOffTrainDesc}</p></div></div>
+            <span class="text-xs font-bold text-indigo-600 group-hover:underline flex items-center gap-1">trenitalia.com<i class="fa-solid fa-arrow-up-right-from-square text-[10px] group-hover:translate-x-0.5 transition-transform"></i></span>
+          </a>
+        </div>
+      `;
+    }
+
     function renderTransportsSection(lang) {
       const container = document.getElementById('transports-content-container');
       if (!container) return;
@@ -1991,67 +2068,7 @@ function renderContactSection(lang) {
       container.innerHTML = `
         <div class="space-y-4 text-left">
           <div class="space-y-3">
-            <!-- 0. OFFICIAL RESSOURCES -->
-            <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
-              <button type="button" onclick="toggleTransportSubSection('transport-official-resources', this)" class="w-full hover:bg-indigo-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
-                <div class="flex items-center gap-3">
-                  <div class="p-3 bg-indigo-100 text-indigo-700 rounded-xl"><i class="fa-solid fa-circle-info text-lg"></i></div>
-                  <div><h3 class="font-bold text-slate-900 text-sm">${t.trOff}</h3><p class="text-[11px] text-slate-500">${t.trOffSub}</p></div>
-                </div>
-                <i class="fa-solid fa-chevron-down transport-icon text-slate-400 text-xs transition-transform duration-200"></i>
-              </button>
-              <div id="transport-official-resources" class="transport-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-3">
-                <h3 class="text-sm font-bold text-indigo-700 border-b border-slate-100 pb-2">${t.trOffTitle}</h3>
-                <div class="space-y-2">
-                  <div class="p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all">
-                    <div class="flex items-center justify-between">
-                      <div class="flex items-center gap-2.5"><i class="fa-solid fa-globe text-indigo-600 text-sm w-4 text-center"></i><span class="text-xs font-semibold text-slate-800">${t.trOffTour}</span></div>
-                      <div class="flex items-center gap-2">
-                        <a href="https://turismoroma.it" target="_blank" class="text-xs font-bold text-indigo-600 hover:underline flex items-center gap-1">turismoroma.it<i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a><span class="text-slate-300">|</span>
-                        <a href="tel:+39060608" class="text-xs font-mono font-bold text-slate-700 hover:text-indigo-600 flex items-center gap-1"><i class="fa-solid fa-phone text-[10px]"></i>+39 06.06.08</a>
-                      </div>
-                    </div>
-                  </div>
-                  <a href="https://ticketing.colosseo.it" target="_blank" class="block p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
-                    <div class="flex items-center justify-between mb-1"><div class="flex items-center gap-2.5"><i class="fa-solid fa-landmark text-indigo-600 text-sm w-4 text-center"></i><span class="text-xs font-semibold text-slate-800">Colosseum & Foro Romano</span></div><span class="text-[10px] font-bold text-indigo-600 group-hover:underline flex items-center gap-1">ticketing.colosseo.it<i class="fa-solid fa-arrow-up-right-from-square text-[9px] group-hover:translate-x-0.5 transition-transform"></i></span></div>
-                    <p class="text-[10px] text-slate-500 pl-6 leading-tight">${t.trOffColDesc}</p>
-                  </a>
-                  <a href="https://tickets.museivaticani.va" target="_blank" class="block p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
-                    <div class="flex items-center justify-between mb-1"><div class="flex items-center gap-2.5"><i class="fa-solid fa-building-columns text-indigo-600 text-sm w-4 text-center"></i><span class="text-xs font-semibold text-slate-800">Vatican Museums</span></div><span class="text-[10px] font-bold text-indigo-600 group-hover:underline flex items-center gap-1">tickets.museivaticani.va<i class="fa-solid fa-arrow-up-right-from-square text-[9px] group-hover:translate-x-0.5 transition-transform"></i></span></div>
-                    <p class="text-[10px] text-slate-500 pl-6 leading-tight">${t.trOffVatDesc}</p>
-                  </a>
-                  <a href="https://portale.museiitaliani.it" target="_blank" class="block p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
-                    <div class="flex items-center justify-between mb-1"><div class="flex items-center gap-2.5"><i class="fa-solid fa-building text-indigo-600 text-sm w-4 text-center"></i><span class="text-xs font-semibold text-slate-800">Pantheon</span></div><span class="text-[10px] font-bold text-indigo-600 group-hover:underline flex items-center gap-1">portale.museiitaliani.it<i class="fa-solid fa-arrow-up-right-from-square text-[9px] group-hover:translate-x-0.5 transition-transform"></i></span></div>
-                    <p class="text-[10px] text-slate-500 pl-6 leading-tight">${t.trOffPanDesc}</p>
-                  </a>
-                  <a href="https://galleriaborghese.cultura.gov.it/" target="_blank" class="block p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
-                    <div class="flex items-center justify-between mb-1"><div class="flex items-center gap-2.5"><i class="fa-solid fa-palette text-indigo-600 text-sm w-4 text-center"></i><span class="text-xs font-semibold text-slate-800">Galleria Borghese</span></div><span class="text-[10px] font-bold text-indigo-600 group-hover:underline flex items-center gap-1">galleriaborghese.cultura.gov.it<i class="fa-solid fa-arrow-up-right-from-square text-[9px] group-hover:translate-x-0.5 transition-transform"></i></span></div>
-                    <p class="text-[10px] text-slate-500 pl-6 leading-tight">${t.trOffBorgDesc}</p>
-                  </a>
-                  <a href="https://ticketing.coopculture.it/catalog/BE90C17E-A60E-F8ED-3736-0198628DEE88" target="_blank" class="block p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
-                    <div class="flex items-center justify-between mb-1"><div class="flex items-center gap-2.5"><i class="fa-brands fa-fort-awesome text-indigo-600 text-sm w-4 text-center"></i><span class="text-xs font-semibold text-slate-800">Castel Sant’Angelo</span></div><span class="text-[10px] font-bold text-indigo-600 group-hover:underline flex items-center gap-1">coopculture.it<i class="fa-solid fa-arrow-up-right-from-square text-[9px] group-hover:translate-x-0.5 transition-transform"></i></span></div>
-                    <p class="text-[10px] text-slate-500 pl-6 leading-tight">${t.trOffCastDesc}</p>
-                  </a>
-                  <a href="https://culture.roma.it" target="_blank" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
-                    <div class="flex items-center gap-2.5"><i class="fa-solid fa-masks-theater text-indigo-600 text-sm w-4 text-center"></i><span class="text-xs font-semibold text-slate-800">${t.trOffCult}</span></div>
-                    <span class="text-xs font-bold text-indigo-600 group-hover:underline flex items-center gap-1">culture.roma.it<i class="fa-solid fa-arrow-up-right-from-square text-[10px] group-hover:translate-x-0.5 transition-transform"></i></span>
-                  </a>
-                  <a href="https://metropolitanadiroma.it" target="_blank" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
-                    <div class="flex items-center gap-2.5"><i class="fa-solid fa-subway text-indigo-600 text-sm w-4 text-center"></i><span class="text-xs font-semibold text-slate-800">${t.trOffMetro}</span></div>
-                    <span class="text-xs font-bold text-indigo-600 group-hover:underline flex items-center gap-1">metropolitanadiroma.it<i class="fa-solid fa-arrow-up-right-from-square text-[10px] group-hover:translate-x-0.5 transition-transform"></i></span>
-                  </a>
-                  <a href="https://www.atac.roma.it" target="_blank" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
-                    <div class="flex items-center gap-2.5"><i class="fa-solid fa-bus text-indigo-600 text-sm w-4 text-center"></i><span class="text-xs font-semibold text-slate-800">${t.trOffBus}</span></div>
-                    <span class="text-xs font-bold text-indigo-600 group-hover:underline flex items-center gap-1">atac.roma.it<i class="fa-solid fa-arrow-up-right-from-square text-[10px] group-hover:translate-x-0.5 transition-transform"></i></span>
-                  </a>
-                  <a href="https://trenitalia.com" target="_blank" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all group">
-                    <div class="flex items-center gap-2.5"><i class="fa-solid fa-train text-indigo-600 text-sm w-4 text-center"></i><div><span class="text-xs font-semibold text-slate-800">${t.trOffTrain}</span><p class="text-[10px] text-slate-400">${t.trOffTrainDesc}</p></div></div>
-                    <span class="text-xs font-bold text-indigo-600 group-hover:underline flex items-center gap-1">trenitalia.com<i class="fa-solid fa-arrow-up-right-from-square text-[10px] group-hover:translate-x-0.5 transition-transform"></i></span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
+            
             <!-- 1. MAPS -->
             <div class="transport-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
               <button type="button" onclick="toggleTransportSubSection('transport-maps', this)" class="w-full hover:bg-indigo-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
@@ -2224,8 +2241,6 @@ function renderContactSection(lang) {
         </div>
       `;
     }
-
-    
     
 function renderGuideSection(lang) {
       const container = document.getElementById('guide-content-container');
@@ -2644,10 +2659,10 @@ function renderGuideSection(lang) {
     // ==========================================
     // LOGICA DI NAVIGAZIONE A 2 LIVELLI (V45)
     // ==========================================
-    const appStructure = {
+   const appStructure = {
       'welcome': ['welcome', 'arrival', 'enjoy'],
       'house':   ['checkin', 'wifi', 'rules', 'guide', 'checkout'],
-      'explore': ['transports', 'tips', 'local-services'],
+      'explore': ['official-links', 'transports', 'tips', 'local-services'], // <-- Aggiunto official-links
       'support': ['contact', 'emergency', 'disclaimer']
     };
 
@@ -2658,6 +2673,7 @@ function renderGuideSection(lang) {
       'wifi': { icon: 'fa-wifi', key: 'navWifi' },
       'rules': { icon: 'fa-clipboard-list', key: 'navRules' },
       'guide': { icon: 'fa-book-open', key: 'navGuide' },
+      'official-links': { icon: 'fa-globe', key: 'navOfficial' }, // <-- Nuova icona per i link
       'transports': { icon: 'fa-bus', key: 'navTransports' },
       'tips': { icon: 'fa-utensils', key: 'navTips' },
       'enjoy': { icon: 'fa-camera-retro', key: 'navEnjoy' },
@@ -2850,6 +2866,10 @@ function renderGuideSection(lang) {
       if (transTitle) transTitle.innerText = t.transportsTitle || '';
       renderTransportsSection(lang);
 
+      const offLinksTitle = document.getElementById('txt-official-links-title');
+      if (offLinksTitle) offLinksTitle.innerText = t.officialLinksTitle || '';
+      renderOfficialLinksSection(lang);
+
       const tipsTitle = document.getElementById('txt-tips-title');
       if (tipsTitle) tipsTitle.innerText = t.tipsTitle || '';
       renderFoodDrinkSection(lang);
@@ -2899,7 +2919,8 @@ function renderGuideSection(lang) {
       setNavText('nav-contact', t.navContact);
       setNavText('nav-emergency', t.navEmergency);
       setNavText('nav-disclaimer', t.navDisclaimer);
-
+      setNavText('nav-official', t.navOfficial);
+      
       // Transizione schermata (Landing Page -> Applicazione)
 // Transizione schermo
       const langScreen = document.getElementById('language-screen');
