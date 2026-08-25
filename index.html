@@ -2964,13 +2964,16 @@ function renderGuideSection(lang) {
 
     let modalSwiperInstance = null;
 
-   // Modal Fullscreen per Apertura Foto (Con Zoom e Didascalie)
+  // Modal Fullscreen per Apertura Foto (Con Zoom e Didascalie)
     function openGalleryModal(gallery, startIndex = 0) {
       const modal = document.getElementById('image-modal');
       const wrapper = document.getElementById('modal-swiper-wrapper');
       if (!modal || !wrapper) return;
 
       wrapper.innerHTML = '';
+      
+      const isSingleImage = gallery.length === 1;
+
       gallery.forEach(img => {
         const rotateClass = img.rotate ? 'rotate-90 scale-125' : '';
         
@@ -2981,11 +2984,12 @@ function renderGuideSection(lang) {
              </div>` 
           : '';
 
-        // FIX: Rimosso 'flex' dalla slide (il container dello zoom centra già in automatico)
-        // Rimosso 'transition-all' per evitare conflitti con il motore di zoom di Swiper
+        // FIX: Ripristinata la classe 'flex' per evitare il collasso a tondino.
+        // Lo zoom di Swiper richiede che l'immagine sia dentro uno swiper-zoom-container, 
+        // che a sua volta è dentro la swiper-slide. Abbiamo aggiunto w-full e h-full per forzare le dimensioni.
         wrapper.innerHTML += `
-          <div class="swiper-slide relative">
-            <div class="swiper-zoom-container p-4">
+          <div class="swiper-slide flex items-center justify-center p-4 relative w-full h-full">
+            <div class="swiper-zoom-container w-full h-full flex items-center justify-center">
               <img src="${img.src}" class="max-w-[95%] max-h-[85vh] object-contain rounded-2xl shadow-2xl ${rotateClass}">
             </div>
             ${captionHTML}
@@ -2996,10 +3000,9 @@ function renderGuideSection(lang) {
       modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
 
-      if (modalSwiperInstance) modalSwiperInstance.destroy(true, true);
-
-      // Verifichiamo se c'è una sola foto
-      const isSingleImage = gallery.length === 1;
+      if (modalSwiperInstance) {
+          modalSwiperInstance.destroy(true, true);
+      }
 
       // Nascondiamo frecce e pallini se c'è una sola foto
       const nextBtn = modal.querySelector('.swiper-button-next');
