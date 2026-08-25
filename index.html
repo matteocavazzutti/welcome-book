@@ -2313,7 +2313,7 @@ function renderGuideSection(lang) {
               </div>
             </div>
 
-            <!-- 3. KITCHEN -->
+           <!-- 3. KITCHEN -->
             <div class="guide-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
               <button type="button" onclick="toggleGuideSubSection('guide-kitchen', this)" class="w-full hover:bg-teal-50 p-4 flex items-center justify-between text-left transition-all active:scale-[0.99] cursor-pointer">
                 <div class="flex items-center gap-3">
@@ -2325,22 +2325,53 @@ function renderGuideSection(lang) {
               <div id="guide-kitchen" class="guide-subsection hidden p-4 border-t border-slate-200/80 bg-white space-y-4">
                 <h3 class="text-sm font-bold text-teal-700 border-b border-slate-100 pb-2">${t.gKitSub}</h3>
                 <p class="text-xs text-slate-600">${t.gKitIntro}</p>
+                
                 <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-slate-700">
                   <strong>${t.gKitTip}</strong> ${t.gKitTipDesc}
                 </div>
+                
                 <div class="space-y-3 pt-2">
+                  
+                  <!-- WASTE COLLECTION (Spostato in alto e standardizzato) -->
+                  <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                    <i class="fa-solid fa-recycle text-lg text-teal-600 mt-1"></i>
+                    <div class="text-xs space-y-1.5 w-full">
+                      <strong class="text-slate-900 text-[13px]">${t.gKitWasteTitle}</strong>
+                      <p class="text-slate-600 leading-snug">
+                        <strong class="text-slate-800">${t.gKitWhere}</strong> 
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=Via+degli+Ammiragli+112,+Roma" target="_blank" class="text-teal-600 font-bold hover:underline inline-flex items-center gap-1">
+                          ${t.gKitWhereDesc} <i class="fa-solid fa-diamond-turn-right text-[10px]"></i>
+                        </a>
+                      </p>
+                      <p class="text-slate-600 leading-snug">
+                        <strong class="text-slate-800">${t.gKitHow}</strong> 
+                        ${t.gKitHowDesc} 
+                        <button type="button" onclick="openImageModal('${t.gKitWasteImg}')" class="text-teal-600 font-bold hover:underline inline-flex items-center gap-1">
+                          ${t.gKitInfographic} <i class="fa-solid fa-image text-[10px]"></i>
+                        </button>.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- WASHING MACHINE -->
                   <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
                     <i class="fa-solid fa-soap text-lg text-teal-600 mt-1"></i>
                     <div class="text-xs"><strong>${t.gKitWash}</strong> ${t.gKitWashDesc}</div>
                   </div>
+                  
+                  <!-- DISH WASHER -->
                   <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
                     <i class="fa-solid fa-sink text-lg text-teal-600 mt-1"></i>
                     <div class="text-xs"><strong>${t.gKitDish}</strong> ${t.gKitDishDesc}</div>
                   </div>
+                  
+                  <!-- ESPRESSO -->
                   <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
                     <i class="fa-solid fa-mug-hot text-lg text-teal-600 mt-1"></i>
                     <div class="text-xs"><strong>${t.gKitEsp}</strong> ${t.gKitEspDesc}</div>
                   </div>
+                  
+                  <!-- MOKA -->
                   <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 space-y-2">
                     <div class="flex items-start gap-3">
                       <i class="fa-solid fa-coffee text-lg text-teal-600 mt-1"></i>
@@ -2350,32 +2381,10 @@ function renderGuideSection(lang) {
                       <i class="fa-brands fa-youtube text-base"></i><span>${t.gKitMokaVid}</span>
                     </a>
                   </div>
-              <!-- WASTE COLLECTION -->
-                  <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-200 space-y-2 mt-3">
-                    <div class="flex items-center gap-2 text-emerald-800 font-bold border-b border-emerald-200/60 pb-1.5 text-xs">
-                      <i class="fa-solid fa-recycle text-base"></i>
-                      <span>${t.gKitWasteTitle}</span>
-                    </div>
-                    <div class="text-xs text-emerald-900 space-y-2">
-                      <div>
-                        <strong>${t.gKitWhere}</strong> 
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=Via+degli+Ammiragli+112,+Roma" target="_blank" class="text-emerald-700 font-bold underline inline-flex items-center gap-1 mt-0.5">
-                          ${t.gKitWhereDesc} <i class="fa-solid fa-diamond-turn-right text-[10px]"></i>
-                        </a>
-                      </div>
-                      <div>
-                        <strong>${t.gKitHow}</strong> 
-                        ${t.gKitHowDesc} 
-                        <button type="button" onclick="openImageModal('${t.gKitWasteImg}')" class="text-emerald-700 font-bold underline inline-flex items-center gap-1">
-                          ${t.gKitInfographic} <i class="fa-solid fa-image text-[10px]"></i>
-                        </button>.
-                      </div>
-                    </div>
-                  </div>
-                  
+
                 </div>
               </div>
-            </div>
+            </div>            
 
             <!-- 4. BATHROOM / TOILET -->
             <div class="guide-item border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition-all">
