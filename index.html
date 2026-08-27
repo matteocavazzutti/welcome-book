@@ -60,11 +60,14 @@
     <p id="auth-error" class="text-rose-600 text-sm font-bold h-5 transition-opacity opacity-0 mt-2">Codice errato / Wrong code</p>
     <p id="auth-lockout-msg" class="text-amber-600 text-xs font-bold h-5 transition-opacity opacity-0 mt-1"></p>
 
-    <!-- Diritti Riservati (Sotto le caselle PIN) -->
-    <div class="mt-10 w-full text-center px-4">
+    <!-- Diritti Riservati & IP Notice (Sotto le caselle PIN) -->
+    <div class="mt-10 w-full text-center px-4 space-y-2">
       <p class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">© 2026 Tutti i diritti riservati / All rights reserved</p>
+      <button type="button" onclick="openIpModal()" class="text-[10px] text-slate-500 underline hover:text-slate-700 transition-colors cursor-pointer">
+        Avviso sulla Proprietà Intellettuale / Intellectual Property Notice
+      </button>
     </div>
-
+    
   </div>
   
   <!-- ========================================== -->
@@ -402,9 +405,35 @@
       </div>
     </nav>
   </div>
- 
 
-<!-- ========================================== -->
+  <!-- MODAL PROPRIETA' INTELLETTUALE -->
+  <div id="ip-modal" class="fixed inset-0 z-[200] bg-slate-950/60 backdrop-blur-sm hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300" onclick="closeIpModal()">
+    <div class="bg-white rounded-2xl p-6 max-w-sm w-full shadow-2xl transform scale-95 transition-transform duration-300 relative" onclick="event.stopPropagation()">
+      
+      <button type="button" onclick="closeIpModal()" class="absolute top-3 right-3 text-slate-400 hover:text-slate-600 text-xl w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 transition-colors cursor-pointer">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      
+      <div class="text-center mb-4 mt-2">
+        <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
+          <i class="fa-solid fa-copyright"></i>
+        </div>
+        <h2 class="text-sm font-bold text-slate-900 uppercase tracking-wide">Proprietà Intellettuale<br><span class="text-xs text-slate-500 normal-case font-semibold">Intellectual Property Notice</span></h2>
+      </div>
+      
+      <div class="space-y-4 text-xs text-slate-600 leading-relaxed text-left">
+        <p><strong>IT:</strong> Accedendo a questa applicazione web, riconosci che l'intero contenuto presente – inclusi testi, immagini, loghi, dati, design e codice sorgente – è di proprietà esclusiva e protetto dalle leggi sul copyright e sulla proprietà intellettuale. Ogni diritto è riservato. Qualsiasi riproduzione, modifica, distribuzione o utilizzo non autorizzato è severamente vietato senza esplicito consenso scritto.</p>
+        <hr class="border-slate-100">
+        <p><strong>EN:</strong> By accessing this web application, you acknowledge that all present content – including texts, images, logos, data, design, and source code – is exclusive property and protected by copyright and intellectual property laws. All rights reserved. Any unauthorized reproduction, modification, distribution, or use is strictly prohibited without explicit written consent.</p>
+      </div>
+      
+      <button type="button" onclick="closeIpModal()" class="mt-6 w-full bg-slate-900 text-white font-bold py-2.5 rounded-xl text-xs hover:bg-slate-800 transition-colors cursor-pointer">
+        Ho capito / Understood
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
   <!-- 3. MODAL FULLSCREEN PER VISUALIZZAZIONE FOTO-->
   <!-- ========================================== -->
   <div id="image-modal" class="fixed inset-0 z-[100] bg-slate-950/90 backdrop-blur-md hidden flex items-center justify-center" onclick="closeImageModal()">
@@ -3097,12 +3126,31 @@ function renderGuideSection(lang) {
       } 
       // 3. Se siamo GIA' su Welcome, non ricrea il blocco: l'app si chiuderà normalmente
     });
+
+// 3. Se siamo GIA' su Welcome, non ricrea il blocco: l'app si chiuderà normalmente
+    });
+
+    // ==========================================
+    // GESTIONE MODALE PROPRIETA' INTELLETTUALE
+    // ==========================================
+    function openIpModal() {
+      const modal = document.getElementById('ip-modal');
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        modal.querySelector('div').classList.remove('scale-95');
+      }, 10);
+    }
+
+    function closeIpModal() {
+      const modal = document.getElementById('ip-modal');
+      modal.classList.add('opacity-0');
+      modal.querySelector('div').classList.add('scale-95');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 300);
+    }
   
   </script>
 </body>
 </html>
-
-
-
-
-
