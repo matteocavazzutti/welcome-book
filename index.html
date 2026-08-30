@@ -2473,8 +2473,10 @@ function renderGuideSection(lang) {
 
       // URL relativo per quando l'utente clicca sul link nell'app
       const doctorsDocUrl = "English_speaking_HCP.pdf";
-      // URL assoluto pubblico necessario esclusivamente per far funzionare il QR Code dal telefono
-      const publicUrlForQR = "https://matteocavazzutti.github.io/welcome-book/English_speaking_HCP.pdf"; 
+      // URL assoluto pubblico necessario esclusivamente per far funzionare il QR Code dal telefono (scegliere il sito DEV o il sito PROD secondo il bisogno
+               //  const publicUrlForQR = "https://matteocavazzutti.github.io/welcome-book/English_speaking_HCP.pdf"; 
+               //  const publicUrlForQR = "https://terrazzadimaria.vercel.app/English_speaking_HCP.pdf";      
+      const publicUrlForQR = "https://terrazzadimaria.vercel.app/English_speaking_HCP.pdf";       
       const qrCodeUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(publicUrlForQR);
       
       container.innerHTML = `
