@@ -3107,7 +3107,7 @@ function renderGuideSection(lang) {
     
     // Inseriamo uno "stato fittizio" nella cronologia del browser all'avvio
     history.pushState({ page: 'app-started' }, '', '');
-
+ 
     window.addEventListener('popstate', function(event) {
       const modal = document.getElementById('image-modal');
       
