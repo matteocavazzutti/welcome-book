@@ -191,6 +191,28 @@
             </section>
           </div>
 
+          <!-- NUOVO BLOCCO: METEO -->
+          <div class="swiper-slide h-full overflow-y-auto px-4 py-4 pb-8 no-scrollbar" data-tab="weather">
+            <section id="weather-section" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+              <div class="flex items-center space-x-3 mb-4">
+                <div class="p-3 bg-sky-100 text-sky-600 rounded-xl">
+                  <i class="fa-solid fa-cloud-sun text-xl"></i>
+                </div>
+                <h2 id="txt-weather-title" class="text-xl font-bold text-slate-900">Meteo</h2>
+              </div>
+              <p id="txt-weather-desc" class="text-xs text-slate-500 mb-5 font-medium leading-relaxed"></p>
+              
+              <!-- Container del Widget -->
+              <div class="rounded-xl overflow-hidden shadow-sm border border-slate-200 pointer-events-auto">
+                <a class="weatherwidget-io" href="https://forecast7.com/it/41d9012d50/rome/" data-label_1="ROMA" data-label_2="Terrazza di Maria" data-font="Arial" data-icons="Climacons Animated" data-theme="pure" >ROMA Meteo</a>
+                <script>
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                </script>
+              </div>
+            </section>
+          </div>
+          <!-- FINE BLOCCO METEO -->
+          
           <div class="swiper-slide h-full overflow-y-auto px-4 py-4 pb-8 no-scrollbar" data-tab="arrival">
             <section id="arrival" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
               <div class="flex items-center space-x-3 mb-4">
@@ -647,6 +669,7 @@
 
         rulesTitle: "Regole della Casa", guideTitle: "Guida della Casa", transportsTitle: "Trasporti e Tour", tipsTitle: "Consigli Locali", localServicesTitle: "Servizi Locali", emergencyTitle: "Emergenza", enjoyTitle: "Divertiti!", disclaimerTitle: "Note Legali",
         navWelcome: "Home", navArrival: "Arrivo", navCheckin: "Check-in", navWifi: "Wi-Fi", navRules: "Regole della Casa", navGuide: "Guida della Casa", navTransports: "Trasporti", navTips: "Consigli Locali", navEnjoy: "Divertiti!", navLocalServices: "Servizi", navCheckout: "Check-out", navContact: "Contatti", navEmergency: "Emergenza", navDisclaimer: "Note Legali",
+        navWeather: "Meteo", weatherTitle: "Meteo di Roma", weatherDesc: "Le previsioni per i prossimi giorni per programmare al meglio le tue passeggiate romane.",
         officialLinksTitle: "Link Ufficiali", navOfficial: "Link Ufficiali",
         
         ruleIntro: "Apprezziamo la tua collaborazione per mantenere la casa sicura e piacevole.",
@@ -762,6 +785,7 @@
 
         rulesTitle: "House Rules", guideTitle: "House Guide", transportsTitle: "Transports & Tours", tipsTitle: "Local Tips", localServicesTitle: "Local Services", emergencyTitle: "Emergency", enjoyTitle: "Enjoy!", disclaimerTitle: "Disclaimer",
         navWelcome: "Home", navArrival: "Arrival", navCheckin: "Check-in", navWifi: "Wi-Fi", navRules: "House Rules", navGuide: "House Guide", navTransports: "Transports", navTips: "Local Tips", navEnjoy: "Enjoy!", navLocalServices: "Services", navCheckout: "Check-out", navContact: "Contact", navEmergency: "Emergency", navDisclaimer: "Disclaimer",
+        navWeather: "Weather", weatherTitle: "Rome Weather", weatherDesc: "The forecast for the upcoming days to best plan your Roman walks.",
         officialLinksTitle: "Official Links", navOfficial: "Official Links",
         
         ruleIntro: "We appreciate your cooperation in keeping our home safe and pleasant.",
@@ -878,6 +902,7 @@
 
         rulesTitle: "Règlement Intérieur", guideTitle: "Guide de la Maison", transportsTitle: "Transports et Visites", tipsTitle: "Conseils Locaux", localServicesTitle: "Services Locaux", emergencyTitle: "Urgence", enjoyTitle: "Profitez bien !", disclaimerTitle: "Avertissement",
         navWelcome: "Accueil", navArrival: "Arrivée", navCheckin: "Check-in", navWifi: "Wi-Fi", navRules: "Règlement Intérieur", navGuide: "Guide de la Maison", navTransports: "Transports", navTips: "Conseils Locaux", navEnjoy: "Profitez bien !", navLocalServices: "Services", navCheckout: "Check-out", navContact: "Contact", navEmergency: "Urgence", navDisclaimer: "Avertissement",
+        navWeather: "Météo", weatherTitle: "Météo Rome", weatherDesc: "Les prévisions pour les prochains jours pour mieux planifier vos promenades romaines.",
         officialLinksTitle: "Liens Officiels", navOfficial: "Liens Officiels",
         
         ruleIntro: "Nous apprécions votre coopération pour garder notre maison sûre et agréable.",
@@ -993,6 +1018,7 @@
 
         rulesTitle: "Hausordnung", guideTitle: "Haus-Guide", transportsTitle: "Transport & Touren", tipsTitle: "Lokale Tipps", localServicesTitle: "Lokale Dienstleistungen", emergencyTitle: "Notfall", enjoyTitle: "Viel Spaß!", disclaimerTitle: "Haftungsausschluss",
         navWelcome: "Start", navArrival: "Anreise", navCheckin: "Check-in", navWifi: "WLAN", navRules: "Hausordnung", navGuide: "Haus-Guide", navTransports: "Transport", navTips: "Lokale Tipps", navEnjoy: "Viel Spaß!", navLocalServices: "Dienstleistungen", navCheckout: "Check-out", navContact: "Kontakt", navEmergency: "Notfall", navDisclaimer: "Haftungsausschluss",
+        navWeather: "Wetter", weatherTitle: "Wetter Rom", weatherDesc: "Die Vorhersage für die kommenden Tage, um Ihre Spaziergänge in Rom optimal zu planen.",
         officialLinksTitle: "Offizielle Links", navOfficial: "Offizielle Links",
         
         ruleIntro: "Wir danken Ihnen für Ihre Mithilfe, unser Zuhause sicher und angenehm zu halten.",
@@ -1108,6 +1134,7 @@
 
         rulesTitle: "Reglas de la Casa", guideTitle: "Guía de la Casa", transportsTitle: "Transporte y Tours", tipsTitle: "Consejos Locales", localServicesTitle: "Servicios Locales", emergencyTitle: "Emergencia", enjoyTitle: "¡Disfruta!", disclaimerTitle: "Descargo de Responsabilidad",
         navWelcome: "Inicio", navArrival: "Llegada", navCheckin: "Check-in", navWifi: "Wi-Fi", navRules: "Reglas de la Casa", navGuide: "Guía de la Casa", navTransports: "Transporte", navTips: "Consejos Locales", navEnjoy: "¡Disfruta!", navLocalServices: "Servicios", navCheckout: "Check-out", navContact: "Contacto", navEmergency: "Emergencia", navDisclaimer: "Descargo de Responsabilidad",
+        navWeather: "El Tiempo", weatherTitle: "El Tiempo en Roma", weatherDesc: "La previsión para los próximos días para planificar mejor tus paseos romanos.",
         officialLinksTitle: "Enlaces Oficiales", navOfficial: "Enlaces Oficiales",
         
        ruleIntro: "Agradecemos su colaboración para mantener nuestra casa segura y agradable.",
@@ -2711,7 +2738,7 @@ function renderGuideSection(lang) {
     // LOGICA DI NAVIGAZIONE A 2 LIVELLI (V45)
     // ==========================================
    const appStructure = {
-      'welcome': ['welcome', 'arrival', 'enjoy'],
+      'welcome': ['welcome', 'arrival', 'enjoy', 'weather'],
       'house':   ['checkin', 'wifi', 'rules', 'guide', 'checkout'],
       'explore': ['official-links', 'transports', 'tips', 'local-services'], // <-- Aggiunto official-links
       'support': ['contact', 'emergency', 'disclaimer']
@@ -2719,6 +2746,7 @@ function renderGuideSection(lang) {
 
     const tabConfig = {
       'welcome': { icon: 'fa-house', key: 'navWelcome' },
+      'weather': { icon: 'fa-cloud-sun', key: 'navWeather' },
       'arrival': { icon: 'fa-map-location-dot', key: 'navArrival' },
       'checkin': { icon: 'fa-key', key: 'navCheckin' },
       'wifi': { icon: 'fa-wifi', key: 'navWifi' },
@@ -2883,6 +2911,12 @@ function renderGuideSection(lang) {
 
       const body = document.getElementById('txt-welcome-body');
       if (body) body.innerText = t.welcomeBody || '';
+
+      const weatherTitle = document.getElementById('txt-weather-title');
+      if (weatherTitle) weatherTitle.innerText = t.weatherTitle || '';
+
+      const weatherDesc = document.getElementById('txt-weather-desc');
+      if (weatherDesc) weatherDesc.innerText = t.weatherDesc || '';
 
       const btnChange = document.getElementById('txt-btn-change-lang');
       if (btnChange) btnChange.innerText = t.changeLangBtn || '';
