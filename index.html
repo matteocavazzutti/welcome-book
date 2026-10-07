@@ -1972,41 +1972,7 @@ function renderContactSection(lang) {
         </div>
       `;
     }
-
-    function renderMobileSection(lang) {
-      const container = document.getElementById('mobile-content-container');
-      if (!container) return;
-      const t = translations[lang] || translations['it'];
-
-      container.innerHTML = `
-        <div class="space-y-5 text-left">
-          <p class="text-xs text-slate-600 leading-relaxed">${t.mobileIntro}</p>
-          
-          <div class="space-y-3">
-            <div class="bg-blue-50 border border-blue-100 p-3.5 rounded-xl">
-              <div class="flex items-center gap-2 text-blue-700 font-bold text-sm mb-1">
-                <i class="fa-solid fa-sim-card"></i>
-                <span>${t.mobileSimTitle}</span>
-              </div>
-              <p class="text-xs text-slate-700 leading-relaxed">${t.mobileSimDesc}</p>
-            </div>
-            
-            <div class="bg-purple-50 border border-purple-100 p-3.5 rounded-xl">
-              <div class="flex items-center gap-2 text-purple-700 font-bold text-sm mb-1">
-                <i class="fa-solid fa-qrcode"></i>
-                <span>${t.mobileEsimTitle}</span>
-              </div>
-              <p class="text-xs text-slate-700 leading-relaxed">${t.mobileEsimDesc}</p>
-            </div>
-          </div>
-          
-          <p class="text-xs text-slate-500 font-medium bg-slate-50 p-3.5 rounded-xl border border-slate-100">
-            <i class="fa-solid fa-circle-info mr-1 text-slate-400"></i> ${t.mobileCost}
-          </p>
-        </div>
-      `;
-    }
-    
+     
     function renderEnjoySection(lang) {
       const container = document.getElementById('enjoy-content-container');
       if (!container) return;
